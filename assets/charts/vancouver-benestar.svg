@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620" role="img" aria-labelledby="vb-title vb-desc">
+  <title id="vb-title">El repartiment del benefici canvia quan els preus i les decisions residencials s’ajusten</title>
+  <desc id="vb-desc">Abans de l’ajust, el benefici mensual estimat baixa des de 6,29 dòlars per a les llars amb menys renda fins a 2,12 per a les de més renda. Després de l’ajust, puja des d’un resultat gairebé nul fins a 1,64 dòlars.</desc>
+  <rect width="620" height="620" fill="#f4efe4"/>
+
+  <g fill="#132a38">
+    <text x="28" y="32" fill="#a83a32" font-family="system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">VANCOUVER · QUI HI GUANYA?</text>
+    <text x="28" y="72" font-family="Georgia, serif" font-size="30" font-weight="700">El repartiment canvia</text>
+    <text x="28" y="106" font-family="Georgia, serif" font-size="30" font-weight="700">quan el mercat s’ajusta</text>
+    <text x="28" y="137" fill="#52616a" font-family="system-ui, sans-serif" font-size="14.5">Benefici mensual estimat · dòlars de 2001 per llar</text>
+  </g>
+
+  <g font-family="system-ui, sans-serif" font-size="13.5">
+    <line x1="30" y1="170" x2="62" y2="170" stroke="#1d5d73" stroke-width="4"/>
+    <circle cx="46" cy="170" r="5" fill="#1d5d73"/>
+    <text x="72" y="175" fill="#132a38">Abans que canviïn els preus i les mudances</text>
+    <line x1="30" y1="198" x2="62" y2="198" stroke="#a83a32" stroke-width="4" stroke-dasharray="8 5"/>
+    <rect x="41" y="193" width="10" height="10" fill="#a83a32"/>
+    <text x="72" y="203" fill="#132a38">Després que els preus i les decisions s’ajustin</text>
+  </g>
+
+  <g stroke="#132a38" stroke-opacity="0.18" stroke-width="1">
+    <line x1="82" y1="480" x2="578" y2="480"/><line x1="82" y1="405" x2="578" y2="405"/>
+    <line x1="82" y1="330" x2="578" y2="330"/><line x1="82" y1="255" x2="578" y2="255"/>
+  </g>
+  <line x1="82" y1="225" x2="82" y2="480" stroke="#132a38"/>
+  <line x1="82" y1="480" x2="578" y2="480" stroke="#132a38"/>
+
+  <g fill="#52616a" font-family="system-ui, sans-serif" font-size="12.5" text-anchor="end">
+    <text x="70" y="485">0</text><text x="70" y="410">2</text><text x="70" y="335">4</text><text x="70" y="260">6</text>
+  </g>
+
+  <polyline points="100,244.28 253,298.46 406,331.84 559,400.46" fill="none" stroke="#1d5d73" stroke-width="4" stroke-linejoin="round"/>
+  <polyline points="100,478.84 253,466.01 406,445.31 559,418.42" fill="none" stroke="#a83a32" stroke-width="4" stroke-dasharray="10 7" stroke-linejoin="round"/>
+
+  <g fill="#1d5d73" stroke="#f4efe4" stroke-width="3">
+    <circle cx="100" cy="244.28" r="7"/><circle cx="253" cy="298.46" r="7"/><circle cx="406" cy="331.84" r="7"/><circle cx="559" cy="400.46" r="7"/>
+  </g>
+  <g fill="#a83a32" stroke="#f4efe4" stroke-width="3">
+    <rect x="246" y="459.01" width="14" height="14"/><rect x="399" y="438.31" width="14" height="14"/><rect x="552" y="411.42" width="14" height="14"/>
+  </g>
+  <rect x="93" y="471.84" width="14" height="14" fill="#f4efe4" stroke="#a83a32" stroke-width="3"/>
+
+  <g font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+    <text x="100" y="228" fill="#1d5d73">6,29</text><text x="253" y="282" fill="#1d5d73">4,84</text>
+    <text x="406" y="315" fill="#1d5d73">3,95</text><text x="559" y="384" fill="#1d5d73">2,12</text>
+    <text x="100" y="461" fill="#a83a32">0,03*</text><text x="253" y="451" fill="#a83a32">0,37</text>
+    <text x="406" y="430" fill="#a83a32">0,93</text><text x="559" y="444" fill="#a83a32">1,64</text>
+  </g>
+
+  <g fill="#132a38" font-family="system-ui, sans-serif" font-size="13.5" text-anchor="middle">
+    <text x="100" y="509">25% amb</text><text x="100" y="528">menys renda</text>
+    <text x="253" y="509">Segon</text><text x="253" y="528">grup</text>
+    <text x="406" y="509">Tercer</text><text x="406" y="528">grup</text>
+    <text x="559" y="509">25% amb</text><text x="559" y="528">més renda</text>
+  </g>
+
+  <line x1="28" y1="552" x2="592" y2="552" stroke="#132a38" stroke-opacity="0.35"/>
+  <g fill="#52616a" font-family="system-ui, sans-serif" font-size="12">
+    <text x="28" y="576">No són ingressos observats: és el valor monetari que assigna el model al benestar.</text>
+    <text x="28" y="597">* El primer resultat després de l’ajust és massa incert per distingir-lo de zero.</text>
+  </g>
+</svg>

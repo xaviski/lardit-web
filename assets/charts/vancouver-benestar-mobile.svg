@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="690" viewBox="0 0 360 690" role="img" aria-labelledby="vbm-title vbm-desc">
+  <title id="vbm-title">El repartiment del benefici canvia quan el mercat s’ajusta</title>
+  <desc id="vbm-desc">Abans de l’ajust, el benefici estimat baixa amb la renda. Després de l’ajust dels preus i les decisions residencials, el patró s’inverteix.</desc>
+  <rect width="360" height="690" fill="#f4efe4"/>
+  <g fill="#132a38">
+    <text x="18" y="27" fill="#a83a32" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.9">VANCOUVER · QUI HI GUANYA?</text>
+    <text x="18" y="62" font-family="Georgia, serif" font-size="25" font-weight="700">El repartiment canvia</text>
+    <text x="18" y="91" font-family="Georgia, serif" font-size="25" font-weight="700">quan el mercat s’ajusta</text>
+    <text x="18" y="117" fill="#52616a" font-family="system-ui, sans-serif" font-size="13">Benefici estimat · $ de 2001 al mes</text>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="12.5">
+    <line x1="20" y1="151" x2="48" y2="151" stroke="#1d5d73" stroke-width="4"/><circle cx="34" cy="151" r="5" fill="#1d5d73"/>
+    <text x="58" y="156" fill="#132a38">Abans de l’ajust dels preus</text>
+    <line x1="20" y1="179" x2="48" y2="179" stroke="#a83a32" stroke-width="4" stroke-dasharray="8 5"/><rect x="29" y="174" width="10" height="10" fill="#a83a32"/>
+    <text x="58" y="184" fill="#132a38">Després de l’ajust dels preus</text>
+  </g>
+  <g stroke="#132a38" stroke-opacity="0.18">
+    <line x1="54" y1="510" x2="338" y2="510"/><line x1="54" y1="430" x2="338" y2="430"/>
+    <line x1="54" y1="350" x2="338" y2="350"/><line x1="54" y1="270" x2="338" y2="270"/>
+  </g>
+  <line x1="54" y1="230" x2="54" y2="510" stroke="#132a38"/><line x1="54" y1="510" x2="338" y2="510" stroke="#132a38"/>
+  <g fill="#52616a" font-family="system-ui, sans-serif" font-size="12" text-anchor="end">
+    <text x="45" y="515">0</text><text x="45" y="435">2</text><text x="45" y="355">4</text><text x="45" y="275">6</text>
+  </g>
+  <polyline points="70,258.56 154,316.36 238,351.96 322,425.16" fill="none" stroke="#1d5d73" stroke-width="4"/>
+  <polyline points="70,508.76 154,495.08 238,473 322,444.32" fill="none" stroke="#a83a32" stroke-width="4" stroke-dasharray="9 6"/>
+  <g fill="#1d5d73" stroke="#f4efe4" stroke-width="3"><circle cx="70" cy="258.56" r="7"/><circle cx="154" cy="316.36" r="7"/><circle cx="238" cy="351.96" r="7"/><circle cx="322" cy="425.16" r="7"/></g>
+  <g fill="#a83a32" stroke="#f4efe4" stroke-width="3"><rect x="147" y="488.08" width="14" height="14"/><rect x="231" y="466" width="14" height="14"/><rect x="315" y="437.32" width="14" height="14"/></g>
+  <rect x="63" y="501.76" width="14" height="14" fill="#f4efe4" stroke="#a83a32" stroke-width="3"/>
+  <g font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle">
+    <text x="70" y="242" fill="#1d5d73">6,29</text><text x="154" y="300" fill="#1d5d73">4,84</text><text x="238" y="336" fill="#1d5d73">3,95</text><text x="322" y="409" fill="#1d5d73">2,12</text>
+    <text x="70" y="491" fill="#a83a32">0,03*</text><text x="154" y="480" fill="#a83a32">0,37</text><text x="238" y="458" fill="#a83a32">0,93</text><text x="322" y="471" fill="#a83a32">1,64</text>
+  </g>
+  <g fill="#132a38" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">
+    <text x="70" y="539">25% menys</text><text x="70" y="556">renda</text><text x="154" y="539">Grup 2</text><text x="238" y="539">Grup 3</text><text x="322" y="539">25% més</text><text x="322" y="556">renda</text>
+  </g>
+  <line x1="18" y1="585" x2="342" y2="585" stroke="#132a38" stroke-opacity="0.35"/>
+  <g fill="#52616a" font-family="system-ui, sans-serif" font-size="12">
+    <text x="18" y="611">No són ingressos observats: és el valor</text><text x="18" y="629">monetari que el model assigna al benestar.</text>
+    <text x="18" y="655">* Resultat massa incert per distingir-lo de zero.</text>
+  </g>
+</svg>

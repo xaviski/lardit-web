@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="700" viewBox="0 0 620 700" role="img" aria-labelledby="vp-title vp-desc">
+  <title id="vp-title">Dues estimacions de l’efecte del SkyTrain sobre els preus</title>
+  <desc id="vp-desc">Amb una escala comuna del zero al vint per cent, la comparació històrica estima augments del 17,6 per cent als barris acabats de connectar i del 13 per cent als barris que ja tenien tren. Una simulació més restrictiva estima augments del 2,1 i de l’1,7 per cent, respectivament.</desc>
+  <rect width="620" height="700" fill="#f4efe4"/>
+
+  <g fill="#132a38">
+    <text x="28" y="32" fill="#a83a32" font-family="system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">VANCOUVER · SKYTRAIN · 2001–2011</text>
+    <text x="28" y="72" font-family="Georgia, serif" font-size="30" font-weight="700">Dues mirades,</text>
+    <text x="28" y="106" font-family="Georgia, serif" font-size="30" font-weight="700">dues preguntes diferents</text>
+    <text x="28" y="137" fill="#52616a" font-family="system-ui, sans-serif" font-size="15">Variació estimada del preu mensual de l’habitatge</text>
+  </g>
+
+  <line x1="28" y1="158" x2="592" y2="158" stroke="#132a38" stroke-width="1"/>
+
+  <g font-family="system-ui, sans-serif">
+    <text x="28" y="188" fill="#132a38" font-size="19" font-weight="700">1. Comparació del canvi observat</text>
+    <text x="28" y="211" fill="#52616a" font-size="14">Reconstrueix el canvi històric; el primer resultat és força incert</text>
+
+    <g stroke="#132a38" stroke-opacity="0.17" stroke-width="1">
+      <line x1="195" y1="229" x2="195" y2="329"/>
+      <line x1="288.75" y1="229" x2="288.75" y2="329"/>
+      <line x1="382.5" y1="229" x2="382.5" y2="329"/>
+      <line x1="476.25" y1="229" x2="476.25" y2="329"/>
+      <line x1="570" y1="229" x2="570" y2="329"/>
+    </g>
+    <text x="28" y="252" fill="#132a38" font-size="15">Barris nous a la xarxa</text>
+    <text x="28" y="302" fill="#132a38" font-size="15">Barris que ja tenien tren</text>
+    <rect x="195" y="234" width="330" height="26" fill="#1d5d73"/>
+    <rect x="195" y="284" width="244" height="26" fill="#a83a32"/>
+    <text x="533" y="253" fill="#132a38" font-size="17" font-weight="700">17,6%</text>
+    <text x="447" y="303" fill="#132a38" font-size="17" font-weight="700">13,0%</text>
+    <g fill="#52616a" font-size="12" text-anchor="middle">
+      <text x="195" y="347">0</text><text x="288.75" y="347">5</text><text x="382.5" y="347">10</text><text x="476.25" y="347">15</text><text x="570" y="347">20%</text>
+    </g>
+  </g>
+
+  <line x1="28" y1="372" x2="592" y2="372" stroke="#132a38" stroke-width="1" stroke-opacity="0.35"/>
+
+  <g font-family="system-ui, sans-serif">
+    <text x="28" y="402" fill="#132a38" font-size="19" font-weight="700">2. Simulació amb els habitatges fixos</text>
+    <text x="28" y="425" fill="#52616a" font-size="14">Construeix un escenari més restringit amb el model dels autors</text>
+
+    <g stroke="#132a38" stroke-opacity="0.17" stroke-width="1">
+      <line x1="195" y1="443" x2="195" y2="543"/>
+      <line x1="288.75" y1="443" x2="288.75" y2="543"/>
+      <line x1="382.5" y1="443" x2="382.5" y2="543"/>
+      <line x1="476.25" y1="443" x2="476.25" y2="543"/>
+      <line x1="570" y1="443" x2="570" y2="543"/>
+    </g>
+    <text x="28" y="466" fill="#132a38" font-size="15">Barris nous a la xarxa</text>
+    <text x="28" y="516" fill="#132a38" font-size="15">Barris que ja tenien tren</text>
+    <rect x="195" y="448" width="40" height="26" fill="#1d5d73"/>
+    <rect x="195" y="498" width="31" height="26" fill="#a83a32"/>
+    <text x="243" y="467" fill="#132a38" font-size="17" font-weight="700">2,1%</text>
+    <text x="234" y="517" fill="#132a38" font-size="17" font-weight="700">1,7%</text>
+    <g fill="#52616a" font-size="12" text-anchor="middle">
+      <text x="195" y="561">0</text><text x="288.75" y="561">5</text><text x="382.5" y="561">10</text><text x="476.25" y="561">15</text><text x="570" y="561">20%</text>
+    </g>
+  </g>
+
+  <g transform="translate(28 588)">
+    <rect width="564" height="70" fill="#e7ddcc"/>
+    <text x="16" y="32" fill="#a83a32" font-family="Georgia, serif" font-size="30" font-weight="700">46%</text>
+    <text x="92" y="25" fill="#132a38" font-family="system-ui, sans-serif" font-size="14">de la revalorització del parc connectat es produeix</text>
+    <text x="92" y="46" fill="#132a38" font-family="system-ui, sans-serif" font-size="14">en barris que ja tenien SkyTrain abans de l’ampliació.</text>
+  </g>
+
+  <text x="28" y="685" fill="#52616a" font-family="system-ui, sans-serif" font-size="12">Escala comuna. Els dos mètodes no responen exactament la mateixa pregunta.</text>
+</svg>
