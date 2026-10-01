@@ -277,7 +277,7 @@ button, input { font: inherit; }
 .story-card { grid-column: span 4; padding-top: 1rem; border-top: 4px solid var(--ink); }
 .story-card:first-child { grid-column: span 6; border-top-color: var(--red); }
 .story-card:nth-child(2) { grid-column: span 6; border-top-color: var(--blue); }
-.story-card h3 {
+.story-card h2, .story-card h3 {
   margin: 0.65rem 0 0.9rem;
   font-size: clamp(1.65rem, 3vw, 2.45rem);
   font-weight: 500;
