@@ -28,7 +28,12 @@
         "description": "Articles i estudis econòmics sobre l’habitatge a Catalunya.",
         "url": "https://lardit.cat/articles/habitatge/",
         "inLanguage": "ca",
-        "isPartOf": { "@type": "WebSite", "name": "L’Ardit", "url": "https://lardit.cat/" },
+        "isPartOf": {
+          "@type": "CollectionPage",
+          "name": "Articles — L’Ardit",
+          "url": "https://lardit.cat/articles/",
+          "isPartOf": { "@type": "WebSite", "name": "L’Ardit", "url": "https://lardit.cat/" }
+        },
         "hasPart": {
           "@type": "Article",
           "headline": "Més transport públic fa l’habitatge més accessible?",
@@ -54,6 +59,7 @@
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacio" data-menu-button>Seccions</button>
         <nav class="site-nav" id="navegacio" aria-label="Navegació principal" data-site-nav>
           <a href="/">Portada</a>
+          <a href="/articles/">Articles</a>
           <a href="/#catalunya">Catalunya</a>
           <a href="/#context">Espanya</a>
           <a href="/#context">Europa</a>
@@ -98,7 +104,7 @@
       <div class="shell footer-main">
         <div><p class="footer-brand">L’Ardit</p><p class="footer-tagline">Economia per il·lustrar.</p></div>
         <div><h2>Projecte</h2><ul><li><a href="/manifest/">Manifest</a></li><li><a href="/manifest/#metodologia">Metodologia</a></li></ul></div>
-        <div><h2>Continua</h2><ul><li><a href="/articles/habitatge/transport-public/">Primer article</a></li><li><a href="/">Torna a la portada</a></li></ul></div>
+        <div><h2>Continua</h2><ul><li><a href="/articles/">Totes les categories</a></li><li><a href="/articles/habitatge/transport-public/">Primer article</a></li><li><a href="/">Torna a la portada</a></li></ul></div>
       </div>
       <div class="shell"><small>© 2026 L’Ardit</small></div>
     </footer>
