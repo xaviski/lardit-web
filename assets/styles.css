@@ -449,6 +449,11 @@ button, input { font: inherit; }
 .evidence-table a { overflow-wrap: anywhere; }
 .conclusions-list li { padding-right: 0.4rem; }
 .article-ending { margin-top: 2.6rem !important; padding-top: 1.4rem; border-top: 4px solid var(--red); font-size: 1.28rem; line-height: 1.55; }
+.article-share { margin: 2rem 0 4rem; padding-block: 1rem; border-block: 1px solid var(--ink); font-family: var(--sans); }
+.article-share__label { margin: 0 0 0.7rem !important; color: var(--red); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.article-share__links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.article-share__links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.55rem 0.85rem; border: 1px solid var(--ink); color: var(--ink); font-size: 0.82rem; font-weight: 750; line-height: 1; text-decoration: none; }
+.article-share__links a:hover { color: var(--paper-light); background: var(--ink); }
 .references { margin-top: 4rem; padding-top: 0.2rem; border-top: 1px solid var(--ink); }
 .references h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .references ol { margin: 1.3rem 0 0; padding-left: 1.5rem; font-family: var(--sans); font-size: 0.88rem; line-height: 1.5; }
@@ -564,6 +569,8 @@ button, input { font: inherit; }
   .evidence-table th::before, .evidence-table td::before { content: attr(data-label); display: block; margin-bottom: 0.25rem; color: var(--red); font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
   .evidence-table tbody th { border-top: 0; }
   .article-ending { font-size: 1.16rem; }
+  .article-share__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .article-share__links a { width: 100%; }
   .manifest-hero, .manifest-grid { display: block; }
   .manifest-hero p, .manifest-aside { margin-top: 3rem; }
   .manifest-copy { font-size: 1.1rem; }
