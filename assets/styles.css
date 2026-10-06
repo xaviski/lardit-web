@@ -360,6 +360,8 @@ button, input { font: inherit; }
 .article-header { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; border-bottom: 1px solid var(--ink); }
 .article-header .article-title { max-width: 18ch; }
 .article-deck { max-width: 48rem; margin: 1.5rem 0 0; font-size: clamp(1.2rem, 2.2vw, 1.6rem); line-height: 1.42; }
+.manifest-header .article-title { font-size: clamp(2.75rem, 5.6vw, 5rem); }
+.manifest-header .article-deck { max-width: 44rem; font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 740px) minmax(12rem, 1fr);
