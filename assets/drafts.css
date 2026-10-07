@@ -1,0 +1,182 @@
+.draft-header {
+  padding-bottom: 2rem;
+}
+
+.draft-header .article-title {
+  max-width: 20ch;
+}
+
+.draft-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  padding: 0.42rem 0.65rem;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.draft-status::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--red);
+  content: "";
+}
+
+.draft-banner {
+  margin: 2rem auto 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 0.55rem solid var(--saffron);
+  background: var(--paper-deep);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+.draft-banner strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.draft-banner p {
+  margin: 0;
+}
+
+.draft-body .article-lead::first-letter {
+  float: none;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.draft-prompt,
+.draft-slot,
+.draft-factcheck {
+  margin: 1.6rem 0 2rem;
+  padding: 1.05rem 1.15rem;
+  font-family: var(--sans);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.draft-prompt {
+  border: 1px dashed var(--blue);
+  background: var(--paper-light);
+}
+
+.draft-slot {
+  border-block: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.draft-factcheck {
+  border-left: 0.45rem solid var(--red);
+  background: var(--paper-deep);
+}
+
+.draft-prompt h3,
+.draft-slot h3,
+.draft-factcheck h3 {
+  margin: 0 0 0.55rem;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.draft-factcheck h3 {
+  color: var(--red);
+}
+
+.draft-prompt p,
+.draft-slot p,
+.draft-factcheck p {
+  margin: 0;
+}
+
+.draft-prompt ul,
+.draft-slot ul,
+.draft-factcheck ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.draft-prompt li + li,
+.draft-slot li + li,
+.draft-factcheck li + li {
+  margin-top: 0.35rem;
+}
+
+.draft-question-list {
+  margin: 1.4rem 0 2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: draft-questions;
+}
+
+.draft-question-list li {
+  position: relative;
+  padding: 0.85rem 0 0.85rem 2.5rem;
+  border-top: 1px solid var(--rule);
+  counter-increment: draft-questions;
+}
+
+.draft-question-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.draft-question-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  content: "0" counter(draft-questions);
+}
+
+.draft-checklist {
+  margin: 3rem 0 1rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--ink);
+  background: var(--paper-light);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+.draft-checklist h2 {
+  margin: 0 0 0.8rem;
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.draft-checklist ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.draft-checklist li + li {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .draft-banner {
+    margin-top: 1.25rem;
+  }
+
+  .draft-prompt,
+  .draft-slot,
+  .draft-factcheck {
+    padding: 0.9rem;
+  }
+}
