@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" role="img" aria-labelledby="title desc">
+<title id="title">Habitatges principals i no principals, 2021</title>
+<desc id="desc">A la Cerdanya, 36,7% principals i 63,3% no principals. A Catalunya, 76,4% i 23,6%. Font: Idescat i INE.</desc>
+<rect width="960" height="460" fill="#f4efe4"/>
+<g font-family="Arial, sans-serif" fill="#132a38">
+<text x="16" y="40" font-size="33" font-weight="700">Molts habitatges, pocs d’ús habitual</text>
+<text x="16" y="78" font-size="23">Habitatges familiars convencionals · Cens 2021</text>
+<rect x="16" y="103" width="22" height="22" fill="#1d5d73"/>
+<text x="48" y="122" font-size="23">Principals</text>
+<rect x="244" y="103" width="22" height="22" fill="#a83a32"/>
+<text x="276" y="122" font-size="23">No principals</text>
+<text x="16" y="202" font-size="25">Cerdanya</text>
+<rect x="175" y="164" width="273.7426" height="58" fill="#1d5d73"/>
+<rect x="448.7426" y="164" width="471.2574" height="58" fill="#a83a32"/>
+<text x="311.8713" y="204" text-anchor="middle" font-size="32" font-weight="700" fill="white">36,7%</text>
+<text x="684.3713" y="204" text-anchor="middle" font-size="32" font-weight="700" fill="white">63,3%</text>
+<text x="16" y="302" font-size="25">Catalunya</text>
+<rect x="175" y="264" width="568.8375" height="58" fill="#1d5d73"/>
+<rect x="743.8375" y="264" width="176.1625" height="58" fill="#a83a32"/>
+<text x="459.4187" y="304" text-anchor="middle" font-size="32" font-weight="700" fill="white">76,4%</text>
+<text x="831.9187" y="304" text-anchor="middle" font-size="32" font-weight="700" fill="white">23,6%</text>
+<text x="175.0" y="363" text-anchor="middle" font-size="21">0%</text>
+<text x="361.25" y="363" text-anchor="middle" font-size="21">25%</text>
+<text x="547.5" y="363" text-anchor="middle" font-size="21">50%</text>
+<text x="733.75" y="363" text-anchor="middle" font-size="21">75%</text>
+<text x="920.0" y="363" text-anchor="middle" font-size="21">100%</text>
+<text x="16" y="415" font-size="20" fill="#52616a">Font: Idescat / INE. No principal no vol dir necessàriament</text>
+<text x="16" y="441" font-size="20" fill="#52616a">buit o turístic.</text></g></svg>
