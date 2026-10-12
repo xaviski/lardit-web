@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="900" viewBox="0 0 620 900" role="img" aria-labelledby="uc-title uc-desc">
+  <title id="uc-title">Pressupost anual per estudiant i matrícula de referència</title>
+  <desc id="uc-desc">Pressupost inicial 2025 dividit pels estudiants de grau, màster i doctorat del curs 2024-2025. La barra gran distingeix finançament previst de la Generalitat i resta del pressupost, que pot contenir altres fons públics. La barra blava separada representa una matrícula de referència de 60 crèdits de 1.061,40 euros, no l'ingrés mitjà observat per estudiant. UB: pressupost per estudiant aproximat 10.200 €, Generalitat 6.900 €. UAB: pressupost per estudiant aproximat 12.000 €, Generalitat 7.600 €. UPC: pressupost per estudiant aproximat 13.400 €, Generalitat 8.500 €. UPF: pressupost per estudiant aproximat 14.600 €, Generalitat 7.800 €. UdG: pressupost per estudiant aproximat 10.300 €, Generalitat 6.900 €. UdL: pressupost per estudiant aproximat 10.600 €, Generalitat 7.700 €. URV: pressupost per estudiant aproximat 8.800 €, Generalitat 6.700 €. No és cost docent per grau ni un rànquing d'eficiència.</desc>
+  <rect width="620" height="900" fill="#f4efe4"/>
+  <g font-family="system-ui, sans-serif" fill="#132a38">
+    <text x="28" y="28" fill="#a83a32" font-size="12" font-weight="700" letter-spacing="0.8">CATALUNYA · PRESSUPOST 2025</text>
+    <text x="28" y="69" font-family="Georgia, serif" font-size="31" font-weight="700">Més enllà de la matrícula</text>
+    <text x="28" y="100" fill="#52616a" font-size="15">Pressupost anual per estudiant: una aproximació</text>
+    <text x="28" y="124" fill="#52616a" font-size="13">Grau, màster i doctorat · Dades acadèmiques 2024–25</text>
+    <rect x="28" y="145" width="16" height="16" fill="#a83a32"/><text x="54" y="158" font-size="14">Generalitat: finançament previst*</text>
+    <rect x="28" y="170" width="16" height="16" fill="#d6ccba"/><text x="54" y="183" font-size="14">Resta del pressupost (pot incloure altres fons públics)</text>
+    <rect x="28" y="200" width="16" height="9" fill="#1d5d73"/><text x="54" y="210" font-size="14">Matrícula de referència de 60 crèdits: barra separada</text>
+    <line x1="92" y1="229" x2="92" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="92" y="770" fill="#52616a" font-size="12" text-anchor="middle">0</text>
+    <line x1="227" y1="229" x2="227" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="227" y="770" fill="#52616a" font-size="12" text-anchor="middle">5.000</text>
+    <line x1="362" y1="229" x2="362" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="362" y="770" fill="#52616a" font-size="12" text-anchor="middle">10.000</text>
+    <line x1="497" y1="229" x2="497" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="497" y="770" fill="#52616a" font-size="12" text-anchor="middle">15.000</text>
+    <g aria-label="UB">
+      <text x="28" y="256" font-size="17" font-weight="750">UB</text>
+      <rect x="92" y="235" width="185.848" height="28" fill="#a83a32"/><rect x="277.848" y="235" width="89.703" height="28" fill="#d6ccba"/>
+      <text x="184.924" y="254" text-anchor="middle" font-size="13" fill="#ffffff">6.900 €</text>
+      <text x="322.700" y="254" text-anchor="middle" font-size="12">3.300 €</text>
+      <text x="376.551" y="255" font-size="15" font-weight="700">10.200 €</text>
+      <rect x="92" y="275" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="284" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="UAB">
+      <text x="28" y="330" font-size="17" font-weight="750">UAB</text>
+      <rect x="92" y="309" width="205.160" height="28" fill="#a83a32"/><rect x="297.160" y="309" width="118.183" height="28" fill="#d6ccba"/>
+      <text x="194.580" y="328" text-anchor="middle" font-size="13" fill="#ffffff">7.600 €</text>
+      <text x="356.251" y="328" text-anchor="middle" font-size="12">4.400 €</text>
+      <text x="424.342" y="329" font-size="15" font-weight="700">12.000 €</text>
+      <rect x="92" y="349" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="358" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="UPC">
+      <text x="28" y="404" font-size="17" font-weight="750">UPC</text>
+      <rect x="92" y="383" width="228.291" height="28" fill="#a83a32"/><rect x="320.291" y="383" width="132.332" height="28" fill="#d6ccba"/>
+      <text x="206.146" y="402" text-anchor="middle" font-size="13" fill="#ffffff">8.500 €</text>
+      <text x="386.457" y="402" text-anchor="middle" font-size="12">4.900 €</text>
+      <text x="461.623" y="403" font-size="15" font-weight="700">13.400 €</text>
+      <rect x="92" y="423" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="432" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="UPF">
+      <text x="28" y="478" font-size="17" font-weight="750">UPF</text>
+      <rect x="92" y="457" width="209.843" height="28" fill="#a83a32"/><rect x="301.843" y="457" width="183.639" height="28" fill="#d6ccba"/>
+      <text x="196.921" y="476" text-anchor="middle" font-size="13" fill="#ffffff">7.800 €</text>
+      <text x="393.662" y="476" text-anchor="middle" font-size="12">6.800 €</text>
+      <text x="494.482" y="477" font-size="15" font-weight="700">14.600 €</text>
+      <rect x="92" y="497" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="506" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="UdG">
+      <text x="28" y="552" font-size="17" font-weight="750">UdG</text>
+      <rect x="92" y="531" width="187.524" height="28" fill="#a83a32"/><rect x="279.524" y="531" width="91.921" height="28" fill="#d6ccba"/>
+      <text x="185.762" y="550" text-anchor="middle" font-size="13" fill="#ffffff">6.900 €</text>
+      <text x="325.485" y="550" text-anchor="middle" font-size="12">3.400 €</text>
+      <text x="380.445" y="551" font-size="15" font-weight="700">10.300 €</text>
+      <rect x="92" y="571" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="580" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="UdL">
+      <text x="28" y="626" font-size="17" font-weight="750">UdL</text>
+      <rect x="92" y="605" width="208.241" height="28" fill="#a83a32"/><rect x="300.241" y="605" width="78.573" height="28" fill="#d6ccba"/>
+      <text x="196.121" y="624" text-anchor="middle" font-size="13" fill="#ffffff">7.700 €</text>
+      <text x="339.528" y="624" text-anchor="middle" font-size="12">2.900 €</text>
+      <text x="387.815" y="625" font-size="15" font-weight="700">10.600 €</text>
+      <rect x="92" y="645" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="654" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <g aria-label="URV">
+      <text x="28" y="700" font-size="17" font-weight="750">URV</text>
+      <rect x="92" y="679" width="182.092" height="28" fill="#a83a32"/><rect x="274.092" y="679" width="55.170" height="28" fill="#d6ccba"/>
+      <text x="183.046" y="698" text-anchor="middle" font-size="13" fill="#ffffff">6.700 €</text>
+      <text x="301.677" y="698" text-anchor="middle" font-size="12">2.000 €</text>
+      <text x="338.262" y="699" font-size="15" font-weight="700">8.800 €</text>
+      <rect x="92" y="719" width="28.658" height="9" fill="#1d5d73"/><text x="128.658" y="728" fill="#1d5d73" font-size="12">matrícula: 1.061 €</text>
+    </g>
+    <text x="592" y="791" text-anchor="end" fill="#52616a" font-size="12">Euros anuals per estudiant · imports del pressupost arrodonits a 100 €</text>
+    <line x1="28" y1="809" x2="592" y2="809" stroke="#132a38" stroke-opacity="0.35"/>
+    <text x="28" y="834" font-size="12">*Generalitat i fons canalitzats o vinculats: no tot el finançament públic.</text>
+    <text x="28" y="857" fill="#52616a" font-size="12">La matrícula és una referència de grau, sense ajuts ni taxes;</text>
+    <text x="28" y="876" fill="#52616a" font-size="12">no és l’ingrés mitjà real dels estudiants. Fonts i metodologia a l’article.</text>
+  </g>
+</svg>
