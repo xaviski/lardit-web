@@ -1,7 +1,6 @@
 {
   "method": "Pressupost inicial aprovat del 2025 / recomptes institucionals de grau, màster universitari i doctorat del curs 2024-2025. Finançament de la Generalitat segons les categories del pressupost: articles 45 i 75, o finançament GC + PIU + PROFOR a la UB. La resta inclou altres fons públics i ingressos acadèmics, entre d'altres. Matrícula de grau en barra separada: referència, no ingrés mitjà observat.",
   "researched": "2026-10-12",
-  "tuition_reference": 1061.4,
   "tuition_ects": 60,
   "tuition_year": "2026-2027",
   "rows": [
@@ -21,7 +20,9 @@
       "per_student": 10205.61,
       "public_per_student": 6883.27,
       "remaining_per_student": 3322.33,
-      "financing_note": "Finançament GC 332.563.900 + PIU 17.000.000 + PROFOR 7.540.300. El finançament GC inclou 5.896.000 del conveni Talent amb origen ministerial: són fons via Generalitat, no necessàriament impostos catalans."
+      "financing_note": "Finançament GC 332.563.900 + PIU 17.000.000 + PROFOR 7.540.300. El finançament GC inclou 5.896.000 del conveni Talent amb origen ministerial: són fons via Generalitat, no necessàriament impostos catalans.",
+      "tuition_other_concepts": 140.92,
+      "tuition_total_reference": 1202.32
     },
     {
       "name": "UAB",
@@ -43,7 +44,10 @@
         "https://www.uab.cat/web/dades-del-curs-2024-2025/docencia/grau-1345956612748.html",
         "https://www.uab.cat/web/dades-del-curs-2024-2025/docencia/master-1345956612764.html",
         "https://www.uab.cat/web/dades-del-curs-2024-2025/docencia/doctorat-1345956612778.html"
-      ]
+      ],
+      "tuition_other_concepts": 140.92,
+      "tuition_total_reference": 1202.32,
+      "tuition_reference_note": "No inclou l'assegurança complementària de 4,02 EUR exigida en algunes assignatures o titulacions."
     },
     {
       "name": "UPC",
@@ -60,7 +64,10 @@
       "generalitat": 259972812,
       "per_student": 13356.4,
       "public_per_student": 8455.23,
-      "remaining_per_student": 4901.18
+      "remaining_per_student": 4901.18,
+      "tuition_other_concepts": 140.92,
+      "tuition_total_reference": 1202.32,
+      "tuition_reference_note": "Règim anual; amb dues matrícules quadrimestrals l'exemple de 60 ECTS suma 1.241,60 EUR."
     },
     {
       "name": "UPF",
@@ -77,7 +84,9 @@
       "generalitat": 98323045.84,
       "per_student": 14573.39,
       "public_per_student": 7771.96,
-      "remaining_per_student": 6801.43
+      "remaining_per_student": 6801.43,
+      "tuition_other_concepts": 140.92,
+      "tuition_total_reference": 1202.32
     },
     {
       "name": "UdG",
@@ -94,7 +103,9 @@
       "generalitat": 92220284,
       "per_student": 10349.82,
       "public_per_student": 6945.34,
-      "remaining_per_student": 3404.48
+      "remaining_per_student": 3404.48,
+      "tuition_other_concepts": 140.92,
+      "tuition_total_reference": 1202.32
     },
     {
       "name": "UdL",
@@ -112,7 +123,9 @@
       "generalitat": 84738722.55,
       "per_student": 10622.76,
       "public_per_student": 7712.64,
-      "remaining_per_student": 2910.13
+      "remaining_per_student": 2910.13,
+      "tuition_other_concepts": 152.13,
+      "tuition_total_reference": 1213.53
     },
     {
       "name": "URV",
@@ -129,7 +142,11 @@
       "generalitat": 111885157.03,
       "per_student": 8787.48,
       "public_per_student": 6744.13,
-      "remaining_per_student": 2043.35
+      "remaining_per_student": 2043.35,
+      "tuition_other_concepts": 145.21,
+      "tuition_total_reference": 1206.61
     }
-  ]
+  ],
+  "tuition_credit_component": 1061.4,
+  "tuition_reference_basis": "Factura orientativa de 60 ECTS nous de grau el 2026-2027: crèdits + altres conceptes de la taula de l'article, matrícula anual, centres propis, estudiants UE/residents menors de 28 anys, sense bonificacions. No és el pagament mitjà real."
 }
