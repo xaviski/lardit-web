@@ -9,6 +9,34 @@ export function periodLabel(period, compact=false) {
   if (period.includes('-Q')) return compact ? `${period.at(-1)}T ${period.slice(0,4)}` : `${['','1r','2n','3r','4t'][+period.at(-1)]} trimestre de ${period.slice(0,4)}`;
   return new Intl.DateTimeFormat('ca-ES', {year:'numeric', month:compact?'short':'long', ...(period.length===10?{day:'numeric'}:{}), timeZone:'UTC'}).format(new Date(`${period.length===7?period+'-01':period}T00:00:00Z`));
 }
+export function timeAxisTicks(metric) {
+  const first=metric.series[0].period,last=metric.series.at(-1).period;
+  const start=Date.parse(periodEnd(first)),end=Date.parse(periodEnd(last)),span=end-start;
+  const candidates=[];
+  // Axis dates are calendar references, not invented observations. Snap to
+  // quarters/months near thirds of the elapsed time, including sparse rate data.
+  for(let year=+first.slice(0,4);year<=+last.slice(0,4);year++) {
+    for(let part=1;part<=(metric.frequency==='Trimestral'?4:12);part++) {
+      const period=metric.frequency==='Trimestral'?`${year}-Q${part}`:`${year}-${String(part).padStart(2,'0')}${metric.frequency==='Quan canvia'?'-01':''}`;
+      const time=Date.parse(periodEnd(period));
+      if(time>start&&time<end) candidates.push({period,time});
+    }
+  }
+  const selected=[{period:first,time:start},{period:last,time:end}];
+  for(const fraction of [1/3,2/3]) {
+    const target=start+span*fraction;
+    const suitable=candidates.filter(candidate=>selected.every(tick=>Math.abs(candidate.time-tick.time)>=span*.22));
+    suitable.sort((a,b)=>Math.abs(a.time-target)-Math.abs(b.time-target)||a.time-b.time);
+    if(suitable.length) selected.push(suitable[0]);
+  }
+  return selected.sort((a,b)=>a.time-b.time).map(tick=>tick.period);
+}
+function axisDateParts(period) {
+  const year=period.slice(0,4);
+  if(period.includes('-Q')) return [`${period.at(-1)}T`,year];
+  const month=['gen.','feb.','març','abr.','maig','juny','jul.','ag.','set.','oct.','nov.','des.'][+period.slice(5,7)-1];
+  return [period.length===10?`${+period.slice(8,10)} ${month}`:month,year];
+}
 function displayValue(metric,key) {
   const digits=key==='policy'?2:1;
   const latest=metric.latest;
@@ -23,7 +51,8 @@ function chart(metric,id,key) {
   const min=low-padding,max=high+padding;
   const times=points.map(p=>Date.parse(periodEnd(p.period)));
   const width=360,left=45,right=348,top=10,bottom=90;
-  const x=i=>left+(times[i]-times[0])/(times.at(-1)-times[0])*(right-left);
+  const xTime=time=>left+(time-times[0])/(times.at(-1)-times[0])*(right-left);
+  const x=i=>xTime(times[i]);
   const y=value=>bottom-(value-min)/(max-min)*(bottom-top);
   const xy=n=>n.toFixed(2);
   function line(field) {
@@ -38,9 +67,17 @@ function chart(metric,id,key) {
   const ticks=[min,(min+max)/2,max];
   const guides=ticks.map(value=>`<line x1="${left}" x2="${right}" y1="${xy(y(value))}" y2="${xy(y(value))}" class="economy-chart-grid"/><text x="${left-7}" y="${xy(y(value)+4)}" text-anchor="end">${escapeHtml(number(value))}</text>`).join('');
   const zero=min<0&&max>0?`<line x1="${left}" x2="${right}" y1="${xy(y(0))}" y2="${xy(y(0))}" class="economy-chart-zero"/>`:'';
+  const dates=timeAxisTicks(metric);
+  const timeGuides=dates.slice(1,-1).map(period=>`<line x1="${xy(xTime(Date.parse(periodEnd(period))))}" x2="${xy(xTime(Date.parse(periodEnd(period))))}" y1="${top}" y2="${bottom}" class="economy-chart-time-guide"/>`).join('');
+  const timeLabels=dates.map((period,index)=>{
+    const position=xy(xTime(Date.parse(periodEnd(period))));
+    const anchor=index===0?'start':index===dates.length-1?'end':'middle';
+    const [part,year]=axisDateParts(period);
+    return `<g class="economy-chart-time-tick" data-period="${period}"><title>${escapeHtml(periodLabel(period))}</title><line x1="${position}" x2="${position}" y1="${bottom}" y2="${bottom+6}"/><text x="${position}" y="112" text-anchor="${anchor}"><tspan x="${position}">${escapeHtml(part)}</tspan><tspan x="${position}" dy="18">${year}</tspan></text></g>`;
+  }).join('');
   const upper=metric.latest.valueUpper!==undefined;
   const description=`${TITLES[key]}: ${displayValue(metric,key)} %. ${periodLabel(points[0].period)} a ${periodLabel(points.at(-1).period)}. ${upper?'Es representen els dos límits de l’interval objectiu. ':''}Les interrupcions de la línia indiquen períodes sense dada.`;
-  return `<svg class="economy-chart" viewBox="0 0 ${width} 116" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${escapeHtml(TITLES[key])}: evolució recent</title><desc id="${id}-desc">${escapeHtml(description)}</desc>${guides}${zero}<path d="${line('value')}" class="economy-chart-line${upper?' economy-chart-lower':''}"/>${upper?`<path d="${line('valueUpper')}" class="economy-chart-line"/>`:''}<circle cx="${xy(x(points.length-1))}" cy="${xy(y(points.at(-1).value))}" r="3" class="economy-chart-dot"/><text x="${left}" y="112">${escapeHtml(periodLabel(points[0].period,true))}</text><text x="${right}" y="112" text-anchor="end">${escapeHtml(periodLabel(points.at(-1).period,true))}</text></svg>`;
+  return `<svg class="economy-chart" viewBox="0 0 ${width} 138" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${escapeHtml(TITLES[key])}: evolució recent</title><desc id="${id}-desc">${escapeHtml(description)}</desc>${guides}${zero}${timeGuides}<path d="${line('value')}" class="economy-chart-line${upper?' economy-chart-lower':''}"/>${upper?`<path d="${line('valueUpper')}" class="economy-chart-line"/>`:''}<circle cx="${xy(x(points.length-1))}" cy="${xy(y(points.at(-1).value))}" r="3" class="economy-chart-dot"/>${timeLabels}</svg>`;
 }
 function metricCard(metric,key,regionId,index) {
   const id=`economy-${regionId}-${key}`;

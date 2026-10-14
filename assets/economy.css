@@ -58,6 +58,8 @@
 .economy-chart { display: block; width: 100%; height: auto; margin: .5rem 0 1rem; overflow: visible; }
 .economy-chart text { fill: rgba(251,248,241,.8); font: 16px var(--sans); }
 .economy-chart-grid { stroke: rgba(251,248,241,.15); stroke-width: 1; }
+.economy-chart-time-guide { stroke: rgba(251,248,241,.14); stroke-width: 1; stroke-dasharray: 2 4; }
+.economy-chart-time-tick > line { stroke: rgba(251,248,241,.5); stroke-width: 1; }
 .economy-chart-zero { stroke: rgba(251,248,241,.5); stroke-dasharray: 3 4; stroke-width: 1; }
 .economy-chart-line { fill: none; stroke: var(--saffron); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
 .economy-chart-lower { stroke: var(--paper-light); stroke-dasharray: 4 3; stroke-width: 1.8; }
