@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="900" viewBox="0 0 620 900" role="img" aria-labelledby="uc-title uc-desc">
-  <title id="uc-title">Pressupost anual per estudiant i factura orientativa de matrícula</title>
-  <desc id="uc-desc">Pressupost inicial 2025 dividit pels estudiants de grau, màster i doctorat del curs 2024-2025. La barra gran distingeix finançament previst de la Generalitat i resta del pressupost, que pot contenir altres fons públics. La barra blava separada compara la factura orientativa de 60 crèdits nous de grau el 2026-2027, incloent altres conceptes de matrícula, amb les hipòtesis de la taula de l'article. No és el pagament mitjà observat. UB: factura de referència 1.202,32 €. UAB: factura de referència 1.202,32 €. UPC: factura de referència 1.202,32 €. UPF: factura de referència 1.202,32 €. UdG: factura de referència 1.202,32 €. UdL: factura de referència 1.213,53 €. URV: factura de referència 1.206,61 €. UB: pressupost per estudiant aproximat 10.200 €, Generalitat 6.900 €. UAB: pressupost per estudiant aproximat 12.000 €, Generalitat 7.600 €. UPC: pressupost per estudiant aproximat 13.400 €, Generalitat 8.500 €. UPF: pressupost per estudiant aproximat 14.600 €, Generalitat 7.800 €. UdG: pressupost per estudiant aproximat 10.300 €, Generalitat 6.900 €. UdL: pressupost per estudiant aproximat 10.600 €, Generalitat 7.700 €. URV: pressupost per estudiant aproximat 8.800 €, Generalitat 6.700 €. No és cost docent per grau ni un rànquing d'eficiència.</desc>
-  <rect width="620" height="900" fill="#f4efe4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="924" viewBox="0 0 620 924" role="img" aria-labelledby="uc-title uc-desc">
+  <title id="uc-title">Cost total aproximat d'una matrícula</title>
+  <desc id="uc-desc">El pressupost per estudiant és una aproximació als recursos anuals de la universitat, no una mesura del cost docent d'una matrícula. Pressupost inicial 2025 dividit pels estudiants de grau, màster i doctorat del curs 2024-2025. La barra gran distingeix finançament previst de la Generalitat i resta del pressupost, que inclou el cost assumit per l'estudiant i pot contenir altres fons públics. La barra blava separada compara la factura orientativa de 60 crèdits nous de grau el 2026-2027, incloent altres conceptes de matrícula, amb les hipòtesis de la taula de l'article. No és el pagament mitjà observat. UB: factura de referència 1.202,32 €. UAB: factura de referència 1.202,32 €. UPC: factura de referència 1.202,32 €. UPF: factura de referència 1.202,32 €. UdG: factura de referència 1.202,32 €. UdL: factura de referència 1.213,53 €. URV: factura de referència 1.206,61 €. UB: pressupost per estudiant aproximat 10.200 €, Generalitat 6.900 €. UAB: pressupost per estudiant aproximat 12.000 €, Generalitat 7.600 €. UPC: pressupost per estudiant aproximat 13.400 €, Generalitat 8.500 €. UPF: pressupost per estudiant aproximat 14.600 €, Generalitat 7.800 €. UdG: pressupost per estudiant aproximat 10.300 €, Generalitat 6.900 €. UdL: pressupost per estudiant aproximat 10.600 €, Generalitat 7.700 €. URV: pressupost per estudiant aproximat 8.800 €, Generalitat 6.700 €. No és cost docent per grau ni un rànquing d'eficiència.</desc>
+  <rect width="620" height="924" fill="#f4efe4"/>
   <g font-family="system-ui, sans-serif" fill="#132a38">
     <text x="28" y="28" fill="#a83a32" font-size="12" font-weight="700" letter-spacing="0.8">CATALUNYA · PRESSUPOST 2025</text>
-    <text x="28" y="69" font-family="Georgia, serif" font-size="31" font-weight="700">Més enllà de la matrícula</text>
-    <text x="28" y="100" fill="#52616a" font-size="15">Pressupost anual per estudiant: una aproximació</text>
+    <text x="28" y="69" font-family="Georgia, serif" font-size="29" font-weight="700">Cost total aproximat d'una matrícula</text>
+    <text x="28" y="100" fill="#52616a" font-size="15">Pressupost anual per estudiant desglossat en conceptes i origen</text>
     <text x="28" y="124" fill="#52616a" font-size="13">Grau, màster i doctorat · Dades acadèmiques 2024–25</text>
     <rect x="28" y="145" width="16" height="16" fill="#a83a32"/><text x="54" y="158" font-size="14">Generalitat: finançament previst*</text>
-    <rect x="28" y="170" width="16" height="16" fill="#d6ccba"/><text x="54" y="183" font-size="14">Resta del pressupost (pot incloure altres fons públics)</text>
-    <rect x="28" y="200" width="16" height="9" fill="#1d5d73"/><text x="54" y="210" font-size="14">Factura orientativa: crèdits + altres conceptes</text>
+    <rect x="28" y="170" width="16" height="16" fill="#d6ccba"/><text x="54" y="183" font-size="14"><tspan x="54">Resta del pressupost (inclou el cost assumit per l'estudiant </tspan><tspan x="54" dy="18">i pot contenir altres fons públics)</tspan></text>
+    <rect x="28" y="224" width="16" height="9" fill="#1d5d73"/><text x="54" y="234" font-size="14">cost total de la matrícula assumit per l'estudiant</text>
+    <g transform="translate(0,24)">
     <line x1="92" y1="229" x2="92" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="92" y="770" fill="#52616a" font-size="12" text-anchor="middle">0</text>
     <line x1="227" y1="229" x2="227" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="227" y="770" fill="#52616a" font-size="12" text-anchor="middle">5.000</text>
     <line x1="362" y1="229" x2="362" y2="746" stroke="#132a38" stroke-opacity="0.14"/><text x="362" y="770" fill="#52616a" font-size="12" text-anchor="middle">10.000</text>
@@ -20,7 +21,7 @@
       <text x="184.924" y="254" text-anchor="middle" font-size="13" fill="#ffffff">6.900 €</text>
       <text x="322.700" y="254" text-anchor="middle" font-size="12">3.300 €</text>
       <text x="376.551" y="255" font-size="15" font-weight="700">10.200 €</text>
-      <rect x="92" y="275" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="284" fill="#1d5d73" font-size="12">factura: 1.202,32 €</text>
+      <rect x="92" y="275" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="284" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UAB">
       <text x="28" y="330" font-size="17" font-weight="750">UAB</text>
@@ -28,7 +29,7 @@
       <text x="194.580" y="328" text-anchor="middle" font-size="13" fill="#ffffff">7.600 €</text>
       <text x="356.251" y="328" text-anchor="middle" font-size="12">4.400 €</text>
       <text x="424.342" y="329" font-size="15" font-weight="700">12.000 €</text>
-      <rect x="92" y="349" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="358" fill="#1d5d73" font-size="12">factura: 1.202,32 €</text>
+      <rect x="92" y="349" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="358" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UPC">
       <text x="28" y="404" font-size="17" font-weight="750">UPC</text>
@@ -36,7 +37,7 @@
       <text x="206.146" y="402" text-anchor="middle" font-size="13" fill="#ffffff">8.500 €</text>
       <text x="386.457" y="402" text-anchor="middle" font-size="12">4.900 €</text>
       <text x="461.623" y="403" font-size="15" font-weight="700">13.400 €</text>
-      <rect x="92" y="423" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="432" fill="#1d5d73" font-size="12">factura: 1.202,32 €</text>
+      <rect x="92" y="423" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="432" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UPF">
       <text x="28" y="478" font-size="17" font-weight="750">UPF</text>
@@ -44,7 +45,7 @@
       <text x="196.921" y="476" text-anchor="middle" font-size="13" fill="#ffffff">7.800 €</text>
       <text x="393.662" y="476" text-anchor="middle" font-size="12">6.800 €</text>
       <text x="494.482" y="477" font-size="15" font-weight="700">14.600 €</text>
-      <rect x="92" y="497" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="506" fill="#1d5d73" font-size="12">factura: 1.202,32 €</text>
+      <rect x="92" y="497" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="506" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UdG">
       <text x="28" y="552" font-size="17" font-weight="750">UdG</text>
@@ -52,7 +53,7 @@
       <text x="185.762" y="550" text-anchor="middle" font-size="13" fill="#ffffff">6.900 €</text>
       <text x="325.485" y="550" text-anchor="middle" font-size="12">3.400 €</text>
       <text x="380.445" y="551" font-size="15" font-weight="700">10.300 €</text>
-      <rect x="92" y="571" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="580" fill="#1d5d73" font-size="12">factura: 1.202,32 €</text>
+      <rect x="92" y="571" width="32.463" height="9" fill="#1d5d73"/><text x="132.463" y="580" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UdL">
       <text x="28" y="626" font-size="17" font-weight="750">UdL</text>
@@ -60,7 +61,7 @@
       <text x="196.121" y="624" text-anchor="middle" font-size="13" fill="#ffffff">7.700 €</text>
       <text x="339.528" y="624" text-anchor="middle" font-size="12">2.900 €</text>
       <text x="387.815" y="625" font-size="15" font-weight="700">10.600 €</text>
-      <rect x="92" y="645" width="32.765" height="9" fill="#1d5d73"/><text x="132.765" y="654" fill="#1d5d73" font-size="12">factura: 1.213,53 €</text>
+      <rect x="92" y="645" width="32.765" height="9" fill="#1d5d73"/><text x="132.765" y="654" fill="#1d5d73" font-size="12">1.213,53 €</text>
     </g>
     <g aria-label="URV">
       <text x="28" y="700" font-size="17" font-weight="750">URV</text>
@@ -68,12 +69,13 @@
       <text x="183.046" y="698" text-anchor="middle" font-size="13" fill="#ffffff">6.700 €</text>
       <text x="301.677" y="698" text-anchor="middle" font-size="12">2.000 €</text>
       <text x="338.262" y="699" font-size="15" font-weight="700">8.800 €</text>
-      <rect x="92" y="719" width="32.578" height="9" fill="#1d5d73"/><text x="132.578" y="728" fill="#1d5d73" font-size="12">factura: 1.206,61 €</text>
+      <rect x="92" y="719" width="32.578" height="9" fill="#1d5d73"/><text x="132.578" y="728" fill="#1d5d73" font-size="12">1.206,61 €</text>
     </g>
     <text x="592" y="791" text-anchor="end" fill="#52616a" font-size="12">Euros anuals per estudiant · imports del pressupost arrodonits a 100 €</text>
     <line x1="28" y1="809" x2="592" y2="809" stroke="#132a38" stroke-opacity="0.35"/>
     <text x="28" y="834" font-size="12">*Generalitat i fons canalitzats o vinculats: no tot el finançament públic.</text>
     <text x="28" y="857" fill="#52616a" font-size="12">Factura de grau amb els altres conceptes de matrícula, sense ajuts;</text>
     <text x="28" y="876" fill="#52616a" font-size="12">no és el pagament mitjà real. Hipòtesis i fonts a la taula de l’article.</text>
+    </g>
   </g>
 </svg>
