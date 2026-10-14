@@ -459,6 +459,7 @@ button, input, textarea { font: inherit; }
 .article-figure figcaption strong { color: var(--ink); }
 .article-figure.article-cover { width: min(100%, 28rem); margin: 2.4rem auto 3rem; }
 .evidence-table-wrap { margin: 2rem 0 3rem; }
+.article-body .table-source { margin: 0.85rem 0 0; color: var(--muted); font-family: var(--sans); font-size: 0.82rem; line-height: 1.5; }
 .evidence-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.88rem; line-height: 1.48; }
 .evidence-table caption { padding: 0 0 0.8rem; color: var(--red); font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-align: left; text-transform: uppercase; }
 .evidence-table th, .evidence-table td { padding: 0.9rem 0.7rem; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
