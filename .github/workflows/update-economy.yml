@@ -1,0 +1,72 @@
+name: Actualitza el panorama econòmic
+
+on:
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+    inputs:
+      force_build:
+        description: Reconstrueix GitHub Pages encara que les dades no canviïn
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-economy-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Actualitza les dades i reconstrueix el web
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Obté la branca publicada
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Prepara Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+
+      - name: Consulta les fonts oficials i genera el panorama
+        run: node scripts/economy/update.mjs
+
+      - name: Verifica les dades i els gràfics
+        run: node scripts/economy/test.mjs
+
+      - name: Desa només el panorama generat
+        id: commit
+        shell: bash
+        run: |
+          git add -- index.html assets/data/economy.json
+          if git diff --cached --quiet -- index.html assets/data/economy.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --only -m "Actualitza el panorama econòmic" -- index.html assets/data/economy.json
+          # A concurrent edit of main makes this ordinary push fail; never rewrite it.
+          git push origin HEAD:refs/heads/main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Demana la reconstrucció de GitHub Pages
+        if: steps.commit.outputs.changed == 'true' || (github.event_name == 'workflow_dispatch' && inputs.force_build)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # GITHUB_TOKEN commits do not trigger the existing branch-based Pages build.
+          # This request keeps the configured main / publishing source unchanged.
+          gh api --method POST "/repos/${GITHUB_REPOSITORY}/pages/builds" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2026-03-10"
