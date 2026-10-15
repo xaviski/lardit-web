@@ -1,6 +1,7 @@
 {
   "method": "Pressupost inicial aprovat del 2025 / recomptes institucionals de grau, màster universitari i doctorat del curs 2024-2025. Finançament de la Generalitat segons les categories del pressupost: articles 45 i 75, o finançament GC + PIU + PROFOR a la UB. La resta inclou altres fons públics i ingressos acadèmics, entre d'altres. Matrícula de grau en barra separada: referència, no ingrés mitjà observat.",
   "researched": "2026-10-12",
+  "rounding_note": "Imports per estudiant expressats en euros i cèntims, sense arrodonir-los a centenes. per_student i public_per_student es calculen a partir dels imports institucionals i s'expressen amb dos decimals. remaining_per_student és la diferència entre aquests dos valors expressats en cèntims, perquè el desglossament sumi exactament el total; pot diferir un cèntim del quocient de la resta institucional calculat separadament. Els pressupostos, el finançament i els recomptes d'estudiants originals no es modifiquen.",
   "tuition_ects": 60,
   "tuition_year": "2026-2027",
   "rows": [
@@ -19,7 +20,7 @@
       "generalitat": 357104200,
       "per_student": 10205.61,
       "public_per_student": 6883.27,
-      "remaining_per_student": 3322.33,
+      "remaining_per_student": 3322.34,
       "financing_note": "Finançament GC 332.563.900 + PIU 17.000.000 + PROFOR 7.540.300. El finançament GC inclou 5.896.000 del conveni Talent amb origen ministerial: són fons via Generalitat, no necessàriament impostos catalans.",
       "tuition_other_concepts": 140.92,
       "tuition_total_reference": 1202.32
@@ -64,7 +65,7 @@
       "generalitat": 259972812,
       "per_student": 13356.4,
       "public_per_student": 8455.23,
-      "remaining_per_student": 4901.18,
+      "remaining_per_student": 4901.17,
       "tuition_other_concepts": 140.92,
       "tuition_total_reference": 1202.32,
       "tuition_reference_note": "Règim anual; amb dues matrícules quadrimestrals l'exemple de 60 ECTS suma 1.241,60 EUR."
@@ -123,7 +124,7 @@
       "generalitat": 84738722.55,
       "per_student": 10622.76,
       "public_per_student": 7712.64,
-      "remaining_per_student": 2910.13,
+      "remaining_per_student": 2910.12,
       "tuition_other_concepts": 152.13,
       "tuition_total_reference": 1213.53
     },
