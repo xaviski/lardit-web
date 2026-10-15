@@ -467,6 +467,11 @@ button, input, textarea { font: inherit; }
 .evidence-table tbody th { width: 25%; font-weight: 750; }
 .evidence-table tbody td:nth-child(2) { width: 39%; }
 .evidence-table a { overflow-wrap: anywhere; }
+.public-funding-table { max-width: 32rem; table-layout: fixed; }
+.public-funding-table th, .public-funding-table td { padding: 0.65rem 0.7rem; }
+.public-funding-table tbody th { width: 45%; }
+.public-funding-table thead th:last-child, .public-funding-table tbody td { text-align: right; }
+.public-funding-table tbody td:nth-child(2) { width: 55%; font-variant-numeric: tabular-nums; }
 .conclusions-list li { padding-right: 0.4rem; }
 .article-ending { margin-top: 2.6rem !important; padding-top: 1.4rem; border-top: 4px solid var(--red); font-size: 1.28rem; line-height: 1.55; }
 .article-share { margin: 2rem 0 4rem; padding-block: 1rem; border-block: 1px solid var(--ink); font-family: var(--sans); }
@@ -682,6 +687,15 @@ button, input, textarea { font: inherit; }
   .evidence-table th, .evidence-table td { padding: 0.7rem 0; border-top: 1px solid var(--rule); }
   .evidence-table th::before, .evidence-table td::before { content: attr(data-label); display: block; margin-bottom: 0.25rem; color: var(--red); font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
   .evidence-table tbody th { border-top: 0; }
+  .public-funding-table { display: table; }
+  .public-funding-table caption { display: table-caption; }
+  .public-funding-table thead { display: table-header-group; position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+  .public-funding-table tbody { display: table-row-group; }
+  .public-funding-table tr { display: table-row; width: auto; }
+  .public-funding-table tbody tr { margin: 0; padding: 0; border: 0; background: none; }
+  .public-funding-table th, .public-funding-table td { display: table-cell; width: auto; padding: 0.65rem 0.7rem; }
+  .public-funding-table tbody th { border-top: 1px solid var(--rule); }
+  .public-funding-table th::before, .public-funding-table td::before { content: none; }
   .article-ending { font-size: 1.16rem; }
   .article-share__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .article-share__links a { width: 100%; }

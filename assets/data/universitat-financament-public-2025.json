@@ -1,0 +1,209 @@
+{
+  "title": "Transferències públiques identificades als pressupostos universitaris del 2025",
+  "researched": "2026-10-15",
+  "budget_year": 2025,
+  "currency": "EUR",
+  "method": "100 × suma de transferències corrents i de capital explícitament atribuïdes al sector públic / pressupost inicial total del 2025. Es compta cada partida una sola vegada. Els imports institucionals no es divideixen entre estudiants per calcular aquests percentatges.",
+  "included": "Administracions, entitats classificades expressament com a sector públic i institucions o programes públics europeus. S'hi inclouen compensacions institucionals de preus quan formen part d'aquestes transferències.",
+  "excluded": "Ingressos acadèmics i compensacions per beques registrades al capítol 3; serveis; transferències privades; rendiments patrimonials; operacions financeres i préstecs; transferències mixtes o exteriors sense pagador públic identificable. Una exclusió no implica origen privat.",
+  "rounding": "Percentatges calculats sobre els imports originals i expressats amb dos decimals. No es dedueixen numeradors a partir de percentatges institucionals ja arrodonits.",
+  "limitations": [
+    "Són previsions pressupostàries inicials, no ingressos cobrats ni despesa executada.",
+    "És una estimació conservadora del finançament institucional identificable; el detall i la classificació no estan perfectament harmonitzats. No és un rànquing complet de dependència pública.",
+    "No és el percentatge exacte del cost docent d'una plaça. Traslladar-lo a la formació requereix assumir una estructura de finançament semblant a la del conjunt de la institució.",
+    "No és complementari de la factura orientativa de 60 crèdits dividida pel pressupost per estudiant: aquell quocient no és la participació comptable real de tots els estudiants en el pressupost.",
+    "Altres recursos públics poden quedar fora perquè no estan identificats dins de les transferències seleccionades. No s'atribueix origen fiscal automàticament als ingressos propis."
+  ],
+  "rows": [
+    {
+      "university": "UB",
+      "initial_budget": 529466924.61,
+      "identified_public_transfers": 400217024.61,
+      "display_percentage": 75.59,
+      "source": {
+        "url": "https://web.ub.edu/documents/d/pressupost/comptes-anuals-2025-pdf?download=true",
+        "pdf_pages_1based": [21],
+        "printed_pages": "12",
+        "table": "Liquidació del pressupost d'ingressos, columna Inicials; no Definitius ni Drets reconeguts",
+        "crosscheck_url": "https://web.ub.edu/documents/d/pressupost/universitat-de-barcelona-quadres-memoria-2025-1-xlsx?download=true",
+        "crosscheck_note": "Full Liquidació ingressos, columna E: files 15, 17, 32, 34 i 35; pressupost inicial total E51."
+      },
+      "selected": [
+        {"code": "40", "label": "Sector de l'Estat, transferències corrents", "amount": 14823825.78},
+        {"code": "45", "label": "Generalitat, transferències corrents", "amount": 357917551.24},
+        {"code": "70", "label": "Estat, transferències de capital", "amount": 10175647.59},
+        {"code": "75", "label": "Generalitat, transferències de capital", "amount": 17000000},
+        {"code": "76", "label": "Ens territorials, transferències de capital", "amount": 300000}
+      ],
+      "notable_exclusions": [
+        {"code": "49", "label": "Transferències corrents de l'exterior", "amount": 4092200, "reason": "No es desglossa el pressupost inicial entre administració de la UE i altres transferències exteriors."},
+        {"code": "79", "label": "Transferències de capital de l'exterior", "amount": 16421600, "reason": "No es desglossa el pressupost inicial entre fons públics europeus i altres transferències exteriors."}
+      ],
+      "note": "Els articles 43, 46 i 73 tenen previsió inicial zero. La classificació econòmica del pressupost original admet origen mixt als articles 49 i 79; no es pressuposa que tots siguin públics. El denominador coincideix amb el pressupost inicial aprovat, encara que el detall es recupera dels comptes anuals."
+    },
+    {
+      "university": "UAB",
+      "initial_budget": 426608273,
+      "identified_public_transfers": 317699485,
+      "display_percentage": 74.47,
+      "source": {"url": "https://www.uab.cat/doc/pressupost-uab-2025", "pdf_pages_1based": [13, 14], "table": "Pressupost d'ingressos de 2025, total genèric i específic"},
+      "selected": [
+        {"code": "40", "label": "Administració de l'Estat, corrents", "amount": 1045000},
+        {"code": "41", "label": "Organismes públics, corrents", "amount": 2569949},
+        {"code": "44", "label": "Empreses públiques i altres ens públics, corrents", "amount": 12014650},
+        {"code": "45", "label": "Comunitats autònomes, corrents", "amount": 260162183},
+        {"code": "46", "label": "Corporacions locals, corrents", "amount": 549424},
+        {"code": "490", "label": "Unió Europea, corrents", "amount": 200000},
+        {"code": "70", "label": "Administració de l'Estat, capital", "amount": 892061},
+        {"code": "71", "label": "Organismes públics, capital", "amount": 28458005},
+        {"code": "74", "label": "Empreses públiques i altres ens públics, capital", "amount": 1287913},
+        {"code": "75", "label": "Comunitats autònomes, capital", "amount": 10519300},
+        {"code": "76", "label": "Corporacions locals, capital", "amount": 1000}
+      ],
+      "notable_exclusions": [
+        {"code": "790", "label": "Organismes internacionals per a recerca", "amount": 18000000, "reason": "L'explicació esmenta organismes com la UE però no concreta quina part correspon a pagadors públics."}
+      ]
+    },
+    {
+      "university": "UPC",
+      "initial_budget": 410669377,
+      "identified_public_transfers": 327045222,
+      "display_percentage": 79.64,
+      "source": {
+        "url": "https://govern.upc.edu/ca/cs/ple-del-consell-social/ple-7-2024/informe-de-la-presidenta-de-la-comissio-economica-i-aprovacio-si-escau-de-les-propostes-que-es-formulin/aprovacio-del-pressupost-de-la-upc-2025/aprovacio-del-pressupost-de-la-upc-2025/viewFileGDoc?visibility=public",
+        "pdf_pages_1based": [58, 62],
+        "printed_pages": "55 i 59",
+        "table": "Detall dels ingressos genèrics i específics per classificació econòmica"
+      },
+      "selected": [
+        {"scope": "generic", "code": "40", "label": "Estat, corrents", "amount": 4567664},
+        {"scope": "generic", "code": "45", "label": "Generalitat i ens públics vinculats, corrents", "amount": 230387327},
+        {"scope": "generic", "code": "490", "label": "Unió Europea, corrents", "amount": 218000},
+        {"scope": "generic", "code": "70", "label": "Estat, capital", "amount": 2213178},
+        {"scope": "generic", "code": "75", "label": "Generalitat i ens públics vinculats, capital", "amount": 1004000},
+        {"scope": "generic", "code": "790", "label": "Unió Europea, capital", "amount": 5157864},
+        {"scope": "specific", "code": "40", "label": "Estat, corrents", "amount": 260000},
+        {"scope": "specific", "code": "45", "label": "Generalitat i ens públics vinculats, corrents", "amount": 8570485},
+        {"scope": "specific", "code": "490", "label": "Unió Europea, corrents", "amount": 4428200},
+        {"scope": "specific", "code": "70", "label": "Estat, capital", "amount": 17442370},
+        {"scope": "specific", "code": "75", "label": "Generalitat i ens públics vinculats, capital", "amount": 20011000},
+        {"scope": "specific", "code": "790", "label": "Unió Europea, capital", "amount": 32785134}
+      ],
+      "note": "Es compten les seccions genèrica i específica una vegada cadascuna. Es prefereix el detall econòmic a l'agrupació resum Origen dels Fons, que utilitza un perímetre diferent per a Generalitat i altres organismes públics i privats."
+    },
+    {
+      "university": "UPF",
+      "initial_budget": 184367981.66,
+      "identified_public_transfers": 139859722.84,
+      "display_percentage": 75.86,
+      "source": {
+        "url": "https://www.upf.edu/documents/1761050/3280890/Pressupost%2B2025.pdf/810a5a8c-4b5f-dc7b-2621-b32e24ad3b4e?t=1734683805562",
+        "pdf_pages_1based": [15, 18],
+        "printed_pages": "12 i 15",
+        "table": "Classificació econòmica dels ingressos per subconcepte"
+      },
+      "selected": [
+        {"code": "40", "label": "Administració de l'Estat, corrents", "amount": 850000},
+        {"code": "44", "label": "Societats, entitats, fundacions i altres ens del sector públic, corrents", "amount": 9518005},
+        {"code": "45", "label": "Generalitat, corrents", "amount": 91968045.84},
+        {"code": "46", "label": "Ens locals, corrents", "amount": 125000},
+        {"code": "492.10", "label": "Administració de la UE, corrents", "amount": 653662},
+        {"code": "70", "label": "Administració de l'Estat, capital", "amount": 1050000},
+        {"code": "74", "label": "Societats, entitats, fundacions i altres ens del sector públic, capital", "amount": 13280010},
+        {"code": "75", "label": "Generalitat, capital", "amount": 6355000},
+        {"code": "76", "label": "Ens locals, capital", "amount": 160000},
+        {"code": "795.00", "label": "Administració de la UE, capital", "amount": 13800000},
+        {"code": "795.01", "label": "Administració de la UE, repercussió", "amount": 2100000}
+      ],
+      "notable_exclusions": [
+        {"code": "492.90", "label": "Altres de la UE, corrents", "amount": 285000, "reason": "No identifica l'administració pública com a pagador."},
+        {"code": "795.10+795.11", "label": "Altres de la UE, capital i repercussió", "amount": 670000, "reason": "No identifica l'administració pública com a pagador."},
+        {"code": "499+799", "label": "Altres transferències de fora de la UE", "amount": 1420000, "reason": "Origen públic o privat no desglossat."}
+      ]
+    },
+    {
+      "university": "UdG",
+      "initial_budget": 137424954,
+      "identified_public_transfers": 109335206,
+      "display_percentage": 79.56,
+      "source": {
+        "url": "https://www.udg.edu/ca/Portals/0/UdGEventsNews/2840/Media/Document/PRESSUPOST_2025.pdf",
+        "pdf_pages_1based": [50, 51, 52, 53],
+        "printed_pages": "48–51",
+        "table": "Pressupost d'ingressos per classificació econòmica"
+      },
+      "selected": [
+        {"code": "40", "label": "Sector públic estatal, corrents", "amount": 1408766},
+        {"code": "44", "label": "Organismes autònoms i entitats públiques, corrents", "amount": 2319206},
+        {"code": "45", "label": "Generalitat, corrents", "amount": 87529203},
+        {"code": "46", "label": "Administracions locals, corrents", "amount": 120000},
+        {"code": "70", "label": "Sector públic estatal, capital", "amount": 5354780},
+        {"code": "74", "label": "Organismes autònoms i entitats públiques, capital", "amount": 837900},
+        {"code": "75", "label": "Generalitat, capital", "amount": 4691081},
+        {"code": "76", "label": "Administracions locals, capital", "amount": 131670},
+        {"code": "795", "label": "Programa Marc de la UE", "amount": 5745600},
+        {"code": "798", "label": "Altres programes de la UE", "amount": 1197000}
+      ],
+      "notable_exclusions": [
+        {"code": "799", "label": "Altres transferències de fora de la UE", "amount": 119700, "reason": "Origen públic o privat no identificat."}
+      ],
+      "note": "L'article 45 inclou la compensació institucional per pèrdua d'ingressos de matrícula (451.14, 6.280.000 euros). Es compta com a transferència de la Generalitat, no com un pagament de l'estudiant ni com un ingrés acadèmic addicional."
+    },
+    {
+      "university": "UdL",
+      "initial_budget": 116712269.37,
+      "identified_public_transfers": 89937976.34,
+      "display_percentage": 77.06,
+      "source": {
+        "url": "https://www.udl.cat/export/sites/universitat-lleida/ca/serveis/afin/.galleries/docs/Pressupostos/2025/03-Estat-ingressos_2025.pdf",
+        "pdf_pages_1based": [1, 2, 3],
+        "table": "Estat d'ingressos inicial del 2025"
+      },
+      "selected": [
+        {"code": "40", "label": "Estat, corrents", "amount": 607235.09},
+        {"code": "41", "label": "Organismes autònoms, corrents", "amount": 752200},
+        {"code": "44", "label": "Altres ens públics, corrents", "amount": 2300},
+        {"code": "45", "label": "Comunitat autònoma, corrents", "amount": 80171532.79},
+        {"code": "46", "label": "Administracions locals, corrents", "amount": 555000},
+        {"code": "491", "label": "Fons europeu", "amount": 2000},
+        {"code": "70", "label": "Estat, capital", "amount": 3280518.70},
+        {"code": "75", "label": "Comunitat autònoma, capital", "amount": 4567189.76}
+      ],
+      "notable_exclusions": [
+        {"code": "492", "label": "Altres transferències corrents Unió Europea", "amount": 8662, "reason": "No concreta administració o programa públic; exclòs amb criteri estricte."},
+        {"code": "795", "label": "Altres transferències de capital Unió Europea", "amount": 2500000, "reason": "No concreta administració o programa públic; exclòs amb criteri estricte."},
+        {"code": "499", "label": "Altres transferències de l'exterior", "amount": 4023.50, "reason": "No concreta pagador públic."},
+        {"code": "32401", "label": "Serveis a empreses públiques", "amount": 726735.76, "reason": "És una prestació de serveis, no una transferència; el criteri comú exclou el capítol 3."}
+      ],
+      "sensitivity": {"assumption": "Si totes les partides 492 i 795 codificades com a UE fossin transferències públiques", "additional_transfers": 2508662, "alternative_numerator": 92446638.34, "alternative_percentage": 79.21}
+    },
+    {
+      "university": "URV",
+      "initial_budget": 145784360.34,
+      "identified_public_transfers": 120848770.29,
+      "display_percentage": 82.90,
+      "source": {
+        "url": "https://transparencia.urv.cat/media/upload/domain_383/arxius/srec/PRESSUPOST%202025_corrSL.pdf",
+        "pdf_pages_1based": [19, 20],
+        "printed_pages": "16–17",
+        "table": "Pressupost d'ingressos, classificació econòmica"
+      },
+      "selected": [
+        {"code": "40", "label": "Sector públic estatal, corrents", "amount": 1530147.03},
+        {"code": "41", "label": "Organismes autònoms administratius, corrents", "amount": 1157913.40},
+        {"code": "45", "label": "Generalitat i sector públic vinculat, corrents", "amount": 106584546.71},
+        {"code": "460", "label": "Ajuntaments, corrents", "amount": 114000},
+        {"code": "462", "label": "Diputacions, corrents", "amount": 1000000},
+        {"code": "492", "label": "Unió Europea, corrents", "amount": 75764.76},
+        {"code": "701", "label": "Sector públic estatal, capital", "amount": 3844173.83},
+        {"code": "75", "label": "Generalitat i sector públic vinculat, capital", "amount": 5300610.32},
+        {"code": "760", "label": "Ajuntaments, capital", "amount": 2000},
+        {"code": "790", "label": "Unió Europea, capital", "amount": 1239614.24}
+      ],
+      "notable_exclusions": [
+        {"code": "463", "label": "Universitats, amb error de rètol a la taula", "amount": 8890, "reason": "La taula diu empreses privades, però la nota diu universitats sense concretar si són públiques. S'exclou per prudència."}
+      ],
+      "note": "El pressupost inicial inclou una previsió condicionada d'increment de transferència del DRU de 1.817.047,79 euros. Es manté el mateix escenari pressupostari inicial al numerador i al denominador; no és una transferència efectivament percebuda."
+    }
+  ]
+}
