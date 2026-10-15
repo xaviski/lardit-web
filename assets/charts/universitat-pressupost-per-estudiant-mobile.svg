@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="1220" viewBox="0 0 360 1220" role="img" aria-labelledby="ucm-title ucm-desc">
-  <title id="ucm-title">Cost total aproximat d'una matrícula</title>
-  <desc id="ucm-desc">El pressupost per estudiant és una aproximació als recursos anuals de la universitat, no una mesura del cost docent d'una matrícula. Pressupost inicial 2025 dividit pels estudiants de grau, màster i doctorat del curs 2024-2025. La barra gran distingeix finançament previst de la Generalitat i resta del pressupost, que inclou el cost assumit per l'estudiant i pot contenir altres fons públics. La barra blava separada compara la factura orientativa de 60 crèdits nous de grau el 2026-2027, incloent altres conceptes de matrícula, amb les hipòtesis de la taula de l'article. No és el pagament mitjà observat. UB: factura de referència 1.202,32 €. UAB: factura de referència 1.202,32 €. UPC: factura de referència 1.202,32 €. UPF: factura de referència 1.202,32 €. UdG: factura de referència 1.202,32 €. UdL: factura de referència 1.213,53 €. URV: factura de referència 1.206,61 €. UB: pressupost per estudiant aproximat 10.205,61 €, Generalitat 6.883,27 €, resta 3.322,34 €. UAB: pressupost per estudiant aproximat 11.975,64 €, Generalitat 7.598,50 €, resta 4.377,14 €. UPC: pressupost per estudiant aproximat 13.356,40 €, Generalitat 8.455,23 €, resta 4.901,17 €. UPF: pressupost per estudiant aproximat 14.573,39 €, Generalitat 7.771,96 €, resta 6.801,43 €. UdG: pressupost per estudiant aproximat 10.349,82 €, Generalitat 6.945,34 €, resta 3.404,48 €. UdL: pressupost per estudiant aproximat 10.622,76 €, Generalitat 7.712,64 €, resta 2.910,12 €. URV: pressupost per estudiant aproximat 8.787,48 €, Generalitat 6.744,13 €, resta 2.043,35 €. No és cost docent per grau ni un rànquing d'eficiència.</desc>
+  <title id="ucm-title">Pressupost anual per estudiant</title>
+  <desc id="ucm-desc">El pressupost per estudiant és una aproximació als recursos anuals de la universitat, no una mesura del cost docent d'una matrícula. Pressupost inicial 2025 dividit pels estudiants de grau, màster i doctorat del curs 2024-2025. La barra gran distingeix finançament previst de la Generalitat i resta del pressupost, que inclou el cost assumit per l'estudiant i pot contenir altres fons públics. La barra blava separada compara la factura orientativa de 60 crèdits nous de grau el 2026-2027, incloent altres conceptes de matrícula, amb les hipòtesis de la taula de l'article. No és el pagament mitjà observat. UB: factura de referència 1.202,32 €. UAB: factura de referència 1.202,32 €. UPC: factura de referència 1.202,32 €. UPF: factura de referència 1.202,32 €. UdG: factura de referència 1.202,32 €. UdL: factura de referència 1.213,53 €. URV: factura de referència 1.206,61 €. UB: pressupost per estudiant aproximat 10.205,61 €, Generalitat 7.226,63 €, resta 2.978,98 €. UAB: pressupost per estudiant aproximat 11.975,64 €, Generalitat 7.598,50 €, resta 4.377,14 €. UPC: pressupost per estudiant aproximat 13.356,40 €, Generalitat 8.455,23 €, resta 4.901,17 €. UPF: pressupost per estudiant aproximat 14.573,39 €, Generalitat 7.771,96 €, resta 6.801,43 €. UdG: pressupost per estudiant aproximat 10.349,82 €, Generalitat 6.945,34 €, resta 3.404,48 €. UdL: pressupost per estudiant aproximat 10.622,76 €, Generalitat 7.712,64 €, resta 2.910,12 €. URV: pressupost per estudiant aproximat 8.787,48 €, Generalitat 6.744,13 €, resta 2.043,35 €. No és cost docent per grau ni un rànquing d'eficiència.</desc>
   <rect width="360" height="1220" fill="#f4efe4"/>
   <g font-family="system-ui, sans-serif" fill="#132a38">
     <text x="18" y="28" fill="#a83a32" font-size="11" font-weight="700" letter-spacing="0.8">CATALUNYA · PRESSUPOST 2025</text>
     <text x="18" y="65" font-family="Georgia, serif" font-size="27" font-weight="700">
-      <tspan x="18" y="65">Cost total aproximat</tspan>
-      <tspan x="18" y="98">d'una matrícula</tspan>
+      <tspan x="18" y="65">Pressupost anual</tspan>
+      <tspan x="18" y="98">per estudiant</tspan>
     </text>
     <text x="18" y="122" fill="#52616a" font-size="13">
       <tspan x="18" y="122">Pressupost anual per estudiant</tspan>
@@ -21,15 +21,15 @@
     </text>
     <rect x="18" y="263" width="14" height="8" fill="#1d5d73"/>
     <text x="42" y="272" font-size="12">
-      <tspan x="42" y="272">cost total de la matrícula</tspan>
-      <tspan x="42" y="290">assumit per l'estudiant</tspan>
+      <tspan x="42" y="272">Factura orientativa de matrícula,</tspan>
+      <tspan x="42" y="290">inclosos els altres conceptes</tspan>
     </text>
     <g transform="translate(0 100)">
     <line x1="18" y1="223" x2="342" y2="223" stroke="#132a38" stroke-opacity="0.4"/>
     <g aria-label="UB">
       <text x="18" y="246" font-size="17" font-weight="750">UB</text><text x="342" y="246" text-anchor="end" font-size="16" font-weight="700">10.205,61 €</text>
-      <rect x="18" y="255" width="139.386" height="23" fill="#a83a32"/><rect x="157.386" y="255" width="67.277" height="23" fill="#d6ccba"/>
-      <text x="18" y="294" fill="#52616a" font-size="11.7">Generalitat 6.883,27 € · resta 3.322,34 €</text>
+      <rect x="18" y="255" width="146.339" height="23" fill="#a83a32"/><rect x="164.339" y="255" width="60.324" height="23" fill="#d6ccba"/>
+      <text x="18" y="294" fill="#52616a" font-size="11.7">Generalitat 7.226,63 € · resta 2.978,98 €</text>
       <rect x="18" y="304" width="24.347" height="8" fill="#1d5d73"/><text x="50.347" y="312" fill="#1d5d73" font-size="12">1.202,32 €</text>
     </g>
     <g aria-label="UAB">
