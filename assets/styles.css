@@ -205,6 +205,12 @@ button, input, textarea { font: inherit; }
   letter-spacing: -0.057em;
 }
 .hero h1 a { text-decoration: none; }
+.hero.hero--balanced h1 {
+  max-width: none;
+  font-size: clamp(2rem, 4.2vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
 .standfirst {
   max-width: 39rem;
   margin: 1.6rem 0 0;
@@ -656,6 +662,7 @@ button, input, textarea { font: inherit; }
   .hero { display: block; }
   .hero-copy { padding: 0 0 3rem; }
   .hero h1, .article-title { font-size: clamp(2.8rem, 14vw, 4.6rem); }
+  .hero.hero--balanced h1 { font-size: clamp(2rem, 8.5vw, 2.75rem); }
   .hero-aside { padding: 2rem 0 0; border-top: 1px solid var(--ink); border-left: 0; }
   .section-head { display: block; }
   .section-index { margin-bottom: 1rem; }
