@@ -1,0 +1,64 @@
+{
+  "verified_on": "2026-10-16",
+  "territory": "Catalunya",
+  "latest_consumption_year": 2024,
+  "next_release": {"date": "2026-10-28", "reference_year": 2025, "evidence": "Current Idescat page source calendar metadata; upcoming, not yet usable"},
+  "sources": {
+    "age_table": "https://www.idescat.cat/indicadors/?id=aec&n=15382",
+    "household_ssv": "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=1&f=ssv",
+    "person_ssv": "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=2&f=ssv",
+    "equivalent_ssv": "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=3&f=ssv",
+    "equivalent_details": "https://www.idescat.cat/pub/?id=edcl&n=22667",
+    "methodology": "https://www.idescat.cat/pub/?id=edcl&m=m",
+    "cpi_table": "https://www.idescat.cat/indicadors/?id=aec&n=15361",
+    "cpi_ssv": "https://www.idescat.cat/indicadors/?id=aec&n=15361&col=1&f=ssv"
+  },
+  "definitions": {
+    "age_group": "Age of main household provider, not the age of each consumer. The provider is the household member aged 16+ with the largest regular contribution to household budget.",
+    "young_people_at_parental_home": "A young adult living with an older main provider is classified in that older provider's group. These data cannot describe all young individuals' consumption.",
+    "units": "Annual euros, current prices unless explicitly CPI-adjusted",
+    "per_equivalent_unit": "OECD-modified scale, adjusts for household size and composition. Main provider=1, additional adult=0.5, child=0.3 according to Idescat notes. It is not the euro amount actually spent by each individual.",
+    "consumption_scope": "EPF consumption includes monetary purchases, in-kind spending, own-production and imputed housing rents for owner-occupied/free housing. It excludes home purchase and does not include public health/education transfers in kind. It is not net wealth or cash disposable income.",
+    "comparison": "Repeated cross-sections, not the same households or birth cohorts followed over time. Changes can reflect household composition, emancipation, provider mix and sampling.",
+    "wealth_distinction": "GDP, income and consumption are flows. None is a stock measure of net household wealth (assets minus liabilities)."
+  },
+  "comparability": {
+    "2006_2015": "EPF base2006; years2006–2012 revised to Census2011 populations",
+    "2016_break": "Official methodology explicitly says2016 results are not directly comparable with preceding years because classification and data-collection changes. Some 2-digit expenditure categories preserve comparability, but no provider-age bridge was established in this research.",
+    "2023_break": "Official annual age-table SSV note: Census2021 population update creates a series break that prevents homogeneous comparisons.2023 values marked b.",
+    "2024_break": "Official table also flags2024 b; COICOP2018 introduced.2016–20 and2023 classification revised in June2026;2021/22 revisions forthcoming and currently unavailable in revised table.",
+    "safe_chart_option": "Use2024 age cross-section as the latest snapshot. If a historic change is desired, use2016→2019 within one base and before COVID, labelled as a historical episode, or2007→2015 within old base. Do not draw a clean2007→2024 growth story or join across breaks.",
+    "do_not_publish_as_homogeneous": ["2007→2019 age growth", "2007→2024 age growth", "2016→2024 age growth"],
+    "cpi_limitation": "General Catalan CPI is an approximate common deflator, not an age-specific price index and not the national-accounts consumption deflator. Its basket excludes imputed rent whereas EPF includes it; interpret EPF/CPI as an indicative real-spending proxy, not an exact volume measure. Prefer official national-accounts volume series for aggregate consumption/GDP charts."
+  },
+  "age_order": ["16–29", "30–44", "45–59", "60–74", "75+"],
+  "annual_nominal_data": {
+    "2007": {"household": [32411,35375,40920,31031,18616], "person": [14918,12210,12717,14528,12112], "equivalent": [21089,19735,19813,19914,14675], "all_households": {"household":33918,"person":12905,"equivalent":19447}},
+    "2015": {"household": [24711,28762,34645,32435,21243], "person": [10663,10832,11438,16016,12306], "equivalent": [15664,17184,17792,21534,15604], "all_households": {"household":30175,"person":12164,"equivalent":18082}},
+    "2016": {"household": [23747,30458,34568,30901,22094], "person": [10304,11154,11948,14753,13285], "equivalent": [15057,17848,18379,20062,16659], "all_households": {"household":30446,"person":12309,"equivalent":18297}},
+    "2017": {"household": [25242,31298,36296,31054,23927], "person": [12152,11278,12559,15281,13797], "equivalent": [16925,18188,19317,20564,17576], "all_households": {"household":31619,"person":12833,"equivalent":19028}},
+    "2018": {"household": [25438,33167,35065,33985,24810], "person": [11895,11838,12253,16835,14980], "equivalent": [16554,19083,18753,22630,18719], "all_households": {"household":32586,"person":13270,"equivalent":19626}},
+    "2019": {"household": [26307,32875,37367,33458,23468], "person": [13202,11679,12789,17014,14703], "equivalent": [17938,18870,19677,22654,18105], "all_households": {"household":32916,"person":13414,"equivalent":19833}},
+    "2020": {"household": [25343,26714,33628,29527,23597], "person": [12569,9982,11239,14690,14880], "equivalent": [17291,15782,17455,19688,18294], "all_households": {"household":29235,"person":11872,"equivalent":17549}},
+    "2021": null,
+    "2022": null,
+    "2023": {"household": [29045,31762,37710,36046,27673], "person": [13849,11435,12721,17275,16306], "equivalent": [19325,18214,19550,23445,20534], "all_households": {"household":34259,"person":13592,"equivalent":20147}, "flag":"b"},
+    "2024": {"household": [28015,34726,41608,39248,30429], "person": [13322,12769,13918,18123,17850], "equivalent": [18755,20148,21521,24907,22550], "all_households": {"household":37409,"person":14746,"equivalent":21906}, "flag":"b"}
+  },
+  "cpi_annual_mean_Catalunya_base2025_100": {"2006":66.7,"2007":68.7,"2008":71.5,"2009":71.6,"2010":73.1,"2011":75.5,"2012":77.7,"2013":79.0,"2014":79.1,"2015":79.0,"2016":79.0,"2017":80.8,"2018":82.2,"2019":82.9,"2020":82.6,"2021":85.0,"2022":91.8,"2023":94.9,"2024":97.6,"2025":100.0},
+  "real_calculation": {
+    "formula_in_prices_of_yearT": "nominal_euros_year_t * CPI_yearT / CPI_year_t",
+    "formula_change_percent": "100 * (nominal_end / nominal_start * CPI_start / CPI_end - 1)",
+    "precision_note": "Published annual CPI index in this official table has1decimal. Derived growth percentages should be called approximate and rounded no more than1decimal."
+  },
+  "latest2024_equivalent_spending_components": {
+    "columns": ["food_non_alcohol","clothing","housing_utilities_including_imputed_rent","furnishings_housekeeping","first_necessity_total","other_goods_services","total"],
+    "16–29": [2968,538,6732,651,10889,7866,18755],
+    "30–44": [2730,1119,6383,678,10910,9238,20148],
+    "45–59": [3284,938,6743,767,11733,9788,21521],
+    "60–74": [4032,908,8949,837,14726,10181,24907],
+    "75+": [3800,633,10309,1016,15757,6793,22550],
+    "all_households": [3341,935,7456,777,12509,9397,21906],
+    "note": "Independently rounded official category values may not sum exactly.2024breakflag applies."
+  }
+}

@@ -1,0 +1,1305 @@
+{
+  "retrieved": "2026-10-16",
+  "territory": "Catalunya",
+  "sources": [
+    {
+      "id": "piba_demand_volume",
+      "title": "PIB demanda. Índexs en volum encadenats (any 2020=100). Revisió estadística 2024",
+      "page": "https://www.idescat.cat/pub/?id=piba&n=21913",
+      "api": "https://api.idescat.cat/taules/v2/piba/21913/24924/cat/data?INDICATOR=VALUE&CONCEPT=GDP,CONS_EXP",
+      "updated": "2026-03-20",
+      "units": "Índex de volum encadenat, any 2020=100",
+      "status": "Official statistics. 2023, 2024 and 2025 provisional (p). No advanced a flag in this annual release.",
+      "notes": [
+        "El consum de les administracions públiques inclou la despesa en consum de les institucions sense finalitat de lucre al servei de les llars.",
+        "La formació bruta de capital inclou la formació bruta de capital fix (FBCF) i la variació d'existències.",
+        "El saldo amb l'exterior inclou el saldo amb l'estranger i amb la resta d'Espanya.",
+        "La variació interanual en volum dels saldos amb l'exterior i amb l'estranger s'expressa com a aportació al creixement del PIB."
+      ]
+    },
+    {
+      "id": "real_gdp_percap",
+      "title": "PIB real per habitant",
+      "page": "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435",
+      "updated": "2026-03-20",
+      "units": "Euros per càpita, volums encadenats 2020",
+      "method": "Idescat publishes real GDP divided by annual population. Specific table note: population estimated at 1 July, except 2021 uses 1 January. Preserve this denominator when deriving consumption per capita; do not substitute padró January.",
+      "status": "Official statistics. 2023, 2024 and 2025 provisional (p)."
+    },
+    {
+      "id": "income_experimental",
+      "title": "Renda disponible de les llars, renda disponible de les llars per habitant i índex de capacitat adquisitiva",
+      "page": "https://www.idescat.cat/pub/?id=e04&n=22693",
+      "methodology": "https://www.idescat.cat/pub/?id=e04&m=m",
+      "api": "https://api.idescat.cat/taules/v2/e04/22693/28737/cat/data",
+      "updated": "2026-07-23",
+      "units": "Purchasing power: index T1/2020=100; nominal income not to be presented as real",
+      "status": "EXPERIMENTAL: Idescat explicitly says results are provisional and do not have official-statistics status. 2023 quarters p; 2024–2025 quarters a (advanced).",
+      "method": "Seasonally adjusted household disposable income / quarterly population (INE continuous population), deflated using Catalunya CPI. Base T1/2020=100. Do not splice directly into annual 2000–2025 macro series.",
+      "population": "All resident households, not age-disaggregated"
+    }
+  ],
+  "annual": [
+    {
+      "year": 2000,
+      "gdp_volume_index2020": 81.2,
+      "household_consumption_volume_index2020": 92.8,
+      "gdp_real_percap_eur2020": 29481.1,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 101.20737124691892,
+      "implied_population_index2020": 80.23131022926553,
+      "household_consumption_real_percap_index2020_approx": 115.6655671393359
+    },
+    {
+      "year": 2001,
+      "gdp_volume_index2020": 83.9,
+      "household_consumption_volume_index2020": 95.8,
+      "gdp_real_percap_eur2020": 29905.6,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 102.66466181933029,
+      "implied_population_index2020": 81.72237507356482,
+      "household_consumption_real_percap_index2020_approx": 117.22615735747131
+    },
+    {
+      "year": 2002,
+      "gdp_volume_index2020": 86.5,
+      "household_consumption_volume_index2020": 99.8,
+      "gdp_real_percap_eur2020": 30095.6,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 103.31692379520345,
+      "implied_population_index2020": 83.72297279336516,
+      "household_consumption_real_percap_index2020_approx": 119.20264733828097
+    },
+    {
+      "year": 2003,
+      "gdp_volume_index2020": 89.6,
+      "household_consumption_volume_index2020": 102.7,
+      "gdp_real_percap_eur2020": 30487,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 104.6605834655022,
+      "implied_population_index2020": 85.61007117787909,
+      "household_consumption_real_percap_index2020_approx": 119.96252144985577
+    },
+    {
+      "year": 2004,
+      "gdp_volume_index2020": 93.4,
+      "household_consumption_volume_index2020": 107.5,
+      "gdp_real_percap_eur2020": 31107.6,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 106.79107705617004,
+      "implied_population_index2020": 87.46049068394863,
+      "household_consumption_real_percap_index2020_approx": 122.91264222203723
+    },
+    {
+      "year": 2005,
+      "gdp_volume_index2020": 97,
+      "household_consumption_volume_index2020": 111.6,
+      "gdp_real_percap_eur2020": 31608.7,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 108.51133219359134,
+      "implied_population_index2020": 89.39158522811759,
+      "household_consumption_real_percap_index2020_approx": 124.84396569901848
+    },
+    {
+      "year": 2006,
+      "gdp_volume_index2020": 101.1,
+      "household_consumption_volume_index2020": 114.9,
+      "gdp_real_percap_eur2020": 32239.3,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 110.67615536193674,
+      "implied_population_index2020": 91.34758943277303,
+      "household_consumption_real_percap_index2020_approx": 125.78328636089549
+    },
+    {
+      "year": 2007,
+      "gdp_volume_index2020": 104.1,
+      "household_consumption_volume_index2020": 119.1,
+      "gdp_real_percap_eur2020": 32507.7,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 111.59756122680177,
+      "implied_population_index2020": 93.28160835740456,
+      "household_consumption_real_percap_index2020_approx": 127.67790146121125
+    },
+    {
+      "year": 2008,
+      "gdp_volume_index2020": 102.9,
+      "household_consumption_volume_index2020": 117.7,
+      "gdp_real_percap_eur2020": 31536.5,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 108.26347264275955,
+      "implied_population_index2020": 95.04590744058473,
+      "household_consumption_real_percap_index2020_approx": 123.83489533579007
+    },
+    {
+      "year": 2009,
+      "gdp_volume_index2020": 98.5,
+      "household_consumption_volume_index2020": 112.2,
+      "gdp_real_percap_eur2020": 29854.7,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 102.48992426895165,
+      "implied_population_index2020": 96.10700827675373,
+      "household_consumption_real_percap_index2020_approx": 116.74486805052157
+    },
+    {
+      "year": 2010,
+      "gdp_volume_index2020": 98.9,
+      "household_consumption_volume_index2020": 111.7,
+      "gdp_real_percap_eur2020": 29792.7,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 102.27708088735092,
+      "implied_population_index2020": 96.6981059118509,
+      "household_consumption_real_percap_index2020_approx": 115.51415505679572
+    },
+    {
+      "year": 2011,
+      "gdp_volume_index2020": 98.8,
+      "household_consumption_volume_index2020": 109.9,
+      "gdp_real_percap_eur2020": 29668.1,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 101.84933434948881,
+      "implied_population_index2020": 97.00603409048779,
+      "household_consumption_real_percap_index2020_approx": 113.29192150818643
+    },
+    {
+      "year": 2012,
+      "gdp_volume_index2020": 95.9,
+      "household_consumption_volume_index2020": 105.8,
+      "gdp_real_percap_eur2020": 28827.1,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 98.96221686680809,
+      "implied_population_index2020": 96.90567070569016,
+      "household_consumption_real_percap_index2020_approx": 109.17833727328774
+    },
+    {
+      "year": 2013,
+      "gdp_volume_index2020": 94.7,
+      "household_consumption_volume_index2020": 100.5,
+      "gdp_real_percap_eur2020": 28629.7,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 98.28455100345356,
+      "implied_population_index2020": 96.35288459187488,
+      "household_consumption_real_percap_index2020_approx": 104.30409055804732
+    },
+    {
+      "year": 2014,
+      "gdp_volume_index2020": 96.8,
+      "household_consumption_volume_index2020": 102.3,
+      "gdp_real_percap_eur2020": 29365,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 100.80880485008272,
+      "implied_population_index2020": 96.02335841988763,
+      "household_consumption_real_percap_index2020_approx": 106.53657785292833
+    },
+    {
+      "year": 2015,
+      "gdp_volume_index2020": 100.3,
+      "household_consumption_volume_index2020": 105.6,
+      "gdp_real_percap_eur2020": 30382.3,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 104.30115278721841,
+      "implied_population_index2020": 96.16384605510446,
+      "household_consumption_real_percap_index2020_approx": 109.81257960448916
+    },
+    {
+      "year": 2016,
+      "gdp_volume_index2020": 104.4,
+      "household_consumption_volume_index2020": 107.5,
+      "gdp_real_percap_eur2020": 31485.5,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 108.08839179660413,
+      "implied_population_index2020": 96.58761525146495,
+      "household_consumption_real_percap_index2020_approx": 111.29791300895539
+    },
+    {
+      "year": 2017,
+      "gdp_volume_index2020": 107.7,
+      "household_consumption_volume_index2020": 110.1,
+      "gdp_real_percap_eur2020": 32242.8,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 110.68817071412387,
+      "implied_population_index2020": 97.30037031523318,
+      "household_consumption_real_percap_index2020_approx": 113.15475947655558
+    },
+    {
+      "year": 2018,
+      "gdp_volume_index2020": 111,
+      "household_consumption_volume_index2020": 112.4,
+      "gdp_real_percap_eur2020": 32975,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 113.20178239167302,
+      "implied_population_index2020": 98.05499317664898,
+      "household_consumption_real_percap_index2020_approx": 114.62955262003646
+    },
+    {
+      "year": 2019,
+      "gdp_volume_index2020": 113.6,
+      "household_consumption_volume_index2020": 113.9,
+      "gdp_real_percap_eur2020": 33354.4,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 114.5042465687587,
+      "implied_population_index2020": 99.21029429400619,
+      "household_consumption_real_percap_index2020_approx": 114.80663454385227
+    },
+    {
+      "year": 2020,
+      "gdp_volume_index2020": 100,
+      "household_consumption_volume_index2020": 100,
+      "gdp_real_percap_eur2020": 29129.4,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 100,
+      "implied_population_index2020": 100,
+      "household_consumption_real_percap_index2020_approx": 100
+    },
+    {
+      "year": 2021,
+      "gdp_volume_index2020": 106.7,
+      "household_consumption_volume_index2020": 106.7,
+      "gdp_real_percap_eur2020": 31022.5,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 106.49893235013424,
+      "implied_population_index2020": 100.18879780804255,
+      "household_consumption_real_percap_index2020_approx": 106.49893235013424
+    },
+    {
+      "year": 2022,
+      "gdp_volume_index2020": 114.4,
+      "household_consumption_volume_index2020": 109.3,
+      "gdp_real_percap_eur2020": 32931.1,
+      "status_demand": "",
+      "status_gdp_percap": "",
+      "gdp_real_percap_index2020": 113.05107554566862,
+      "implied_population_index2020": 101.19319913394938,
+      "household_consumption_real_percap_index2020_approx": 108.011211163825
+    },
+    {
+      "year": 2023,
+      "gdp_volume_index2020": 117.6,
+      "household_consumption_volume_index2020": 111.1,
+      "gdp_real_percap_eur2020": 33319.2,
+      "status_demand": "p",
+      "status_gdp_percap": "p",
+      "gdp_real_percap_index2020": 114.38340645533378,
+      "implied_population_index2020": 102.81211553698768,
+      "household_consumption_real_percap_index2020_approx": 108.06119436384
+    },
+    {
+      "year": 2024,
+      "gdp_volume_index2020": 122.2,
+      "household_consumption_volume_index2020": 115.5,
+      "gdp_real_percap_eur2020": 34149.3,
+      "status_demand": "p",
+      "status_gdp_percap": "p",
+      "gdp_real_percap_index2020": 117.233104698346,
+      "implied_population_index2020": 104.23676854283983,
+      "household_consumption_real_percap_index2020_approx": 110.80543038182458
+    },
+    {
+      "year": 2025,
+      "gdp_volume_index2020": 125.5,
+      "household_consumption_volume_index2020": 120,
+      "gdp_real_percap_eur2020": 34709.5,
+      "status_demand": "p",
+      "status_gdp_percap": "p",
+      "gdp_real_percap_index2020": 119.15624763984154,
+      "implied_population_index2020": 105.32389403477434,
+      "household_consumption_real_percap_index2020_approx": 113.93426069148194
+    }
+  ],
+  "calculations": {
+    "rebasing": "To rebase any index series at year b: X_t/X_b*100. For percent cumulative change subtract 100.",
+    "gdp_real_percap_index2020": "100 * GDP_real_percap_eur2020_t / GDP_real_percap_eur2020_2020",
+    "implied_population_index2020": "100 * GDP_volume_index2020_t / GDP_real_percap_index2020_t",
+    "household_consumption_real_percap_index2020_approx": "100 * Household_consumption_volume_index2020_t / Implied_population_index2020_t",
+    "equivalent_formula": "Household_consumption_volume_index2020_t / GDP_volume_index2020_t * GDP_real_percap_index2020_t",
+    "limitation": "Derived consumption per capita is an APPROXIMATE own calculation, not an Idescat published series. It uses the population implicit in the published real-GDP-per-capita series and the same annual accounts revision. Source indices rounded to 0.1 imply small rounding errors. Preserve full precision for calculations; display 1 decimal.",
+    "concepts": "GDP, income, consumption are FLOWS, not wealth (assets minus liabilities). GDP/capita and consumption/capita are means, not distributions/medians. Household consumption is private households only; NPISH consumption included with general government in this Idescat demand classification. Do not label it total individual actual consumption including public health/education."
+  },
+  "experimental_income_quarterly": [
+    {
+      "quarter": "2020Q1",
+      "household_disposable_income_nominal_million_euros": 32233.3,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.2,
+      "household_purchasing_power_index2020q1": 100,
+      "status": ""
+    },
+    {
+      "quarter": "2020Q2",
+      "household_disposable_income_nominal_million_euros": 35952.5,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.7,
+      "household_purchasing_power_index2020q1": 91.1,
+      "status": ""
+    },
+    {
+      "quarter": "2020Q3",
+      "household_disposable_income_nominal_million_euros": 32291.8,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.2,
+      "household_purchasing_power_index2020q1": 100,
+      "status": ""
+    },
+    {
+      "quarter": "2020Q4",
+      "household_disposable_income_nominal_million_euros": 36717.4,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.8,
+      "household_purchasing_power_index2020q1": 98.6,
+      "status": ""
+    },
+    {
+      "quarter": "2021Q1",
+      "household_disposable_income_nominal_million_euros": 32723.3,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.2,
+      "household_purchasing_power_index2020q1": 99.1,
+      "status": ""
+    },
+    {
+      "quarter": "2021Q2",
+      "household_disposable_income_nominal_million_euros": 38911.5,
+      "household_disposable_income_nominal_percap_thousand_euros": 5,
+      "household_purchasing_power_index2020q1": 98,
+      "status": ""
+    },
+    {
+      "quarter": "2021Q3",
+      "household_disposable_income_nominal_million_euros": 33764.7,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.4,
+      "household_purchasing_power_index2020q1": 100.8,
+      "status": ""
+    },
+    {
+      "quarter": "2021Q4",
+      "household_disposable_income_nominal_million_euros": 39143.8,
+      "household_disposable_income_nominal_percap_thousand_euros": 5,
+      "household_purchasing_power_index2020q1": 99.2,
+      "status": ""
+    },
+    {
+      "quarter": "2022Q1",
+      "household_disposable_income_nominal_million_euros": 34263.9,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.4,
+      "household_purchasing_power_index2020q1": 96.4,
+      "status": ""
+    },
+    {
+      "quarter": "2022Q2",
+      "household_disposable_income_nominal_million_euros": 40518,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.2,
+      "household_purchasing_power_index2020q1": 92.9,
+      "status": ""
+    },
+    {
+      "quarter": "2022Q3",
+      "household_disposable_income_nominal_million_euros": 34234.2,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.4,
+      "household_purchasing_power_index2020q1": 93.1,
+      "status": ""
+    },
+    {
+      "quarter": "2022Q4",
+      "household_disposable_income_nominal_million_euros": 41048.5,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.2,
+      "household_purchasing_power_index2020q1": 96,
+      "status": ""
+    },
+    {
+      "quarter": "2023Q1",
+      "household_disposable_income_nominal_million_euros": 36848.8,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.7,
+      "household_purchasing_power_index2020q1": 97.4,
+      "status": "p"
+    },
+    {
+      "quarter": "2023Q2",
+      "household_disposable_income_nominal_million_euros": 45163.4,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.7,
+      "household_purchasing_power_index2020q1": 98.9,
+      "status": "p"
+    },
+    {
+      "quarter": "2023Q3",
+      "household_disposable_income_nominal_million_euros": 38445.2,
+      "household_disposable_income_nominal_percap_thousand_euros": 4.8,
+      "household_purchasing_power_index2020q1": 99.8,
+      "status": "p"
+    },
+    {
+      "quarter": "2023Q4",
+      "household_disposable_income_nominal_million_euros": 44966.6,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.6,
+      "household_purchasing_power_index2020q1": 100.6,
+      "status": "p"
+    },
+    {
+      "quarter": "2024Q1",
+      "household_disposable_income_nominal_million_euros": 40542.3,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.1,
+      "household_purchasing_power_index2020q1": 102.2,
+      "status": "a"
+    },
+    {
+      "quarter": "2024Q2",
+      "household_disposable_income_nominal_million_euros": 48863,
+      "household_disposable_income_nominal_percap_thousand_euros": 6.1,
+      "household_purchasing_power_index2020q1": 102,
+      "status": "a"
+    },
+    {
+      "quarter": "2024Q3",
+      "household_disposable_income_nominal_million_euros": 40922.6,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.1,
+      "household_purchasing_power_index2020q1": 103,
+      "status": "a"
+    },
+    {
+      "quarter": "2024Q4",
+      "household_disposable_income_nominal_million_euros": 48292.2,
+      "household_disposable_income_nominal_percap_thousand_euros": 6,
+      "household_purchasing_power_index2020q1": 103.6,
+      "status": "a"
+    },
+    {
+      "quarter": "2025Q1",
+      "household_disposable_income_nominal_million_euros": 42874,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.3,
+      "household_purchasing_power_index2020q1": 104.2,
+      "status": "a"
+    },
+    {
+      "quarter": "2025Q2",
+      "household_disposable_income_nominal_million_euros": 51713,
+      "household_disposable_income_nominal_percap_thousand_euros": 6.4,
+      "household_purchasing_power_index2020q1": 104,
+      "status": "a"
+    },
+    {
+      "quarter": "2025Q3",
+      "household_disposable_income_nominal_million_euros": 42488.5,
+      "household_disposable_income_nominal_percap_thousand_euros": 5.2,
+      "household_purchasing_power_index2020q1": 103.7,
+      "status": "a"
+    },
+    {
+      "quarter": "2025Q4",
+      "household_disposable_income_nominal_million_euros": 50739.3,
+      "household_disposable_income_nominal_percap_thousand_euros": 6.2,
+      "household_purchasing_power_index2020q1": 104.5,
+      "status": "a"
+    }
+  ],
+  "raw": {
+    "demand": {
+      "version": "2.0",
+      "class": "dataset",
+      "href": "https://api.idescat.cat/taules/v2/piba/21913/24924/cat/data?INDICATOR=VALUE&CONCEPT=GDP,CONS_EXP",
+      "link": {
+        "describedby": [
+          {
+            "class": "dataset",
+            "href": "https://api.idescat.cat/taules/v2/piba/21913/24924/cat",
+            "label": "PIB demanda. Índexs en volum encadenats (any 2020=100). Catalunya"
+          }
+        ]
+      },
+      "label": "PIB demanda. Índexs en volum encadenats (any 2020=100). Catalunya",
+      "note": [
+        "El consum de les administracions públiques inclou la despesa en consum de les institucions sense finalitat de lucre al servei de les llars.",
+        "La formació bruta de capital inclou la formació bruta de capital fix (FBCF) i la variació d'existències.",
+        "El saldo amb l'exterior inclou el saldo amb l'estranger i amb la resta d'Espanya.",
+        "La variació interanual en volum dels saldos amb l'exterior i amb l'estranger s'expressa com a aportació al creixement del PIB."
+      ],
+      "source": "Idescat. Comptes econòmics anuals de Catalunya. Revisió estadística 2024.",
+      "updated": "2026-03-20",
+      "id": [
+        "YEAR",
+        "CAT",
+        "CONCEPT",
+        "INDICATOR"
+      ],
+      "size": [
+        26,
+        1,
+        2,
+        1
+      ],
+      "role": {
+        "geo": [
+          "CAT"
+        ],
+        "metric": [
+          "CONCEPT",
+          "INDICATOR"
+        ],
+        "time": [
+          "YEAR"
+        ]
+      },
+      "dimension": {
+        "YEAR": {
+          "category": {
+            "index": [
+              "2000",
+              "2001",
+              "2002",
+              "2003",
+              "2004",
+              "2005",
+              "2006",
+              "2007",
+              "2008",
+              "2009",
+              "2010",
+              "2011",
+              "2012",
+              "2013",
+              "2014",
+              "2015",
+              "2016",
+              "2017",
+              "2018",
+              "2019",
+              "2020",
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "label": {
+              "2000": "2000",
+              "2001": "2001",
+              "2002": "2002",
+              "2003": "2003",
+              "2004": "2004",
+              "2005": "2005",
+              "2006": "2006",
+              "2007": "2007",
+              "2008": "2008",
+              "2009": "2009",
+              "2010": "2010",
+              "2011": "2011",
+              "2012": "2012",
+              "2013": "2013",
+              "2014": "2014",
+              "2015": "2015",
+              "2016": "2016",
+              "2017": "2017",
+              "2018": "2018",
+              "2019": "2019",
+              "2020": "2020",
+              "2021": "2021",
+              "2022": "2022",
+              "2023": "2023",
+              "2024": "2024",
+              "2025": "2025"
+            }
+          },
+          "label": "any",
+          "extension": {
+            "status": {
+              "2023": "p",
+              "2024": "p",
+              "2025": "p"
+            }
+          }
+        },
+        "CAT": {
+          "category": {
+            "index": [
+              "TOTAL"
+            ],
+            "label": {
+              "TOTAL": "Catalunya"
+            }
+          },
+          "label": "Catalunya"
+        },
+        "CONCEPT": {
+          "category": {
+            "index": [
+              "GDP",
+              "CONS_EXP"
+            ],
+            "label": {
+              "GDP": "PIB",
+              "CONS_EXP": "consum de les llars"
+            }
+          },
+          "label": "concepte"
+        },
+        "INDICATOR": {
+          "category": {
+            "index": [
+              "VALUE"
+            ],
+            "label": {
+              "VALUE": "valor"
+            },
+            "unit": {
+              "VALUE": {
+                "decimals": 1
+              }
+            }
+          },
+          "label": "indicador"
+        }
+      },
+      "value": [
+        81.2,
+        92.8,
+        83.9,
+        95.8,
+        86.5,
+        99.8,
+        89.6,
+        102.7,
+        93.4,
+        107.5,
+        97,
+        111.6,
+        101.1,
+        114.9,
+        104.1,
+        119.1,
+        102.9,
+        117.7,
+        98.5,
+        112.2,
+        98.9,
+        111.7,
+        98.8,
+        109.9,
+        95.9,
+        105.8,
+        94.7,
+        100.5,
+        96.8,
+        102.3,
+        100.3,
+        105.6,
+        104.4,
+        107.5,
+        107.7,
+        110.1,
+        111,
+        112.4,
+        113.6,
+        113.9,
+        100,
+        100,
+        106.7,
+        106.7,
+        114.4,
+        109.3,
+        117.6,
+        111.1,
+        122.2,
+        115.5,
+        125.5,
+        120
+      ],
+      "status": {
+        "46": "p",
+        "47": "p",
+        "48": "p",
+        "49": "p",
+        "50": "p",
+        "51": "p"
+      },
+      "extension": {
+        "status": {
+          "label": {
+            "p": "Dada provisional"
+          }
+        },
+        "source": [
+          "Idescat. Comptes econòmics anuals de Catalunya. Revisió estadística 2024."
+        ]
+      }
+    },
+    "gdp_percap": [
+      {
+        "year": 2025,
+        "gdp_real_percap_eur2020": 34709.5,
+        "status": "p"
+      },
+      {
+        "year": 2024,
+        "gdp_real_percap_eur2020": 34149.3,
+        "status": "p"
+      },
+      {
+        "year": 2023,
+        "gdp_real_percap_eur2020": 33319.2,
+        "status": "p"
+      },
+      {
+        "year": 2022,
+        "gdp_real_percap_eur2020": 32931.1,
+        "status": ""
+      },
+      {
+        "year": 2021,
+        "gdp_real_percap_eur2020": 31022.5,
+        "status": ""
+      },
+      {
+        "year": 2020,
+        "gdp_real_percap_eur2020": 29129.4,
+        "status": ""
+      },
+      {
+        "year": 2019,
+        "gdp_real_percap_eur2020": 33354.4,
+        "status": ""
+      },
+      {
+        "year": 2018,
+        "gdp_real_percap_eur2020": 32975,
+        "status": ""
+      },
+      {
+        "year": 2017,
+        "gdp_real_percap_eur2020": 32242.8,
+        "status": ""
+      },
+      {
+        "year": 2016,
+        "gdp_real_percap_eur2020": 31485.5,
+        "status": ""
+      },
+      {
+        "year": 2015,
+        "gdp_real_percap_eur2020": 30382.3,
+        "status": ""
+      },
+      {
+        "year": 2014,
+        "gdp_real_percap_eur2020": 29365,
+        "status": ""
+      },
+      {
+        "year": 2013,
+        "gdp_real_percap_eur2020": 28629.7,
+        "status": ""
+      },
+      {
+        "year": 2012,
+        "gdp_real_percap_eur2020": 28827.1,
+        "status": ""
+      },
+      {
+        "year": 2011,
+        "gdp_real_percap_eur2020": 29668.1,
+        "status": ""
+      },
+      {
+        "year": 2010,
+        "gdp_real_percap_eur2020": 29792.7,
+        "status": ""
+      },
+      {
+        "year": 2009,
+        "gdp_real_percap_eur2020": 29854.7,
+        "status": ""
+      },
+      {
+        "year": 2008,
+        "gdp_real_percap_eur2020": 31536.5,
+        "status": ""
+      },
+      {
+        "year": 2007,
+        "gdp_real_percap_eur2020": 32507.7,
+        "status": ""
+      },
+      {
+        "year": 2006,
+        "gdp_real_percap_eur2020": 32239.3,
+        "status": ""
+      },
+      {
+        "year": 2005,
+        "gdp_real_percap_eur2020": 31608.7,
+        "status": ""
+      },
+      {
+        "year": 2004,
+        "gdp_real_percap_eur2020": 31107.6,
+        "status": ""
+      },
+      {
+        "year": 2003,
+        "gdp_real_percap_eur2020": 30487,
+        "status": ""
+      },
+      {
+        "year": 2002,
+        "gdp_real_percap_eur2020": 30095.6,
+        "status": ""
+      },
+      {
+        "year": 2001,
+        "gdp_real_percap_eur2020": 29905.6,
+        "status": ""
+      },
+      {
+        "year": 2000,
+        "gdp_real_percap_eur2020": 29481.1,
+        "status": ""
+      }
+    ],
+    "income_experimental": {
+      "version": "2.0",
+      "class": "dataset",
+      "href": "https://api.idescat.cat/taules/v2/e04/22693/28737/cat/data",
+      "link": {
+        "describedby": [
+          {
+            "class": "dataset",
+            "href": "https://api.idescat.cat/taules/v2/e04/22693/28737/cat",
+            "label": "Renda disponible de les llars, renda disponible de les llars per habitant i índex de capacitat adquisitiva. Catalunya"
+          }
+        ]
+      },
+      "label": "Renda disponible de les llars, renda disponible de les llars per habitant i índex de capacitat adquisitiva. Catalunya",
+      "source": "Idescat.",
+      "updated": "2026-07-23",
+      "id": [
+        "QUARTER",
+        "CAT",
+        "INDICATOR",
+        "CONCEPT"
+      ],
+      "size": [
+        24,
+        1,
+        2,
+        3
+      ],
+      "role": {
+        "geo": [
+          "CAT"
+        ],
+        "metric": [
+          "CONCEPT",
+          "INDICATOR"
+        ],
+        "time": [
+          "QUARTER"
+        ]
+      },
+      "dimension": {
+        "QUARTER": {
+          "category": {
+            "index": [
+              "2020Q1",
+              "2020Q2",
+              "2020Q3",
+              "2020Q4",
+              "2021Q1",
+              "2021Q2",
+              "2021Q3",
+              "2021Q4",
+              "2022Q1",
+              "2022Q2",
+              "2022Q3",
+              "2022Q4",
+              "2023Q1",
+              "2023Q2",
+              "2023Q3",
+              "2023Q4",
+              "2024Q1",
+              "2024Q2",
+              "2024Q3",
+              "2024Q4",
+              "2025Q1",
+              "2025Q2",
+              "2025Q3",
+              "2025Q4"
+            ],
+            "label": {
+              "2020Q1": "T1/2020",
+              "2020Q2": "T2/2020",
+              "2020Q3": "T3/2020",
+              "2020Q4": "T4/2020",
+              "2021Q1": "T1/2021",
+              "2021Q2": "T2/2021",
+              "2021Q3": "T3/2021",
+              "2021Q4": "T4/2021",
+              "2022Q1": "T1/2022",
+              "2022Q2": "T2/2022",
+              "2022Q3": "T3/2022",
+              "2022Q4": "T4/2022",
+              "2023Q1": "T1/2023",
+              "2023Q2": "T2/2023",
+              "2023Q3": "T3/2023",
+              "2023Q4": "T4/2023",
+              "2024Q1": "T1/2024",
+              "2024Q2": "T2/2024",
+              "2024Q3": "T3/2024",
+              "2024Q4": "T4/2024",
+              "2025Q1": "T1/2025",
+              "2025Q2": "T2/2025",
+              "2025Q3": "T3/2025",
+              "2025Q4": "T4/2025"
+            }
+          },
+          "label": "trimestre",
+          "extension": {
+            "status": {
+              "2023Q1": "p",
+              "2023Q2": "p",
+              "2023Q3": "p",
+              "2023Q4": "p",
+              "2024Q1": "a",
+              "2024Q2": "a",
+              "2024Q3": "a",
+              "2024Q4": "a",
+              "2025Q1": "a",
+              "2025Q2": "a",
+              "2025Q3": "a",
+              "2025Q4": "a"
+            }
+          }
+        },
+        "CAT": {
+          "category": {
+            "index": [
+              "TOTAL"
+            ],
+            "label": {
+              "TOTAL": "Catalunya"
+            }
+          },
+          "label": "Catalunya"
+        },
+        "INDICATOR": {
+          "category": {
+            "index": [
+              "VALUE",
+              "ANN_VAR"
+            ],
+            "label": {
+              "VALUE": "valor",
+              "ANN_VAR": "variació interanual (%)"
+            },
+            "unit": {
+              "VALUE": {
+                "decimals": 1
+              },
+              "ANN_VAR": {
+                "decimals": 1
+              }
+            }
+          },
+          "label": "indicador"
+        },
+        "CONCEPT": {
+          "category": {
+            "index": [
+              "INCOME_HOUSEHOLD_TH_E",
+              "INCOME_HOUSEHOLD_INH_E",
+              "PURCH_IND_2020_100"
+            ],
+            "label": {
+              "INCOME_HOUSEHOLD_TH_E": "renda disponible de les llars (milions €)",
+              "INCOME_HOUSEHOLD_INH_E": "renda disponible de les llars per habitant (milers €)",
+              "PURCH_IND_2020_100": "índex de capacitat adquisitiva (T1/2020 = 100)"
+            }
+          },
+          "label": "concepte"
+        }
+      },
+      "value": [
+        32233.3,
+        4.2,
+        100,
+        null,
+        null,
+        null,
+        35952.5,
+        4.7,
+        91.1,
+        null,
+        null,
+        null,
+        32291.8,
+        4.2,
+        100,
+        null,
+        null,
+        null,
+        36717.4,
+        4.8,
+        98.6,
+        null,
+        null,
+        null,
+        32723.3,
+        4.2,
+        99.1,
+        1.5,
+        1.1,
+        -0.9,
+        38911.5,
+        5,
+        98,
+        8.2,
+        7.9,
+        7.5,
+        33764.7,
+        4.4,
+        100.8,
+        4.6,
+        4.5,
+        0.8,
+        39143.8,
+        5,
+        99.2,
+        6.6,
+        6.3,
+        0.6,
+        34263.9,
+        4.4,
+        96.4,
+        4.7,
+        4.5,
+        -2.7,
+        40518,
+        5.2,
+        92.9,
+        4.1,
+        3.5,
+        -5.2,
+        34234.2,
+        4.4,
+        93.1,
+        1.4,
+        0.2,
+        -7.6,
+        41048.5,
+        5.2,
+        96,
+        4.9,
+        3.3,
+        -3.1,
+        36848.8,
+        4.7,
+        97.4,
+        7.5,
+        5.6,
+        1.1,
+        45163.4,
+        5.7,
+        98.9,
+        11.5,
+        9.5,
+        6.4,
+        38445.2,
+        4.8,
+        99.8,
+        12.3,
+        10.5,
+        7.2,
+        44966.6,
+        5.6,
+        100.6,
+        9.5,
+        7.8,
+        4.8,
+        40542.3,
+        5.1,
+        102.2,
+        10,
+        8.5,
+        4.9,
+        48863,
+        6.1,
+        102,
+        8.2,
+        6.8,
+        3.2,
+        40922.6,
+        5.1,
+        103,
+        6.4,
+        5.1,
+        3.2,
+        48292.2,
+        6,
+        103.6,
+        7.4,
+        6,
+        3,
+        42874,
+        5.3,
+        104.2,
+        5.8,
+        4.3,
+        1.9,
+        51713,
+        6.4,
+        104,
+        5.8,
+        4.4,
+        2,
+        42488.5,
+        5.2,
+        103.7,
+        3.8,
+        2.5,
+        0.7,
+        50739.3,
+        6.2,
+        104.5,
+        5.1,
+        3.9,
+        0.8
+      ],
+      "status": {
+        "3": "..",
+        "4": "..",
+        "5": "..",
+        "9": "..",
+        "10": "..",
+        "11": "..",
+        "15": "..",
+        "16": "..",
+        "17": "..",
+        "21": "..",
+        "22": "..",
+        "23": "..",
+        "72": "p",
+        "73": "p",
+        "74": "p",
+        "75": "p",
+        "76": "p",
+        "77": "p",
+        "78": "p",
+        "79": "p",
+        "80": "p",
+        "81": "p",
+        "82": "p",
+        "83": "p",
+        "84": "p",
+        "85": "p",
+        "86": "p",
+        "87": "p",
+        "88": "p",
+        "89": "p",
+        "90": "p",
+        "91": "p",
+        "92": "p",
+        "93": "p",
+        "94": "p",
+        "95": "p",
+        "96": "a",
+        "97": "a",
+        "98": "a",
+        "99": "a",
+        "100": "a",
+        "101": "a",
+        "102": "a",
+        "103": "a",
+        "104": "a",
+        "105": "a",
+        "106": "a",
+        "107": "a",
+        "108": "a",
+        "109": "a",
+        "110": "a",
+        "111": "a",
+        "112": "a",
+        "113": "a",
+        "114": "a",
+        "115": "a",
+        "116": "a",
+        "117": "a",
+        "118": "a",
+        "119": "a",
+        "120": "a",
+        "121": "a",
+        "122": "a",
+        "123": "a",
+        "124": "a",
+        "125": "a",
+        "126": "a",
+        "127": "a",
+        "128": "a",
+        "129": "a",
+        "130": "a",
+        "131": "a",
+        "132": "a",
+        "133": "a",
+        "134": "a",
+        "135": "a",
+        "136": "a",
+        "137": "a",
+        "138": "a",
+        "139": "a",
+        "140": "a",
+        "141": "a",
+        "142": "a",
+        "143": "a"
+      },
+      "extension": {
+        "status": {
+          "label": {
+            "..": "Dada confidencial, amb baixa fiabilitat o no disponible",
+            "a": "Dada avançada",
+            "p": "Dada provisional"
+          }
+        },
+        "source": [
+          "Idescat."
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "base_year": 2000,
+      "last_year": 2025,
+      "gdp_real_percent": 54.5566502463054,
+      "gdp_real_percap_percent": 17.73475209541029,
+      "household_consumption_real_total_percent": 29.31034482758621,
+      "household_consumption_real_percap_percent_approx": -1.4968209560312418
+    },
+    {
+      "base_year": 2007,
+      "last_year": 2025,
+      "gdp_real_percent": 20.557156580211334,
+      "gdp_real_percap_percent": 6.773164511792595,
+      "household_consumption_real_total_percent": 0.7556675062972307,
+      "household_consumption_real_percap_percent_approx": -10.764306596866058
+    },
+    {
+      "base_year": 2019,
+      "last_year": 2025,
+      "gdp_real_percent": 10.475352112676074,
+      "gdp_real_percap_percent": 4.062732353152798,
+      "household_consumption_real_total_percent": 5.355575065847229,
+      "household_consumption_real_percap_percent_approx": -0.7598636227221789
+    }
+  ]
+}

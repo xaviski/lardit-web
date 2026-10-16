@@ -1,0 +1,809 @@
+{
+  "generated_from_snapshots": "2026-10-16",
+  "territory": "Catalunya",
+  "generator": "scripts/build-creixement-benestar.mjs",
+  "notes": [
+    "PIB, renda i consum són fluxos, no patrimoni net.",
+    "Sèries agregades reals: comptabilitat nacional. Despesa EPF i renda ECV reals: aproximació amb IPC general.",
+    "L’edat de l’EPF és la del sustentador principal; la de l’ECV és la de cada persona. No són classificacions equivalents.",
+    "El període EPF2016–2019 s’aïlla per evitar les ruptures metodològiques de la sèrie."
+  ],
+  "charts": [
+    {
+      "id": "pib-total-per-habitant",
+      "title": "Una economia més gran, però quant més per persona?",
+      "alt": "PIB real total i PIB real per habitant de Catalunya, 2000–2025, amb base 2000 igual a 100.",
+      "unit": "Índex, 2000=100",
+      "rows": [
+        {
+          "year": 2000,
+          "gdp_real_total_index2000": 100,
+          "gdp_real_percap_index2000": 100,
+          "status": ""
+        },
+        {
+          "year": 2001,
+          "gdp_real_total_index2000": 103.32512315270937,
+          "gdp_real_percap_index2000": 101.43990556661726,
+          "status": ""
+        },
+        {
+          "year": 2002,
+          "gdp_real_total_index2000": 106.52709359605912,
+          "gdp_real_percap_index2000": 102.08438626781226,
+          "status": ""
+        },
+        {
+          "year": 2003,
+          "gdp_real_total_index2000": 110.34482758620689,
+          "gdp_real_percap_index2000": 103.41201651227396,
+          "status": ""
+        },
+        {
+          "year": 2004,
+          "gdp_real_total_index2000": 115.02463054187193,
+          "gdp_real_percap_index2000": 105.51709400259827,
+          "status": ""
+        },
+        {
+          "year": 2005,
+          "gdp_real_total_index2000": 119.45812807881772,
+          "gdp_real_percap_index2000": 107.21682705190784,
+          "status": ""
+        },
+        {
+          "year": 2006,
+          "gdp_real_total_index2000": 124.50738916256157,
+          "gdp_real_percap_index2000": 109.35582457913715,
+          "status": ""
+        },
+        {
+          "year": 2007,
+          "gdp_real_total_index2000": 128.20197044334972,
+          "gdp_real_percap_index2000": 110.26623836966736,
+          "status": ""
+        },
+        {
+          "year": 2008,
+          "gdp_real_total_index2000": 126.72413793103448,
+          "gdp_real_percap_index2000": 106.97192438545373,
+          "status": ""
+        },
+        {
+          "year": 2009,
+          "gdp_real_total_index2000": 121.30541871921181,
+          "gdp_real_percap_index2000": 101.26725257877081,
+          "status": ""
+        },
+        {
+          "year": 2010,
+          "gdp_real_total_index2000": 121.79802955665025,
+          "gdp_real_percap_index2000": 101.05694834995982,
+          "status": ""
+        },
+        {
+          "year": 2011,
+          "gdp_real_total_index2000": 121.67487684729063,
+          "gdp_real_percap_index2000": 100.63430469012351,
+          "status": ""
+        },
+        {
+          "year": 2012,
+          "gdp_real_total_index2000": 118.10344827586208,
+          "gdp_real_percap_index2000": 97.78162958641299,
+          "status": ""
+        },
+        {
+          "year": 2013,
+          "gdp_real_total_index2000": 116.62561576354679,
+          "gdp_real_percap_index2000": 97.1120480579083,
+          "status": ""
+        },
+        {
+          "year": 2014,
+          "gdp_real_total_index2000": 119.2118226600985,
+          "gdp_real_percap_index2000": 99.60618837153295,
+          "status": ""
+        },
+        {
+          "year": 2015,
+          "gdp_real_total_index2000": 123.52216748768473,
+          "gdp_real_percap_index2000": 103.05687372587862,
+          "status": ""
+        },
+        {
+          "year": 2016,
+          "gdp_real_total_index2000": 128.57142857142858,
+          "gdp_real_percap_index2000": 106.79893219723824,
+          "status": ""
+        },
+        {
+          "year": 2017,
+          "gdp_real_total_index2000": 132.63546798029557,
+          "gdp_real_percap_index2000": 109.3676965920539,
+          "status": ""
+        },
+        {
+          "year": 2018,
+          "gdp_real_total_index2000": 136.69950738916256,
+          "gdp_real_percap_index2000": 111.85132169423801,
+          "status": ""
+        },
+        {
+          "year": 2019,
+          "gdp_real_total_index2000": 139.9014778325123,
+          "gdp_real_percap_index2000": 113.13824789441371,
+          "status": ""
+        },
+        {
+          "year": 2020,
+          "gdp_real_total_index2000": 123.15270935960592,
+          "gdp_real_percap_index2000": 98.80703230205116,
+          "status": ""
+        },
+        {
+          "year": 2021,
+          "gdp_real_total_index2000": 131.4039408866995,
+          "gdp_real_percap_index2000": 105.22843448853673,
+          "status": ""
+        },
+        {
+          "year": 2022,
+          "gdp_real_total_index2000": 140.88669950738918,
+          "gdp_real_percap_index2000": 111.70241273222506,
+          "status": ""
+        },
+        {
+          "year": 2023,
+          "gdp_real_total_index2000": 144.82758620689654,
+          "gdp_real_percap_index2000": 113.0188493645081,
+          "status": "p"
+        },
+        {
+          "year": 2024,
+          "gdp_real_total_index2000": 150.4926108374384,
+          "gdp_real_percap_index2000": 115.83455162799218,
+          "status": "p"
+        },
+        {
+          "year": 2025,
+          "gdp_real_total_index2000": 154.5566502463054,
+          "gdp_real_percap_index2000": 117.73475209541029,
+          "status": "p"
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
+      ],
+      "desktop": "/assets/charts/creixement-benestar/pib-total-per-habitant.svg",
+      "mobile": "/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg"
+    },
+    {
+      "id": "pib-consum-per-habitant",
+      "title": "Produir més no és el mateix que consumir més",
+      "alt": "PIB real per habitant i consum real de les llars per habitant aproximat, Catalunya 2000–2025, base 2000 igual a 100.",
+      "unit": "Índex, 2000=100",
+      "rows": [
+        {
+          "year": 2000,
+          "gdp_real_percap_index2000": 100,
+          "household_consumption_real_percap_index2000_approx": 100,
+          "status": ""
+        },
+        {
+          "year": 2001,
+          "gdp_real_percap_index2000": 101.43990556661726,
+          "household_consumption_real_percap_index2000_approx": 101.34922627081873,
+          "status": ""
+        },
+        {
+          "year": 2002,
+          "gdp_real_percap_index2000": 102.08438626781226,
+          "household_consumption_real_percap_index2000_approx": 103.05802347788095,
+          "status": ""
+        },
+        {
+          "year": 2003,
+          "gdp_real_percap_index2000": 103.41201651227396,
+          "household_consumption_real_percap_index2000_approx": 103.71498140439977,
+          "status": ""
+        },
+        {
+          "year": 2004,
+          "gdp_real_percap_index2000": 105.51709400259827,
+          "household_consumption_real_percap_index2000_approx": 106.26554234067878,
+          "status": ""
+        },
+        {
+          "year": 2005,
+          "gdp_real_percap_index2000": 107.21682705190784,
+          "household_consumption_real_percap_index2000_approx": 107.93529032596697,
+          "status": ""
+        },
+        {
+          "year": 2006,
+          "gdp_real_percap_index2000": 109.35582457913715,
+          "household_consumption_real_percap_index2000_approx": 108.74739083704257,
+          "status": ""
+        },
+        {
+          "year": 2007,
+          "gdp_real_percap_index2000": 110.26623836966736,
+          "household_consumption_real_percap_index2000_approx": 110.38540217194004,
+          "status": ""
+        },
+        {
+          "year": 2008,
+          "gdp_real_percap_index2000": 106.97192438545373,
+          "household_consumption_real_percap_index2000_approx": 107.06288690618966,
+          "status": ""
+        },
+        {
+          "year": 2009,
+          "gdp_real_percap_index2000": 101.26725257877081,
+          "household_consumption_real_percap_index2000_approx": 100.93312204995762,
+          "status": ""
+        },
+        {
+          "year": 2010,
+          "gdp_real_percap_index2000": 101.05694834995982,
+          "household_consumption_real_percap_index2000_approx": 99.86909493785839,
+          "status": ""
+        },
+        {
+          "year": 2011,
+          "gdp_real_percap_index2000": 100.63430469012351,
+          "household_consumption_real_percap_index2000_approx": 97.94783729518217,
+          "status": ""
+        },
+        {
+          "year": 2012,
+          "gdp_real_percap_index2000": 97.78162958641299,
+          "household_consumption_real_percap_index2000_approx": 94.39139060440229,
+          "status": ""
+        },
+        {
+          "year": 2013,
+          "gdp_real_percap_index2000": 97.1120480579083,
+          "household_consumption_real_percap_index2000_approx": 90.17730439379419,
+          "status": ""
+        },
+        {
+          "year": 2014,
+          "gdp_real_percap_index2000": 99.60618837153295,
+          "household_consumption_real_percap_index2000_approx": 92.10742703106241,
+          "status": ""
+        },
+        {
+          "year": 2015,
+          "gdp_real_percap_index2000": 103.05687372587862,
+          "household_consumption_real_percap_index2000_approx": 94.93973212633283,
+          "status": ""
+        },
+        {
+          "year": 2016,
+          "gdp_real_percap_index2000": 106.79893219723824,
+          "household_consumption_real_percap_index2000_approx": 96.22389425098392,
+          "status": ""
+        },
+        {
+          "year": 2017,
+          "gdp_real_percap_index2000": 109.3676965920539,
+          "household_consumption_real_percap_index2000_approx": 97.82925227889498,
+          "status": ""
+        },
+        {
+          "year": 2018,
+          "gdp_real_percap_index2000": 111.85132169423801,
+          "household_consumption_real_percap_index2000_approx": 99.10430169935412,
+          "status": ""
+        },
+        {
+          "year": 2019,
+          "gdp_real_percap_index2000": 113.13824789441371,
+          "household_consumption_real_percap_index2000_approx": 99.25739991881169,
+          "status": ""
+        },
+        {
+          "year": 2020,
+          "gdp_real_percap_index2000": 98.80703230205116,
+          "household_consumption_real_percap_index2000_approx": 86.45615326429476,
+          "status": ""
+        },
+        {
+          "year": 2021,
+          "gdp_real_percap_index2000": 105.22843448853673,
+          "household_consumption_real_percap_index2000_approx": 92.07488017746964,
+          "status": ""
+        },
+        {
+          "year": 2022,
+          "gdp_real_percap_index2000": 111.70241273222506,
+          "household_consumption_real_percap_index2000_approx": 93.38233826641759,
+          "status": ""
+        },
+        {
+          "year": 2023,
+          "gdp_real_percap_index2000": 113.0188493645081,
+          "household_consumption_real_percap_index2000_approx": 93.42555181842896,
+          "status": "p"
+        },
+        {
+          "year": 2024,
+          "gdp_real_percap_index2000": 115.83455162799218,
+          "household_consumption_real_percap_index2000_approx": 95.79811271607169,
+          "status": "p"
+        },
+        {
+          "year": 2025,
+          "gdp_real_percap_index2000": 117.73475209541029,
+          "household_consumption_real_percap_index2000_approx": 98.50317904396876,
+          "status": "p"
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
+      ],
+      "formula": "Household_consumption_volume_index2020_t / GDP_volume_index2020_t * GDP_real_percap_index2020_t",
+      "limitation": "Derived consumption per capita is an APPROXIMATE own calculation, not an Idescat published series. It uses the population implicit in the published real-GDP-per-capita series and the same annual accounts revision. Source indices rounded to 0.1 imply small rounding errors. Preserve full precision for calculations; display 1 decimal.",
+      "desktop": "/assets/charts/creixement-benestar/pib-consum-per-habitant.svg",
+      "mobile": "/assets/charts/creixement-benestar/pib-consum-per-habitant-mobile.svg"
+    },
+    {
+      "id": "sensibilitat-any-base",
+      "title": "Què canvia quan movem el punt de partida?",
+      "alt": "Variació acumulada fins a 2025 del PIB total, el PIB per habitant i el consum per habitant, des de 2000, 2007 i 2019.",
+      "unit": "Variació acumulada (%)",
+      "rows": [
+        {
+          "base_year": 2000,
+          "series": "PIB real total",
+          "key": "gdp",
+          "change_percent": 54.5566502463054
+        },
+        {
+          "base_year": 2000,
+          "series": "PIB real per habitant",
+          "key": "gdp_percap",
+          "change_percent": 17.73475209541029
+        },
+        {
+          "base_year": 2000,
+          "series": "Consum real per habitant (aprox.)",
+          "key": "consumption_percap",
+          "change_percent": -1.4968209560312418
+        },
+        {
+          "base_year": 2007,
+          "series": "PIB real total",
+          "key": "gdp",
+          "change_percent": 20.557156580211334
+        },
+        {
+          "base_year": 2007,
+          "series": "PIB real per habitant",
+          "key": "gdp_percap",
+          "change_percent": 6.773164511792595
+        },
+        {
+          "base_year": 2007,
+          "series": "Consum real per habitant (aprox.)",
+          "key": "consumption_percap",
+          "change_percent": -10.764306596866058
+        },
+        {
+          "base_year": 2019,
+          "series": "PIB real total",
+          "key": "gdp",
+          "change_percent": 10.475352112676074
+        },
+        {
+          "base_year": 2019,
+          "series": "PIB real per habitant",
+          "key": "gdp_percap",
+          "change_percent": 4.062732353152798
+        },
+        {
+          "base_year": 2019,
+          "series": "Consum real per habitant (aprox.)",
+          "key": "consumption_percap",
+          "change_percent": -0.7598636227221789
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
+      ],
+      "formula": "100 * (valor_2025 / valor_any_base - 1)",
+      "desktop": "/assets/charts/creixement-benestar/sensibilitat-any-base.svg",
+      "mobile": "/assets/charts/creixement-benestar/sensibilitat-any-base-mobile.svg"
+    },
+    {
+      "id": "despesa-edat-2024",
+      "title": "Quant consumeixen les llars segons l’edat?",
+      "alt": "Despesa nominal anual per unitat de consum a Catalunya el 2024, segons l’edat del sustentador principal de la llar.",
+      "unit": "Euros anuals per unitat de consum, preus corrents",
+      "rows": [
+        {
+          "age_group_main_provider": "16–29",
+          "annual_nominal_euros_per_consumption_unit": 18755,
+          "status": "b"
+        },
+        {
+          "age_group_main_provider": "30–44",
+          "annual_nominal_euros_per_consumption_unit": 20148,
+          "status": "b"
+        },
+        {
+          "age_group_main_provider": "45–59",
+          "annual_nominal_euros_per_consumption_unit": 21521,
+          "status": "b"
+        },
+        {
+          "age_group_main_provider": "60–74",
+          "annual_nominal_euros_per_consumption_unit": 24907,
+          "status": "b"
+        },
+        {
+          "age_group_main_provider": "75+",
+          "annual_nominal_euros_per_consumption_unit": 22550,
+          "status": "b"
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/indicadors/?id=aec&n=15382",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=3&f=ssv"
+      ],
+      "limitation": "Age of main household provider, not the age of each consumer. The provider is the household member aged 16+ with the largest regular contribution to household budget. A young adult living with an older main provider is classified in that older provider's group. These data cannot describe all young individuals' consumption. Official table also flags2024 b; COICOP2018 introduced.2016–20 and2023 classification revised in June2026;2021/22 revisions forthcoming and currently unavailable in revised table.",
+      "desktop": "/assets/charts/creixement-benestar/despesa-edat-2024.svg",
+      "mobile": "/assets/charts/creixement-benestar/despesa-edat-2024-mobile.svg"
+    },
+    {
+      "id": "renda-real-edat",
+      "title": "Com ha canviat el poder adquisitiu per edat?",
+      "alt": "Evolució aproximada de la renda real per unitat de consum dels menors de 16 anys, de 16 a 39, de 40 a 64 i de 65 o més, entre els anys de renda 2012 i 2024.",
+      "unit": "Índex real aproximat, any de renda 2012=100",
+      "age_groups": {
+        "under_16": "Menys de 16 anys",
+        "age_16_39": "De 16 a 39 anys",
+        "age_40_64": "De 40 a 64 anys",
+        "age_65_plus": "65 anys o més",
+        "total": "Total"
+      },
+      "rows": [
+        {
+          "income_reference_year": 2012,
+          "survey_year": 2013,
+          "cpi_annual_mean": 77.7,
+          "under_16_nominal_euros": 16082,
+          "under_16_real_euros2024_approx": 20200.813384813384,
+          "under_16_real_index2012_approx": 100,
+          "age_16_39_nominal_euros": 17430,
+          "age_16_39_real_euros2024_approx": 21894.054054054053,
+          "age_16_39_real_index2012_approx": 100,
+          "age_40_64_nominal_euros": 19311,
+          "age_40_64_real_euros2024_approx": 24256.803088803084,
+          "age_40_64_real_index2012_approx": 100,
+          "age_65_plus_nominal_euros": 17568,
+          "age_65_plus_real_euros2024_approx": 22067.39768339768,
+          "age_65_plus_real_index2012_approx": 100,
+          "total_nominal_euros": 17883,
+          "total_real_euros2024_approx": 22463.073359073354,
+          "total_real_index2012_approx": 100
+        },
+        {
+          "income_reference_year": 2013,
+          "survey_year": 2014,
+          "cpi_annual_mean": 79,
+          "under_16_nominal_euros": 16823,
+          "under_16_real_euros2024_approx": 20783.858227848097,
+          "under_16_real_index2012_approx": 102.88624438990676,
+          "age_16_39_nominal_euros": 17441,
+          "age_16_39_real_euros2024_approx": 21547.362025316455,
+          "age_16_39_real_index2012_approx": 98.41650144883332,
+          "age_40_64_nominal_euros": 19544,
+          "age_40_64_real_euros2024_approx": 24145.498734177214,
+          "age_40_64_real_index2012_approx": 99.54114169860559,
+          "age_65_plus_nominal_euros": 17616,
+          "age_65_plus_real_euros2024_approx": 21763.564556962025,
+          "age_65_plus_real_index2012_approx": 98.62315833160407,
+          "total_nominal_euros": 18104,
+          "total_real_euros2024_approx": 22366.46075949367,
+          "total_real_index2012_approx": 99.5699048031615
+        },
+        {
+          "income_reference_year": 2014,
+          "survey_year": 2015,
+          "cpi_annual_mean": 79.1,
+          "under_16_nominal_euros": 16860,
+          "under_16_real_euros2024_approx": 20803.236409608093,
+          "under_16_real_index2012_approx": 102.9821721200969,
+          "age_16_39_nominal_euros": 17483,
+          "age_16_39_real_euros2024_approx": 21571.94437420986,
+          "age_16_39_real_index2012_approx": 98.52878010144242,
+          "age_40_64_nominal_euros": 19543,
+          "age_40_64_real_euros2024_approx": 24113.739570164347,
+          "age_40_64_real_index2012_approx": 99.41021280456873,
+          "age_65_plus_nominal_euros": 18177,
+          "age_65_plus_real_euros2024_approx": 22428.257901390647,
+          "age_65_plus_real_index2012_approx": 101.63526403597855,
+          "total_nominal_euros": 18236,
+          "total_real_euros2024_approx": 22501.05689001264,
+          "total_real_index2012_approx": 100.16909320613487
+        },
+        {
+          "income_reference_year": 2015,
+          "survey_year": 2016,
+          "cpi_annual_mean": 79,
+          "under_16_nominal_euros": 18067,
+          "under_16_real_euros2024_approx": 22320.749367088607,
+          "under_16_real_index2012_approx": 110.49431001560043,
+          "age_16_39_nominal_euros": 17733,
+          "age_16_39_real_euros2024_approx": 21908.111392405062,
+          "age_16_39_real_index2012_approx": 100.06420619185603,
+          "age_40_64_nominal_euros": 20252,
+          "age_40_64_real_euros2024_approx": 25020.19240506329,
+          "age_40_64_real_index2012_approx": 103.14711428981582,
+          "age_65_plus_nominal_euros": 18384,
+          "age_65_plus_real_euros2024_approx": 22712.38481012658,
+          "age_65_plus_real_index2012_approx": 102.92280556131976,
+          "total_nominal_euros": 18828,
+          "total_real_euros2024_approx": 23260.92151898734,
+          "total_real_index2012_approx": 103.55182101380494
+        },
+        {
+          "income_reference_year": 2016,
+          "survey_year": 2017,
+          "cpi_annual_mean": 79,
+          "under_16_nominal_euros": 18021,
+          "under_16_real_euros2024_approx": 22263.91898734177,
+          "under_16_real_index2012_approx": 110.21298283008443,
+          "age_16_39_nominal_euros": 18548,
+          "age_16_39_real_euros2024_approx": 22914.997468354428,
+          "age_16_39_real_index2012_approx": 104.6631081287174,
+          "age_40_64_nominal_euros": 20076,
+          "age_40_64_real_euros2024_approx": 24802.754430379744,
+          "age_40_64_real_index2012_approx": 102.25071432363926,
+          "age_65_plus_nominal_euros": 18170,
+          "age_65_plus_real_euros2024_approx": 22448,
+          "age_65_plus_real_index2012_approx": 101.7247267759563,
+          "total_nominal_euros": 18957,
+          "total_real_euros2024_approx": 23420.293670886076,
+          "total_real_index2012_approx": 104.2613060844859
+        },
+        {
+          "income_reference_year": 2017,
+          "survey_year": 2018,
+          "cpi_annual_mean": 80.8,
+          "under_16_nominal_euros": 18578,
+          "under_16_real_euros2024_approx": 22440.752475247522,
+          "under_16_real_index2012_approx": 111.08836088807239,
+          "age_16_39_nominal_euros": 19217,
+          "age_16_39_real_euros2024_approx": 23212.61386138614,
+          "age_16_39_real_index2012_approx": 106.02245616127878,
+          "age_40_64_nominal_euros": 21097,
+          "age_40_64_real_euros2024_approx": 25483.50495049505,
+          "age_40_64_real_index2012_approx": 105.05714564776349,
+          "age_65_plus_nominal_euros": 19152,
+          "age_65_plus_real_euros2024_approx": 23134.09900990099,
+          "age_65_plus_real_index2012_approx": 104.8338337932154,
+          "total_nominal_euros": 19791,
+          "total_real_euros2024_approx": 23905.9603960396,
+          "total_real_index2012_approx": 106.42337321301332
+        },
+        {
+          "income_reference_year": 2018,
+          "survey_year": 2019,
+          "cpi_annual_mean": 82.2,
+          "under_16_nominal_euros": 17763,
+          "under_16_real_euros2024_approx": 21090.86131386861,
+          "under_16_real_index2012_approx": 104.40600045206271,
+          "age_16_39_nominal_euros": 19178,
+          "age_16_39_real_euros2024_approx": 22770.958637469583,
+          "age_16_39_real_index2012_approx": 104.00521795210037,
+          "age_40_64_nominal_euros": 21561,
+          "age_40_64_real_euros2024_approx": 25600.40875912409,
+          "age_40_64_real_index2012_approx": 105.53908800513459,
+          "age_65_plus_nominal_euros": 20415,
+          "age_65_plus_real_euros2024_approx": 24239.708029197078,
+          "age_65_plus_real_index2012_approx": 109.8439805951099,
+          "total_nominal_euros": 20049,
+          "total_real_euros2024_approx": 23805.138686131384,
+          "total_real_index2012_approx": 105.97454010680127
+        },
+        {
+          "income_reference_year": 2019,
+          "survey_year": 2020,
+          "cpi_annual_mean": 82.9,
+          "under_16_nominal_euros": 18214,
+          "under_16_real_euros2024_approx": 21443.744270205065,
+          "under_16_real_index2012_approx": 106.15287543978845,
+          "age_16_39_nominal_euros": 19968,
+          "age_16_39_real_euros2024_approx": 23508.7671893848,
+          "age_16_39_real_index2012_approx": 107.37512171726713,
+          "age_40_64_nominal_euros": 22647,
+          "age_40_64_real_euros2024_approx": 26662.813027744265,
+          "age_40_64_real_index2012_approx": 109.91890782199488,
+          "age_65_plus_nominal_euros": 21077,
+          "age_65_plus_real_euros2024_approx": 24814.417370325693,
+          "age_65_plus_real_index2012_approx": 112.44831731561497,
+          "total_nominal_euros": 20872,
+          "total_real_euros2024_approx": 24573.066344993968,
+          "total_real_index2012_approx": 109.3931625125034
+        },
+        {
+          "income_reference_year": 2020,
+          "survey_year": 2021,
+          "cpi_annual_mean": 82.6,
+          "under_16_nominal_euros": 18486,
+          "under_16_real_euros2024_approx": 21843.021791767555,
+          "under_16_real_index2012_approx": 108.12941724509348,
+          "age_16_39_nominal_euros": 19819,
+          "age_16_39_real_euros2024_approx": 23418.09200968523,
+          "age_16_39_real_index2012_approx": 106.96096735610725,
+          "age_40_64_nominal_euros": 22065,
+          "age_40_64_real_euros2024_approx": 26071.961259079904,
+          "age_40_64_real_index2012_approx": 107.483089027155,
+          "age_65_plus_nominal_euros": 22396,
+          "age_65_plus_real_euros2024_approx": 26463.070217917677,
+          "age_65_plus_real_index2012_approx": 119.91930628878393,
+          "total_nominal_euros": 20927,
+          "total_real_euros2024_approx": 24727.30266343826,
+          "total_real_index2012_approx": 110.07978413359155
+        },
+        {
+          "income_reference_year": 2021,
+          "survey_year": 2022,
+          "cpi_annual_mean": 85,
+          "under_16_nominal_euros": 19439,
+          "under_16_real_euros2024_approx": 22320.54588235294,
+          "under_16_real_index2012_approx": 110.49330270598476,
+          "age_16_39_nominal_euros": 20616,
+          "age_16_39_real_euros2024_approx": 23672.01882352941,
+          "age_16_39_real_index2012_approx": 108.12076541459959,
+          "age_40_64_nominal_euros": 23030,
+          "age_40_64_real_euros2024_approx": 26443.858823529412,
+          "age_40_64_real_index2012_approx": 109.0162571164865,
+          "age_65_plus_nominal_euros": 22228,
+          "age_65_plus_real_euros2024_approx": 25522.974117647056,
+          "age_65_plus_real_index2012_approx": 115.65919318547091,
+          "total_nominal_euros": 21637,
+          "total_real_euros2024_approx": 24844.367058823525,
+          "total_real_index2012_approx": 110.60092562440175
+        },
+        {
+          "income_reference_year": 2022,
+          "survey_year": 2023,
+          "cpi_annual_mean": 91.8,
+          "under_16_nominal_euros": 20451,
+          "under_16_real_euros2024_approx": 21743.11111111111,
+          "under_16_real_index2012_approx": 107.63482983045228,
+          "age_16_39_nominal_euros": 22445,
+          "age_16_39_real_euros2024_approx": 23863.093681917213,
+          "age_16_39_real_index2012_approx": 108.99349030107359,
+          "age_40_64_nominal_euros": 24556,
+          "age_40_64_real_euros2024_approx": 26107.468409586058,
+          "age_40_64_real_index2012_approx": 107.62946920089911,
+          "age_65_plus_nominal_euros": 24330,
+          "age_65_plus_real_euros2024_approx": 25867.189542483662,
+          "age_65_plus_real_index2012_approx": 117.21903014393374,
+          "total_nominal_euros": 23269,
+          "total_real_euros2024_approx": 24739.15468409586,
+          "total_real_index2012_approx": 110.13254637350478
+        },
+        {
+          "income_reference_year": 2023,
+          "survey_year": 2024,
+          "cpi_annual_mean": 94.9,
+          "under_16_nominal_euros": 21132,
+          "under_16_real_euros2024_approx": 21733.226554267647,
+          "under_16_real_index2012_approx": 107.58589835103523,
+          "age_16_39_nominal_euros": 23940,
+          "age_16_39_real_euros2024_approx": 24621.116965226553,
+          "age_16_39_real_index2012_approx": 112.45572384374168,
+          "age_40_64_nominal_euros": 25318,
+          "age_40_64_real_euros2024_approx": 26038.322444678604,
+          "age_40_64_real_index2012_approx": 107.34441117138749,
+          "age_65_plus_nominal_euros": 25945,
+          "age_65_plus_real_euros2024_approx": 26683.161222339302,
+          "age_65_plus_real_index2012_approx": 120.91666450736179,
+          "total_nominal_euros": 24412,
+          "total_real_euros2024_approx": 25106.545837723916,
+          "total_real_index2012_approx": 111.76808015712953
+        },
+        {
+          "income_reference_year": 2024,
+          "survey_year": 2025,
+          "cpi_annual_mean": 97.6,
+          "under_16_nominal_euros": 21741,
+          "under_16_real_euros2024_approx": 21741.000000000004,
+          "under_16_real_index2012_approx": 107.62437920615862,
+          "age_16_39_nominal_euros": 25142,
+          "age_16_39_real_euros2024_approx": 25142,
+          "age_16_39_real_index2012_approx": 114.83483112778985,
+          "age_40_64_nominal_euros": 26376,
+          "age_40_64_real_euros2024_approx": 26375.999999999996,
+          "age_40_64_real_index2012_approx": 108.73650539784087,
+          "age_65_plus_nominal_euros": 26776,
+          "age_65_plus_real_euros2024_approx": 26775.999999999996,
+          "age_65_plus_real_index2012_approx": 121.33737010660217,
+          "total_nominal_euros": 25424,
+          "total_real_euros2024_approx": 25424,
+          "total_real_index2012_approx": 113.18130691021697
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=ecv&n=7600",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15361"
+      ],
+      "formula": "renda_real_preus2024_t = renda_nominal_t * IPC_2024 / IPC_t; index2012 = 100 * renda_real_t / renda_real_2012",
+      "limitation": [
+        "La sèrie base 2013 incorpora registres administratius de l'AEAT i de la Seguretat Social. No enllaçar directament amb la base 2004 sense tractar el trencament metodològic.",
+        "Idescat amplia la mostra de Catalunya a partir de 2016. A partir de 2021 s'apliquen canvis de panel rotant i els nous reglaments europeus; consultar la metodologia per al detall.",
+        "Les diferències temporals per edat no segueixen la mateixa cohort de persones. La composició de cada grup pot variar.",
+        "Són mitjanes, no medianes: l'indicador pot variar per canvis als ingressos alts encara que la persona típica experimenti una altra evolució.",
+        "Sèrie derivada ajustada amb IPC anual mitjà de Catalunya de l’any de renda; aproximació comuna, no inflació específica per edat."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/renda-real-edat.svg",
+      "mobile": "/assets/charts/creixement-benestar/renda-real-edat-mobile.svg"
+    },
+    {
+      "id": "despesa-real-edat-2016-2019",
+      "title": "Un episodi històric: la despesa entre 2016 i 2019",
+      "alt": "Creixement real aproximat de la despesa anual per unitat de consum entre 2016 i 2019, segons l’edat del sustentador principal de la llar.",
+      "unit": "Variació real aproximada (%)",
+      "rows": [
+        {
+          "age_group_main_provider": "16–29",
+          "start_year": 2016,
+          "end_year": 2019,
+          "nominal_euros_start": 15057,
+          "nominal_euros_end": 17938,
+          "real_change_percent_approx": 13.529344422036637
+        },
+        {
+          "age_group_main_provider": "30–44",
+          "start_year": 2016,
+          "end_year": 2019,
+          "nominal_euros_start": 17848,
+          "nominal_euros_end": 18870,
+          "real_change_percent_approx": 0.7522848079398736
+        },
+        {
+          "age_group_main_provider": "45–59",
+          "start_year": 2016,
+          "end_year": 2019,
+          "nominal_euros_start": 18379,
+          "nominal_euros_end": 19677,
+          "real_change_percent_approx": 2.0256965799391846
+        },
+        {
+          "age_group_main_provider": "60–74",
+          "start_year": 2016,
+          "end_year": 2019,
+          "nominal_euros_start": 20062,
+          "nominal_euros_end": 22654,
+          "real_change_percent_approx": 7.607670744215245
+        },
+        {
+          "age_group_main_provider": "75+",
+          "start_year": 2016,
+          "end_year": 2019,
+          "nominal_euros_start": 16659,
+          "nominal_euros_end": 18105,
+          "real_change_percent_approx": 3.5671825203646756
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=3&f=ssv",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15361"
+      ],
+      "formula": "100 * (despesa_nominal_2019 / despesa_nominal_2016 * IPC_2016 / IPC_2019 - 1)",
+      "limitation": "Use2024 age cross-section as the latest snapshot. If a historic change is desired, use2016→2019 within one base and before COVID, labelled as a historical episode, or2007→2015 within old base. Do not draw a clean2007→2024 growth story or join across breaks. General Catalan CPI is an approximate common deflator, not an age-specific price index and not the national-accounts consumption deflator. Its basket excludes imputed rent whereas EPF includes it; interpret EPF/CPI as an indicative real-spending proxy, not an exact volume measure. Prefer official national-accounts volume series for aggregate consumption/GDP charts.",
+      "desktop": "/assets/charts/creixement-benestar/despesa-real-edat-2016-2019.svg",
+      "mobile": "/assets/charts/creixement-benestar/despesa-real-edat-2016-2019-mobile.svg"
+    }
+  ]
+}
