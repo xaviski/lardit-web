@@ -180,6 +180,9 @@ button, input, textarea { font: inherit; }
   border-bottom: 2px solid var(--ink);
 }
 .hero-copy { grid-column: 1 / span 8; padding-right: clamp(0rem, 4vw, 3rem); }
+.hero--text-only .hero-copy { grid-column: 1 / -1; padding-right: 0; }
+.hero.hero--text-only h1 { max-width: 24ch; }
+.latest-articles { padding: 2.5rem 0 4rem; }
 .eyebrow {
   display: flex;
   align-items: center;
@@ -374,6 +377,8 @@ button, input, textarea { font: inherit; }
 .footer small { display: block; padding: 1rem 0 1.5rem; border-top: 1px solid var(--ink); color: var(--muted); }
 .article-header { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; border-bottom: 1px solid var(--ink); }
 .article-header .article-title { max-width: 18ch; }
+.university-article .article-header { padding-bottom: 2rem; }
+.university-article .article-title { max-width: 20ch; }
 .article-deck { max-width: 48rem; margin: 1.5rem 0 0; font-size: clamp(1.2rem, 2.2vw, 1.6rem); line-height: 1.42; }
 .manifest-header .article-title { font-size: clamp(2.75rem, 5.6vw, 5rem); }
 .manifest-header .article-deck { max-width: 44rem; font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
@@ -396,6 +401,7 @@ button, input, textarea { font: inherit; }
   font-weight: 700;
   line-height: 0.76;
 }
+.university-article .article-lead::first-letter { float: none; margin: 0; color: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; }
 .article-body h2 {
   margin: 2.7rem 0 0.9rem;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -609,6 +615,10 @@ button, input, textarea { font: inherit; }
 .form-submit:hover { border-color: var(--red); background: var(--red); }
 .contact-confirmation { min-height: 18rem; padding: 3rem 0 6rem; }
 .contact-confirmation .text-link { margin-top: 0; }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .university-article .article-layout { grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 740px); }
+  .university-article .margin-note { grid-column: 2; margin: 0; }
+}
 @media (max-width: 900px) {
   .hero-copy { grid-column: 1 / span 7; }
   .hero-aside { grid-column: 8 / -1; }
