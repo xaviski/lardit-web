@@ -12,163 +12,164 @@
     {
       "id": "pib-total-per-habitant",
       "title": "Una economia més gran, però quant més per persona?",
-      "alt": "PIB real total i PIB real per habitant de Catalunya, 2000–2025, amb base 2000 igual a 100.",
-      "unit": "Índex, 2000=100",
+      "alt": "Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2000–2025, en percentatge respecte del 2000.",
+      "unit": "Variació real acumulada respecte del 2000 (%)",
+      "base_year": 2000,
       "rows": [
         {
           "year": 2000,
-          "gdp_real_total_index2000": 100,
-          "gdp_real_percap_index2000": 100,
+          "gdp_real_total_growth_since2000_percent": 0,
+          "gdp_real_percap_growth_since2000_percent": 0,
           "status": ""
         },
         {
           "year": 2001,
-          "gdp_real_total_index2000": 103.32512315270937,
-          "gdp_real_percap_index2000": 101.43990556661726,
+          "gdp_real_total_growth_since2000_percent": 3.325123152709364,
+          "gdp_real_percap_growth_since2000_percent": 1.439905566617261,
           "status": ""
         },
         {
           "year": 2002,
-          "gdp_real_total_index2000": 106.52709359605912,
-          "gdp_real_percap_index2000": 102.08438626781226,
+          "gdp_real_total_growth_since2000_percent": 6.527093596059119,
+          "gdp_real_percap_growth_since2000_percent": 2.084386267812266,
           "status": ""
         },
         {
           "year": 2003,
-          "gdp_real_total_index2000": 110.34482758620689,
-          "gdp_real_percap_index2000": 103.41201651227396,
+          "gdp_real_total_growth_since2000_percent": 10.344827586206895,
+          "gdp_real_percap_growth_since2000_percent": 3.412016512273963,
           "status": ""
         },
         {
           "year": 2004,
-          "gdp_real_total_index2000": 115.02463054187193,
-          "gdp_real_percap_index2000": 105.51709400259827,
+          "gdp_real_total_growth_since2000_percent": 15.02463054187193,
+          "gdp_real_percap_growth_since2000_percent": 5.517094002598277,
           "status": ""
         },
         {
           "year": 2005,
-          "gdp_real_total_index2000": 119.45812807881772,
-          "gdp_real_percap_index2000": 107.21682705190784,
+          "gdp_real_total_growth_since2000_percent": 19.458128078817726,
+          "gdp_real_percap_growth_since2000_percent": 7.216827051907848,
           "status": ""
         },
         {
           "year": 2006,
-          "gdp_real_total_index2000": 124.50738916256157,
-          "gdp_real_percap_index2000": 109.35582457913715,
+          "gdp_real_total_growth_since2000_percent": 24.507389162561566,
+          "gdp_real_percap_growth_since2000_percent": 9.35582457913715,
           "status": ""
         },
         {
           "year": 2007,
-          "gdp_real_total_index2000": 128.20197044334972,
-          "gdp_real_percap_index2000": 110.26623836966736,
+          "gdp_real_total_growth_since2000_percent": 28.201970443349733,
+          "gdp_real_percap_growth_since2000_percent": 10.266238369667358,
           "status": ""
         },
         {
           "year": 2008,
-          "gdp_real_total_index2000": 126.72413793103448,
-          "gdp_real_percap_index2000": 106.97192438545373,
+          "gdp_real_total_growth_since2000_percent": 26.724137931034477,
+          "gdp_real_percap_growth_since2000_percent": 6.971924385453732,
           "status": ""
         },
         {
           "year": 2009,
-          "gdp_real_total_index2000": 121.30541871921181,
-          "gdp_real_percap_index2000": 101.26725257877081,
+          "gdp_real_total_growth_since2000_percent": 21.30541871921181,
+          "gdp_real_percap_growth_since2000_percent": 1.2672525787708055,
           "status": ""
         },
         {
           "year": 2010,
-          "gdp_real_total_index2000": 121.79802955665025,
-          "gdp_real_percap_index2000": 101.05694834995982,
+          "gdp_real_total_growth_since2000_percent": 21.798029556650246,
+          "gdp_real_percap_growth_since2000_percent": 1.0569483499598187,
           "status": ""
         },
         {
           "year": 2011,
-          "gdp_real_total_index2000": 121.67487684729063,
-          "gdp_real_percap_index2000": 100.63430469012351,
+          "gdp_real_total_growth_since2000_percent": 21.674876847290637,
+          "gdp_real_percap_growth_since2000_percent": 0.6343046901235105,
           "status": ""
         },
         {
           "year": 2012,
-          "gdp_real_total_index2000": 118.10344827586208,
-          "gdp_real_percap_index2000": 97.78162958641299,
+          "gdp_real_total_growth_since2000_percent": 18.10344827586208,
+          "gdp_real_percap_growth_since2000_percent": -2.218370413587012,
           "status": ""
         },
         {
           "year": 2013,
-          "gdp_real_total_index2000": 116.62561576354679,
-          "gdp_real_percap_index2000": 97.1120480579083,
+          "gdp_real_total_growth_since2000_percent": 16.625615763546797,
+          "gdp_real_percap_growth_since2000_percent": -2.8879519420917044,
           "status": ""
         },
         {
           "year": 2014,
-          "gdp_real_total_index2000": 119.2118226600985,
-          "gdp_real_percap_index2000": 99.60618837153295,
+          "gdp_real_total_growth_since2000_percent": 19.21182266009851,
+          "gdp_real_percap_growth_since2000_percent": -0.39381162846704454,
           "status": ""
         },
         {
           "year": 2015,
-          "gdp_real_total_index2000": 123.52216748768473,
-          "gdp_real_percap_index2000": 103.05687372587862,
+          "gdp_real_total_growth_since2000_percent": 23.52216748768472,
+          "gdp_real_percap_growth_since2000_percent": 3.056873725878617,
           "status": ""
         },
         {
           "year": 2016,
-          "gdp_real_total_index2000": 128.57142857142858,
-          "gdp_real_percap_index2000": 106.79893219723824,
+          "gdp_real_total_growth_since2000_percent": 28.57142857142858,
+          "gdp_real_percap_growth_since2000_percent": 6.798932197238239,
           "status": ""
         },
         {
           "year": 2017,
-          "gdp_real_total_index2000": 132.63546798029557,
-          "gdp_real_percap_index2000": 109.3676965920539,
+          "gdp_real_total_growth_since2000_percent": 32.63546798029557,
+          "gdp_real_percap_growth_since2000_percent": 9.367696592053898,
           "status": ""
         },
         {
           "year": 2018,
-          "gdp_real_total_index2000": 136.69950738916256,
-          "gdp_real_percap_index2000": 111.85132169423801,
+          "gdp_real_total_growth_since2000_percent": 36.69950738916257,
+          "gdp_real_percap_growth_since2000_percent": 11.851321694238015,
           "status": ""
         },
         {
           "year": 2019,
-          "gdp_real_total_index2000": 139.9014778325123,
-          "gdp_real_percap_index2000": 113.13824789441371,
+          "gdp_real_total_growth_since2000_percent": 39.9014778325123,
+          "gdp_real_percap_growth_since2000_percent": 13.138247894413713,
           "status": ""
         },
         {
           "year": 2020,
-          "gdp_real_total_index2000": 123.15270935960592,
-          "gdp_real_percap_index2000": 98.80703230205116,
+          "gdp_real_total_growth_since2000_percent": 23.152709359605915,
+          "gdp_real_percap_growth_since2000_percent": -1.1929676979488435,
           "status": ""
         },
         {
           "year": 2021,
-          "gdp_real_total_index2000": 131.4039408866995,
-          "gdp_real_percap_index2000": 105.22843448853673,
+          "gdp_real_total_growth_since2000_percent": 31.40394088669951,
+          "gdp_real_percap_growth_since2000_percent": 5.228434488536737,
           "status": ""
         },
         {
           "year": 2022,
-          "gdp_real_total_index2000": 140.88669950738918,
-          "gdp_real_percap_index2000": 111.70241273222506,
+          "gdp_real_total_growth_since2000_percent": 40.88669950738917,
+          "gdp_real_percap_growth_since2000_percent": 11.702412732225053,
           "status": ""
         },
         {
           "year": 2023,
-          "gdp_real_total_index2000": 144.82758620689654,
-          "gdp_real_percap_index2000": 113.0188493645081,
+          "gdp_real_total_growth_since2000_percent": 44.82758620689653,
+          "gdp_real_percap_growth_since2000_percent": 13.0188493645081,
           "status": "p"
         },
         {
           "year": 2024,
-          "gdp_real_total_index2000": 150.4926108374384,
-          "gdp_real_percap_index2000": 115.83455162799218,
+          "gdp_real_total_growth_since2000_percent": 50.49261083743841,
+          "gdp_real_percap_growth_since2000_percent": 15.834551627992187,
           "status": "p"
         },
         {
           "year": 2025,
-          "gdp_real_total_index2000": 154.5566502463054,
-          "gdp_real_percap_index2000": 117.73475209541029,
+          "gdp_real_total_growth_since2000_percent": 54.5566502463054,
+          "gdp_real_percap_growth_since2000_percent": 17.73475209541029,
           "status": "p"
         }
       ],
@@ -176,169 +177,171 @@
         "https://www.idescat.cat/pub/?id=piba&n=21913",
         "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
       ],
+      "formula": "100 * (valor_real_t / valor_real_2000 - 1)",
       "desktop": "/assets/charts/creixement-benestar/pib-total-per-habitant.svg",
       "mobile": "/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg"
     },
     {
       "id": "pib-consum-per-habitant",
       "title": "Produir més no és el mateix que consumir més",
-      "alt": "PIB real per habitant i consum real de les llars per habitant aproximat, Catalunya 2000–2025, base 2000 igual a 100.",
-      "unit": "Índex, 2000=100",
+      "alt": "Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2000–2025, en percentatge respecte del 2000.",
+      "unit": "Variació real acumulada respecte del 2000 (%)",
+      "base_year": 2000,
       "rows": [
         {
           "year": 2000,
-          "gdp_real_percap_index2000": 100,
-          "household_consumption_real_percap_index2000_approx": 100,
+          "gdp_real_percap_growth_since2000_percent": 0,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 0,
           "status": ""
         },
         {
           "year": 2001,
-          "gdp_real_percap_index2000": 101.43990556661726,
-          "household_consumption_real_percap_index2000_approx": 101.34922627081873,
+          "gdp_real_percap_growth_since2000_percent": 1.439905566617261,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 1.3492262708187264,
           "status": ""
         },
         {
           "year": 2002,
-          "gdp_real_percap_index2000": 102.08438626781226,
-          "household_consumption_real_percap_index2000_approx": 103.05802347788095,
+          "gdp_real_percap_growth_since2000_percent": 2.084386267812266,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 3.0580234778809556,
           "status": ""
         },
         {
           "year": 2003,
-          "gdp_real_percap_index2000": 103.41201651227396,
-          "household_consumption_real_percap_index2000_approx": 103.71498140439977,
+          "gdp_real_percap_growth_since2000_percent": 3.412016512273963,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 3.714981404399764,
           "status": ""
         },
         {
           "year": 2004,
-          "gdp_real_percap_index2000": 105.51709400259827,
-          "household_consumption_real_percap_index2000_approx": 106.26554234067878,
+          "gdp_real_percap_growth_since2000_percent": 5.517094002598277,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 6.265542340678776,
           "status": ""
         },
         {
           "year": 2005,
-          "gdp_real_percap_index2000": 107.21682705190784,
-          "household_consumption_real_percap_index2000_approx": 107.93529032596697,
+          "gdp_real_percap_growth_since2000_percent": 7.216827051907848,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 7.935290325966982,
           "status": ""
         },
         {
           "year": 2006,
-          "gdp_real_percap_index2000": 109.35582457913715,
-          "household_consumption_real_percap_index2000_approx": 108.74739083704257,
+          "gdp_real_percap_growth_since2000_percent": 9.35582457913715,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 8.747390837042568,
           "status": ""
         },
         {
           "year": 2007,
-          "gdp_real_percap_index2000": 110.26623836966736,
-          "household_consumption_real_percap_index2000_approx": 110.38540217194004,
+          "gdp_real_percap_growth_since2000_percent": 10.266238369667358,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 10.38540217194004,
           "status": ""
         },
         {
           "year": 2008,
-          "gdp_real_percap_index2000": 106.97192438545373,
-          "household_consumption_real_percap_index2000_approx": 107.06288690618966,
+          "gdp_real_percap_growth_since2000_percent": 6.971924385453732,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 7.062886906189658,
           "status": ""
         },
         {
           "year": 2009,
-          "gdp_real_percap_index2000": 101.26725257877081,
-          "household_consumption_real_percap_index2000_approx": 100.93312204995762,
+          "gdp_real_percap_growth_since2000_percent": 1.2672525787708055,
+          "household_consumption_real_percap_growth_since2000_percent_approx": 0.9331220499576132,
           "status": ""
         },
         {
           "year": 2010,
-          "gdp_real_percap_index2000": 101.05694834995982,
-          "household_consumption_real_percap_index2000_approx": 99.86909493785839,
+          "gdp_real_percap_growth_since2000_percent": 1.0569483499598187,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -0.13090506214160635,
           "status": ""
         },
         {
           "year": 2011,
-          "gdp_real_percap_index2000": 100.63430469012351,
-          "household_consumption_real_percap_index2000_approx": 97.94783729518217,
+          "gdp_real_percap_growth_since2000_percent": 0.6343046901235105,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -2.052162704817828,
           "status": ""
         },
         {
           "year": 2012,
-          "gdp_real_percap_index2000": 97.78162958641299,
-          "household_consumption_real_percap_index2000_approx": 94.39139060440229,
+          "gdp_real_percap_growth_since2000_percent": -2.218370413587012,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -5.608609395597708,
           "status": ""
         },
         {
           "year": 2013,
-          "gdp_real_percap_index2000": 97.1120480579083,
-          "household_consumption_real_percap_index2000_approx": 90.17730439379419,
+          "gdp_real_percap_growth_since2000_percent": -2.8879519420917044,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -9.822695606205812,
           "status": ""
         },
         {
           "year": 2014,
-          "gdp_real_percap_index2000": 99.60618837153295,
-          "household_consumption_real_percap_index2000_approx": 92.10742703106241,
+          "gdp_real_percap_growth_since2000_percent": -0.39381162846704454,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -7.892572968937584,
           "status": ""
         },
         {
           "year": 2015,
-          "gdp_real_percap_index2000": 103.05687372587862,
-          "household_consumption_real_percap_index2000_approx": 94.93973212633283,
+          "gdp_real_percap_growth_since2000_percent": 3.056873725878617,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -5.0602678736671685,
           "status": ""
         },
         {
           "year": 2016,
-          "gdp_real_percap_index2000": 106.79893219723824,
-          "household_consumption_real_percap_index2000_approx": 96.22389425098392,
+          "gdp_real_percap_growth_since2000_percent": 6.798932197238239,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -3.7761057490160788,
           "status": ""
         },
         {
           "year": 2017,
-          "gdp_real_percap_index2000": 109.3676965920539,
-          "household_consumption_real_percap_index2000_approx": 97.82925227889498,
+          "gdp_real_percap_growth_since2000_percent": 9.367696592053898,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -2.1707477211050152,
           "status": ""
         },
         {
           "year": 2018,
-          "gdp_real_percap_index2000": 111.85132169423801,
-          "household_consumption_real_percap_index2000_approx": 99.10430169935412,
+          "gdp_real_percap_growth_since2000_percent": 11.851321694238015,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -0.8956983006458752,
           "status": ""
         },
         {
           "year": 2019,
-          "gdp_real_percap_index2000": 113.13824789441371,
-          "household_consumption_real_percap_index2000_approx": 99.25739991881169,
+          "gdp_real_percap_growth_since2000_percent": 13.138247894413713,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -0.742600081188316,
           "status": ""
         },
         {
           "year": 2020,
-          "gdp_real_percap_index2000": 98.80703230205116,
-          "household_consumption_real_percap_index2000_approx": 86.45615326429476,
+          "gdp_real_percap_growth_since2000_percent": -1.1929676979488435,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -13.543846735705245,
           "status": ""
         },
         {
           "year": 2021,
-          "gdp_real_percap_index2000": 105.22843448853673,
-          "household_consumption_real_percap_index2000_approx": 92.07488017746964,
+          "gdp_real_percap_growth_since2000_percent": 5.228434488536737,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -7.925119822530357,
           "status": ""
         },
         {
           "year": 2022,
-          "gdp_real_percap_index2000": 111.70241273222506,
-          "household_consumption_real_percap_index2000_approx": 93.38233826641759,
+          "gdp_real_percap_growth_since2000_percent": 11.702412732225053,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -6.617661733582414,
           "status": ""
         },
         {
           "year": 2023,
-          "gdp_real_percap_index2000": 113.0188493645081,
-          "household_consumption_real_percap_index2000_approx": 93.42555181842896,
+          "gdp_real_percap_growth_since2000_percent": 13.0188493645081,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -6.5744481815710465,
           "status": "p"
         },
         {
           "year": 2024,
-          "gdp_real_percap_index2000": 115.83455162799218,
-          "household_consumption_real_percap_index2000_approx": 95.79811271607169,
+          "gdp_real_percap_growth_since2000_percent": 15.834551627992187,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -4.201887283928318,
           "status": "p"
         },
         {
           "year": 2025,
-          "gdp_real_percap_index2000": 117.73475209541029,
-          "household_consumption_real_percap_index2000_approx": 98.50317904396876,
+          "gdp_real_percap_growth_since2000_percent": 17.73475209541029,
+          "household_consumption_real_percap_growth_since2000_percent_approx": -1.4968209560312418,
           "status": "p"
         }
       ],
@@ -346,7 +349,8 @@
         "https://www.idescat.cat/pub/?id=piba&n=21913",
         "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
       ],
-      "formula": "Household_consumption_volume_index2020_t / GDP_volume_index2020_t * GDP_real_percap_index2020_t",
+      "formula": "100 * (valor_real_percap_t / valor_real_percap_2000 - 1)",
+      "consumption_percap_formula": "Household_consumption_volume_index2020_t / GDP_volume_index2020_t * GDP_real_percap_index2020_t",
       "limitation": "Derived consumption per capita is an APPROXIMATE own calculation, not an Idescat published series. It uses the population implicit in the published real-GDP-per-capita series and the same annual accounts revision. Source indices rounded to 0.1 imply small rounding errors. Preserve full precision for calculations; display 1 decimal.",
       "desktop": "/assets/charts/creixement-benestar/pib-consum-per-habitant.svg",
       "mobile": "/assets/charts/creixement-benestar/pib-consum-per-habitant-mobile.svg"

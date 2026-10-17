@@ -18,7 +18,7 @@ await mkdir(outputDir, { recursive: true });
 const C = { ink: '#132a38', blue: '#1c6579', red: '#ae372f', gold: '#a66e00', green: '#2c6a59', paper: '#f4efe5', grid: '#d4cfc5', muted: '#52636d' };
 const esc = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const fmt = (value, decimals = 1) => new Intl.NumberFormat('ca-ES', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(value);
-const signed = value => `${value > 0 ? '+' : value < 0 ? '−' : ''}${fmt(Math.abs(value))}%`;
+const signed = (value, decimals = 1) => `${value > 0 ? '+' : value < 0 ? '−' : ''}${fmt(Math.abs(value), decimals)}%`;
 const line = (x1, y1, x2, y2, color = C.grid, width = 1, dash = '') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ''}/>`;
 const text = (x, y, value, { size = 14, color = C.ink, anchor = 'start', weight = 400, family = 'Arial, sans-serif' } = {}) => `<text x="${x}" y="${y}" fill="${color}" text-anchor="${anchor}" font-family="${family}" font-size="${size}" font-weight="${weight}">${esc(value)}</text>`;
 const rect = (x, y, width, height, fill, rx = 0) => `<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="${fill}" rx="${rx}"/>`;
@@ -47,30 +47,31 @@ function assertFinite(value, trail = '') {
 const base2000 = macro.annual.find(r => r.year === 2000);
 const macroRows = macro.annual.map(r => ({
   year: r.year,
-  gdp_real_total_index2000: r.gdp_volume_index2020 / base2000.gdp_volume_index2020 * 100,
-  gdp_real_percap_index2000: r.gdp_real_percap_eur2020 / base2000.gdp_real_percap_eur2020 * 100,
-  household_consumption_real_percap_index2000_approx: r.household_consumption_real_percap_index2020_approx / base2000.household_consumption_real_percap_index2020_approx * 100,
+  gdp_real_total_growth_since2000_percent: (r.gdp_volume_index2020 / base2000.gdp_volume_index2020 - 1) * 100,
+  gdp_real_percap_growth_since2000_percent: (r.gdp_real_percap_eur2020 / base2000.gdp_real_percap_eur2020 - 1) * 100,
+  household_consumption_real_percap_growth_since2000_percent_approx: (r.household_consumption_real_percap_index2020_approx / base2000.household_consumption_real_percap_index2020_approx - 1) * 100,
   status: r.status_demand,
 }));
 const macroSeries = [
-  { key: 'gdp_real_total_index2000', label: 'PIB real total', color: C.ink },
-  { key: 'gdp_real_percap_index2000', label: 'PIB real per habitant', color: C.blue },
-  { key: 'household_consumption_real_percap_index2000_approx', label: 'Consum real per habitant (aprox.)', color: C.red },
+  { key: 'gdp_real_total_growth_since2000_percent', label: 'PIB real total', color: C.ink },
+  { key: 'gdp_real_percap_growth_since2000_percent', label: 'PIB real per habitant', color: C.blue },
+  { key: 'household_consumption_real_percap_growth_since2000_percent_approx', label: 'Consum real per habitant (aprox.)', color: C.red },
 ];
 
 function macroLineFigure(series, { mobile, title, yMin, yMax, yTicks }) {
   const width = mobile ? 360 : 760;
-  const left = mobile ? 41 : 56, right = mobile ? 46 : 66;
-  const top = mobile ? 116 : 98, bottom = mobile ? 343 : 367;
+  const left = mobile ? 41 : 56, right = mobile ? 68 : 82;
+  const top = mobile ? 138 : 116, bottom = mobile ? 343 : 367;
   const plotWidth = width - left - right;
   const x = year => left + (year - 2000) / 25 * plotWidth;
   const y = value => bottom - (value - yMin) / (yMax - yMin) * (bottom - top);
-  let s = text(12, 24, 'Catalunya · Índex, any 2000 = 100', { size: mobile ? 13 : 15 });
+  let s = text(12, 24, 'Creixement real acumulat (%)', { size: mobile ? 13 : 15 });
+  s += text(12, 47, 'Catalunya · Respecte del 2000 (2000 = 0%)', { size: mobile ? 12 : 14, color: C.muted });
   series.forEach((a, i) => {
-    const lx = mobile ? 12 : 12 + i * 326, ly = mobile ? 52 + i * 23 : 58;
+    const lx = mobile ? 12 : 12 + i * 326, ly = mobile ? 75 + i * 23 : 78;
     s += line(lx, ly - 4, lx + 20, ly - 4, a.color, 3) + text(lx + 28, ly, a.label, { size: mobile ? 12 : 14, weight: 600 });
   });
-  for (const tick of yTicks) s += line(left, y(tick), width - right, y(tick), tick === 100 ? C.muted : C.grid, 1, tick === 100 ? '4 4' : '') + text(left - 9, y(tick) + 4, fmt(tick, 0), { size: mobile ? 12 : 13, anchor: 'end', color: C.muted });
+  for (const tick of yTicks) s += line(left, y(tick), width - right, y(tick), tick === 0 ? C.muted : C.grid, 1, tick === 0 ? '4 4' : '') + text(left - 9, y(tick) + 4, signed(tick, 0), { size: mobile ? 12 : 13, anchor: 'end', color: C.muted });
   for (const year of [2000, 2005, 2010, 2015, 2020, 2025]) {
     s += line(x(year), bottom, x(year), bottom + 5, C.muted);
     s += text(x(year), bottom + 23, year, { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
@@ -80,11 +81,11 @@ function macroLineFigure(series, { mobile, title, yMin, yMax, yTicks }) {
     for (const row of macroRows) s += circle(x(row.year), y(row[a.key]), 1.8, a.color);
     const last = macroRows.at(-1);
     s += circle(x(last.year), y(last[a.key]), 3, a.color);
-    s += text(x(2025) + 7, y(last[a.key]) + 4, fmt(last[a.key]), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
+    s += text(x(2025) + 7, y(last[a.key]) + 4, signed(last[a.key]), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
   });
   s += note('2023–2025: dades provisionals. Volums encadenats: efecte dels preus descomptat.', bottom + 51, width, mobile);
   const height = mobile ? 436 : 447;
-  return svg(width, height, title, `${title}. Sèrie anual de 2000 a 2025. Base 2000 igual a 100. Les dades de 2023 a 2025 són provisionals.`, s);
+  return svg(width, height, title, `${title}. Sèrie anual de 2000 a 2025. Variació real acumulada respecte del 2000, en percentatge: el 2000 correspon al 0%. No són taxes de creixement interanual. Les dades de 2023 a 2025 són provisionals.`, s);
 }
 
 const sensitivityRows = macro.findings.flatMap(f => [
@@ -214,8 +215,8 @@ function historicFigure(mobile) {
 }
 
 const specs = [
-  { id: 'pib-total-per-habitant', title: 'Una economia més gran, però quant més per persona?', alt: 'PIB real total i PIB real per habitant de Catalunya, 2000–2025, amb base 2000 igual a 100.', unit: 'Índex, 2000=100', rows: macroRows.map(r => ({ year: r.year, gdp_real_total_index2000: r.gdp_real_total_index2000, gdp_real_percap_index2000: r.gdp_real_percap_index2000, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], render: mobile => macroLineFigure(macroSeries.slice(0, 2), { mobile, title: 'PIB real total i per habitant, 2000–2025', yMin: 90, yMax: 160, yTicks: [90, 100, 120, 140, 160] }) },
-  { id: 'pib-consum-per-habitant', title: 'Produir més no és el mateix que consumir més', alt: 'PIB real per habitant i consum real de les llars per habitant aproximat, Catalunya 2000–2025, base 2000 igual a 100.', unit: 'Índex, 2000=100', rows: macroRows.map(r => ({ year: r.year, gdp_real_percap_index2000: r.gdp_real_percap_index2000, household_consumption_real_percap_index2000_approx: r.household_consumption_real_percap_index2000_approx, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: macro.calculations.equivalent_formula, limitation: macro.calculations.limitation, render: mobile => macroLineFigure(macroSeries.slice(1), { mobile, title: 'PIB real i consum real per habitant, 2000–2025', yMin: 80, yMax: 125, yTicks: [80, 90, 100, 110, 120] }) },
+  { id: 'pib-total-per-habitant', title: 'Una economia més gran, però quant més per persona?', alt: 'Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2000–2025, en percentatge respecte del 2000.', unit: 'Variació real acumulada respecte del 2000 (%)', base_year: 2000, rows: macroRows.map(r => ({ year: r.year, gdp_real_total_growth_since2000_percent: r.gdp_real_total_growth_since2000_percent, gdp_real_percap_growth_since2000_percent: r.gdp_real_percap_growth_since2000_percent, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_t / valor_real_2000 - 1)', render: mobile => macroLineFigure(macroSeries.slice(0, 2), { mobile, title: 'Creixement real acumulat del PIB total i per habitant, 2000–2025', yMin: -10, yMax: 60, yTicks: [-10, 0, 20, 40, 60] }) },
+  { id: 'pib-consum-per-habitant', title: 'Produir més no és el mateix que consumir més', alt: 'Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2000–2025, en percentatge respecte del 2000.', unit: 'Variació real acumulada respecte del 2000 (%)', base_year: 2000, rows: macroRows.map(r => ({ year: r.year, gdp_real_percap_growth_since2000_percent: r.gdp_real_percap_growth_since2000_percent, household_consumption_real_percap_growth_since2000_percent_approx: r.household_consumption_real_percap_growth_since2000_percent_approx, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_percap_t / valor_real_percap_2000 - 1)', consumption_percap_formula: macro.calculations.equivalent_formula, limitation: macro.calculations.limitation, render: mobile => macroLineFigure(macroSeries.slice(1), { mobile, title: 'Creixement real acumulat del PIB i del consum per habitant, 2000–2025', yMin: -20, yMax: 25, yTicks: [-20, -10, 0, 10, 20] }) },
   { id: 'sensibilitat-any-base', title: 'Què canvia quan movem el punt de partida?', alt: 'Variació acumulada fins a 2025 del PIB total, el PIB per habitant i el consum per habitant, des de 2000, 2007 i 2019.', unit: 'Variació acumulada (%)', rows: sensitivityRows.map(({ color, ...r }) => r), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_2025 / valor_any_base - 1)', render: sensitivityFigure },
   { id: 'despesa-edat-2024', title: 'Quant consumeixen les llars segons l’edat?', alt: 'Despesa nominal anual per unitat de consum a Catalunya el 2024, segons l’edat del sustentador principal de la llar.', unit: 'Euros anuals per unitat de consum, preus corrents', rows: ageRows, sources: [age.sources.age_table, age.sources.equivalent_ssv], limitation: `${age.definitions.age_group} ${age.definitions.young_people_at_parental_home} ${age.comparability['2024_break']}`, render: ageSnapshotFigure },
   { id: 'renda-real-edat', title: 'Com ha canviat el poder adquisitiu per edat?', alt: 'Evolució aproximada de la renda real per unitat de consum dels menors de 16 anys, de 16 a 39, de 40 a 64 i de 65 o més, entre els anys de renda 2012 i 2024.', unit: 'Índex real aproximat, any de renda 2012=100', age_groups: income.age_groups, rows: incomeRows, sources: [income.source_url, age.sources.cpi_table], formula: 'renda_real_preus2024_t = renda_nominal_t * IPC_2024 / IPC_t; index2012 = 100 * renda_real_t / renda_real_2012', limitation: [...income.comparability_notes.filter(note => !note.startsWith('Valors encara no deflactats')), 'Sèrie derivada ajustada amb IPC anual mitjà de Catalunya de l’any de renda; aproximació comuna, no inflació específica per edat.'], render: incomeFigure },
