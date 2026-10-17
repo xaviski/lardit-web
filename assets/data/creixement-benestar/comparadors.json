@@ -1,0 +1,59 @@
+{
+  "retrieved_on": "2026-10-17",
+  "purpose": "Valors comparables utilitzats exclusivament als comentaris de l'esborrany. Els gràfics continuen mostrant Catalunya.",
+  "macro": {
+    "geographies": {"ES": "Espanya", "EA20": "Zona euro, composició fixa de vint països (2023–2025)"},
+    "sources": {
+      "gdp": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&geo=ES&geo=EA20&na_item=B1GQ&na_item=P31_S14&unit=CLV20_MEUR&sinceTimePeriod=2000",
+      "per_capita": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?lang=en&geo=ES&geo=EA20&na_item=B1GQ&na_item=P31_S14&unit=CLV20_EUR_HAB&sinceTimePeriod=2000",
+      "employment": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pe?lang=en&geo=ES&geo=EA20&na_item=EMP_DC&unit=THS_PER&sinceTimePeriod=2000"
+    },
+    "updated": {"gdp_and_per_capita": "2026-10-15", "employment": "2026-10-16"},
+    "units": {"gdp": "Milions d'euros en volum encadenat, referència 2020", "gdp_per_capita": "Euros per habitant en volum encadenat, referència 2020", "household_consumption_per_capita": "Euros per habitant en volum encadenat, referència 2020; S14, sense ISFLSH", "employment": "Milers de persones ocupades, concepte interior (EMP_DC); no llocs ni equivalents a jornada completa"},
+    "observations": [
+      {"geo":"ES","year":2000,"gdp":929859,"gdp_per_capita":22930,"household_consumption_per_capita":13590,"employment":16728.3},
+      {"geo":"ES","year":2007,"gdp":1175626,"gdp_per_capita":25990,"household_consumption_per_capita":15580,"employment":21296.7},
+      {"geo":"ES","year":2019,"gdp":1267926,"gdp_per_capita":26930,"household_consumption_per_capita":15010,"employment":20467.1},
+      {"geo":"ES","year":2025,"gdp":1395075,"gdp_per_capita":28260,"household_consumption_per_capita":15280,"employment":22702},
+      {"geo":"EA20","year":2000,"gdp":9750850.5,"gdp_per_capita":30040,"household_consumption_per_capita":16180,"employment":142848.27},
+      {"geo":"EA20","year":2007,"gdp":11213872,"gdp_per_capita":33420,"household_consumption_per_capita":17610,"employment":154472.3},
+      {"geo":"EA20","year":2019,"gdp":12384370.5,"gdp_per_capita":35870,"household_consumption_per_capita":18530,"employment":162740.35},
+      {"geo":"EA20","year":2025,"gdp":13204419.4,"gdp_per_capita":37490,"household_consumption_per_capita":19110,"employment":172116.65}
+    ],
+    "formulas": {"growth_percent": "100 * (valor_final / valor_inicial - 1)", "gdp_per_employed_person_growth_percent": "100 * ((PIB_final / PIB_inicial) / (ocupats_final / ocupats_inicial) - 1)"},
+    "notes": ["Per habitant: sèries publicades directament per Eurostat, arrodonides a 10 euros. No reconstruir-les a partir d'una altra versió de població.", "Les revisions i les convencions demogràfiques d'Idescat i Eurostat poden diferir; no donar més d'un decimal ni interpretar petites diferències com a concloents.", "Espanya 2024–2025: dades provisionals. Volums ja deflactats; no aplicar IPC.", "Comparar creixements no és comparar nivells de renda o benestar."]
+  },
+  "epf_spain": {
+    "sources": {"total":"https://www.ine.es/jaxiT3/Tabla.htm?t=73996", "activity":"https://www.ine.es/jaxiT3/Tabla.htm?t=73789", "age":"https://www.ine.es/jaxiT3/Tabla.htm?t=73787", "microdata":"https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176806&idp=1254735976608&menu=resultados&secc=1254736195147", "cpi":"https://www.idescat.cat/indicadors/?id=aec&n=15361&col=1&f=ssv"},
+    "cpi_spain_annual_mean_base2025_100": {"2012":78.3,"2016":78.7,"2019":82.2,"2024":97.4,"2025":100},
+    "published_nominal_euros_per_person": [
+      {"year":2019,"all":12151.50,"workers":12019.89,"retired":13632.91},
+      {"year":2025,"all":14065.81,"workers":13556.99,"retired":16586.48}
+    ],
+    "published_nominal_euros_per_consumption_unit_by_main_provider_age": [
+      {"year":2016,"age16_29":14226.77,"age30_44":16465.23},
+      {"year":2019,"age16_29":16022.47,"age30_44":17699.00},
+      {"year":2024,"age16_29":18277.25,"age30_44":19218.93}
+    ],
+    "derived_from_microdata_2024": {"age_group_main_provider":"60–74","sample_households":5448,"nominal_euros_per_consumption_unit":21607.56547378907},
+    "formula_real_growth_percent_approx": "100 * (nominal_final / nominal_inicial * IPC_Espanya_inicial / IPC_Espanya_final - 1)",
+    "notes": ["Imports d'activitat i joves verificats amb les taules publicades i les microdades: coincidència a cèntims.", "Franja 60–74 reconstruïda amb EDADSP; la taula nacional publicada agrupa les edats de manera diferent. La mateixa agrupació reprodueix els imports catalans d'Idescat a l'euro.", "GASTOT de les microdades ja està elevat: dividir suma de despesa per suma de FACTOR*NMIEMB o FACTOR*UC2. Mateixa harmonització d'activitat que epf-activitat.json; factors revisats del cens 2021 per a 2021–2022.", "El canvi real 2019–2025 dels jubilats és aproximadament 0,0%: no atribuir significació a la petita diferència positiva abans d'arrodonir.", "IPC general: aproximació, no deflactor específic per edat ni per activitat. EPF inclou lloguer imputat; IPC no.", "Catalunya forma part d'Espanya: no són mostres territorials independents."]
+  },
+  "income_age65_plus": {
+    "source":"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_di03?lang=EN&freq=A&unit=EUR&statinfo=MEAN_EI&sex=T&age=Y_GE65&geo=ES&geo=EA20&time=2013&time=2025",
+    "methodology":"https://ec.europa.eu/eurostat/cache/metadata/en/ilc_sieusilc.htm",
+    "updated":"2026-10-05",
+    "unit":"Euros corrents anuals de renda equivalent mitjana atribuïda a persones de 65 anys o més; no mediana, sou ni pensió individual",
+    "observations":[
+      {"geo":"ES","survey_year":2013,"income_year":2012,"nominal_euros":15574},
+      {"geo":"ES","survey_year":2025,"income_year":2024,"nominal_euros":23806},
+      {"geo":"EA20","survey_year":2013,"income_year":2012,"nominal_euros":null},
+      {"geo":"EA20","survey_year":2025,"income_year":2024,"nominal_euros":26643}
+    ],
+    "notes":["Catalunya: consultar renda.json; 2024 = 26776 euros.","Creixement real espanyol 2012–2024 ajustat amb IPC espanyol dels anys de renda, no d'enquesta.","EA20: l'observació inicial del 2013 manca. No substituir-la per EA de composició canviant ni per EA19; no calcular un creixement 2012–2024.","Les franges intermèdies d'Eurostat no coincideixen amb 16–39 i 40–64 d'Idescat: no es presenten falsos homòlegs.","Nivells nominals entre territoris sense ajust per diferències de preus; no equiparar poder adquisitiu ni interpretar 133 euros de diferència Catalunya–EA20 com a significativa."]
+  },
+  "missing_comparators": {
+    "euro_area_hbs":"https://ec.europa.eu/eurostat/cache/metadata/en/hbs_esms.htm",
+    "note":"HBS harmonitzada per onades aproximadament quinquennals (2015, 2020; següent referència 2026), no sèrie anual EPF de l'EA20. No extrapolar un valor de 2020 al 2024 o al canvi 2019–2025 ni substituir l'EA20 per la UE."
+  }
+}

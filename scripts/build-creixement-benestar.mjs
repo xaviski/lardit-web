@@ -12,7 +12,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'assets/data/creixement-benestar');
 const outputDir = path.join(root, 'assets/charts/creixement-benestar');
 const load = async name => JSON.parse(await readFile(path.join(dataDir, `${name}.json`), 'utf8'));
-const [macro, age, income, employment, epfTotal, epfActivity] = await Promise.all(['macro', 'edat', 'renda', 'ocupacio', 'epf-total', 'epf-activitat'].map(load));
+const [macro, age, income, employment, epfTotal, epfActivity, demography] = await Promise.all(['macro', 'edat', 'renda', 'ocupacio', 'epf-total', 'epf-activitat', 'demografia'].map(load));
 await mkdir(outputDir, { recursive: true });
 
 const C = { ink: '#132a38', blue: '#1c6579', red: '#ae372f', gold: '#a66e00', green: '#2c6a59', paper: '#f4efe5', grid: '#d4cfc5', muted: '#52636d' };
@@ -57,6 +57,88 @@ const macroSeries = [
   { key: 'gdp_real_percap_growth_since2019_percent', label: 'PIB real per habitant', color: C.blue },
   { key: 'household_consumption_real_percap_growth_since2019_percent_approx', label: 'Consum real per habitant (aprox.)', color: C.red },
 ];
+
+// Population at each year end: 2019 = 1 January 2020. Do not add the 2019 flow.
+// Components are additive contributions to a fixed initial stock, not growth
+// rates of births or migration. Missing 2025 flows must stay null.
+let cumulativeMigration = 0, cumulativeNatural = 0, cumulativeAdjustment = 0;
+const demographyRows = [{ year: 2019, population_date: demography.base_date, population: demography.base_population, population_growth_percent: 0, net_migration_contribution_pp: 0, natural_change_contribution_pp: 0, statistical_adjustment_contribution_pp: 0, status: 'base' }];
+for (const row of demography.annual_flows) {
+  const available = row.net_migration !== null && row.natural_change !== null;
+  const adjustment = available ? row.total_change - row.net_migration - row.natural_change : null;
+  if (available) {
+    cumulativeMigration += row.net_migration;
+    cumulativeNatural += row.natural_change;
+    cumulativeAdjustment += adjustment;
+  }
+  demographyRows.push({
+    year: row.year, population_date: `${row.year + 1}-01-01`, population: row.end_population,
+    population_growth_percent: 100 * (row.end_population / demography.base_population - 1),
+    net_migration_contribution_pp: available ? 100 * cumulativeMigration / demography.base_population : null,
+    natural_change_contribution_pp: available ? 100 * cumulativeNatural / demography.base_population : null,
+    statistical_adjustment_contribution_pp: available ? 100 * cumulativeAdjustment / demography.base_population : null,
+    status: row.status,
+  });
+}
+function demographyFigure(mobile) {
+  const width = mobile ? 360 : 760, left = mobile ? 42 : 56, right = mobile ? 67 : 82;
+  const plotRight = width - right;
+  const x = year => left + (year - 2019) / 6 * (plotRight - left);
+  const top = 124, bottom = 310, demoTop = 519, demoBottom = 705;
+  const yGDP = value => bottom - (value + 15) / 30 * (bottom - top);
+  const yDemo = value => demoBottom - (value + 2) / 10 * (demoBottom - demoTop);
+  let s = text(12, 24, 'Producció anual · Catalunya · 2019 = 0%', { size: mobile ? 13 : 15, weight: 700 });
+  s += text(12, 47, 'Creixement real acumulat (%)', { size: mobile ? 12 : 14, color: C.muted });
+  macroSeries.slice(0, 2).forEach((a, i) => {
+    const yy = 76 + i * 23;
+    s += line(12, yy - 4, 32, yy - 4, a.color, 3) + text(40, yy, a.label, { size: mobile ? 12 : 14, weight: 600 });
+  });
+  for (const tick of [-15, -10, -5, 0, 5, 10, 15]) {
+    s += line(left, yGDP(tick), plotRight, yGDP(tick), tick === 0 ? C.muted : C.grid, 1, tick === 0 ? '4 4' : '');
+    s += text(left - 7, yGDP(tick) + 4, signed(tick, 0), { size: mobile ? 11 : 13, anchor: 'end', color: C.muted });
+  }
+  for (const a of macroSeries.slice(0, 2)) {
+    s += pathLine(macroRows.map(r => [x(r.year), yGDP(r[a.key])]), a.color);
+    for (const r of macroRows) s += circle(x(r.year), yGDP(r[a.key]), 2, a.color);
+    const last = macroRows.at(-1);
+    s += text(plotRight + 7, yGDP(last[a.key]) + 4, signed(last[a.key]), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
+  }
+  s += line(12, 360, width - 12, 360);
+  s += text(12, 388, 'Població · Final del 2019 = 0%', { size: mobile ? 13 : 15, weight: 700 });
+  s += text(12, 411, 'Components: punts sobre la població inicial (pp)', { size: mobile ? 12 : 14, color: C.muted });
+  const lastComplete = demographyRows.find(r => r.year === 2024);
+  const finalPopulation = demographyRows.at(-1);
+  const demoSeries = [
+    { key: 'net_migration_contribution_pp', label: `Saldo migratori · 2024: ${signed(lastComplete.net_migration_contribution_pp, 2).replace('%', ' pp')}`, color: C.gold },
+    { key: 'natural_change_contribution_pp', label: `Saldo natural · 2024: ${signed(lastComplete.natural_change_contribution_pp, 2).replace('%', ' pp')}`, color: C.red },
+    { key: 'population_growth_percent', label: `Població total · 2025 (p): ${signed(finalPopulation.population_growth_percent, 2)}`, color: C.green, dash: true },
+  ];
+  demoSeries.forEach((a, i) => {
+    const yy = 441 + i * 23;
+    s += line(12, yy - 4, 32, yy - 4, a.color, 3, a.dash ? '5 4' : '') + text(40, yy, a.label, { size: mobile ? 12 : 14, weight: 600 });
+  });
+  for (const tick of [-2, 0, 2, 4, 6, 8]) {
+    s += line(left, yDemo(tick), plotRight, yDemo(tick), tick === 0 ? C.muted : C.grid, 1, tick === 0 ? '4 4' : '');
+    s += text(left - 7, yDemo(tick) + 4, signed(tick, 0), { size: mobile ? 11 : 13, anchor: 'end', color: C.muted });
+  }
+  for (const a of demoSeries) {
+    const rows = demographyRows.filter(r => r[a.key] !== null);
+    const points = rows.map(r => [x(r.year), yDemo(r[a.key])]);
+    if (a.dash) for (let i = 1; i < points.length; i++) s += line(...points[i - 1], ...points[i], a.color, 2.5, '5 4');
+    else s += pathLine(points, a.color);
+    for (const r of rows) s += circle(x(r.year), yDemo(r[a.key]), 2.5, a.color);
+  }
+  for (const year of [2019, 2020, 2021, 2022, 2023, 2024, 2025]) {
+    for (const yy of [bottom, demoBottom]) {
+      s += line(x(year), yy, x(year), yy + 5, C.muted);
+      s += text(x(year), yy + 23, year, { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
+    }
+  }
+  s += text(12, 758, '2025: saldo migratori i natural no disponibles.', { size: mobile ? 12 : 13, color: C.muted });
+  s += text(12, 779, 'Ajust estadístic acumulat fins al 2024: +0,11 pp.', { size: mobile ? 12 : 13, color: C.muted });
+  s += note('Població a final d’any; PIB per habitant amb una altra data de població. No és una descomposició exacta del PIB.', 804, width, mobile);
+  return svg(width, mobile ? 861 : 843, 'PIB, PIB per habitant i components del creixement demogràfic de Catalunya, 2019–2025', 'Dos panells amb el mateix eix temporal. A dalt: PIB real i PIB real per habitant, amb 2019 igual a zero. A sota: contribucions demogràfiques respecte de la població a final del 2019. Fins al final del 2024: saldo migratori +5,91 punts, saldo natural −0,96 i ajust estadístic +0,11; població total +5,06%. El 2025 només hi ha població total provisional (+6,18%); no s’inventen els components que falten. Les dates demogràfiques no són exactament les del denominador del PIB per habitant.', s);
+}
 
 const employmentBase = employment.rows.find(r => r.year === 2019).employed_persons_thousands;
 const productivityRows = employment.rows.map(r => {
@@ -283,6 +365,15 @@ const specs = [
   { id: 'despesa-real-edat-2016-2019', title: 'Un episodi històric: la despesa entre 2016 i 2019', alt: 'Creixement real aproximat de la despesa anual per unitat de consum entre 2016 i 2019, segons l’edat del sustentador principal de la llar.', unit: 'Variació real aproximada (%)', rows: historicRows, sources: [age.sources.equivalent_ssv, age.sources.cpi_table], formula: '100 * (despesa_nominal_2019 / despesa_nominal_2016 * IPC_2016 / IPC_2019 - 1)', limitation: `${age.comparability.safe_chart_option} ${age.comparability.cpi_limitation}`, render: historicFigure },
 ];
 
+specs.splice(1, 0, {
+  id: 'pib-poblacio-components', title: 'Més PIB, més habitants: d’on ve el creixement demogràfic?',
+  alt: 'PIB i PIB per habitant 2019–2025, i contribucions del saldo migratori i natural a la població respecte de final del 2019. Components disponibles fins al 2024; població total provisional fins al 2025.',
+  unit: 'PIB: creixement real acumulat en %. Població: variació en % i aportacions en punts percentuals sobre la població inicial.',
+  base_year: 2019, demographic_base_date: demography.base_date,
+  rows: demographyRows.map((r, i) => ({ ...r, gdp_real_total_growth_since2019_percent: macroRows[i].gdp_real_total_growth_since2019_percent, gdp_real_percap_growth_since2019_percent: macroRows[i].gdp_real_percap_growth_since2019_percent })),
+  sources: [macro.sources[0].page, macro.sources[1].page, demography.sources.growth, demography.sources.population],
+  formulas: demography.formulas, limitation: demography.notes, render: demographyFigure,
+});
 assertFinite(specs);
 for (const spec of specs) {
   for (const mobile of [false, true]) {
@@ -292,7 +383,7 @@ for (const spec of specs) {
   }
 }
 const chartData = {
-  generated_on: '2026-10-17', source_snapshot_dates: { macro: macro.retrieved, age: age.verified_on, income: income.retrieved_on, employment: employment.retrieved_on, epf_total: epfTotal.retrieved_on, epf_activity: epfActivity.retrieved_at }, territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
+  generated_on: '2026-10-17', source_snapshot_dates: { macro: macro.retrieved, age: age.verified_on, income: income.retrieved_on, employment: employment.retrieved_on, epf_total: epfTotal.retrieved_on, epf_activity: epfActivity.retrieved_at, demography: demography.retrieved_on }, territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
   notes: ['PIB, renda i consum són fluxos, no patrimoni net.', 'Sèries agregades reals: comptabilitat nacional. Despesa EPF i renda ECV reals: aproximació amb IPC general.', 'L’edat de l’EPF és la del sustentador principal; la de l’ECV és la de cada persona. No són classificacions equivalents.', 'El període EPF2016–2019 s’aïlla per evitar les ruptures metodològiques de la sèrie.'],
   charts: specs.map(({ render, ...spec }) => ({ ...spec, desktop: `/assets/charts/creixement-benestar/${spec.id}.svg`, mobile: `/assets/charts/creixement-benestar/${spec.id}-mobile.svg` })),
 };

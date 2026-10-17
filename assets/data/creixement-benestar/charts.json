@@ -6,7 +6,8 @@
     "income": "2026-10-16",
     "employment": "2026-10-17",
     "epf_total": "2026-10-17",
-    "epf_activity": "2026-10-17"
+    "epf_activity": "2026-10-17",
+    "demography": "2026-10-17"
   },
   "territory": "Catalunya",
   "generator": "scripts/build-creixement-benestar.mjs",
@@ -74,6 +75,125 @@
       "formula": "100 * (valor_real_t / valor_real_2019 - 1)",
       "desktop": "/assets/charts/creixement-benestar/pib-total-per-habitant.svg",
       "mobile": "/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg"
+    },
+    {
+      "id": "pib-poblacio-components",
+      "title": "Més PIB, més habitants: d’on ve el creixement demogràfic?",
+      "alt": "PIB i PIB per habitant 2019–2025, i contribucions del saldo migratori i natural a la població respecte de final del 2019. Components disponibles fins al 2024; població total provisional fins al 2025.",
+      "unit": "PIB: creixement real acumulat en %. Població: variació en % i aportacions en punts percentuals sobre la població inicial.",
+      "base_year": 2019,
+      "demographic_base_date": "2020-01-01",
+      "rows": [
+        {
+          "year": 2019,
+          "population_date": "2020-01-01",
+          "population": 7732756,
+          "population_growth_percent": 0,
+          "net_migration_contribution_pp": 0,
+          "natural_change_contribution_pp": 0,
+          "statistical_adjustment_contribution_pp": 0,
+          "status": "base",
+          "gdp_real_total_growth_since2019_percent": 0,
+          "gdp_real_percap_growth_since2019_percent": 0
+        },
+        {
+          "year": 2020,
+          "population_date": "2021-01-01",
+          "population": 7749896,
+          "population_growth_percent": 0.22165447868780497,
+          "net_migration_contribution_pp": 0.49736471705560087,
+          "natural_change_contribution_pp": -0.2757102383677954,
+          "statistical_adjustment_contribution_pp": 0,
+          "status": "definitiu",
+          "gdp_real_total_growth_since2019_percent": -11.971830985915489,
+          "gdp_real_percap_growth_since2019_percent": -12.666994459501591
+        },
+        {
+          "year": 2021,
+          "population_date": "2022-01-01",
+          "population": 7761823,
+          "population_growth_percent": 0.37589444177470455,
+          "net_migration_contribution_pp": 0.781920443371031,
+          "natural_change_contribution_pp": -0.4271180934714609,
+          "statistical_adjustment_contribution_pp": 0.021092091875134816,
+          "status": "definitiu",
+          "gdp_real_total_growth_since2019_percent": -6.073943661971826,
+          "gdp_real_percap_growth_since2019_percent": -6.991281510085634
+        },
+        {
+          "year": 2022,
+          "population_date": "2023-01-01",
+          "population": 7901963,
+          "population_growth_percent": 2.188184911045954,
+          "net_migration_contribution_pp": 2.7563911236821648,
+          "natural_change_contribution_pp": -0.6123560603748521,
+          "statistical_adjustment_contribution_pp": 0.044149847738632904,
+          "status": "definitiu",
+          "gdp_real_total_growth_since2019_percent": 0.7042253521126751,
+          "gdp_real_percap_growth_since2019_percent": -1.2690979301081762
+        },
+        {
+          "year": 2023,
+          "population_date": "2024-01-01",
+          "population": 8012231,
+          "population_growth_percent": 3.6141706786041006,
+          "net_migration_contribution_pp": 4.329349070370253,
+          "natural_change_contribution_pp": -0.7862267993455373,
+          "statistical_adjustment_contribution_pp": 0.07104840757939343,
+          "status": "definitiu",
+          "gdp_real_total_growth_since2019_percent": 3.5211267605633756,
+          "gdp_real_percap_growth_since2019_percent": -0.10553330295254293
+        },
+        {
+          "year": 2024,
+          "population_date": "2025-01-01",
+          "population": 8124126,
+          "population_growth_percent": 5.061196810037716,
+          "net_migration_contribution_pp": 5.9147217369848475,
+          "natural_change_contribution_pp": -0.9636797022950162,
+          "statistical_adjustment_contribution_pp": 0.11015477534788373,
+          "status": "definitiu",
+          "gdp_real_total_growth_since2019_percent": 7.570422535211274,
+          "gdp_real_percap_growth_since2019_percent": 2.383193821504803
+        },
+        {
+          "year": 2025,
+          "population_date": "2026-01-01",
+          "population": 8210710,
+          "population_growth_percent": 6.1809010914090745,
+          "net_migration_contribution_pp": null,
+          "natural_change_contribution_pp": null,
+          "statistical_adjustment_contribution_pp": null,
+          "status": "provisional; components no disponibles",
+          "gdp_real_total_growth_since2019_percent": 10.475352112676074,
+          "gdp_real_percap_growth_since2019_percent": 4.062732353152798
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435",
+        "https://www.idescat.cat/indicadors/?col=1&id=basics&n=10330",
+        "https://www.idescat.cat/indicadors/?col=1&id=basics&n=10328"
+      ],
+      "formulas": {
+        "population_growth_percent": "100 * (end_population / base_population - 1)",
+        "migration_contribution_pp": "100 * suma(saldos migratoris anuals des del 2020) / base_population",
+        "natural_contribution_pp": "100 * suma(naixements - defuncions des del 2020) / base_population",
+        "statistical_adjustment": "total_change - natural_change - net_migration",
+        "gdp_population_implied_growth_percent": "100 * ((PIB_real_final / PIB_real_2019) / (PIB_real_per_habitant_final / PIB_real_per_habitant_2019) - 1)"
+      },
+      "limitation": [
+        "Els fluxos corresponen a l'any natural; el punt 2019 del gràfic és zero a final d'any, és a dir, a 1 de gener del 2020. No sumar el flux del 2019 a aquesta base.",
+        "Saldo natural = naixements - defuncions. Saldo migratori = immigracions - emigracions, amb l'estranger i la resta d'Espanya; els moviments dins de Catalunya es cancel·len.",
+        "Les contribucions són punts percentuals sobre una població inicial fixa, no percentatge de creixement del flux migratori o dels naixements.",
+        "El creixement total pot incloure correcció estadística des del 2021. Derivem el residu per separat; no l'atribuïm a immigració ni a creixement natural.",
+        "2025: total provisional disponible, però saldo migratori i saldo natural encara no publicats. Són null, mai zero ni estimacions.",
+        "Les dates de població del gràfic demogràfic són de gener. El PIB per habitant original d'Idescat usa juliol, excepte gener el 2021. Per tant, les dues parts contextualitzen però no formen una identitat exacta.",
+        "La identitat PIB per habitant = PIB / població és comptable. Aquest gràfic no identifica l'efecte causal de la immigració sobre el PIB, la productivitat, els salaris o el benestar.",
+        "El 2024: saldo amb l'estranger +129030 i amb la resta d'Espanya -6437. Naixements 53802 i defuncions 67524."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/pib-poblacio-components.svg",
+      "mobile": "/assets/charts/creixement-benestar/pib-poblacio-components-mobile.svg"
     },
     {
       "id": "pib-consum-per-habitant",
