@@ -12,7 +12,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'assets/data/creixement-benestar');
 const outputDir = path.join(root, 'assets/charts/creixement-benestar');
 const load = async name => JSON.parse(await readFile(path.join(dataDir, `${name}.json`), 'utf8'));
-const [macro, age, income] = await Promise.all(['macro', 'edat', 'renda'].map(load));
+const [macro, age, income, employment, epfTotal, epfActivity] = await Promise.all(['macro', 'edat', 'renda', 'ocupacio', 'epf-total', 'epf-activitat'].map(load));
 await mkdir(outputDir, { recursive: true });
 
 const C = { ink: '#132a38', blue: '#1c6579', red: '#ae372f', gold: '#a66e00', green: '#2c6a59', paper: '#f4efe5', grid: '#d4cfc5', muted: '#52636d' };
@@ -44,48 +44,105 @@ function assertFinite(value, trail = '') {
   if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) assertFinite(item, `${trail}.${key}`);
 }
 
-const base2000 = macro.annual.find(r => r.year === 2000);
-const macroRows = macro.annual.map(r => ({
+const base2019 = macro.annual.find(r => r.year === 2019);
+const macroRows = macro.annual.filter(r => r.year >= 2019).map(r => ({
   year: r.year,
-  gdp_real_total_growth_since2000_percent: (r.gdp_volume_index2020 / base2000.gdp_volume_index2020 - 1) * 100,
-  gdp_real_percap_growth_since2000_percent: (r.gdp_real_percap_eur2020 / base2000.gdp_real_percap_eur2020 - 1) * 100,
-  household_consumption_real_percap_growth_since2000_percent_approx: (r.household_consumption_real_percap_index2020_approx / base2000.household_consumption_real_percap_index2020_approx - 1) * 100,
+  gdp_real_total_growth_since2019_percent: (r.gdp_volume_index2020 / base2019.gdp_volume_index2020 - 1) * 100,
+  gdp_real_percap_growth_since2019_percent: (r.gdp_real_percap_eur2020 / base2019.gdp_real_percap_eur2020 - 1) * 100,
+  household_consumption_real_percap_growth_since2019_percent_approx: (r.household_consumption_real_percap_index2020_approx / base2019.household_consumption_real_percap_index2020_approx - 1) * 100,
   status: r.status_demand,
 }));
 const macroSeries = [
-  { key: 'gdp_real_total_growth_since2000_percent', label: 'PIB real total', color: C.ink },
-  { key: 'gdp_real_percap_growth_since2000_percent', label: 'PIB real per habitant', color: C.blue },
-  { key: 'household_consumption_real_percap_growth_since2000_percent_approx', label: 'Consum real per habitant (aprox.)', color: C.red },
+  { key: 'gdp_real_total_growth_since2019_percent', label: 'PIB real total', color: C.ink },
+  { key: 'gdp_real_percap_growth_since2019_percent', label: 'PIB real per habitant', color: C.blue },
+  { key: 'household_consumption_real_percap_growth_since2019_percent_approx', label: 'Consum real per habitant (aprox.)', color: C.red },
 ];
 
-function macroLineFigure(series, { mobile, title, yMin, yMax, yTicks }) {
+const employmentBase = employment.rows.find(r => r.year === 2019).employed_persons_thousands;
+const productivityRows = employment.rows.map(r => {
+  const gdpRatio = macro.annual.find(m => m.year === r.year).gdp_volume_index2020 / base2019.gdp_volume_index2020;
+  const employmentRatio = r.employed_persons_thousands / employmentBase;
+  return {
+    year: r.year,
+    gdp_real_total_growth_since2019_percent: (gdpRatio - 1) * 100,
+    employed_persons_growth_since2019_percent: (employmentRatio - 1) * 100,
+    gdp_real_per_employed_person_growth_since2019_percent: (gdpRatio / employmentRatio - 1) * 100,
+    employed_persons_thousands: r.employed_persons_thousands,
+    status: r.status,
+  };
+});
+const productivitySeries = [
+  macroSeries[0],
+  { key: 'employed_persons_growth_since2019_percent', label: 'Persones ocupades', color: C.gold },
+  { key: 'gdp_real_per_employed_person_growth_since2019_percent', label: 'PIB real per persona ocupada', color: C.blue },
+];
+const epfBase = epfTotal.rows.find(r => r.year === 2019).nominal_euros_per_person;
+const epfRows = epfTotal.rows.map(r => ({
+  year: r.year,
+  nominal_euros_per_person: r.nominal_euros_per_person,
+  cpi_annual_mean: age.cpi_annual_mean_Catalunya_base2025_100[r.year],
+  epf_real_per_person_growth_since2019_percent_approx: (r.nominal_euros_per_person / epfBase * age.cpi_annual_mean_Catalunya_base2025_100[2019] / age.cpi_annual_mean_Catalunya_base2025_100[r.year] - 1) * 100,
+  household_consumption_real_percap_growth_since2019_percent_approx: macroRows.find(m => m.year === r.year).household_consumption_real_percap_growth_since2019_percent_approx,
+  status_epf: 'definitiu',
+  status_accounts: macroRows.find(m => m.year === r.year).status,
+}));
+const epfSeries = [
+  { key: 'household_consumption_real_percap_growth_since2019_percent_approx', label: 'Consum per habitant · Comptes', color: C.red },
+  { key: 'epf_real_per_person_growth_since2019_percent_approx', label: 'Despesa per persona · EPF / IPC', color: C.green },
+];
+const activityBase = epfActivity.data.find(r => r.year === 2019);
+const activityRows = epfActivity.data.map(r => {
+  const result = { year: r.year, cpi_annual_mean: age.cpi_annual_mean_Catalunya_base2025_100[r.year] };
+  for (const key of ['workers', 'retired']) {
+    result[`${key}_nominal_euros_per_person`] = r[key].per_person_eur;
+    result[`${key}_nominal_euros_per_consumption_unit`] = r[key].per_equivalent_unit_eur;
+    result[`${key}_sample_households`] = r[key].sample_households;
+    result[`${key}_real_per_person_growth_since2019_percent_approx`] = (r[key].per_person_eur / activityBase[key].per_person_eur * age.cpi_annual_mean_Catalunya_base2025_100[2019] / result.cpi_annual_mean - 1) * 100;
+    result[`${key}_real_per_consumption_unit_growth_since2019_percent_approx`] = (r[key].per_equivalent_unit_eur / activityBase[key].per_equivalent_unit_eur * age.cpi_annual_mean_Catalunya_base2025_100[2019] / result.cpi_annual_mean - 1) * 100;
+  }
+  return result;
+});
+const activitySeries = [
+  { key: 'workers_real_per_person_growth_since2019_percent_approx', label: 'Llars: sustentador ocupat', color: C.blue },
+  { key: 'retired_real_per_person_growth_since2019_percent_approx', label: 'Llars: sustentador jubilat', color: C.gold },
+];
+
+function macroLineFigure(series, { mobile, title, yMin, yMax, yTicks, rows = macroRows, footnote = '2023–2025: dades provisionals. Volums encadenats: efecte dels preus descomptat.' }) {
   const width = mobile ? 360 : 760;
   const left = mobile ? 41 : 56, right = mobile ? 68 : 82;
-  const top = mobile ? 138 : 116, bottom = mobile ? 343 : 367;
+  const top = mobile ? (series.length > 2 ? 161 : 138) : 116, bottom = mobile ? 343 : 367;
   const plotWidth = width - left - right;
-  const x = year => left + (year - 2000) / 25 * plotWidth;
+  const x = year => left + (year - 2019) / 6 * plotWidth;
   const y = value => bottom - (value - yMin) / (yMax - yMin) * (bottom - top);
-  let s = text(12, 24, 'Creixement real acumulat (%)', { size: mobile ? 13 : 15 });
-  s += text(12, 47, 'Catalunya · Respecte del 2000 (2000 = 0%)', { size: mobile ? 12 : 14, color: C.muted });
+  let s = text(12, 24, 'Creixement acumulat (%)', { size: mobile ? 13 : 15 });
+  s += text(12, 47, 'Catalunya · Respecte del 2019 (2019 = 0%)', { size: mobile ? 12 : 14, color: C.muted });
   series.forEach((a, i) => {
-    const lx = mobile ? 12 : 12 + i * 326, ly = mobile ? 75 + i * 23 : 78;
+    const lx = mobile ? 12 : 12 + i * (series.length > 2 ? 228 : 326), ly = mobile ? 75 + i * 23 : 78;
     s += line(lx, ly - 4, lx + 20, ly - 4, a.color, 3) + text(lx + 28, ly, a.label, { size: mobile ? 12 : 14, weight: 600 });
   });
   for (const tick of yTicks) s += line(left, y(tick), width - right, y(tick), tick === 0 ? C.muted : C.grid, 1, tick === 0 ? '4 4' : '') + text(left - 9, y(tick) + 4, signed(tick, 0), { size: mobile ? 12 : 13, anchor: 'end', color: C.muted });
-  for (const year of [2000, 2005, 2010, 2015, 2020, 2025]) {
+  for (const year of [2019, 2020, 2021, 2022, 2023, 2024, 2025]) {
     s += line(x(year), bottom, x(year), bottom + 5, C.muted);
     s += text(x(year), bottom + 23, year, { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
   }
+  const endLabels = [];
   series.forEach(a => {
-    s += pathLine(macroRows.map(row => [x(row.year), y(row[a.key])]), a.color);
-    for (const row of macroRows) s += circle(x(row.year), y(row[a.key]), 1.8, a.color);
-    const last = macroRows.at(-1);
+    s += pathLine(rows.map(row => [x(row.year), y(row[a.key])]), a.color);
+    for (const row of rows) s += circle(x(row.year), y(row[a.key]), 1.8, a.color);
+    const last = rows.at(-1);
     s += circle(x(last.year), y(last[a.key]), 3, a.color);
-    s += text(x(2025) + 7, y(last[a.key]) + 4, signed(last[a.key]), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
+    endLabels.push({ value: last[a.key], y: y(last[a.key]), color: a.color });
   });
-  s += note('2023–2025: dades provisionals. Volums encadenats: efecte dels preus descomptat.', bottom + 51, width, mobile);
+  endLabels.sort((a, b) => a.y - b.y);
+  endLabels.forEach((a, i) => {
+    const labelY = Math.max(a.y, i ? endLabels[i - 1].labelY + 17 : top);
+    a.labelY = labelY;
+    if (labelY - a.y > 2) s += line(x(2025) + 2, a.y, x(2025) + 6, labelY, a.color);
+    s += text(x(2025) + 7, labelY + 4, signed(a.value), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
+  });
+  s += note(footnote, bottom + 51, width, mobile);
   const height = mobile ? 436 : 447;
-  return svg(width, height, title, `${title}. Sèrie anual de 2000 a 2025. Variació real acumulada respecte del 2000, en percentatge: el 2000 correspon al 0%. No són taxes de creixement interanual. Les dades de 2023 a 2025 són provisionals.`, s);
+  return svg(width, height, title, `${title}. Sèrie anual de 2019 a 2025. Variació acumulada respecte del 2019, en percentatge: el 2019 correspon al 0%. No són taxes de creixement interanual. ${footnote}`, s);
 }
 
 const sensitivityRows = macro.findings.flatMap(f => [
@@ -215,8 +272,11 @@ function historicFigure(mobile) {
 }
 
 const specs = [
-  { id: 'pib-total-per-habitant', title: 'Una economia més gran, però quant més per persona?', alt: 'Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2000–2025, en percentatge respecte del 2000.', unit: 'Variació real acumulada respecte del 2000 (%)', base_year: 2000, rows: macroRows.map(r => ({ year: r.year, gdp_real_total_growth_since2000_percent: r.gdp_real_total_growth_since2000_percent, gdp_real_percap_growth_since2000_percent: r.gdp_real_percap_growth_since2000_percent, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_t / valor_real_2000 - 1)', render: mobile => macroLineFigure(macroSeries.slice(0, 2), { mobile, title: 'Creixement real acumulat del PIB total i per habitant, 2000–2025', yMin: -10, yMax: 60, yTicks: [-10, 0, 20, 40, 60] }) },
-  { id: 'pib-consum-per-habitant', title: 'Produir més no és el mateix que consumir més', alt: 'Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2000–2025, en percentatge respecte del 2000.', unit: 'Variació real acumulada respecte del 2000 (%)', base_year: 2000, rows: macroRows.map(r => ({ year: r.year, gdp_real_percap_growth_since2000_percent: r.gdp_real_percap_growth_since2000_percent, household_consumption_real_percap_growth_since2000_percent_approx: r.household_consumption_real_percap_growth_since2000_percent_approx, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_percap_t / valor_real_percap_2000 - 1)', consumption_percap_formula: macro.calculations.equivalent_formula, limitation: macro.calculations.limitation, render: mobile => macroLineFigure(macroSeries.slice(1), { mobile, title: 'Creixement real acumulat del PIB i del consum per habitant, 2000–2025', yMin: -20, yMax: 25, yTicks: [-20, -10, 0, 10, 20] }) },
+  { id: 'pib-total-per-habitant', title: 'Una economia més gran, però quant més per persona?', alt: 'Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2019–2025, en percentatge respecte del 2019.', unit: 'Variació real acumulada respecte del 2019 (%)', base_year: 2019, rows: macroRows.map(r => ({ year: r.year, gdp_real_total_growth_since2019_percent: r.gdp_real_total_growth_since2019_percent, gdp_real_percap_growth_since2019_percent: r.gdp_real_percap_growth_since2019_percent, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_t / valor_real_2019 - 1)', render: mobile => macroLineFigure(macroSeries.slice(0, 2), { mobile, title: 'Creixement real acumulat del PIB total i per habitant, 2019–2025', yMin: -15, yMax: 15, yTicks: [-15, -10, -5, 0, 5, 10, 15] }) },
+  { id: 'pib-consum-per-habitant', title: 'Produir més no és el mateix que consumir més', alt: 'Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2019–2025, en percentatge respecte del 2019.', unit: 'Variació real acumulada respecte del 2019 (%)', base_year: 2019, rows: macroRows.map(r => ({ year: r.year, gdp_real_percap_growth_since2019_percent: r.gdp_real_percap_growth_since2019_percent, household_consumption_real_percap_growth_since2019_percent_approx: r.household_consumption_real_percap_growth_since2019_percent_approx, status: r.status })), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_real_percap_t / valor_real_percap_2019 - 1)', consumption_percap_formula: macro.calculations.equivalent_formula, limitation: macro.calculations.limitation, render: mobile => macroLineFigure(macroSeries.slice(1), { mobile, title: 'Creixement real acumulat del PIB i del consum per habitant, 2019–2025', yMin: -15, yMax: 10, yTicks: [-15, -10, -5, 0, 5, 10] }) },
+  { id: 'pib-persona-ocupada', title: 'Més producció o més persones treballant?', alt: 'Creixement del PIB real, de les persones ocupades i del PIB real per persona ocupada, Catalunya 2019–2025. El 2025: +10,5%, +8,9% i +1,4%, respectivament.', unit: 'Variació acumulada respecte del 2019 (%)', base_year: 2019, rows: productivityRows, sources: [macro.sources[0].page, employment.source_url], formula: employment.formula_growth_gdp_per_employed_person, limitation: employment.notes, render: mobile => macroLineFigure(productivitySeries, { mobile, title: 'PIB real, ocupació i PIB real per persona ocupada, 2019–2025', yMin: -15, yMax: 15, yTicks: [-15, -10, -5, 0, 5, 10, 15], rows: productivityRows, footnote: 'Persones ocupades, no llocs de treball ni hores. 2023–2025: dades provisionals.' }) },
+  { id: 'consum-epf-comptes', title: 'L’enquesta de les llars explica el mateix que els comptes?', alt: 'Despesa per persona de l’EPF ajustada amb IPC i consum per habitant dels comptes econòmics. Creixement real aproximat a Catalunya, 2019–2025; resultats del 2025: −7,2% i −0,8%.', unit: 'Variació real aproximada respecte del 2019 (%)', base_year: 2019, rows: epfRows, sources: [epfTotal.source_url, macro.sources[0].page, age.sources.cpi_table], formula: '100 * (EPF_nominal_t / EPF_nominal_2019 * IPC_2019 / IPC_t - 1)', limitation: epfTotal.notes, render: mobile => macroLineFigure(epfSeries, { mobile, title: 'Despesa EPF i consum dels comptes econòmics per persona, 2019–2025', yMin: -15, yMax: 5, yTicks: [-15, -10, -5, 0, 5], rows: epfRows, footnote: 'EPF / IPC: aproximació. Diferents mètodes i perímetres; comptes 2023–2025 provisionals.' }) },
+  { id: 'consum-ocupats-jubilats', title: 'Ha canviat igual el consum de les llars d’ocupats i jubilats?', alt: 'Canvi real aproximat de la despesa per persona a les llars amb sustentador ocupat o jubilat, Catalunya 2019–2025. No és consum individual de treballadors o pensionistes.', unit: 'Variació real aproximada de la despesa per persona respecte del 2019 (%)', base_year: 2019, rows: activityRows, sources: [epfActivity.source_index, age.sources.cpi_table], formula: '100 * (despesa_nominal_per_persona_grup_t / despesa_nominal_per_persona_grup_2019 * IPC_2019 / IPC_t - 1)', limitation: epfActivity.limitations, render: mobile => macroLineFigure(activitySeries, { mobile, title: 'Despesa de consum de les llars amb sustentador ocupat o jubilat, 2019–2025', yMin: -20, yMax: 5, yTicks: [-20, -15, -10, -5, 0, 5], rows: activityRows, footnote: 'EPF / IPC: aproximació. Llars segons sustentador. 2024: canvi de qüestionari.' }) },
   { id: 'sensibilitat-any-base', title: 'Què canvia quan movem el punt de partida?', alt: 'Variació acumulada fins a 2025 del PIB total, el PIB per habitant i el consum per habitant, des de 2000, 2007 i 2019.', unit: 'Variació acumulada (%)', rows: sensitivityRows.map(({ color, ...r }) => r), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_2025 / valor_any_base - 1)', render: sensitivityFigure },
   { id: 'despesa-edat-2024', title: 'Quant consumeixen les llars segons l’edat?', alt: 'Despesa nominal anual per unitat de consum a Catalunya el 2024, segons l’edat del sustentador principal de la llar.', unit: 'Euros anuals per unitat de consum, preus corrents', rows: ageRows, sources: [age.sources.age_table, age.sources.equivalent_ssv], limitation: `${age.definitions.age_group} ${age.definitions.young_people_at_parental_home} ${age.comparability['2024_break']}`, render: ageSnapshotFigure },
   { id: 'renda-real-edat', title: 'Com ha canviat el poder adquisitiu per edat?', alt: 'Evolució aproximada de la renda real per unitat de consum dels menors de 16 anys, de 16 a 39, de 40 a 64 i de 65 o més, entre els anys de renda 2012 i 2024.', unit: 'Índex real aproximat, any de renda 2012=100', age_groups: income.age_groups, rows: incomeRows, sources: [income.source_url, age.sources.cpi_table], formula: 'renda_real_preus2024_t = renda_nominal_t * IPC_2024 / IPC_t; index2012 = 100 * renda_real_t / renda_real_2012', limitation: [...income.comparability_notes.filter(note => !note.startsWith('Valors encara no deflactats')), 'Sèrie derivada ajustada amb IPC anual mitjà de Catalunya de l’any de renda; aproximació comuna, no inflació específica per edat.'], render: incomeFigure },
@@ -232,7 +292,7 @@ for (const spec of specs) {
   }
 }
 const chartData = {
-  generated_from_snapshots: '2026-10-16', territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
+  generated_on: '2026-10-17', source_snapshot_dates: { macro: macro.retrieved, age: age.verified_on, income: income.retrieved_on, employment: employment.retrieved_on, epf_total: epfTotal.retrieved_on, epf_activity: epfActivity.retrieved_at }, territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
   notes: ['PIB, renda i consum són fluxos, no patrimoni net.', 'Sèries agregades reals: comptabilitat nacional. Despesa EPF i renda ECV reals: aproximació amb IPC general.', 'L’edat de l’EPF és la del sustentador principal; la de l’ECV és la de cada persona. No són classificacions equivalents.', 'El període EPF2016–2019 s’aïlla per evitar les ruptures metodològiques de la sèrie.'],
   charts: specs.map(({ render, ...spec }) => ({ ...spec, desktop: `/assets/charts/creixement-benestar/${spec.id}.svg`, mobile: `/assets/charts/creixement-benestar/${spec.id}-mobile.svg` })),
 };

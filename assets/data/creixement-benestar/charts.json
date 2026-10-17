@@ -1,5 +1,13 @@
 {
-  "generated_from_snapshots": "2026-10-16",
+  "generated_on": "2026-10-17",
+  "source_snapshot_dates": {
+    "macro": "2026-10-16",
+    "age": "2026-10-16",
+    "income": "2026-10-16",
+    "employment": "2026-10-17",
+    "epf_total": "2026-10-17",
+    "epf_activity": "2026-10-17"
+  },
   "territory": "Catalunya",
   "generator": "scripts/build-creixement-benestar.mjs",
   "notes": [
@@ -12,164 +20,50 @@
     {
       "id": "pib-total-per-habitant",
       "title": "Una economia més gran, però quant més per persona?",
-      "alt": "Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2000–2025, en percentatge respecte del 2000.",
-      "unit": "Variació real acumulada respecte del 2000 (%)",
-      "base_year": 2000,
+      "alt": "Creixement real acumulat del PIB total i del PIB per habitant de Catalunya, 2019–2025, en percentatge respecte del 2019.",
+      "unit": "Variació real acumulada respecte del 2019 (%)",
+      "base_year": 2019,
       "rows": [
         {
-          "year": 2000,
-          "gdp_real_total_growth_since2000_percent": 0,
-          "gdp_real_percap_growth_since2000_percent": 0,
-          "status": ""
-        },
-        {
-          "year": 2001,
-          "gdp_real_total_growth_since2000_percent": 3.325123152709364,
-          "gdp_real_percap_growth_since2000_percent": 1.439905566617261,
-          "status": ""
-        },
-        {
-          "year": 2002,
-          "gdp_real_total_growth_since2000_percent": 6.527093596059119,
-          "gdp_real_percap_growth_since2000_percent": 2.084386267812266,
-          "status": ""
-        },
-        {
-          "year": 2003,
-          "gdp_real_total_growth_since2000_percent": 10.344827586206895,
-          "gdp_real_percap_growth_since2000_percent": 3.412016512273963,
-          "status": ""
-        },
-        {
-          "year": 2004,
-          "gdp_real_total_growth_since2000_percent": 15.02463054187193,
-          "gdp_real_percap_growth_since2000_percent": 5.517094002598277,
-          "status": ""
-        },
-        {
-          "year": 2005,
-          "gdp_real_total_growth_since2000_percent": 19.458128078817726,
-          "gdp_real_percap_growth_since2000_percent": 7.216827051907848,
-          "status": ""
-        },
-        {
-          "year": 2006,
-          "gdp_real_total_growth_since2000_percent": 24.507389162561566,
-          "gdp_real_percap_growth_since2000_percent": 9.35582457913715,
-          "status": ""
-        },
-        {
-          "year": 2007,
-          "gdp_real_total_growth_since2000_percent": 28.201970443349733,
-          "gdp_real_percap_growth_since2000_percent": 10.266238369667358,
-          "status": ""
-        },
-        {
-          "year": 2008,
-          "gdp_real_total_growth_since2000_percent": 26.724137931034477,
-          "gdp_real_percap_growth_since2000_percent": 6.971924385453732,
-          "status": ""
-        },
-        {
-          "year": 2009,
-          "gdp_real_total_growth_since2000_percent": 21.30541871921181,
-          "gdp_real_percap_growth_since2000_percent": 1.2672525787708055,
-          "status": ""
-        },
-        {
-          "year": 2010,
-          "gdp_real_total_growth_since2000_percent": 21.798029556650246,
-          "gdp_real_percap_growth_since2000_percent": 1.0569483499598187,
-          "status": ""
-        },
-        {
-          "year": 2011,
-          "gdp_real_total_growth_since2000_percent": 21.674876847290637,
-          "gdp_real_percap_growth_since2000_percent": 0.6343046901235105,
-          "status": ""
-        },
-        {
-          "year": 2012,
-          "gdp_real_total_growth_since2000_percent": 18.10344827586208,
-          "gdp_real_percap_growth_since2000_percent": -2.218370413587012,
-          "status": ""
-        },
-        {
-          "year": 2013,
-          "gdp_real_total_growth_since2000_percent": 16.625615763546797,
-          "gdp_real_percap_growth_since2000_percent": -2.8879519420917044,
-          "status": ""
-        },
-        {
-          "year": 2014,
-          "gdp_real_total_growth_since2000_percent": 19.21182266009851,
-          "gdp_real_percap_growth_since2000_percent": -0.39381162846704454,
-          "status": ""
-        },
-        {
-          "year": 2015,
-          "gdp_real_total_growth_since2000_percent": 23.52216748768472,
-          "gdp_real_percap_growth_since2000_percent": 3.056873725878617,
-          "status": ""
-        },
-        {
-          "year": 2016,
-          "gdp_real_total_growth_since2000_percent": 28.57142857142858,
-          "gdp_real_percap_growth_since2000_percent": 6.798932197238239,
-          "status": ""
-        },
-        {
-          "year": 2017,
-          "gdp_real_total_growth_since2000_percent": 32.63546798029557,
-          "gdp_real_percap_growth_since2000_percent": 9.367696592053898,
-          "status": ""
-        },
-        {
-          "year": 2018,
-          "gdp_real_total_growth_since2000_percent": 36.69950738916257,
-          "gdp_real_percap_growth_since2000_percent": 11.851321694238015,
-          "status": ""
-        },
-        {
           "year": 2019,
-          "gdp_real_total_growth_since2000_percent": 39.9014778325123,
-          "gdp_real_percap_growth_since2000_percent": 13.138247894413713,
+          "gdp_real_total_growth_since2019_percent": 0,
+          "gdp_real_percap_growth_since2019_percent": 0,
           "status": ""
         },
         {
           "year": 2020,
-          "gdp_real_total_growth_since2000_percent": 23.152709359605915,
-          "gdp_real_percap_growth_since2000_percent": -1.1929676979488435,
+          "gdp_real_total_growth_since2019_percent": -11.971830985915489,
+          "gdp_real_percap_growth_since2019_percent": -12.666994459501591,
           "status": ""
         },
         {
           "year": 2021,
-          "gdp_real_total_growth_since2000_percent": 31.40394088669951,
-          "gdp_real_percap_growth_since2000_percent": 5.228434488536737,
+          "gdp_real_total_growth_since2019_percent": -6.073943661971826,
+          "gdp_real_percap_growth_since2019_percent": -6.991281510085634,
           "status": ""
         },
         {
           "year": 2022,
-          "gdp_real_total_growth_since2000_percent": 40.88669950738917,
-          "gdp_real_percap_growth_since2000_percent": 11.702412732225053,
+          "gdp_real_total_growth_since2019_percent": 0.7042253521126751,
+          "gdp_real_percap_growth_since2019_percent": -1.2690979301081762,
           "status": ""
         },
         {
           "year": 2023,
-          "gdp_real_total_growth_since2000_percent": 44.82758620689653,
-          "gdp_real_percap_growth_since2000_percent": 13.0188493645081,
+          "gdp_real_total_growth_since2019_percent": 3.5211267605633756,
+          "gdp_real_percap_growth_since2019_percent": -0.10553330295254293,
           "status": "p"
         },
         {
           "year": 2024,
-          "gdp_real_total_growth_since2000_percent": 50.49261083743841,
-          "gdp_real_percap_growth_since2000_percent": 15.834551627992187,
+          "gdp_real_total_growth_since2019_percent": 7.570422535211274,
+          "gdp_real_percap_growth_since2019_percent": 2.383193821504803,
           "status": "p"
         },
         {
           "year": 2025,
-          "gdp_real_total_growth_since2000_percent": 54.5566502463054,
-          "gdp_real_percap_growth_since2000_percent": 17.73475209541029,
+          "gdp_real_total_growth_since2019_percent": 10.475352112676074,
+          "gdp_real_percap_growth_since2019_percent": 4.062732353152798,
           "status": "p"
         }
       ],
@@ -177,171 +71,57 @@
         "https://www.idescat.cat/pub/?id=piba&n=21913",
         "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
       ],
-      "formula": "100 * (valor_real_t / valor_real_2000 - 1)",
+      "formula": "100 * (valor_real_t / valor_real_2019 - 1)",
       "desktop": "/assets/charts/creixement-benestar/pib-total-per-habitant.svg",
       "mobile": "/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg"
     },
     {
       "id": "pib-consum-per-habitant",
       "title": "Produir més no és el mateix que consumir més",
-      "alt": "Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2000–2025, en percentatge respecte del 2000.",
-      "unit": "Variació real acumulada respecte del 2000 (%)",
-      "base_year": 2000,
+      "alt": "Creixement real acumulat del PIB per habitant i del consum de les llars per habitant aproximat, Catalunya 2019–2025, en percentatge respecte del 2019.",
+      "unit": "Variació real acumulada respecte del 2019 (%)",
+      "base_year": 2019,
       "rows": [
         {
-          "year": 2000,
-          "gdp_real_percap_growth_since2000_percent": 0,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 0,
-          "status": ""
-        },
-        {
-          "year": 2001,
-          "gdp_real_percap_growth_since2000_percent": 1.439905566617261,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 1.3492262708187264,
-          "status": ""
-        },
-        {
-          "year": 2002,
-          "gdp_real_percap_growth_since2000_percent": 2.084386267812266,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 3.0580234778809556,
-          "status": ""
-        },
-        {
-          "year": 2003,
-          "gdp_real_percap_growth_since2000_percent": 3.412016512273963,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 3.714981404399764,
-          "status": ""
-        },
-        {
-          "year": 2004,
-          "gdp_real_percap_growth_since2000_percent": 5.517094002598277,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 6.265542340678776,
-          "status": ""
-        },
-        {
-          "year": 2005,
-          "gdp_real_percap_growth_since2000_percent": 7.216827051907848,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 7.935290325966982,
-          "status": ""
-        },
-        {
-          "year": 2006,
-          "gdp_real_percap_growth_since2000_percent": 9.35582457913715,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 8.747390837042568,
-          "status": ""
-        },
-        {
-          "year": 2007,
-          "gdp_real_percap_growth_since2000_percent": 10.266238369667358,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 10.38540217194004,
-          "status": ""
-        },
-        {
-          "year": 2008,
-          "gdp_real_percap_growth_since2000_percent": 6.971924385453732,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 7.062886906189658,
-          "status": ""
-        },
-        {
-          "year": 2009,
-          "gdp_real_percap_growth_since2000_percent": 1.2672525787708055,
-          "household_consumption_real_percap_growth_since2000_percent_approx": 0.9331220499576132,
-          "status": ""
-        },
-        {
-          "year": 2010,
-          "gdp_real_percap_growth_since2000_percent": 1.0569483499598187,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -0.13090506214160635,
-          "status": ""
-        },
-        {
-          "year": 2011,
-          "gdp_real_percap_growth_since2000_percent": 0.6343046901235105,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -2.052162704817828,
-          "status": ""
-        },
-        {
-          "year": 2012,
-          "gdp_real_percap_growth_since2000_percent": -2.218370413587012,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -5.608609395597708,
-          "status": ""
-        },
-        {
-          "year": 2013,
-          "gdp_real_percap_growth_since2000_percent": -2.8879519420917044,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -9.822695606205812,
-          "status": ""
-        },
-        {
-          "year": 2014,
-          "gdp_real_percap_growth_since2000_percent": -0.39381162846704454,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -7.892572968937584,
-          "status": ""
-        },
-        {
-          "year": 2015,
-          "gdp_real_percap_growth_since2000_percent": 3.056873725878617,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -5.0602678736671685,
-          "status": ""
-        },
-        {
-          "year": 2016,
-          "gdp_real_percap_growth_since2000_percent": 6.798932197238239,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -3.7761057490160788,
-          "status": ""
-        },
-        {
-          "year": 2017,
-          "gdp_real_percap_growth_since2000_percent": 9.367696592053898,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -2.1707477211050152,
-          "status": ""
-        },
-        {
-          "year": 2018,
-          "gdp_real_percap_growth_since2000_percent": 11.851321694238015,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -0.8956983006458752,
-          "status": ""
-        },
-        {
           "year": 2019,
-          "gdp_real_percap_growth_since2000_percent": 13.138247894413713,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -0.742600081188316,
+          "gdp_real_percap_growth_since2019_percent": 0,
+          "household_consumption_real_percap_growth_since2019_percent_approx": 0,
           "status": ""
         },
         {
           "year": 2020,
-          "gdp_real_percap_growth_since2000_percent": -1.1929676979488435,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -13.543846735705245,
+          "gdp_real_percap_growth_since2019_percent": -12.666994459501591,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -12.8970199350253,
           "status": ""
         },
         {
           "year": 2021,
-          "gdp_real_percap_growth_since2000_percent": 5.228434488536737,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -7.925119822530357,
+          "gdp_real_percap_growth_since2019_percent": -6.991281510085634,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -7.23625618565168,
           "status": ""
         },
         {
           "year": 2022,
-          "gdp_real_percap_growth_since2000_percent": 11.702412732225053,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -6.617661733582414,
+          "gdp_real_percap_growth_since2019_percent": -1.2690979301081762,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -5.9190162720357815,
           "status": ""
         },
         {
           "year": 2023,
-          "gdp_real_percap_growth_since2000_percent": 13.0188493645081,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -6.5744481815710465,
+          "gdp_real_percap_growth_since2019_percent": -0.10553330295254293,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -5.875479415290874,
           "status": "p"
         },
         {
           "year": 2024,
-          "gdp_real_percap_growth_since2000_percent": 15.834551627992187,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -4.201887283928318,
+          "gdp_real_percap_growth_since2019_percent": 2.383193821504803,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -3.4851680636099225,
           "status": "p"
         },
         {
           "year": 2025,
-          "gdp_real_percap_growth_since2000_percent": 17.73475209541029,
-          "household_consumption_real_percap_growth_since2000_percent_approx": -1.4968209560312418,
+          "gdp_real_percap_growth_since2019_percent": 4.062732353152798,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -0.7598636227221789,
           "status": "p"
         }
       ],
@@ -349,11 +129,297 @@
         "https://www.idescat.cat/pub/?id=piba&n=21913",
         "https://www.idescat.cat/indicadors/?col=1&id=ue&n=14435"
       ],
-      "formula": "100 * (valor_real_percap_t / valor_real_percap_2000 - 1)",
+      "formula": "100 * (valor_real_percap_t / valor_real_percap_2019 - 1)",
       "consumption_percap_formula": "Household_consumption_volume_index2020_t / GDP_volume_index2020_t * GDP_real_percap_index2020_t",
       "limitation": "Derived consumption per capita is an APPROXIMATE own calculation, not an Idescat published series. It uses the population implicit in the published real-GDP-per-capita series and the same annual accounts revision. Source indices rounded to 0.1 imply small rounding errors. Preserve full precision for calculations; display 1 decimal.",
       "desktop": "/assets/charts/creixement-benestar/pib-consum-per-habitant.svg",
       "mobile": "/assets/charts/creixement-benestar/pib-consum-per-habitant-mobile.svg"
+    },
+    {
+      "id": "pib-persona-ocupada",
+      "title": "Més producció o més persones treballant?",
+      "alt": "Creixement del PIB real, de les persones ocupades i del PIB real per persona ocupada, Catalunya 2019–2025. El 2025: +10,5%, +8,9% i +1,4%, respectivament.",
+      "unit": "Variació acumulada respecte del 2019 (%)",
+      "base_year": 2019,
+      "rows": [
+        {
+          "year": 2019,
+          "gdp_real_total_growth_since2019_percent": 0,
+          "employed_persons_growth_since2019_percent": 0,
+          "gdp_real_per_employed_person_growth_since2019_percent": 0,
+          "employed_persons_thousands": 3678,
+          "status": ""
+        },
+        {
+          "year": 2020,
+          "gdp_real_total_growth_since2019_percent": -11.971830985915489,
+          "employed_persons_growth_since2019_percent": -4.567699836867867,
+          "gdp_real_per_employed_person_growth_since2019_percent": -7.758516913446478,
+          "employed_persons_thousands": 3510,
+          "status": ""
+        },
+        {
+          "year": 2021,
+          "gdp_real_total_growth_since2019_percent": -6.073943661971826,
+          "employed_persons_growth_since2019_percent": -2.69168026101142,
+          "gdp_real_per_employed_person_growth_since2019_percent": -3.475821399478174,
+          "employed_persons_thousands": 3579,
+          "status": ""
+        },
+        {
+          "year": 2022,
+          "gdp_real_total_growth_since2019_percent": 0.7042253521126751,
+          "employed_persons_growth_since2019_percent": 1.1963023382272953,
+          "gdp_real_per_employed_person_growth_since2019_percent": -0.4862598481809699,
+          "employed_persons_thousands": 3722,
+          "status": ""
+        },
+        {
+          "year": 2023,
+          "gdp_real_total_growth_since2019_percent": 3.5211267605633756,
+          "employed_persons_growth_since2019_percent": 4.214246873300698,
+          "gdp_real_per_employed_person_growth_since2019_percent": -0.6650915143876501,
+          "employed_persons_thousands": 3833,
+          "status": "p"
+        },
+        {
+          "year": 2024,
+          "gdp_real_total_growth_since2019_percent": 7.570422535211274,
+          "employed_persons_growth_since2019_percent": 6.334964654703645,
+          "gdp_real_per_employed_person_growth_since2019_percent": 1.161854790208916,
+          "employed_persons_thousands": 3911,
+          "status": "p"
+        },
+        {
+          "year": 2025,
+          "gdp_real_total_growth_since2019_percent": 10.475352112676074,
+          "employed_persons_growth_since2019_percent": 8.945078847199571,
+          "gdp_real_per_employed_person_growth_since2019_percent": 1.4046281683111062,
+          "employed_persons_thousands": 4007,
+          "status": "p"
+        }
+      ],
+      "sources": [
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/pub/?id=piba&n=22267"
+      ],
+      "formula": "100 * ((GDP_volume_t / GDP_volume_2019) / (employed_t / employed_2019) - 1)",
+      "limitation": [
+        "Mateixa operació i revisió estadística que el PIB real de macro.json.",
+        "Les dades de 2023, 2024 i 2025 són provisionals.",
+        "El PIB real per persona ocupada és productivitat aparent per persona, no per hora. No és salari, renda disponible ni poder adquisitiu individual.",
+        "Les hores treballades, els ERTO i la composició de l'ocupació poden afectar el resultat, especialment el 2020.",
+        "Els ocupats es publiquen en milers arrodonits; les variacions calculades són aproximades."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/pib-persona-ocupada.svg",
+      "mobile": "/assets/charts/creixement-benestar/pib-persona-ocupada-mobile.svg"
+    },
+    {
+      "id": "consum-epf-comptes",
+      "title": "L’enquesta de les llars explica el mateix que els comptes?",
+      "alt": "Despesa per persona de l’EPF ajustada amb IPC i consum per habitant dels comptes econòmics. Creixement real aproximat a Catalunya, 2019–2025; resultats del 2025: −7,2% i −0,8%.",
+      "unit": "Variació real aproximada respecte del 2019 (%)",
+      "base_year": 2019,
+      "rows": [
+        {
+          "year": 2019,
+          "nominal_euros_per_person": 13414.36,
+          "cpi_annual_mean": 82.9,
+          "epf_real_per_person_growth_since2019_percent_approx": 0,
+          "household_consumption_real_percap_growth_since2019_percent_approx": 0,
+          "status_epf": "definitiu",
+          "status_accounts": ""
+        },
+        {
+          "year": 2020,
+          "nominal_euros_per_person": 11871.66,
+          "cpi_annual_mean": 82.6,
+          "epf_real_per_person_growth_since2019_percent_approx": -11.178935042738015,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -12.8970199350253,
+          "status_epf": "definitiu",
+          "status_accounts": ""
+        },
+        {
+          "year": 2021,
+          "nominal_euros_per_person": 12491.67,
+          "cpi_annual_mean": 85,
+          "epf_real_per_person_growth_since2019_percent_approx": -9.179027023367226,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -7.23625618565168,
+          "status_epf": "definitiu",
+          "status_accounts": ""
+        },
+        {
+          "year": 2022,
+          "nominal_euros_per_person": 13099.08,
+          "cpi_annual_mean": 91.8,
+          "epf_real_per_person_growth_since2019_percent_approx": -11.81744324056434,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -5.9190162720357815,
+          "status_epf": "definitiu",
+          "status_accounts": ""
+        },
+        {
+          "year": 2023,
+          "nominal_euros_per_person": 13591.83,
+          "cpi_annual_mean": 94.9,
+          "epf_real_per_person_growth_since2019_percent_approx": -11.48919415552574,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -5.875479415290874,
+          "status_epf": "definitiu",
+          "status_accounts": "p"
+        },
+        {
+          "year": 2024,
+          "nominal_euros_per_person": 14746.47,
+          "cpi_annual_mean": 97.6,
+          "epf_real_per_person_growth_since2019_percent_approx": -6.626674346512617,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -3.4851680636099225,
+          "status_epf": "definitiu",
+          "status_accounts": "p"
+        },
+        {
+          "year": 2025,
+          "nominal_euros_per_person": 15017.06,
+          "cpi_annual_mean": 100,
+          "epf_real_per_person_growth_since2019_percent_approx": -7.195402986053745,
+          "household_consumption_real_percap_growth_since2019_percent_approx": -0.7598636227221789,
+          "status_epf": "definitiu",
+          "status_accounts": "p"
+        }
+      ],
+      "sources": [
+        "https://www.ine.es/jaxiT3/Tabla.htm?t=73996",
+        "https://www.idescat.cat/pub/?id=piba&n=21913",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15361"
+      ],
+      "formula": "100 * (EPF_nominal_t / EPF_nominal_2019 * IPC_2019 / IPC_t - 1)",
+      "limitation": [
+        "Taula revisada COICOP 2018 des del 2016; inclou els factors revisats de població del 2021 i el 2022.",
+        "La despesa EPF inclou consum monetari, en espècie i lloguer imputat. No és la mateixa mesura que el consum real de la comptabilitat nacional.",
+        "L'ajust amb IPC general català és aproximat; no és el deflactor de consum dels comptes econòmics i l'IPC no inclou lloguer imputat.",
+        "Les mitjanes descriuen llars canviants, no el seguiment de les mateixes persones. No són renda ni patrimoni net."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/consum-epf-comptes.svg",
+      "mobile": "/assets/charts/creixement-benestar/consum-epf-comptes-mobile.svg"
+    },
+    {
+      "id": "consum-ocupats-jubilats",
+      "title": "Ha canviat igual el consum de les llars d’ocupats i jubilats?",
+      "alt": "Canvi real aproximat de la despesa per persona a les llars amb sustentador ocupat o jubilat, Catalunya 2019–2025. No és consum individual de treballadors o pensionistes.",
+      "unit": "Variació real aproximada de la despesa per persona respecte del 2019 (%)",
+      "base_year": 2019,
+      "rows": [
+        {
+          "year": 2019,
+          "cpi_annual_mean": 82.9,
+          "workers_nominal_euros_per_person": 12893.71744714,
+          "workers_nominal_euros_per_consumption_unit": 20020.76315712,
+          "workers_sample_households": 1177,
+          "workers_real_per_person_growth_since2019_percent_approx": 0,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": 0,
+          "retired_nominal_euros_per_person": 16328.10468023,
+          "retired_nominal_euros_per_consumption_unit": 21166.03824166,
+          "retired_sample_households": 533,
+          "retired_real_per_person_growth_since2019_percent_approx": 0,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": 0
+        },
+        {
+          "year": 2020,
+          "cpi_annual_mean": 82.6,
+          "workers_nominal_euros_per_person": 11362.40166175,
+          "workers_nominal_euros_per_consumption_unit": 17545.51166097,
+          "workers_sample_households": 1088,
+          "workers_real_per_person_growth_since2019_percent_approx": -11.556387743512476,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -12.04512964166905,
+          "retired_nominal_euros_per_person": 14882.51887048,
+          "retired_nominal_euros_per_consumption_unit": 19328.3355106,
+          "retired_sample_households": 447,
+          "retired_real_per_person_growth_since2019_percent_approx": -8.522318450467504,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -8.350655635706627
+        },
+        {
+          "year": 2021,
+          "cpi_annual_mean": 85,
+          "workers_nominal_euros_per_person": 11937.24087565,
+          "workers_nominal_euros_per_consumption_unit": 18505.60707395,
+          "workers_sample_households": 1148,
+          "workers_real_per_person_growth_since2019_percent_approx": -9.705475905710214,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -9.85153971869116,
+          "retired_nominal_euros_per_person": 15348.72460605,
+          "retired_nominal_euros_per_consumption_unit": 20373.0999705,
+          "retired_sample_households": 497,
+          "retired_real_per_person_growth_since2019_percent_approx": -8.320523938150226,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -6.124309459313437
+        },
+        {
+          "year": 2022,
+          "cpi_annual_mean": 91.8,
+          "workers_nominal_euros_per_person": 12518.3225159,
+          "workers_nominal_euros_per_consumption_unit": 19405.53528856,
+          "workers_sample_households": 1090,
+          "workers_real_per_person_growth_since2019_percent_approx": -12.324179911801036,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -12.470016159225628,
+          "retired_nominal_euros_per_person": 16265.94014126,
+          "retired_nominal_euros_per_consumption_unit": 21314.48827773,
+          "retired_sample_households": 431,
+          "retired_real_per_person_growth_since2019_percent_approx": -10.03879933328038,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -9.061626265236377
+        },
+        {
+          "year": 2023,
+          "cpi_annual_mean": 94.9,
+          "workers_nominal_euros_per_person": 12757.75943769,
+          "workers_nominal_euros_per_consumption_unit": 19730.88897783,
+          "workers_sample_households": 1034,
+          "workers_real_per_person_growth_since2019_percent_approx": -13.566006715882695,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -13.90967585939289,
+          "retired_nominal_euros_per_person": 17165.48975526,
+          "retired_nominal_euros_per_consumption_unit": 22589.94981743,
+          "retired_sample_households": 381,
+          "retired_real_per_person_growth_since2019_percent_approx": -8.164891996077406,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -6.768213154200408
+        },
+        {
+          "year": 2024,
+          "cpi_annual_mean": 97.6,
+          "workers_nominal_euros_per_person": 13976.85867271,
+          "workers_nominal_euros_per_consumption_unit": 21580.38172175,
+          "workers_sample_households": 954,
+          "workers_real_per_person_growth_since2019_percent_approx": -7.926185063985891,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -8.444759615164143,
+          "retired_nominal_euros_per_person": 18826.98512512,
+          "retired_nominal_euros_per_consumption_unit": 24821.58316111,
+          "retired_sample_households": 309,
+          "retired_real_per_person_growth_since2019_percent_approx": -2.0623415683460378,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -0.3919095474812062
+        },
+        {
+          "year": 2025,
+          "cpi_annual_mean": 100,
+          "workers_nominal_euros_per_person": 14153.48520241,
+          "workers_nominal_euros_per_consumption_unit": 21806.30515134,
+          "workers_sample_households": 990,
+          "workers_real_per_person_growth_since2019_percent_approx": -9.00033849120463,
+          "workers_real_per_consumption_unit_growth_since2019_percent_approx": -9.706603946153924,
+          "retired_nominal_euros_per_person": 18912.58369262,
+          "retired_nominal_euros_per_consumption_unit": 24952.56868721,
+          "retired_sample_households": 334,
+          "retired_real_per_person_growth_since2019_percent_approx": -3.978249844481463,
+          "retired_real_per_consumption_unit_growth_since2019_percent_approx": -2.269479032771682
+        }
+      ],
+      "sources": [
+        "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176806&idp=1254735976608&menu=resultados&secc=1254736195147",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15361"
+      ],
+      "formula": "100 * (despesa_nominal_per_persona_grup_t / despesa_nominal_per_persona_grup_2019 * IPC_2019 / IPC_t - 1)",
+      "limitation": [
+        "Classifica llars segons qui més aporta al pressupost comú, no el consum individual dels treballadors ni de tots els pensionistes. La categoria de jubilats no inclou necessàriament perceptors de pensions de viduïtat o incapacitat.",
+        "Inclou despesa monetària i no monetària, inclosos lloguers imputats als propietaris, autoconsum, salari en espècie i altres imputacions. No és una mesura de despesa només en efectiu ni una desagregació exacta del consum privat de comptabilitat nacional.",
+        "A partir del 2024 canvien el qüestionari i la classificació COICOP; l’activitat principal es formula com a autopercebuda. S’han harmonitzat els codis d’ocupació i jubilació, però aquesta revisió és una cautela de comparabilitat.",
+        "Són mitjanes de mostres anuals de llars diferents, no el seguiment de les mateixes persones. Poden variar per composició familiar, edat, propietat de l’habitatge o entrada i sortida de cada grup.",
+        "No s’han estimat errors de mostreig ni intervals de confiança del creuament Catalunya × activitat. La mostra de jubilats és de 309 llars el 2024 i 334 el 2025; no s’han d’interpretar diferències petites com a estadísticament significatives."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/consum-ocupats-jubilats.svg",
+      "mobile": "/assets/charts/creixement-benestar/consum-ocupats-jubilats-mobile.svg"
     },
     {
       "id": "sensibilitat-any-base",

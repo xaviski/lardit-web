@@ -1,0 +1,219 @@
+{
+  "title": "Catalunya: despesa de consum de les llars segons l’activitat del sustentador principal",
+  "retrieved_at": "2026-10-17",
+  "geography": "Catalunya (CCAA 09)",
+  "source": "Elaboració pròpia a partir de microdades anonimitzades de l’Enquesta de pressupostos familiars de l’INE",
+  "source_index": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176806&idp=1254735976608&menu=resultados&secc=1254736195147",
+  "revision_note": "https://www.ine.es/daco/daco42/daco4213/nota_revision_EPF_serie_2016_2024.pdf",
+  "published_validation_source": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/73996?tip=AM",
+  "nominal_units": "euros corrents anuals",
+  "groups": {
+    "workers": "Llars amb sustentador principal ocupat (SITUACTSP 1 o 2 fins al 2023; 1 des del 2024)",
+    "retired": "Llars amb sustentador principal jubilat o retirat anticipadament (SITUACTSP 4 fins al 2023; 3 des del 2024)"
+  },
+  "methodology": {
+    "per_person": "Suma de GASTOT dividida per suma de FACTOR × NMIEMB dins del grup. GASTOT ja està elevat temporalment i poblacionalment: no s’ha de multiplicar de nou per FACTOR.",
+    "per_equivalent_unit": "Suma de GASTOT dividida per suma de FACTOR × UC2. UC2 és l’escala OCDE modificada: 1 + 0,5 × (membres de 14 anys o més − 1) + 0,3 × menors de 14 anys.",
+    "weights_2021_2022": "S’uneixen per NUMERO els factors FACTORCENSO21 dels fitxers FUSUFACTORCENSO 2021_A2021.csv i FUSUFACTORCENSO 2021_A2022.csv inclosos als ZIP oficials. Es repondera GASTOT multiplicant-lo pel factor nou dividit per l’antic. Les despeses mitjanes sense desagregar del 2019 i el 2020 no van canviar amb la revisió; el 2023 ja es va publicar amb el cens de 2021.",
+    "inflation": "Aquests valors no estan deflactats. Per comparar creixement real, dividir cada valor pel mateix índex anual de preus català normalitzat a 2019, i després calcular 100 × (valor real / valor real de 2019 − 1). L’IPC general no recull cistelles de consum específiques de cada grup.",
+    "validation": "El total català reprodueix a cèntims el valor publicat per l’INE en sis dels set anys. El 2022 hi ha una discrepància no resolta de 0,35 euros per persona (0,0027%): càlcul amb microdades 13.099,43, taula publicada 13.099,08. No s’ha ajustat artificialment la sèrie de grups."
+  },
+  "limitations": [
+    "Classifica llars segons qui més aporta al pressupost comú, no el consum individual dels treballadors ni de tots els pensionistes. La categoria de jubilats no inclou necessàriament perceptors de pensions de viduïtat o incapacitat.",
+    "Inclou despesa monetària i no monetària, inclosos lloguers imputats als propietaris, autoconsum, salari en espècie i altres imputacions. No és una mesura de despesa només en efectiu ni una desagregació exacta del consum privat de comptabilitat nacional.",
+    "A partir del 2024 canvien el qüestionari i la classificació COICOP; l’activitat principal es formula com a autopercebuda. S’han harmonitzat els codis d’ocupació i jubilació, però aquesta revisió és una cautela de comparabilitat.",
+    "Són mitjanes de mostres anuals de llars diferents, no el seguiment de les mateixes persones. Poden variar per composició familiar, edat, propietat de l’habitatge o entrada i sortida de cada grup.",
+    "No s’han estimat errors de mostreig ni intervals de confiança del creuament Catalunya × activitat. La mostra de jubilats és de 309 llars el 2024 i 334 el 2025; no s’han d’interpretar diferències petites com a estadísticament significatives."
+  ],
+  "data": [
+    {
+      "year": 2019,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2019.zip",
+      "workers": {
+        "per_household_eur": 36115.35071192,
+        "per_person_eur": 12893.71744714,
+        "per_equivalent_unit_eur": 20020.76315712,
+        "sample_households": 1177
+      },
+      "retired": {
+        "per_household_eur": 29796.30883392,
+        "per_person_eur": 16328.10468023,
+        "per_equivalent_unit_eur": 21166.03824166,
+        "sample_households": 533
+      },
+      "all": {
+        "per_household_eur": 32915.71009132,
+        "per_person_eur": 13414.36182308,
+        "per_equivalent_unit_eur": 19832.65724485,
+        "sample_households": 1866
+      },
+      "validation": {
+        "published_all_per_person_eur": 13414.36,
+        "published_all_per_household_eur": 32915.71,
+        "own_minus_published_per_person_eur": 0.00182308
+      }
+    },
+    {
+      "year": 2020,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2020.zip",
+      "workers": {
+        "per_household_eur": 31489.76400638,
+        "per_person_eur": 11362.40166175,
+        "per_equivalent_unit_eur": 17545.51166097,
+        "sample_households": 1088
+      },
+      "retired": {
+        "per_household_eur": 27277.02868502,
+        "per_person_eur": 14882.51887048,
+        "per_equivalent_unit_eur": 19328.3355106,
+        "sample_households": 447
+      },
+      "all": {
+        "per_household_eur": 29234.76109056,
+        "per_person_eur": 11871.66185264,
+        "per_equivalent_unit_eur": 17549.18450799,
+        "sample_households": 1682
+      },
+      "validation": {
+        "published_all_per_person_eur": 11871.66,
+        "published_all_per_household_eur": 29234.76,
+        "own_minus_published_per_person_eur": 0.00185264
+      }
+    },
+    {
+      "year": 2021,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2021.zip",
+      "workers": {
+        "per_household_eur": 33804.55691644,
+        "per_person_eur": 11937.24087565,
+        "per_equivalent_unit_eur": 18505.60707395,
+        "sample_households": 1148
+      },
+      "retired": {
+        "per_household_eur": 29980.05487609,
+        "per_person_eur": 15348.72460605,
+        "per_equivalent_unit_eur": 20373.0999705,
+        "sample_households": 497
+      },
+      "all": {
+        "per_household_eur": 31778.63433099,
+        "per_person_eur": 12491.67075731,
+        "per_equivalent_unit_eur": 18614.88270517,
+        "sample_households": 1763
+      },
+      "validation": {
+        "published_all_per_person_eur": 12491.67,
+        "published_all_per_household_eur": 31778.63,
+        "own_minus_published_per_person_eur": 0.00075731
+      }
+    },
+    {
+      "year": 2022,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2022.zip",
+      "workers": {
+        "per_household_eur": 35225.65922292,
+        "per_person_eur": 12518.3225159,
+        "per_equivalent_unit_eur": 19405.53528856,
+        "sample_households": 1090
+      },
+      "retired": {
+        "per_household_eur": 30730.26337337,
+        "per_person_eur": 16265.94014126,
+        "per_equivalent_unit_eur": 21314.48827773,
+        "sample_households": 431
+      },
+      "all": {
+        "per_household_eur": 33060.53122335,
+        "per_person_eur": 13099.42999451,
+        "per_equivalent_unit_eur": 19482.44188661,
+        "sample_households": 1640
+      },
+      "validation": {
+        "published_all_per_person_eur": 13099.08,
+        "published_all_per_household_eur": 33059.64,
+        "own_minus_published_per_person_eur": 0.34999451
+      }
+    },
+    {
+      "year": 2023,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2023.zip",
+      "workers": {
+        "per_household_eur": 36192.97843244,
+        "per_person_eur": 12757.75943769,
+        "per_equivalent_unit_eur": 19730.88897783,
+        "sample_households": 1034
+      },
+      "retired": {
+        "per_household_eur": 32902.95242398,
+        "per_person_eur": 17165.48975526,
+        "per_equivalent_unit_eur": 22589.94981743,
+        "sample_households": 381
+      },
+      "all": {
+        "per_household_eur": 34259.05152671,
+        "per_person_eur": 13591.83295396,
+        "per_equivalent_unit_eur": 20146.58556421,
+        "sample_households": 1548
+      },
+      "validation": {
+        "published_all_per_person_eur": 13591.83,
+        "published_all_per_household_eur": 34259.05,
+        "own_minus_published_per_person_eur": 0.00295396
+      }
+    },
+    {
+      "year": 2024,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2024.zip",
+      "workers": {
+        "per_household_eur": 39469.68680577,
+        "per_person_eur": 13976.85867271,
+        "per_equivalent_unit_eur": 21580.38172175,
+        "sample_households": 954
+      },
+      "retired": {
+        "per_household_eur": 36082.56000724,
+        "per_person_eur": 18826.98512512,
+        "per_equivalent_unit_eur": 24821.58316111,
+        "sample_households": 309
+      },
+      "all": {
+        "per_household_eur": 37409.09396717,
+        "per_person_eur": 14746.47030554,
+        "per_equivalent_unit_eur": 21906.16480676,
+        "sample_households": 1395
+      },
+      "validation": {
+        "published_all_per_person_eur": 14746.47,
+        "published_all_per_household_eur": 37409.09,
+        "own_minus_published_per_person_eur": 0.00030554
+      }
+    },
+    {
+      "year": 2025,
+      "microdata_url": "https://www.ine.es/ftp/microdatos/epf2006/datos_2025.zip",
+      "workers": {
+        "per_household_eur": 40165.47093094,
+        "per_person_eur": 14153.48520241,
+        "per_equivalent_unit_eur": 21806.30515134,
+        "sample_households": 990
+      },
+      "retired": {
+        "per_household_eur": 36082.9637767,
+        "per_person_eur": 18912.58369262,
+        "per_equivalent_unit_eur": 24952.56868721,
+        "sample_households": 334
+      },
+      "all": {
+        "per_household_eur": 38184.81336975,
+        "per_person_eur": 15017.06486848,
+        "per_equivalent_unit_eur": 22270.81010786,
+        "sample_households": 1440
+      },
+      "validation": {
+        "published_all_per_person_eur": 15017.06,
+        "published_all_per_household_eur": 38184.81,
+        "own_minus_published_per_person_eur": 0.00486848
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "retrieved_on": "2026-10-17",
+  "territory": "Catalunya",
+  "operation": "Comptes econòmics anuals de Catalunya. Revisió estadística 2024",
+  "source_title": "Ocupats i assalariats. Per branques d'activitat econòmica",
+  "source_url": "https://www.idescat.cat/pub/?id=piba&n=22267",
+  "methodology_url": "https://www.idescat.cat/pub/?id=piba&n=22267&m=m",
+  "api_url": "https://api.idescat.cat/taules/v2/piba/22267/26659/cat/data?YEAR=2019,2020,2021,2022,2023,2024,2025&BRANCHES_ACTIVITY_G=TOTAL&CONCEPT=EMP_PE&INDICATOR=VALUE_THS",
+  "source_updated": "2026-03-20",
+  "concept": "EMP_PE",
+  "unit": "Milers de persones ocupades. Total d'activitats, mitjana anual",
+  "definition": "Persones ocupades segons els comptes econòmics: assalariats i no assalariats. No són llocs de treball, equivalents a temps complet ni l'ocupació resident de l'EPA. Les persones amb més d'una feina es compten una vegada segons l'activitat principal.",
+  "notes": [
+    "Mateixa operació i revisió estadística que el PIB real de macro.json.",
+    "Les dades de 2023, 2024 i 2025 són provisionals.",
+    "El PIB real per persona ocupada és productivitat aparent per persona, no per hora. No és salari, renda disponible ni poder adquisitiu individual.",
+    "Les hores treballades, els ERTO i la composició de l'ocupació poden afectar el resultat, especialment el 2020.",
+    "Els ocupats es publiquen en milers arrodonits; les variacions calculades són aproximades."
+  ],
+  "rows": [
+    {"year": 2019, "employed_persons_thousands": 3678, "status": ""},
+    {"year": 2020, "employed_persons_thousands": 3510, "status": ""},
+    {"year": 2021, "employed_persons_thousands": 3579, "status": ""},
+    {"year": 2022, "employed_persons_thousands": 3722, "status": ""},
+    {"year": 2023, "employed_persons_thousands": 3833, "status": "p"},
+    {"year": 2024, "employed_persons_thousands": 3911, "status": "p"},
+    {"year": 2025, "employed_persons_thousands": 4007, "status": "p"}
+  ],
+  "formula_growth_gdp_per_employed_person": "100 * ((GDP_volume_t / GDP_volume_2019) / (employed_t / employed_2019) - 1)"
+}

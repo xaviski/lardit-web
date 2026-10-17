@@ -1,6 +1,7 @@
 {
   "verified_on": "2026-10-16",
   "territory": "Catalunya",
+  "coverage_note": "Aquest fitxer conserva la taula per edat d'Idescat consultada el 16 d'octubre de 2026, no tota la informació EPF disponible. Les sèries INE 2019–2025 revisades i les microdades per activitat es documenten separadament a epf-total.json i epf-activitat.json.",
   "latest_consumption_year": 2024,
   "next_release": {"date": "2026-10-28", "reference_year": 2025, "evidence": "Current Idescat page source calendar metadata; upcoming, not yet usable"},
   "sources": {

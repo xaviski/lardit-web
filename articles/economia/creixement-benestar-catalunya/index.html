@@ -31,8 +31,8 @@
         <p class="draft-status">Maqueta · Pendent de redacció</p>
         <p class="eyebrow">Economia · Catalunya · Nivell de vida</p>
         <h1 class="article-title">Som més rics? PIB, renda i consum a Catalunya</h1>
-        <p class="article-deck">L’economia pot créixer sense que totes les llars ho notin igual. Sis gràfics per explorar què canvia quan passem del país a les persones.</p>
-        <p class="article-meta"><span>Per Xavi Palahí</span><span>Dades consultades el <time datetime="2026-10-16">16 d’octubre de 2026</time></span><span>Esborrany</span></p>
+        <p class="article-deck">L’economia pot créixer sense que totes les llars ho notin igual. PIB, ocupació i consum entre el 2019 i el 2025, amb dades addicionals per explorar les diferències entre llars.</p>
+        <p class="article-meta"><span>Per Xavi Palahí</span><span>Dades consultades el <time datetime="2026-10-17">17 d’octubre de 2026</time></span><span>Esborrany</span></p>
       </header>
       <article class="article-body draft-body wealth-copy">
         <aside class="draft-banner"><strong>Esborrany no anunciat ni inclòs al mapa del web.</strong><p>La pàgina té l’etiqueta <code>noindex</code>. És accessible per a qui en conegui l’adreça: no és privada. El títol i els comentaris encara s’han de treballar.</p></aside>
@@ -41,6 +41,9 @@
         <nav class="wealth-toc" aria-label="Gràfics de l’esborrany"><p class="register-label">Les dades, pas a pas</p><ol>
           <li><a href="#pib">PIB total i PIB per habitant</a></li>
           <li><a href="#consum">Producció i consum per habitant</a></li>
+          <li><a href="#productivitat">PIB i producció per persona ocupada</a></li>
+          <li><a href="#epf">Què diu l’Enquesta de pressupostos familiars?</a></li>
+          <li><a href="#ocupats-jubilats">Consum de les llars d’ocupats i jubilats</a></li>
           <li><a href="#any-base">La importància de l’any de partida</a></li>
           <li><a href="#despesa-edat">Despesa de les llars segons l’edat, 2024</a></li>
           <li><a href="#despesa-historica">Un tram històric de despesa per edat, 2016–2019</a></li>
@@ -52,49 +55,130 @@
         <section aria-labelledby="pib">
           <p class="section-number">01 · La mida de l’economia</p>
           <h2 id="pib">Creix el país. I per habitant?</h2>
-          <p class="chart-subtitle">PIB real total i per habitant · Catalunya, 2000–2025 · Creixement real acumulat respecte del 2000 (%)</p>
+          <p class="chart-subtitle">PIB real total i per habitant · Catalunya, 2019–2025 · Creixement real acumulat respecte del 2019 (%)</p>
           <figure class="article-figure">
-            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg?v=20261017-percentatge" width="360" height="436"><img src="/assets/charts/creixement-benestar/pib-total-per-habitant.svg?v=20261017-percentatge" width="760" height="447" alt="Creixement real acumulat respecte del 2000: el 2025, el PIB total ha augmentat aproximadament un 54,6% i el PIB per habitant un 17,7%." fetchpriority="high"></picture>
-            <figcaption><strong>Font:</strong> Idescat, <a href="https://www.idescat.cat/pub/?id=piba&amp;n=21913" target="_blank" rel="noopener noreferrer">comptes econòmics anuals</a> i <a href="https://www.idescat.cat/indicadors/?col=1&amp;id=ue&amp;n=14435" target="_blank" rel="noopener noreferrer">PIB real per habitant</a>. Elaboració pròpia, descomptat l’efecte dels preus. El 2000 és el punt de partida (0%): un +20% indica un 20% més que aquell any. Són variacions acumulades, no taxes de creixement interanual. Les dades de 2023–2025 són provisionals.</figcaption>
+            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/pib-total-per-habitant-mobile.svg?v=20261017-2019" width="360" height="436"><img src="/assets/charts/creixement-benestar/pib-total-per-habitant.svg?v=20261017-2019" width="760" height="447" alt="Entre el 2019 i el 2025, el PIB real total de Catalunya augmenta un 10,5% i el PIB real per habitant un 4,1%, aproximadament." fetchpriority="high"></picture>
+            <figcaption><strong>Font:</strong> Idescat, <a href="https://www.idescat.cat/pub/?id=piba&amp;n=21913" target="_blank" rel="noopener noreferrer">comptes econòmics anuals</a> i <a href="https://www.idescat.cat/indicadors/?col=1&amp;id=ue&amp;n=14435" target="_blank" rel="noopener noreferrer">PIB real per habitant</a>. Elaboració pròpia, descomptat l’efecte dels preus. El 2019 és el punt de partida (0%). Són variacions acumulades, no taxes de creixement interanual. Les dades de 2023–2025 són provisionals.</figcaption>
           </figure>
+          <p class="chart-comment">Entre el 2019 i el 2025, el PIB real català creix aproximadament un 10,5%, però el PIB per habitant només un 4,1%. L’economia és més gran, però també s’ha de repartir entre més persones: el creixement del conjunt no equival a una millora del mateix percentatge per a cada habitant. A més, són mitjanes i no ens diuen com es distribueix aquesta producció.</p>
           <details class="data-access"><summary>Veure les dades principals del gràfic</summary><div class="table-scroll"><table>
-            <caption>Creixement real acumulat respecte del 2000, en %. Selecció d’anys; sèrie anual completa al JSON.</caption>
+            <caption>Creixement real acumulat respecte del 2019, en %. (p): dada provisional.</caption>
             <thead><tr><th scope="col">Any</th><th scope="col">PIB real total</th><th scope="col">PIB real per habitant</th></tr></thead><tbody>
-              <tr><th scope="row">2000</th><td>0,0%</td><td>0,0%</td></tr>
-              <tr><th scope="row">2007</th><td>+28,2%</td><td>+10,3%</td></tr>
-              <tr><th scope="row">2019</th><td>+39,9%</td><td>+13,1%</td></tr>
-              <tr><th scope="row">2025 (p)</th><td>+54,6%</td><td>+17,7%</td></tr>
+              <tr><th scope="row">2019</th><td>0,0%</td><td>0,0%</td></tr>
+              <tr><th scope="row">2020</th><td>−12,0%</td><td>−12,7%</td></tr>
+              <tr><th scope="row">2021</th><td>−6,1%</td><td>−7,0%</td></tr>
+              <tr><th scope="row">2022</th><td>+0,7%</td><td>−1,3%</td></tr>
+              <tr><th scope="row">2023 (p)</th><td>+3,5%</td><td>−0,1%</td></tr>
+              <tr><th scope="row">2024 (p)</th><td>+7,6%</td><td>+2,4%</td></tr>
+              <tr><th scope="row">2025 (p)</th><td>+10,5%</td><td>+4,1%</td></tr>
             </tbody></table></div></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
         </section>
 
         <section aria-labelledby="consum">
           <p class="section-number">02 · Del que produïm al que consumim</p>
           <h2 id="consum">El consum segueix el mateix camí?</h2>
-          <p class="chart-subtitle">PIB real i consum real de les llars, per habitant · Catalunya, 2000–2025 · Creixement real acumulat respecte del 2000 (%)</p>
+          <p class="chart-subtitle">PIB real i consum real de les llars, per habitant · Catalunya, 2019–2025 · Creixement real acumulat respecte del 2019 (%)</p>
           <figure class="article-figure">
-            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/pib-consum-per-habitant-mobile.svg?v=20261017-percentatge" width="360" height="436"><img src="/assets/charts/creixement-benestar/pib-consum-per-habitant.svg?v=20261017-percentatge" width="760" height="447" alt="Creixement real acumulat respecte del 2000: el 2025, el PIB per habitant ha augmentat aproximadament un 17,7%, mentre el consum de les llars per habitant ha disminuït aproximadament un 1,5%." loading="lazy"></picture>
-            <figcaption><strong>Font:</strong> les mateixes sèries d’Idescat del gràfic anterior. Variacions reals acumulades respecte del 2000 (0%), no taxes interanuals. Consum per habitant estimat amb la població implícita en el PIB total i per habitant; hi ha un petit marge d’arrodoniment. No inclou el consum de les administracions públiques, com ara l’educació i la sanitat públiques. No és una mesura completa del nivell de vida. Dades de 2023–2025 provisionals.</figcaption>
+            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/pib-consum-per-habitant-mobile.svg?v=20261017-2019" width="360" height="436"><img src="/assets/charts/creixement-benestar/pib-consum-per-habitant.svg?v=20261017-2019" width="760" height="447" alt="Entre el 2019 i el 2025, el PIB real per habitant augmenta un 4,1% i el consum real de les llars per habitant disminueix un 0,8%, aproximadament." loading="lazy"></picture>
+            <figcaption><strong>Font:</strong> les mateixes sèries d’Idescat del gràfic anterior. Variacions reals acumulades respecte del 2019 (0%), no taxes interanuals. Consum per habitant estimat amb la població implícita en el PIB total i per habitant; hi ha un petit marge d’arrodoniment. No inclou el consum de les administracions públiques, com ara l’educació i la sanitat públiques. No és una mesura completa del nivell de vida. Dades de 2023–2025 provisionals.</figcaption>
           </figure>
+          <p class="chart-comment">El canvi d’indicador altera la lectura. El 2025, el PIB real per habitant supera aproximadament en un 4,1% el del 2019, mentre que el consum real de les llars per habitant queda un 0,8% per sota. Produir més no implica que el consum privat per persona hagi augmentat en la mateixa mesura. Això no demostra, tot sol, una caiguda equivalent del benestar: també importen l’estalvi, els serveis públics i la distribució entre llars.</p>
           <details class="data-access"><summary>Veure les dades principals del gràfic</summary><div class="table-scroll"><table>
-            <caption>Creixement real acumulat respecte del 2000, en %. Consum per habitant aproximat.</caption>
+            <caption>Creixement real acumulat respecte del 2019, en %. Consum per habitant aproximat. (p): dada provisional.</caption>
             <thead><tr><th scope="col">Any</th><th scope="col">PIB real per habitant</th><th scope="col">Consum real per habitant</th></tr></thead><tbody>
-              <tr><th scope="row">2000</th><td>0,0%</td><td>0,0%</td></tr>
-              <tr><th scope="row">2007</th><td>+10,3%</td><td>+10,4%</td></tr>
-              <tr><th scope="row">2019</th><td>+13,1%</td><td>−0,7%</td></tr>
-              <tr><th scope="row">2025 (p)</th><td>+17,7%</td><td>−1,5%</td></tr>
+              <tr><th scope="row">2019</th><td>0,0%</td><td>0,0%</td></tr>
+              <tr><th scope="row">2020</th><td>−12,7%</td><td>−12,9%</td></tr>
+              <tr><th scope="row">2021</th><td>−7,0%</td><td>−7,2%</td></tr>
+              <tr><th scope="row">2022</th><td>−1,3%</td><td>−5,9%</td></tr>
+              <tr><th scope="row">2023 (p)</th><td>−0,1%</td><td>−5,9%</td></tr>
+              <tr><th scope="row">2024 (p)</th><td>+2,4%</td><td>−3,5%</td></tr>
+              <tr><th scope="row">2025 (p)</th><td>+4,1%</td><td>−0,8%</td></tr>
             </tbody></table></div></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
         </section>
 
+        <section aria-labelledby="productivitat">
+          <p class="section-number">03 · Producció i ocupació</p>
+          <h2 id="productivitat">Més producció o més persones treballant?</h2>
+          <p class="chart-subtitle">PIB real total, persones ocupades i PIB real per persona ocupada · Catalunya, 2019–2025 · Creixement acumulat respecte del 2019 (%)</p>
+          <figure class="article-figure">
+            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/pib-persona-ocupada-mobile.svg?v=20261017-2019" width="360" height="436"><img src="/assets/charts/creixement-benestar/pib-persona-ocupada.svg?v=20261017-2019" width="760" height="447" alt="Del 2019 al 2025, el PIB real creix un 10,5%, les persones ocupades un 8,9% i el PIB real per persona ocupada un 1,4%, aproximadament." loading="lazy"></picture>
+            <figcaption><strong>Font:</strong> Idescat, comptes econòmics anuals, <a href="https://www.idescat.cat/pub/?id=piba&amp;n=22267" target="_blank" rel="noopener noreferrer">persones ocupades i assalariades</a> i PIB en volum. Les dues sèries pertanyen a la revisió estadística 2024. Ocupació mitjana anual, no llocs de treball, jornada completa ni dada del quart trimestre. El quocient és productivitat aparent per persona, no per hora. Dades de 2023–2025 provisionals.</figcaption>
+          </figure>
+          <p class="chart-comment">Entre el 2019 i el 2025, el PIB real creix un 10,5% i el nombre de persones ocupades un 8,9%; en dividir la producció entre els ocupats, l’augment queda aproximadament en un 1,4%. Per tant, l’expansió del PIB s’ha produït sobretot al costat d’un augment de l’ocupació, amb un avanç molt menor de la producció per ocupat. No és una mesura del sou ni del poder adquisitiu de cada treballador, i els canvis de jornada i de composició sectorial també influeixen en el resultat.</p>
+          <details class="data-access"><summary>Veure les dades del gràfic</summary><div class="table-scroll"><table>
+            <caption>Creixement acumulat respecte del 2019. Ocupats en milers de persones. (p): dada provisional.</caption>
+            <thead><tr><th scope="col">Any</th><th scope="col">Ocupats (milers)</th><th scope="col">PIB real</th><th scope="col">Ocupats</th><th scope="col">PIB real per ocupat</th></tr></thead><tbody>
+              <tr><th scope="row">2019</th><td>3.678</td><td>0,0%</td><td>0,0%</td><td>0,0%</td></tr>
+              <tr><th scope="row">2020</th><td>3.510</td><td>−12,0%</td><td>−4,6%</td><td>−7,8%</td></tr>
+              <tr><th scope="row">2021</th><td>3.579</td><td>−6,1%</td><td>−2,7%</td><td>−3,5%</td></tr>
+              <tr><th scope="row">2022</th><td>3.722</td><td>+0,7%</td><td>+1,2%</td><td>−0,5%</td></tr>
+              <tr><th scope="row">2023 (p)</th><td>3.833</td><td>+3,5%</td><td>+4,2%</td><td>−0,7%</td></tr>
+              <tr><th scope="row">2024 (p)</th><td>3.911</td><td>+7,6%</td><td>+6,3%</td><td>+1,2%</td></tr>
+              <tr><th scope="row">2025 (p)</th><td>4.007</td><td>+10,5%</td><td>+8,9%</td><td>+1,4%</td></tr>
+            </tbody></table></div></details>
+        </section>
+
+        <section aria-labelledby="epf">
+          <p class="section-number">04 · L’enquesta de les llars</p>
+          <h2 id="epf">Què diu l’Enquesta de pressupostos familiars?</h2>
+          <p class="chart-subtitle">Despesa de l’EPF per persona, ajustada amb IPC, i consum real per habitant dels comptes econòmics · Catalunya, 2019–2025 · Creixement acumulat (%)</p>
+          <figure class="article-figure">
+            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/consum-epf-comptes-mobile.svg?v=20261017-2019" width="360" height="436"><img src="/assets/charts/creixement-benestar/consum-epf-comptes.svg?v=20261017-2019" width="760" height="447" alt="Entre el 2019 i el 2025, la despesa per persona de l’EPF ajustada aproximadament amb IPC disminueix un 7,2%, davant del 0,8% del consum real per habitant dels comptes." loading="lazy"></picture>
+            <figcaption><strong>Fonts:</strong> INE, <a href="https://www.ine.es/jaxiT3/Tabla.htm?t=73996" target="_blank" rel="noopener noreferrer">EPF, taula de comunitats autònomes, activitat Total</a>, i Idescat, consum dels comptes econòmics i <a href="https://www.idescat.cat/indicadors/?id=aec&amp;n=15361" target="_blank" rel="noopener noreferrer">IPC anual mitjà català</a>. EPF revisada COICOP 2018, amb els pesos actualitzats del 2021–2022. L’ajust EPF/IPC és aproximat: l’IPC no inclou lloguer imputat, que sí que forma part de l’EPF. No són mesures de volum idèntiques. Comptes 2023–2025 provisionals; EPF definitiva.</figcaption>
+          </figure>
+          <p class="chart-comment">L’EPF sí que permet estudiar Catalunya. La despesa mitjana per persona passa de 13.414 euros el 2019 a 15.017 el 2025: un augment nominal de l’11,9%. Però, un cop descomptada aproximadament la inflació, queda un 7,2% per sota del 2019, una caiguda més gran que el 0,8% que obtenim dels comptes econòmics. Les fonts, els perímetres i els deflactors són diferents: aquesta divergència no és una contradicció automàtica ni permet afirmar que una de les dues mesures sigui sempre la correcta.</p>
+          <details class="data-access"><summary>Veure les dades del gràfic</summary><div class="table-scroll"><table>
+            <caption>EPF: euros corrents per persona i canvi real aproximat amb IPC respecte del 2019. Comptes: consum real per habitant, canvi acumulat.</caption>
+            <thead><tr><th scope="col">Any</th><th scope="col">EPF nominal (€)</th><th scope="col">EPF / IPC</th><th scope="col">Comptes econòmics</th></tr></thead><tbody>
+              <tr><th scope="row">2019</th><td>13.414,36</td><td>0,0%</td><td>0,0%</td></tr>
+              <tr><th scope="row">2020</th><td>11.871,66</td><td>−11,2%</td><td>−12,9%</td></tr>
+              <tr><th scope="row">2021</th><td>12.491,67</td><td>−9,2%</td><td>−7,2%</td></tr>
+              <tr><th scope="row">2022</th><td>13.099,08</td><td>−11,8%</td><td>−5,9%</td></tr>
+              <tr><th scope="row">2023</th><td>13.591,83</td><td>−11,5%</td><td>−5,9%</td></tr>
+              <tr><th scope="row">2024</th><td>14.746,47</td><td>−6,6%</td><td>−3,5%</td></tr>
+              <tr><th scope="row">2025</th><td>15.017,06</td><td>−7,2%</td><td>−0,8%</td></tr>
+            </tbody></table></div></details>
+        </section>
+
+        <section aria-labelledby="ocupats-jubilats">
+          <p class="section-number">05 · Dues situacions laborals</p>
+          <h2 id="ocupats-jubilats">Ha canviat igual el consum de les llars d’ocupats i jubilats?</h2>
+          <p class="chart-subtitle">Despesa per persona de la llar, segons si el sustentador principal és ocupat o jubilat/retirat · Catalunya, 2019–2025 · Creixement real aproximat respecte del 2019 (%)</p>
+          <figure class="article-figure">
+            <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/consum-ocupats-jubilats-mobile.svg?v=20261017-2019" width="360" height="436"><img src="/assets/charts/creixement-benestar/consum-ocupats-jubilats.svg?v=20261017-2019" width="760" height="447" alt="Entre el 2019 i el 2025, la despesa real aproximada per persona baixa un 9,0% a les llars amb sustentador ocupat i un 4,0% a les de jubilats o retirats." loading="lazy"></picture>
+            <figcaption><strong>Fonts:</strong> elaboració pròpia a partir de les <a href="https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736176806&amp;idp=1254735976608&amp;menu=resultados&amp;secc=1254736195147" target="_blank" rel="noopener noreferrer">microdades anonimitzades de l’EPF de l’INE</a> i IPC català. Factors de població revisats per al 2021–2022. Són llars classificades segons qui més aporta al pressupost comú: no consum individual de cada treballador ni de tots els pensionistes. Inclou lloguer imputat. Des del 2024 canvia el qüestionari d’activitat; els codis s’han harmonitzat, amb aquesta cautela de comparabilitat.</figcaption>
+          </figure>
+          <p class="chart-comment">Entre el 2019 i el 2025, la despesa real aproximada per persona disminueix un 9,0% a les llars amb sustentador ocupat i un 4,0% a les llars amb sustentador jubilat o retirat. Per tant, tots dos grups queden per sota del 2019, però la caiguda és més gran en el primer. No podem atribuir la diferència només a salaris i pensions: també poden haver canviat la composició familiar, l’edat i la tinença de l’habitatge. Són estimacions mostrals, no diferències de significació estadística demostrada.</p>
+          <details class="data-access"><summary>Veure les dades del gràfic</summary><div class="table-scroll"><table>
+            <caption>Despesa per persona, euros corrents, i variació real aproximada respecte del 2019. Grups segons el sustentador principal.</caption>
+            <thead><tr><th scope="col">Any</th><th scope="col">Ocupat (€)</th><th scope="col">Jubilat (€)</th><th scope="col">Ocupat: canvi real</th><th scope="col">Jubilat: canvi real</th></tr></thead><tbody>
+              <tr><th scope="row">2019</th><td>12.893,72</td><td>16.328,10</td><td>0,0%</td><td>0,0%</td></tr>
+              <tr><th scope="row">2020</th><td>11.362,40</td><td>14.882,52</td><td>−11,6%</td><td>−8,5%</td></tr>
+              <tr><th scope="row">2021</th><td>11.937,24</td><td>15.348,72</td><td>−9,7%</td><td>−8,3%</td></tr>
+              <tr><th scope="row">2022</th><td>12.518,32</td><td>16.265,94</td><td>−12,3%</td><td>−10,0%</td></tr>
+              <tr><th scope="row">2023</th><td>12.757,76</td><td>17.165,49</td><td>−13,6%</td><td>−8,2%</td></tr>
+              <tr><th scope="row">2024</th><td>13.976,86</td><td>18.826,99</td><td>−7,9%</td><td>−2,1%</td></tr>
+              <tr><th scope="row">2025</th><td>14.153,49</td><td>18.912,58</td><td>−9,0%</td><td>−4,0%</td></tr>
+            </tbody></table></div></details>
+          <details class="method-note"><summary>Què cal tenir present en aquesta comparació?</summary><ul>
+            <li>El grup de jubilats/retirats no identifica tots els perceptors de pensions de viduïtat o incapacitat. Ni l’edat ni la condició d’actiu/inactiu són substituts exactes d’aquesta classificació.</li>
+            <li>La despesa per persona no ajusta totes les economies d’escala familiars. Per unitat de consum, la variació real aproximada 2019–2025 és del −9,7% per a les llars d’ocupats i del −2,3% per a les de jubilats. Les dues mesures i els denominadors es documenten al JSON.</li>
+            <li>El 2025 hi ha 990 llars d’ocupats i 334 de jubilats a la mostra catalana. No hem estimat intervals de confiança; les petites diferències anuals no s’han d’interpretar com a concloents.</li>
+            <li>La reproducció dels totals catalans coincideix a cèntims amb la taula de l’INE en sis anys. El 2022 hi ha una discrepància no resolta de 0,35 euros per persona (0,003%) entre el càlcul amb microdades i la taula publicada. No hem reajustat artificialment els resultats per grups.</li>
+          </ul></details>
+        </section>
+
+        <aside class="concept-note"><p><strong>Gràfics de context.</strong> Les comparacions principals anteriors cobreixen el 2019–2025. Les figures següents conserven altres anys de partida o períodes, indicats a cada gràfic; no s’han allargat artificialment fins al 2025.</p></aside>
+
         <section aria-labelledby="any-base">
-          <p class="section-number">03 · El punt de partida importa</p>
+          <p class="section-number">06 · El punt de partida importa</p>
           <h2 id="any-base">Quin any triem per comparar?</h2>
           <p class="chart-subtitle">Variació real acumulada fins al 2025 · Tres anys de partida, les mateixes sèries</p>
           <figure class="article-figure">
             <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/sensibilitat-any-base-mobile.svg" width="360" height="639"><img src="/assets/charts/creixement-benestar/sensibilitat-any-base.svg" width="760" height="623" alt="El PIB total creix més que el PIB per habitant des de les tres bases. El consum real per habitant varia un −1,5% des del 2000, un −10,8% des del 2007 i un −0,8% des del 2019, aproximadament." loading="lazy"></picture>
             <figcaption><strong>Font:</strong> elaboració pròpia a partir d’Idescat. Variacions acumulades, no taxes anuals. El 2007 és anterior a la crisi financera; el 2019, anterior a la pandèmia. Mostrar diverses bases evita fer dependre tota la lectura d’un únic any. El punt final, 2025, és provisional.</figcaption>
           </figure>
+          <p class="chart-comment">El punt de partida canvia considerablement el diagnòstic. Fins al 2025, el consum real per habitant varia aproximadament un −0,8% respecte del 2019, però un −10,8% respecte del 2007. Aquest gràfic de context mostra com les mateixes dades donen lectures diferents segons l’any que triem per comparar.</p>
           <details class="data-access"><summary>Veure les dades del gràfic</summary><div class="table-scroll"><table>
             <caption>Variació real acumulada fins al 2025, en %. Consum per habitant aproximat.</caption>
             <thead><tr><th scope="col">Des de</th><th scope="col">PIB total</th><th scope="col">PIB per habitant</th><th scope="col">Consum per habitant</th></tr></thead><tbody>
@@ -102,17 +186,17 @@
               <tr><th scope="row">2007</th><td>+20,6%</td><td>+6,8%</td><td>−10,8%</td></tr>
               <tr><th scope="row">2019</th><td>+10,5%</td><td>+4,1%</td><td>−0,8%</td></tr>
             </tbody></table></div></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
         </section>
 
         <section aria-labelledby="despesa-edat">
-          <p class="section-number">04 · La fotografia per edats</p>
+          <p class="section-number">07 · La fotografia per edats</p>
           <h2 id="despesa-edat">Quines llars tenen més despesa?</h2>
           <p class="chart-subtitle">Despesa anual per unitat de consum · Edat de qui més aporta al pressupost de la llar · Catalunya, 2024</p>
           <figure class="article-figure">
             <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/despesa-edat-2024-mobile.svg" width="360" height="535"><img src="/assets/charts/creixement-benestar/despesa-edat-2024.svg" width="760" height="493" alt="Despesa anual per unitat de consum el 2024: 18.755 euros a les llars amb sustentador de 16–29 anys; 20.148 de 30–44; 21.521 de 45–59; 24.907 de 60–74; i 22.550 de 75 o més." loading="lazy"></picture>
             <figcaption><strong>Font:</strong> Idescat, <a href="https://www.idescat.cat/indicadors/?id=aec&amp;n=15382" target="_blank" rel="noopener noreferrer">Enquesta de pressupostos familiars (EPF)</a>. Euros corrents de 2024. La unitat de consum ajusta la mida i la composició de la llar; no és la despesa efectiva de cada persona. Inclou lloguer imputat als propietaris. L’edat és la del sustentador principal, no la de tots els membres: els joves que viuen amb els pares poden quedar classificats en un grup més gran. És una fotografia, no un creixement.</figcaption>
           </figure>
+          <p class="chart-comment">El 2024, les llars amb sustentador principal de 60–74 anys presenten la despesa per unitat de consum més elevada: 24.907 euros, davant dels 18.755 de les de 16–29 anys. És una diferència entre tipus de llar en un any concret, no una mesura del que han guanyat des del 2019. L’edat del sustentador tampoc permet identificar directament treballadors i pensionistes.</p>
           <details class="data-access"><summary>Veure les dades del gràfic</summary><table>
             <caption>Despesa anual de 2024 per unitat de consum, en euros corrents.</caption>
             <thead><tr><th scope="col">Edat del sustentador principal</th><th scope="col">Despesa</th></tr></thead><tbody>
@@ -122,17 +206,17 @@
               <tr><th scope="row">60–74 anys</th><td>24.907 €</td></tr>
               <tr><th scope="row">75 anys o més</th><td>22.550 €</td></tr>
             </tbody></table></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
         </section>
 
         <section aria-labelledby="despesa-historica">
-          <p class="section-number">05 · Un període històric comparable</p>
+          <p class="section-number">08 · Un període històric comparable</p>
           <h2 id="despesa-historica">Com va canviar la despesa entre el 2016 i el 2019?</h2>
           <p class="chart-subtitle">Variació de la despesa per unitat de consum, ajustada aproximadament per la inflació · Catalunya</p>
           <figure class="article-figure">
             <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/despesa-real-edat-2016-2019-mobile.svg" width="360" height="533"><img src="/assets/charts/creixement-benestar/despesa-real-edat-2016-2019.svg" width="760" height="491" alt="Del 2016 al 2019, la despesa real aproximada per unitat de consum creix un 13,5% a les llars amb sustentador de 16–29 anys; un 0,8% de 30–44; un 2,0% de 45–59; un 7,6% de 60–74; i un 3,6% de 75 o més." loading="lazy"></picture>
             <figcaption><strong>Fonts:</strong> Idescat, EPF i <a href="https://www.idescat.cat/indicadors/?id=aec&amp;n=15361" target="_blank" rel="noopener noreferrer">IPC anual mitjà de Catalunya</a>. Elaboració pròpia. És un tram històric anterior a la pandèmia, no la situació actual. L’IPC general és una aproximació: no reflecteix una inflació específica de cada edat i no inclou lloguer imputat. Els grups no segueixen les mateixes persones.</figcaption>
           </figure>
+          <p class="chart-comment">Abans de la pandèmia, entre el 2016 i el 2019, l’augment real aproximat més elevat era el de les llars amb sustentador de 16–29 anys (+13,5%); entre les de 30–44 anys era del 0,8%. El contrast recorda que les diferències entre edats depenen també del període observat: no podem traslladar aquests resultats al 2019–2025 ni interpretar-los com el seguiment de les mateixes persones.</p>
           <details class="data-access"><summary>Veure les dades del gràfic</summary><div class="table-scroll"><table>
             <caption>Despesa per unitat de consum: imports nominals i canvi real aproximat amb l’IPC.</caption>
             <thead><tr><th scope="col">Edat del sustentador</th><th scope="col">2016 (€ corrents)</th><th scope="col">2019 (€ corrents)</th><th scope="col">Variació real</th></tr></thead><tbody>
@@ -142,18 +226,18 @@
               <tr><th scope="row">60–74</th><td>20.062</td><td>22.654</td><td>+7,6%</td></tr>
               <tr><th scope="row">75 o més</th><td>16.659</td><td>18.105</td><td>+3,6%</td></tr>
             </tbody></table></div></details>
-          <details class="method-note"><summary>Per què no unim directament el 2007 amb el 2024?</summary><p>La sèrie de despesa té canvis metodològics el 2016 i ruptures assenyalades el 2023 i el 2024. El canvi de poblacions i de classificació de consum impedeix presentar tot el període com una comparació homogènia sense un tractament addicional. Els anys 2021 i 2022 encara no estan disponibles a la taula revisada consultada. Per això separem el tram 2016–2019 de la fotografia de 2024. <a href="https://www.idescat.cat/pub/?id=edcl&amp;m=m" target="_blank" rel="noopener noreferrer">Metodologia de l’EPF</a>.</p></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
+          <details class="method-note"><summary>Per què aquest gràfic històric no arriba al 2025?</summary><p>Aquest bloc conserva la taula per edat d’Idescat consultada el 16 d’octubre: hi ha canvis metodològics el 2016, marques de ruptura el 2023–2024 i buits el 2021–2022 mentre se’n revisen les dades. No l’hem enllaçada sense més amb altres versions. Els nous gràfics de l’EPF del 2019–2025, en canvi, utilitzen les taules revisades de l’INE i, per als grups d’activitat, microdades amb els factors actualitzats del 2021–2022. <a href="https://www.idescat.cat/pub/?id=edcl&amp;m=m" target="_blank" rel="noopener noreferrer">Metodologia de l’EPF</a>.</p></details>
         </section>
 
         <section aria-labelledby="renda-edat">
-          <p class="section-number">06 · Els ingressos de les persones</p>
+          <p class="section-number">09 · Els ingressos de les persones</p>
           <h2 id="renda-edat">La renda real ha crescut igual a totes les edats?</h2>
           <p class="chart-subtitle">Renda neta mitjana per unitat de consum, ajustada per l’IPC · Catalunya, rendes de 2012–2024 · Índex 2012 = 100</p>
           <figure class="article-figure">
             <picture><source media="(max-width: 600px)" srcset="/assets/charts/creixement-benestar/renda-real-edat-mobile.svg" width="360" height="1131"><img src="/assets/charts/creixement-benestar/renda-real-edat.svg" width="760" height="661" alt="Evolució de la renda neta mitjana equivalent, ajustada per l’IPC, en quatre grups d’edat entre el 2012 i el 2024. Les dades i les variacions es poden consultar a la taula desplegable següent." loading="lazy"></picture>
             <figcaption><strong>Font:</strong> Idescat, <a href="https://www.idescat.cat/pub/?id=ecv&amp;n=7600" target="_blank" rel="noopener noreferrer">Enquesta de condicions de vida (ECV), base 2013</a>, i IPC de Catalunya. Elaboració pròpia. La renda de 2024 prové de l’enquesta de 2025: descomptem la inflació de l’any de renda. Ara l’edat és la de cada persona segons l’enquesta. És renda equivalent de la seva llar, no sou individual, i són mitjanes, no medianes. Els grups i la definició no són els de l’EPF: no es poden restar renda i despesa d’aquests gràfics per estimar estalvi.</figcaption>
           </figure>
+          <p class="chart-comment">En aquest període més llarg, del 2012 al 2024, la renda real equivalent augmenta aproximadament un 21,3% entre les persones de 65 anys o més, davant del 14,8% de les de 16–39 i del 8,7% de les de 40–64. Això apunta a una evolució desigual dels ingressos familiars segons l’edat, però no compara directament salaris i pensions. El gràfic acaba amb les rendes del 2024 —recollides a l’enquesta del 2025—, no amb les del 2025.</p>
           <details class="data-access"><summary>Veure les dades principals del gràfic</summary><div class="table-scroll"><table>
             <caption>Renda neta mitjana anual per unitat de consum. Les dues columnes d’imports s’expressen en euros de 2024, amb ajust aproximat per l’IPC.</caption>
             <thead><tr><th scope="col">Edat de la persona</th><th scope="col">Renda 2012 (€ de 2024)</th><th scope="col">Renda 2024 (€)</th><th scope="col">Variació real</th></tr></thead><tbody>
@@ -162,23 +246,27 @@
               <tr><th scope="row">40–64</th><td>24.257</td><td>26.376</td><td>+8,7%</td></tr>
               <tr><th scope="row">65 o més</th><td>22.067</td><td>26.776</td><td>+21,3%</td></tr>
             </tbody></table></div><p>Imports arrodonits a l’euro; variacions calculades abans d’arrodonir. Sèrie anual completa al JSON.</p></details>
-          <p class="editor-comment">[Comentari pendent de Xavi.]</p>
         </section>
 
         <section aria-labelledby="metode">
           <p class="section-number">Material per a la redacció</p>
           <h2 id="metode">Dades, càlculs i límits</h2>
           <details class="method-note"><summary>Com hem preparat les comparacions?</summary><ul>
-            <li><strong>PIB i consum:</strong> volums encadenats d’Idescat, revisió estadística 2024. Els dos primers gràfics mostren el creixement real acumulat respecte del 2000: 100 × (valor de l’any / valor del 2000 − 1). El PIB per habitant usa la població de la seva font (estimació a 1 de juliol, excepte el 2021, a 1 de gener). Per al consum per habitant derivem el mateix denominador de les sèries de PIB; els índexs originals tenen un decimal i el resultat és aproximat.</li>
+            <li><strong>PIB i consum:</strong> volums encadenats d’Idescat, revisió estadística 2024. Les comparacions principals mostren el creixement acumulat respecte del 2019: 100 × (valor de l’any / valor del 2019 − 1). El PIB per habitant usa la població de la seva font (estimació a 1 de juliol, excepte el 2021, a 1 de gener). Per al consum per habitant derivem el mateix denominador de les sèries de PIB; els índexs originals tenen un decimal i el resultat és aproximat.</li>
+            <li><strong>PIB per persona ocupada:</strong> dividim l’índex de PIB real entre l’índex de persones ocupades dels mateixos comptes anuals. El canvi acumulat és 100 × [(PIB de l’any / PIB del 2019) / (ocupats de l’any / ocupats del 2019) − 1]. No és correcte restar les dues taxes de creixement com si fos una identitat exacta. No mesura productivitat per hora ni remuneració.</li>
             <li><strong>Preus:</strong> el PIB i el consum agregats ja tenen els seus deflactors. Per a l’EPF i l’ECV fem servir l’IPC anual mitjà català. Fórmula de variació real: 100 × [(valor final / valor inicial) × (IPC inicial / IPC final) − 1]. No són tres mesures de volum idèntiques.</li>
             <li><strong>Unitats de consum:</strong> escala OCDE modificada: 1 al primer adult, 0,5 a la resta de persones de 14 anys o més i 0,3 als menors de 14. Permet comparar llars de composició diferent, però no substitueix una desagregació individual del consum.</li>
+            <li><strong>EPF i activitat:</strong> seleccionem Catalunya (CCAA 09) i harmonitzem els codis del sustentador principal: ocupat 1/2 i jubilat 4 fins al 2023; ocupat 1 i jubilat 3 des del 2024. La despesa <code>GASTOT</code> de les microdades ja està elevada a la població: no es torna a multiplicar pel factor. Dividim la suma de despesa pel total ponderat de persones de cada grup. El 2021–2022 actualitzem tant els pesos com la despesa elevada amb els factors del cens del 2021. Desagregació pròpia, no una taula oficial publicada de treballadors i pensionistes.</li>
             <li><strong>Edat i renda:</strong> la sèrie ECV manté la base 2013. La mostra catalana s’amplia el 2016 i canvia el disseny del panel el 2021. No seguim una cohort; els canvis poden reflectir composició i mostreig. Sense intervals d’incertesa, les petites diferències no s’han d’interpretar com a concloents. <a href="https://www.idescat.cat/pub/?id=ecv&amp;m=m" target="_blank" rel="noopener noreferrer">Metodologia de l’ECV</a>.</li>
             <li><strong>Què falta per parlar de benestar:</strong> patrimoni i deute, distribució dins de cada grup, habitatge, serveis públics, salut i temps lliure. Més consum no equival automàticament a més benestar.</li>
           </ul></details>
           <p class="chart-subtitle">Dades originals, sèries calculades, fonts i fórmules descarregables:</p>
           <ul class="source-links">
-            <li><a href="/assets/data/creixement-benestar/charts.json" download>Sèries dels sis gràfics (JSON)</a></li>
+            <li><a href="/assets/data/creixement-benestar/charts.json" download>Sèries dels gràfics, fonts i fórmules (JSON)</a></li>
             <li><a href="/assets/data/creixement-benestar/macro.json" download>PIB i consum agregats: dades i procedència (JSON)</a></li>
+            <li><a href="/assets/data/creixement-benestar/ocupacio.json" download>Persones ocupades dels comptes econòmics (JSON)</a></li>
+            <li><a href="/assets/data/creixement-benestar/epf-total.json" download>EPF de Catalunya, total de llars 2019–2025 (JSON)</a></li>
+            <li><a href="/assets/data/creixement-benestar/epf-activitat.json" download>Agregats EPF per activitat, mostra i validacions 2019–2025 (JSON)</a></li>
             <li><a href="/assets/data/creixement-benestar/edat.json" download>Despesa per edat i IPC: dades i ruptures (JSON)</a></li>
             <li><a href="/assets/data/creixement-benestar/renda.json" download>Renda per edat: dades de totes les enquestes consultades (JSON)</a></li>
           </ul>
