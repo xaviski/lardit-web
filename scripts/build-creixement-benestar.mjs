@@ -84,28 +84,10 @@ function demographyFigure(mobile) {
   const width = mobile ? 360 : 760, left = mobile ? 42 : 56, right = mobile ? 67 : 82;
   const plotRight = width - right;
   const x = year => left + (year - 2019) / 6 * (plotRight - left);
-  const top = 124, bottom = 310, demoTop = 519, demoBottom = 705;
-  const yGDP = value => bottom - (value + 15) / 30 * (bottom - top);
+  const demoTop = 155, demoBottom = 341;
   const yDemo = value => demoBottom - (value + 2) / 10 * (demoBottom - demoTop);
-  let s = text(12, 24, 'Producció anual · Catalunya · 2019 = 0%', { size: mobile ? 13 : 15, weight: 700 });
-  s += text(12, 47, 'Creixement real acumulat (%)', { size: mobile ? 12 : 14, color: C.muted });
-  macroSeries.slice(0, 2).forEach((a, i) => {
-    const yy = 76 + i * 23;
-    s += line(12, yy - 4, 32, yy - 4, a.color, 3) + text(40, yy, a.label, { size: mobile ? 12 : 14, weight: 600 });
-  });
-  for (const tick of [-15, -10, -5, 0, 5, 10, 15]) {
-    s += line(left, yGDP(tick), plotRight, yGDP(tick), tick === 0 ? C.muted : C.grid, 1, tick === 0 ? '4 4' : '');
-    s += text(left - 7, yGDP(tick) + 4, signed(tick, 0), { size: mobile ? 11 : 13, anchor: 'end', color: C.muted });
-  }
-  for (const a of macroSeries.slice(0, 2)) {
-    s += pathLine(macroRows.map(r => [x(r.year), yGDP(r[a.key])]), a.color);
-    for (const r of macroRows) s += circle(x(r.year), yGDP(r[a.key]), 2, a.color);
-    const last = macroRows.at(-1);
-    s += text(plotRight + 7, yGDP(last[a.key]) + 4, signed(last[a.key]), { size: mobile ? 12 : 14, color: a.color, weight: 700 });
-  }
-  s += line(12, 360, width - 12, 360);
-  s += text(12, 388, 'Població · Final del 2019 = 0%', { size: mobile ? 13 : 15, weight: 700 });
-  s += text(12, 411, 'Components: punts sobre la població inicial (pp)', { size: mobile ? 12 : 14, color: C.muted });
+  let s = text(12, 24, 'Població · Final del 2019 = 0%', { size: mobile ? 13 : 15, weight: 700 });
+  s += text(12, 47, 'Components: punts sobre la població inicial (pp)', { size: mobile ? 12 : 14, color: C.muted });
   const lastComplete = demographyRows.find(r => r.year === 2024);
   const finalPopulation = demographyRows.at(-1);
   const demoSeries = [
@@ -114,7 +96,7 @@ function demographyFigure(mobile) {
     { key: 'population_growth_percent', label: `Població total · 2025 (p): ${signed(finalPopulation.population_growth_percent, 2)}`, color: C.green, dash: true },
   ];
   demoSeries.forEach((a, i) => {
-    const yy = 441 + i * 23;
+    const yy = 77 + i * 23;
     s += line(12, yy - 4, 32, yy - 4, a.color, 3, a.dash ? '5 4' : '') + text(40, yy, a.label, { size: mobile ? 12 : 14, weight: 600 });
   });
   for (const tick of [-2, 0, 2, 4, 6, 8]) {
@@ -129,15 +111,13 @@ function demographyFigure(mobile) {
     for (const r of rows) s += circle(x(r.year), yDemo(r[a.key]), 2.5, a.color);
   }
   for (const year of [2019, 2020, 2021, 2022, 2023, 2024, 2025]) {
-    for (const yy of [bottom, demoBottom]) {
-      s += line(x(year), yy, x(year), yy + 5, C.muted);
-      s += text(x(year), yy + 23, year, { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
-    }
+    s += line(x(year), demoBottom, x(year), demoBottom + 5, C.muted);
+    s += text(x(year), demoBottom + 23, year, { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
   }
-  s += text(12, 758, '2025: saldo migratori i natural no disponibles.', { size: mobile ? 12 : 13, color: C.muted });
-  s += text(12, 779, 'Ajust estadístic acumulat fins al 2024: +0,11 pp.', { size: mobile ? 12 : 13, color: C.muted });
-  s += note('Població a final d’any; PIB per habitant amb una altra data de població. No és una descomposició exacta del PIB.', 804, width, mobile);
-  return svg(width, mobile ? 861 : 843, 'PIB, PIB per habitant i components del creixement demogràfic de Catalunya, 2019–2025', 'Dos panells amb el mateix eix temporal. A dalt: PIB real i PIB real per habitant, amb 2019 igual a zero. A sota: contribucions demogràfiques respecte de la població a final del 2019. Fins al final del 2024: saldo migratori +5,91 punts, saldo natural −0,96 i ajust estadístic +0,11; població total +5,06%. El 2025 només hi ha població total provisional (+6,18%); no s’inventen els components que falten. Les dates demogràfiques no són exactament les del denominador del PIB per habitant.', s);
+  s += text(12, 394, '2025: saldo migratori i natural no disponibles.', { size: mobile ? 12 : 13, color: C.muted });
+  s += text(12, 415, 'Ajust estadístic acumulat fins al 2024: +0,11 pp.', { size: mobile ? 12 : 13, color: C.muted });
+  s += note('Població a final d’any; PIB per habitant amb una altra data de població. No és una descomposició exacta del PIB.', 440, width, mobile);
+  return svg(width, mobile ? 497 : 479, 'Components del creixement demogràfic de Catalunya, 2019–2025', 'Contribucions demogràfiques respecte de la població a final del 2019. Fins al final del 2024: saldo migratori +5,91 punts, saldo natural −0,96 i ajust estadístic +0,11; població total +5,06%. El 2025 només hi ha població total provisional (+6,18%); no s’inventen els components que falten. Les dates demogràfiques no són exactament les del denominador del PIB per habitant del primer gràfic.', s);
 }
 
 const employmentBase = employment.rows.find(r => r.year === 2019).employed_persons_thousands;
@@ -366,12 +346,12 @@ const specs = [
 ];
 
 specs.splice(1, 0, {
-  id: 'pib-poblacio-components', title: 'Més PIB, més habitants: d’on ve el creixement demogràfic?',
-  alt: 'PIB i PIB per habitant 2019–2025, i contribucions del saldo migratori i natural a la població respecte de final del 2019. Components disponibles fins al 2024; població total provisional fins al 2025.',
-  unit: 'PIB: creixement real acumulat en %. Població: variació en % i aportacions en punts percentuals sobre la població inicial.',
+  id: 'pib-poblacio-components', title: 'D’on ve el creixement demogràfic?',
+  alt: 'Contribucions del saldo migratori i natural a la població respecte de final del 2019. Components disponibles fins al 2024; població total provisional fins al 2025.',
+  unit: 'Població: variació en % i aportacions en punts percentuals sobre la població inicial.',
   base_year: 2019, demographic_base_date: demography.base_date,
-  rows: demographyRows.map((r, i) => ({ ...r, gdp_real_total_growth_since2019_percent: macroRows[i].gdp_real_total_growth_since2019_percent, gdp_real_percap_growth_since2019_percent: macroRows[i].gdp_real_percap_growth_since2019_percent })),
-  sources: [macro.sources[0].page, macro.sources[1].page, demography.sources.growth, demography.sources.population],
+  rows: demographyRows,
+  sources: [demography.sources.growth, demography.sources.population],
   formulas: demography.formulas, limitation: demography.notes, render: demographyFigure,
 });
 assertFinite(specs);
