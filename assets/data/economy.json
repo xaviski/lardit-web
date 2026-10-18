@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "asOf": "2026-10-17",
+  "asOf": "2026-10-18",
   "regions": [
     {
       "id": "cat",
@@ -497,11 +497,11 @@
           "definition": "Tipus anual de la facilitat de dipòsit del Banc Central Europeu; referència compartida pels països de la zona euro.",
           "sourceName": "Banc Central Europeu",
           "sourceUrl": "https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV",
-          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-17&endPeriod=2026-10-17",
+          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-18&endPeriod=2026-10-18",
           "lineType": "step",
           "series": [
             {
-              "period": "2021-10-17",
+              "period": "2021-10-18",
               "value": -0.5
             },
             {
@@ -585,16 +585,16 @@
               "value": 2.5
             },
             {
-              "period": "2026-10-17",
+              "period": "2026-10-18",
               "value": 2.5
             }
           ],
           "latest": {
-            "period": "2026-10-17",
+            "period": "2026-10-18",
             "value": 2.5
           },
           "latestStatus": "",
-          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-17."
+          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-18."
         }
       }
     },
@@ -1221,11 +1221,11 @@
           "definition": "Tipus anual de la facilitat de dipòsit del Banc Central Europeu; referència compartida pels països de la zona euro.",
           "sourceName": "Banc Central Europeu",
           "sourceUrl": "https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV",
-          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-17&endPeriod=2026-10-17",
+          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-18&endPeriod=2026-10-18",
           "lineType": "step",
           "series": [
             {
-              "period": "2021-10-17",
+              "period": "2021-10-18",
               "value": -0.5
             },
             {
@@ -1309,16 +1309,16 @@
               "value": 2.5
             },
             {
-              "period": "2026-10-17",
+              "period": "2026-10-18",
               "value": 2.5
             }
           ],
           "latest": {
-            "period": "2026-10-17",
+            "period": "2026-10-18",
             "value": 2.5
           },
           "latestStatus": "",
-          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-17."
+          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-18."
         }
       }
     },
@@ -1945,11 +1945,11 @@
           "definition": "Tipus anual de la facilitat de dipòsit del Banc Central Europeu; referència compartida pels països de la zona euro.",
           "sourceName": "Banc Central Europeu",
           "sourceUrl": "https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV",
-          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-17&endPeriod=2026-10-17",
+          "dataUrl": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&startPeriod=2021-10-18&endPeriod=2026-10-18",
           "lineType": "step",
           "series": [
             {
-              "period": "2021-10-17",
+              "period": "2021-10-18",
               "value": -0.5
             },
             {
@@ -2033,16 +2033,16 @@
               "value": 2.5
             },
             {
-              "period": "2026-10-17",
+              "period": "2026-10-18",
               "value": 2.5
             }
           ],
           "latest": {
-            "period": "2026-10-17",
+            "period": "2026-10-18",
             "value": 2.5
           },
           "latestStatus": "",
-          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-17."
+          "note": "Sèrie diària oficial resumida als canvis de tipus, amb una observació inicial i una de final. Últim canvi dins de l’historial: 2026-09-16; valor confirmat fins al 2026-10-18."
         }
       }
     },
@@ -2057,7 +2057,7 @@
           "definition": "Canvi de l’activitat econòmica, descomptant l’efecte dels preus, respecte del mateix trimestre de l’any anterior.",
           "sourceName": "BEA · FRED (Reserva Federal de St. Louis)",
           "sourceUrl": "https://fred.stlouisfed.org/series/GDPC1",
-          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1&cosd=2019-01-01&coed=2026-10-17",
+          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1&cosd=2019-01-01&coed=2026-10-18",
           "note": "Calculat a partir de GDPC1, desestacionalitzat i en dòlars encadenats de 2017: 100 × (nivell actual / nivell de fa un any − 1). És creixement interanual, no trimestral anualitzat; les dades poden ser revisades.",
           "unit": "%",
           "series": [
@@ -2153,7 +2153,7 @@
           "definition": "Canvi de l’índex general de preus de consum (CPI-U) respecte del mateix mes de l’any anterior.",
           "sourceName": "BLS · FRED (Reserva Federal de St. Louis)",
           "sourceUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
-          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=2019-01-01&coed=2026-10-17",
+          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=2019-01-01&coed=2026-10-18",
           "note": "IPC de tots els articles per als consumidors urbans (CPI-U), sense ajust estacional: 100 × (índex actual / índex del mateix mes de l’any anterior − 1). Els mesos sense observació oficial queden fora de la sèrie.",
           "unit": "%",
           "series": [
@@ -2409,7 +2409,7 @@
           "definition": "Taxa U-3: persones aturades com a percentatge de la població activa civil de 16 anys o més, amb ajust estacional.",
           "sourceName": "BLS · FRED (Reserva Federal de St. Louis)",
           "sourceUrl": "https://fred.stlouisfed.org/series/UNRATE",
-          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE&cosd=2019-01-01&coed=2026-10-17",
+          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE&cosd=2019-01-01&coed=2026-10-18",
           "note": "Enquesta Current Population Survey. Els mesos sense observació oficial queden fora de la sèrie; les dades poden ser revisades.",
           "unit": "%",
           "series": [
@@ -2665,13 +2665,13 @@
           "definition": "Rang objectiu del tipus dels fons federals fixat pel FOMC; es conserven el límit inferior i el superior.",
           "sourceName": "Reserva Federal · FRED (St. Louis)",
           "sourceUrl": "https://www.federalreserve.gov/economy-at-a-glance-policy-rate.htm",
-          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL%2CDFEDTARU&cosd=2021-10-17&coed=2026-10-17",
+          "dataUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL%2CDFEDTARU&cosd=2021-10-18&coed=2026-10-18",
           "lineType": "step",
           "note": "Sèries DFEDTARL i DFEDTARU. Es mostren els canvis del rang i l’últim dia observat; les dates corresponen a l’entrada en vigor.",
           "unit": "%",
           "series": [
             {
-              "period": "2021-10-17",
+              "period": "2021-10-18",
               "value": 0,
               "valueUpper": 0.25
             },
@@ -2766,13 +2766,13 @@
               "valueUpper": 4
             },
             {
-              "period": "2026-10-16",
+              "period": "2026-10-17",
               "value": 3.75,
               "valueUpper": 4
             }
           ],
           "latest": {
-            "period": "2026-10-16",
+            "period": "2026-10-17",
             "value": 3.75,
             "valueUpper": 4
           }
