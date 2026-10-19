@@ -10,6 +10,7 @@
 .wealth-copy .section-number { margin: 0 0 0.5rem; color: var(--red); font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .wealth-copy h2 { margin-top: 1rem; font-size: clamp(1.8rem, 4.5vw, 2.6rem); }
 .wealth-copy .article-figure { margin: 1.6rem 0 1.2rem; }
+.wealth-copy .article-figure.article-cover { margin: 2.4rem auto 3rem; }
 .wealth-copy .article-figure picture { display: block; }
 .wealth-copy .chart-subtitle { margin-bottom: 0.8rem; color: var(--muted); font-family: var(--sans); font-size: 0.94rem; }
 .wealth-copy .editor-comment { margin: 1.5rem 0 2rem; padding: 0.8rem 1rem; border-left: 3px solid var(--red); color: var(--muted); font-family: var(--sans); font-size: 0.9rem; font-style: italic; }
