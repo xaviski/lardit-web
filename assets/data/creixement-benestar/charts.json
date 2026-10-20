@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-17",
+  "generated_on": "2026-10-20",
   "source_snapshot_dates": {
     "macro": "2026-10-16",
     "age": "2026-10-16",
@@ -7,7 +7,8 @@
     "employment": "2026-10-17",
     "epf_total": "2026-10-17",
     "epf_activity": "2026-10-17",
-    "demography": "2026-10-17"
+    "demography": "2026-10-17",
+    "epf_habitatge": "2026-10-20"
   },
   "territory": "Catalunya",
   "generator": "scripts/build-creixement-benestar.mjs",
@@ -595,44 +596,75 @@
       "mobile": "/assets/charts/creixement-benestar/sensibilitat-any-base-mobile.svg"
     },
     {
-      "id": "despesa-edat-2024",
-      "title": "Quant consumeixen les llars segons l’edat?",
-      "alt": "Despesa nominal anual per unitat de consum a Catalunya el 2024, segons l’edat del sustentador principal de la llar.",
-      "unit": "Euros anuals per unitat de consum, preus corrents",
+      "id": "consum-habitatge-tinenca",
+      "title": "Qui ha perdut consum i quin paper hi té l’habitatge?",
+      "alt": "Canvi real aproximat de la despesa monetària per unitat de consum entre el 2019 i el 2025, segons la situació residencial: total i excloent lloguer de l’habitatge principal, aigua, residus, clavegueram i energia.",
+      "unit": "Variació real aproximada de despesa monetària per unitat de consum (%)",
+      "base_year": 2019,
       "rows": [
         {
-          "age_group_main_provider": "16–29",
-          "annual_nominal_euros_per_consumption_unit": 18755,
-          "status": "b"
+          "id": "renters",
+          "source_group": "rent_all",
+          "label": "Lloguer",
+          "sample_households_2019": 395,
+          "sample_households_2025": 306,
+          "total_monetary_real_change_percent": -10.914639717099895,
+          "ex_housing_monetary_real_change_percent": -13.3292490378071,
+          "housing_share_2019_percent": 28.83873122787628,
+          "housing_share_2025_percent": 30.767517981444627
         },
         {
-          "age_group_main_provider": "30–44",
-          "annual_nominal_euros_per_consumption_unit": 20148,
-          "status": "b"
+          "id": "mortgage",
+          "source_group": "owned_mortgage",
+          "label": "Propietat amb hipoteca",
+          "sample_households_2019": 533,
+          "sample_households_2025": 485,
+          "total_monetary_real_change_percent": -11.82095864310262,
+          "ex_housing_monetary_real_change_percent": -11.473702307141476,
+          "housing_share_2019_percent": 5.990132374278905,
+          "housing_share_2025_percent": 5.619913763670856
         },
         {
-          "age_group_main_provider": "45–59",
-          "annual_nominal_euros_per_consumption_unit": 21521,
-          "status": "b"
-        },
-        {
-          "age_group_main_provider": "60–74",
-          "annual_nominal_euros_per_consumption_unit": 24907,
-          "status": "b"
-        },
-        {
-          "age_group_main_provider": "75+",
-          "annual_nominal_euros_per_consumption_unit": 22550,
-          "status": "b"
+          "id": "outright",
+          "source_group": "owned_outright",
+          "label": "Propietat sense hipoteca",
+          "sample_households_2019": 838,
+          "sample_households_2025": 610,
+          "total_monetary_real_change_percent": -6.638982415106154,
+          "ex_housing_monetary_real_change_percent": -6.100538322660332,
+          "housing_share_2019_percent": 7.285086667348143,
+          "housing_share_2025_percent": 6.750368873380228
         }
       ],
       "sources": [
-        "https://www.idescat.cat/indicadors/?id=aec&n=15382",
-        "https://www.idescat.cat/indicadors/?id=aec&n=15382&col=3&f=ssv"
+        "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176806&idp=1254735976608&menu=resultados&secc=1254736195147",
+        "https://www.ine.es/ftp/microdatos/epf2006/datos_2019.zip",
+        "https://www.ine.es/ftp/microdatos/epf2006/datos_2025.zip",
+        "https://www.idescat.cat/indicadors/?id=aec&n=15361",
+        "https://www.ine.es/daco/daco42/daco4213/anexo_ecoicop.pdf",
+        "https://www.ine.es/daco/daco42/daco4213/anexoecpf06.pdf",
+        "https://www.ine.es/dyngs/Prensa/EPF2024.htm"
       ],
-      "limitation": "Age of main household provider, not the age of each consumer. The provider is the household member aged 16+ with the largest regular contribution to household budget. A young adult living with an older main provider is classified in that older provider's group. These data cannot describe all young individuals' consumption. Official table also flags2024 b; COICOP2018 introduced.2016–20 and2023 classification revised in June2026;2021/22 revisions forthcoming and currently unavailable in revised table.",
-      "desktop": "/assets/charts/creixement-benestar/despesa-edat-2024.svg",
-      "mobile": "/assets/charts/creixement-benestar/despesa-edat-2024-mobile.svg"
+      "formula": {
+        "expenditure_per_uc": "sum(despesa monetària elevada temporalment i poblacionalment) / sum(FACTOR * UC2)",
+        "housing_expenditure": "Suma dels camps monetaris GASTOMON (2019) o GASTMON (2025) dels codis de la cistella seleccionada. No s’obté restant només el lloguer imputat.",
+        "remaining_consumption": "despesa monetària total - despesa monetària de la cistella seleccionada",
+        "approximate_real_change_percent": "100 * (despesa_per_UC_2025 / despesa_per_UC_2019 * IPC_2019 / IPC_2025 - 1)",
+        "budget_share_percent": "100 * despesa monetària de la cistella / despesa monetària total",
+        "weighting": "GASTOT, GASTMON i GASTOMON ja estan elevats. No es multipliquen de nou per FACTOR. UC2 aplica l’escala OCDE modificada."
+      },
+      "limitation": [
+        "L’IPC general català és una aproximació comuna per als grups i components. No és una inflació específica dels llogaters ni un deflactor propi del consum sense habitatge.",
+        "La recollida, els períodes de referència i la classificació de l’EPF canvien el 2024. Harmonitzar la cistella evita reclassificacions concretes però no elimina tots els canvis: comparació descriptiva aproximada, no sèrie de volum perfectament homogènia.",
+        "Són mostres i grups canviants, no les mateixes llars seguides en el temps. Les edats, rendes, dimensions familiars, habitatges i entrades o sortides dels règims de tinença poden canviar.",
+        "No s’han estimat intervals de confiança ni la significació estadística de les diferències.",
+        "La despesa monetària exclou el lloguer imputat i altres consums en espècie, però això no elimina el servei real d’habitatge que reben els propietaris.",
+        "La cistella seleccionada no és tot el cost de l’habitatge. No mesura càrrega hipotecària, estalvi ni renda disponible després de pagar l’habitatge.",
+        "La comparació amb i sense aquesta cistella no identifica l’efecte causal de l’habitatge sobre el consum ni demostra que les diferències de preus siguin la causa del canvi observat.",
+        "Els pesos dels grups no sumen tota la població perquè les llars en cessió no es mostren, però sí que entren al control total de validació."
+      ],
+      "desktop": "/assets/charts/creixement-benestar/consum-habitatge-tinenca.svg",
+      "mobile": "/assets/charts/creixement-benestar/consum-habitatge-tinenca-mobile.svg"
     },
     {
       "id": "renda-real-edat",

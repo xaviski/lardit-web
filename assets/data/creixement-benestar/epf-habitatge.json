@@ -1,0 +1,271 @@
+{
+  "retrieved_on": "2026-10-20",
+  "territory": "Catalunya",
+  "period": [
+    2019,
+    2025
+  ],
+  "source": "Elaboració pròpia a partir de les microdades anonimitzades de l’Enquesta de pressupostos familiars de l’INE. Només es publiquen agregats.",
+  "sources": [
+    "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176806&idp=1254735976608&menu=resultados&secc=1254736195147",
+    "https://www.ine.es/ftp/microdatos/epf2006/datos_2019.zip",
+    "https://www.ine.es/ftp/microdatos/epf2006/datos_2025.zip",
+    "https://www.idescat.cat/indicadors/?id=aec&n=15361",
+    "https://www.ine.es/daco/daco42/daco4213/anexo_ecoicop.pdf",
+    "https://www.ine.es/daco/daco42/daco4213/anexoecpf06.pdf",
+    "https://www.ine.es/dyngs/Prensa/EPF2024.htm"
+  ],
+  "unit": "Despesa monetària anual per unitat de consum. Imports originals en euros corrents; canvis reals aproximats amb IPC general català.",
+  "cpi_annual_mean_Catalunya_base2025_100": {
+    "2019": 82.9,
+    "2025": 100
+  },
+  "groups": [
+    {
+      "id": "renters",
+      "label": "Lloguer",
+      "source_group": "rent_all",
+      "REGTEN_codes": [
+        3,
+        4
+      ],
+      "definition": "Lloguer a preu de mercat o inferior al de mercat."
+    },
+    {
+      "id": "mortgage",
+      "label": "Propietat amb hipoteca",
+      "source_group": "owned_mortgage",
+      "REGTEN_codes": [
+        2
+      ],
+      "definition": "Habitatge en propietat amb pagaments pendents."
+    },
+    {
+      "id": "outright",
+      "label": "Propietat sense hipoteca",
+      "source_group": "owned_outright",
+      "REGTEN_codes": [
+        1
+      ],
+      "definition": "Habitatge en propietat sense pagaments pendents."
+    }
+  ],
+  "selection": "CCAA=09. Es mostren tres règims de tinença, no tota la població: les cessions queden fora de les barres i dins del control total.",
+  "housing_basket": {
+    "label": "Lloguer de l’habitatge principal i subministraments bàsics",
+    "include_exact": [
+      "04110",
+      "04431",
+      "04432",
+      "04433",
+      "04434"
+    ],
+    "include_prefixes": [
+      "0441",
+      "0442",
+      "045"
+    ],
+    "description": "Pagaments monetaris de lloguer principal, aigua, recollida de residus, clavegueram/buidatge de fosses i energia. Els subministraments poden correspondre a altres habitatges.",
+    "excluded": "Lloguer imputat, altres lloguers/garatges, reparacions i manteniment, seguretat, comunitat, assegurances, compra d’habitatge i pagaments hipotecaris. El nou codi 04439 no s’inclou.",
+    "harmonization": "Es conserva una cistella estreta per evitar trasllats de classificació del 2024 entre seguretat, manteniment i serveis comunitaris. Suma el sanejament antic 04431/32 i els nous 04433/34, però no 04439."
+  },
+  "formulas": {
+    "expenditure_per_uc": "sum(despesa monetària elevada temporalment i poblacionalment) / sum(FACTOR * UC2)",
+    "housing_expenditure": "Suma dels camps monetaris GASTOMON (2019) o GASTMON (2025) dels codis de la cistella seleccionada. No s’obté restant només el lloguer imputat.",
+    "remaining_consumption": "despesa monetària total - despesa monetària de la cistella seleccionada",
+    "approximate_real_change_percent": "100 * (despesa_per_UC_2025 / despesa_per_UC_2019 * IPC_2019 / IPC_2025 - 1)",
+    "budget_share_percent": "100 * despesa monetària de la cistella / despesa monetària total",
+    "weighting": "GASTOT, GASTMON i GASTOMON ja estan elevats. No es multipliquen de nou per FACTOR. UC2 aplica l’escala OCDE modificada."
+  },
+  "comparisons": [
+    {
+      "id": "renters",
+      "source_group": "rent_all",
+      "label": "Lloguer",
+      "sample_households_2019": 395,
+      "sample_households_2025": 306,
+      "total_monetary_real_change_percent": -10.914639717099895,
+      "ex_housing_monetary_real_change_percent": -13.3292490378071,
+      "housing_share_2019_percent": 28.83873122787628,
+      "housing_share_2025_percent": 30.767517981444627
+    },
+    {
+      "id": "mortgage",
+      "source_group": "owned_mortgage",
+      "label": "Propietat amb hipoteca",
+      "sample_households_2019": 533,
+      "sample_households_2025": 485,
+      "total_monetary_real_change_percent": -11.82095864310262,
+      "ex_housing_monetary_real_change_percent": -11.473702307141476,
+      "housing_share_2019_percent": 5.990132374278905,
+      "housing_share_2025_percent": 5.619913763670856
+    },
+    {
+      "id": "outright",
+      "source_group": "owned_outright",
+      "label": "Propietat sense hipoteca",
+      "sample_households_2019": 838,
+      "sample_households_2025": 610,
+      "total_monetary_real_change_percent": -6.638982415106154,
+      "ex_housing_monetary_real_change_percent": -6.100538322660332,
+      "housing_share_2019_percent": 7.285086667348143,
+      "housing_share_2025_percent": 6.750368873380228
+    }
+  ],
+  "years": {
+    "2019": {
+      "all": {
+        "sample_households": 1866,
+        "weighted_households": 3067527.997944998,
+        "weighted_persons": 7526997.08037499,
+        "weighted_units": 5091090.973378399,
+        "total_expanded_eur": 100969862277.38004,
+        "monetary_expanded_eur": 80281315666.17998,
+        "core_housing_monetary_expanded_eur": 9986756512.469994,
+        "ex_core_housing_monetary_expanded_eur": 70294559153.70999,
+        "monetary_per_uc_nominal_eur": 15768.98077170011,
+        "core_housing_monetary_per_uc_nominal_eur": 1961.6142325272333,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 13807.36653917288,
+        "core_housing_share_percent": 12.439702102038549,
+        "total_per_person_nominal_eur": 13414.361823075105
+      },
+      "rent_all": {
+        "sample_households": 395,
+        "weighted_households": 764059.7848669998,
+        "weighted_persons": 1983273.5319429988,
+        "weighted_units": 1300387.8242342004,
+        "total_expanded_eur": 21135964904.449993,
+        "monetary_expanded_eur": 20756737013.35999,
+        "core_housing_monetary_expanded_eur": 5985979598.960002,
+        "ex_core_housing_monetary_expanded_eur": 14770757414.399986,
+        "monetary_per_uc_nominal_eur": 15961.958906823547,
+        "core_housing_monetary_per_uc_nominal_eur": 4603.226427842902,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 11358.732478980644,
+        "core_housing_share_percent": 28.83873122787628,
+        "total_per_person_nominal_eur": 10657.110360235201
+      },
+      "owned_mortgage": {
+        "sample_households": 533,
+        "weighted_households": 827509.3857040005,
+        "weighted_persons": 2420847.8769310014,
+        "weighted_units": 1527389.9153161014,
+        "total_expanded_eur": 31388387847.979977,
+        "monetary_expanded_eur": 24442490831.870026,
+        "core_housing_monetary_expanded_eur": 1464137556.3999996,
+        "ex_core_housing_monetary_expanded_eur": 22978353275.470024,
+        "monetary_per_uc_nominal_eur": 16002.783956322983,
+        "core_housing_monetary_per_uc_nominal_eur": 958.5879425536135,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 15044.196013769368,
+        "core_housing_share_percent": 5.990132374278905,
+        "total_per_person_nominal_eur": 12965.86545031991
+      },
+      "owned_outright": {
+        "sample_households": 838,
+        "weighted_households": 1278648.4362609978,
+        "weighted_persons": 2757940.430493001,
+        "weighted_units": 1990936.3994704017,
+        "total_expanded_eur": 42972111726.25001,
+        "monetary_expanded_eur": 31101283293.24004,
+        "core_housing_monetary_expanded_eur": 2265755442.5700054,
+        "ex_core_housing_monetary_expanded_eur": 28835527850.670036,
+        "monetary_per_uc_nominal_eur": 15621.434869297243,
+        "core_housing_monetary_per_uc_nominal_eur": 1138.0350689116472,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 14483.399800385598,
+        "core_housing_share_percent": 7.285086667348143,
+        "total_per_person_nominal_eur": 15581.232738434617
+      }
+    },
+    "2025": {
+      "all": {
+        "sample_households": 1440,
+        "weighted_households": 3173473.000004004,
+        "weighted_persons": 8069384.749977006,
+        "weighted_units": 5441134.545722487,
+        "total_expanded_eur": 121178474239.09006,
+        "monetary_expanded_eur": 93882029323.59004,
+        "core_housing_monetary_expanded_eur": 12348188996.010021,
+        "ex_core_housing_monetary_expanded_eur": 81533840327.58002,
+        "monetary_per_uc_nominal_eur": 17254.127523348012,
+        "core_housing_monetary_per_uc_nominal_eur": 2269.414382652506,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 14984.713140695503,
+        "core_housing_share_percent": 13.152878229174847,
+        "total_per_person_nominal_eur": 15017.064868475303
+      },
+      "rent_all": {
+        "sample_households": 306,
+        "weighted_households": 891488.394389,
+        "weighted_persons": 2329663.993048001,
+        "weighted_units": 1539456.088524501,
+        "total_expanded_eur": 26740088956.650013,
+        "monetary_expanded_eur": 26406163268.060013,
+        "core_housing_monetary_expanded_eur": 8124521031.7099905,
+        "ex_core_housing_monetary_expanded_eur": 18281642236.35002,
+        "monetary_per_uc_nominal_eur": 17152.91749137783,
+        "core_housing_monetary_per_uc_nominal_eur": 5277.526973502035,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 11875.390517875796,
+        "core_housing_share_percent": 30.767517981444627,
+        "total_per_person_nominal_eur": 11478.088272148118
+      },
+      "owned_mortgage": {
+        "sample_households": 485,
+        "weighted_households": 921332.4592520001,
+        "weighted_persons": 2707581.1486750008,
+        "weighted_units": 1737622.3479465006,
+        "total_expanded_eur": 40155040123.94001,
+        "monetary_expanded_eur": 29577521461.00998,
+        "core_housing_monetary_expanded_eur": 1662231199.540001,
+        "ex_core_housing_monetary_expanded_eur": 27915290261.46998,
+        "monetary_per_uc_nominal_eur": 17021.835323402873,
+        "core_housing_monetary_per_uc_nominal_eur": 956.6124661693054,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 16065.222857233566,
+        "core_housing_share_percent": 5.619913763670856,
+        "total_per_person_nominal_eur": 14830.59525052113
+      },
+      "owned_outright": {
+        "sample_households": 610,
+        "weighted_households": 1279550.744948999,
+        "weighted_persons": 2884248.5531410007,
+        "weighted_units": 2052434.1808715987,
+        "total_expanded_eur": 51816390946.09002,
+        "monetary_expanded_eur": 36107814881.66998,
+        "core_housing_monetary_expanded_eur": 2437410696.630004,
+        "ex_core_housing_monetary_expanded_eur": 33670404185.039978,
+        "monetary_per_uc_nominal_eur": 17592.67859509932,
+        "core_housing_monetary_per_uc_nominal_eur": 1187.5706998774103,
+        "ex_core_housing_monetary_per_uc_nominal_eur": 16405.10789522191,
+        "core_housing_share_percent": 6.750368873380228,
+        "total_per_person_nominal_eur": 17965.300143658216
+      }
+    }
+  },
+  "validation": {
+    "2019": {
+      "known_total_per_person_eur": 13414.36,
+      "reconstructed_total_per_person_eur": 13414.361823075105,
+      "sample_households": 1866,
+      "expanded_total_record_minus_household_eur": 0.000640869140625,
+      "expanded_monetary_record_minus_household_eur": 0.0007171630859375,
+      "outside04_record_minus_residual_eur": -0.00125885009765625
+    },
+    "2025": {
+      "known_total_per_person_eur": 15017.06,
+      "reconstructed_total_per_person_eur": 15017.064868475303,
+      "sample_households": 1440,
+      "expanded_total_record_minus_household_eur": -2.1511688232421875,
+      "expanded_monetary_record_minus_household_eur": -2.2419281005859375,
+      "outside04_record_minus_residual_eur": -2.2408294677734375,
+      "housing_record_minus_household_group04_eur": -0.4801788330078125
+    }
+  },
+  "limitations": [
+    "L’IPC general català és una aproximació comuna per als grups i components. No és una inflació específica dels llogaters ni un deflactor propi del consum sense habitatge.",
+    "La recollida, els períodes de referència i la classificació de l’EPF canvien el 2024. Harmonitzar la cistella evita reclassificacions concretes però no elimina tots els canvis: comparació descriptiva aproximada, no sèrie de volum perfectament homogènia.",
+    "Són mostres i grups canviants, no les mateixes llars seguides en el temps. Les edats, rendes, dimensions familiars, habitatges i entrades o sortides dels règims de tinença poden canviar.",
+    "No s’han estimat intervals de confiança ni la significació estadística de les diferències.",
+    "La despesa monetària exclou el lloguer imputat i altres consums en espècie, però això no elimina el servei real d’habitatge que reben els propietaris.",
+    "La cistella seleccionada no és tot el cost de l’habitatge. No mesura càrrega hipotecària, estalvi ni renda disponible després de pagar l’habitatge.",
+    "La comparació amb i sense aquesta cistella no identifica l’efecte causal de l’habitatge sobre el consum ni demostra que les diferències de preus siguin la causa del canvi observat.",
+    "Els pesos dels grups no sumen tota la població perquè les llars en cessió no es mostren, però sí que entren al control total de validació."
+  ]
+}
+

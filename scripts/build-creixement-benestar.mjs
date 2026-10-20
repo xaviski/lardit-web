@@ -12,7 +12,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'assets/data/creixement-benestar');
 const outputDir = path.join(root, 'assets/charts/creixement-benestar');
 const load = async name => JSON.parse(await readFile(path.join(dataDir, `${name}.json`), 'utf8'));
-const [macro, age, income, employment, epfTotal, epfActivity, demography] = await Promise.all(['macro', 'edat', 'renda', 'ocupacio', 'epf-total', 'epf-activitat', 'demografia'].map(load));
+const [macro, age, income, employment, epfTotal, epfActivity, demography, housing] = await Promise.all(['macro', 'edat', 'renda', 'ocupacio', 'epf-total', 'epf-activitat', 'demografia', 'epf-habitatge'].map(load));
 await mkdir(outputDir, { recursive: true });
 
 const C = { ink: '#132a38', blue: '#1c6579', red: '#ae372f', gold: '#a66e00', green: '#2c6a59', paper: '#f4efe5', grid: '#d4cfc5', muted: '#52636d' };
@@ -238,26 +238,43 @@ function sensitivityFigure(mobile) {
   return svg(width, bottom + (mobile ? 110 : 94), 'La sensibilitat a l’any de partida', 'Canvis acumulats del PIB real total, del PIB real per habitant i del consum real per habitant des de 2000, 2007 i 2019 fins a 2025.', s);
 }
 
-const ageRows = age.age_order.map((group, i) => ({ age_group_main_provider: group, annual_nominal_euros_per_consumption_unit: age.annual_nominal_data['2024'].equivalent[i], status: 'b' }));
-function ageSnapshotFigure(mobile) {
-  const width = mobile ? 360 : 760, left = mobile ? 67 : 93, right = mobile ? 72 : 104;
-  const x = n => left + n / 26000 * (width - right - left);
-  const top = 103, gap = 58, bottom = top + 4 * gap + 26;
-  let s = text(12, 24, 'Catalunya · 2024 · Euros anuals per unitat de consum', { size: mobile ? 12 : 15 });
-  s += text(12, 48, 'Edat del sustentador principal de la llar', { size: mobile ? 12 : 14, color: C.muted });
-  for (const tick of [0, 10000, 20000]) {
-    s += line(x(tick), top - 13, x(tick), bottom, C.grid);
-    s += text(x(tick), bottom + 24, fmt(tick, 0), { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
-  }
-  ageRows.forEach((r, i) => {
-    const yy = top + i * gap;
-    s += text(12, yy + 18, r.age_group_main_provider, { size: mobile ? 13 : 15, weight: 600 });
-    s += rect(left, yy, x(r.annual_nominal_euros_per_consumption_unit) - left, 27, C.blue);
-    s += text(width - 12, yy + 19, `${fmt(r.annual_nominal_euros_per_consumption_unit, 0)} €`, { size: mobile ? 12 : 15, anchor: 'end', color: C.blue, weight: 700 });
+const housingRows = housing.comparisons.filter(row => ['renters', 'mortgage', 'outright'].includes(row.id));
+function housingFigure(mobile) {
+  const width = mobile ? 360 : 760, left = mobile ? 42 : 56, right = mobile ? 65 : 90;
+  const series = [
+    { key: 'total_monetary_real_change_percent', label: 'Tot el consum monetari', color: C.blue },
+    { key: 'ex_housing_monetary_real_change_percent', label: 'Sense lloguer ni subministraments bàsics', color: C.gold },
+  ];
+  const values = housingRows.flatMap(row => series.map(item => row[item.key]));
+  const step = 5, min = Math.min(-5, Math.floor(Math.min(...values) / step) * step - step), max = Math.max(0, Math.ceil(Math.max(...values) / step) * step);
+  const x = value => left + (value - min) / (max - min) * (width - right - left);
+  const top = 144, gap = 92, bottom = top + (housingRows.length - 1) * gap + 57;
+  let s = text(12, 24, 'Catalunya · 2019–2025 · Canvi real aproximat (%)', { size: mobile ? 12 : 15, weight: 700 });
+  s += text(12, 47, 'Despesa monetària per unitat de consum', { size: mobile ? 12 : 14, color: C.muted });
+  series.forEach((item, index) => {
+    const y = 75 + index * 23;
+    s += rect(12, y - 10, 17, 10, item.color) + text(38, y, item.label, { size: mobile ? 12 : 14 });
   });
-  s += note('Preus corrents. Unitat de consum: ajust per mida i composició de la llar. Inclou lloguer imputat.', bottom + 54, width, mobile);
-  s += note('2024: ruptura de sèrie. Fotografia d’un sol any; no és l’edat de cada consumidor.', bottom + (mobile ? 109 : 86), width, mobile);
-  return svg(width, bottom + (mobile ? 174 : 132), 'Despesa de consum segons l’edat del sustentador principal, 2024', 'Despesa anual per unitat de consum: de 16 a 29 anys, 18.755 euros; de 30 a 44, 20.148; de 45 a 59, 21.521; de 60 a 74, 24.907; 75 anys o més, 22.550. Preus corrents. No són grups d’edat de cada consumidor.', s);
+  for (let tick = min; tick <= max; tick += step) {
+    housingRows.forEach((row, index) => {
+      const y = top + index * gap;
+      s += line(x(tick), y + 11, x(tick), y + 57, tick === 0 ? C.muted : C.grid, tick === 0 ? 1.3 : 1);
+    });
+    s += text(x(tick), bottom + 26, signed(tick, 0), { size: mobile ? 11 : 13, anchor: 'middle', color: C.muted });
+  }
+  housingRows.forEach((row, index) => {
+    const y = top + index * gap;
+    s += text(12, y, row.label, { size: mobile ? 13 : 15, weight: 700 });
+    series.forEach((item, j) => {
+      const yy = y + 13 + j * 23, value = row[item.key], end = x(value);
+      s += rect(Math.min(x(0), end), yy, Math.max(1, Math.abs(end - x(0))), 15, item.color);
+      s += text(width - 12, yy + 12, signed(value), { size: mobile ? 13 : 15, color: item.color, weight: 700, anchor: 'end' });
+    });
+  });
+  s += note('Sense lloguer imputat ni altres consums en espècie. Ajust amb IPC general.', bottom + 56, width, mobile);
+  s += note('Grups canviants. Comparació descriptiva, no un efecte causal de l’habitatge.', bottom + (mobile ? 107 : 90), width, mobile);
+  const description = housingRows.map(row => `${row.label}: tot el consum monetari ${signed(row.total_monetary_real_change_percent)}; sense lloguer de l’habitatge principal ni subministraments bàsics ${signed(row.ex_housing_monetary_real_change_percent)}.`).join(' ');
+  return svg(width, bottom + (mobile ? 151 : 119), 'Canvi del consum monetari segons la situació residencial, 2019–2025', `${description} Despesa per unitat de consum. Ajust aproximat amb IPC general. No és una estimació de l’efecte causal de l’habitatge.`, s);
 }
 
 const incomeKeys = ['under_16', 'age_16_39', 'age_40_64', 'age_65_plus'];
@@ -340,7 +357,7 @@ const specs = [
   { id: 'consum-epf-comptes', title: 'L’enquesta de les llars explica el mateix que els comptes?', alt: 'Despesa per persona de l’EPF ajustada amb IPC i consum per habitant dels comptes econòmics. Creixement real aproximat a Catalunya, 2019–2025; resultats del 2025: −7,2% i −0,8%.', unit: 'Variació real aproximada respecte del 2019 (%)', base_year: 2019, rows: epfRows, sources: [epfTotal.source_url, macro.sources[0].page, age.sources.cpi_table], formula: '100 * (EPF_nominal_t / EPF_nominal_2019 * IPC_2019 / IPC_t - 1)', limitation: epfTotal.notes, render: mobile => macroLineFigure(epfSeries, { mobile, title: 'Despesa EPF i consum dels comptes econòmics per persona, 2019–2025', yMin: -15, yMax: 5, yTicks: [-15, -10, -5, 0, 5], rows: epfRows, footnote: 'EPF / IPC: aproximació. Diferents mètodes i perímetres; comptes 2023–2025 provisionals.' }) },
   { id: 'consum-ocupats-jubilats', title: 'Ha canviat igual el consum de les llars d’ocupats i jubilats?', alt: 'Canvi real aproximat de la despesa per persona a les llars amb sustentador ocupat o jubilat, Catalunya 2019–2025. No és consum individual de treballadors o pensionistes.', unit: 'Variació real aproximada de la despesa per persona respecte del 2019 (%)', base_year: 2019, rows: activityRows, sources: [epfActivity.source_index, age.sources.cpi_table], formula: '100 * (despesa_nominal_per_persona_grup_t / despesa_nominal_per_persona_grup_2019 * IPC_2019 / IPC_t - 1)', limitation: epfActivity.limitations, render: mobile => macroLineFigure(activitySeries, { mobile, title: 'Despesa de consum de les llars amb sustentador ocupat o jubilat, 2019–2025', yMin: -20, yMax: 5, yTicks: [-20, -15, -10, -5, 0, 5], rows: activityRows, footnote: 'EPF / IPC: aproximació. Llars segons sustentador. 2024: canvi de qüestionari.' }) },
   { id: 'sensibilitat-any-base', title: 'Què canvia quan movem el punt de partida?', alt: 'Variació acumulada fins a 2025 del PIB total, el PIB per habitant i el consum per habitant, des de 2000, 2007 i 2019.', unit: 'Variació acumulada (%)', rows: sensitivityRows.map(({ color, ...r }) => r), sources: [macro.sources[0].page, macro.sources[1].page], formula: '100 * (valor_2025 / valor_any_base - 1)', render: sensitivityFigure },
-  { id: 'despesa-edat-2024', title: 'Quant consumeixen les llars segons l’edat?', alt: 'Despesa nominal anual per unitat de consum a Catalunya el 2024, segons l’edat del sustentador principal de la llar.', unit: 'Euros anuals per unitat de consum, preus corrents', rows: ageRows, sources: [age.sources.age_table, age.sources.equivalent_ssv], limitation: `${age.definitions.age_group} ${age.definitions.young_people_at_parental_home} ${age.comparability['2024_break']}`, render: ageSnapshotFigure },
+  { id: 'consum-habitatge-tinenca', title: 'Qui ha perdut consum i quin paper hi té l’habitatge?', alt: 'Canvi real aproximat de la despesa monetària per unitat de consum entre el 2019 i el 2025, segons la situació residencial: total i excloent lloguer de l’habitatge principal, aigua, residus, clavegueram i energia.', unit: 'Variació real aproximada de despesa monetària per unitat de consum (%)', base_year: 2019, rows: housingRows, sources: housing.sources, formula: housing.formulas, limitation: housing.limitations, render: housingFigure },
   { id: 'renda-real-edat', title: 'Com ha canviat el poder adquisitiu per edat?', alt: 'Evolució aproximada de la renda real per unitat de consum dels menors de 16 anys, de 16 a 39, de 40 a 64 i de 65 o més, entre els anys de renda 2012 i 2024.', unit: 'Índex real aproximat, any de renda 2012=100', age_groups: income.age_groups, rows: incomeRows, sources: [income.source_url, age.sources.cpi_table], formula: 'renda_real_preus2024_t = renda_nominal_t * IPC_2024 / IPC_t; index2012 = 100 * renda_real_t / renda_real_2012', limitation: [...income.comparability_notes.filter(note => !note.startsWith('Valors encara no deflactats')), 'Sèrie derivada ajustada amb IPC anual mitjà de Catalunya de l’any de renda; aproximació comuna, no inflació específica per edat.'], render: incomeFigure },
   { id: 'despesa-real-edat-2016-2019', title: 'Un episodi històric: la despesa entre 2016 i 2019', alt: 'Creixement real aproximat de la despesa anual per unitat de consum entre 2016 i 2019, segons l’edat del sustentador principal de la llar.', unit: 'Variació real aproximada (%)', rows: historicRows, sources: [age.sources.equivalent_ssv, age.sources.cpi_table], formula: '100 * (despesa_nominal_2019 / despesa_nominal_2016 * IPC_2016 / IPC_2019 - 1)', limitation: `${age.comparability.safe_chart_option} ${age.comparability.cpi_limitation}`, render: historicFigure },
 ];
@@ -363,7 +380,7 @@ for (const spec of specs) {
   }
 }
 const chartData = {
-  generated_on: '2026-10-17', source_snapshot_dates: { macro: macro.retrieved, age: age.verified_on, income: income.retrieved_on, employment: employment.retrieved_on, epf_total: epfTotal.retrieved_on, epf_activity: epfActivity.retrieved_at, demography: demography.retrieved_on }, territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
+  generated_on: '2026-10-20', source_snapshot_dates: { macro: macro.retrieved, age: age.verified_on, income: income.retrieved_on, employment: employment.retrieved_on, epf_total: epfTotal.retrieved_on, epf_activity: epfActivity.retrieved_at, demography: demography.retrieved_on, epf_habitatge: housing.retrieved_on }, territory: 'Catalunya', generator: 'scripts/build-creixement-benestar.mjs',
   notes: ['PIB, renda i consum són fluxos, no patrimoni net.', 'Sèries agregades reals: comptabilitat nacional. Despesa EPF i renda ECV reals: aproximació amb IPC general.', 'L’edat de l’EPF és la del sustentador principal; la de l’ECV és la de cada persona. No són classificacions equivalents.', 'El període EPF2016–2019 s’aïlla per evitar les ruptures metodològiques de la sèrie.'],
   charts: specs.map(({ render, ...spec }) => ({ ...spec, desktop: `/assets/charts/creixement-benestar/${spec.id}.svg`, mobile: `/assets/charts/creixement-benestar/${spec.id}-mobile.svg` })),
 };
