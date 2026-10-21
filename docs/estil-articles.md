@@ -6,7 +6,7 @@ La plantilla per començar un article és `templates/article.html.example`. És 
 
 ## Una sola font de format
 
-Tots els articles carreguen `/assets/styles.css?v=20261021-format-articles`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
+Tots els articles carreguen `/assets/styles.css?v=20261021-menu-centrat`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
 
 Les classes particulars només han de resoldre necessitats del contingut, com una visualització o un component específic. No han de canviar l’amplada ni l’alineació del cos, la separació del menú, els títols generals o la mida del text de lectura. Si cal modificar el format, cal fer-ho en l’estil compartit i comprovar els tres articles publicats.
 
@@ -41,7 +41,7 @@ Les classes particulars només han de resoldre necessitats del contingut, com un
 
 ## Columnes i comportament responsive
 
-- **Més de 1100 px:** tres columnes, amb el text a la columna central, fins a **740 px** d’amplada i **2 rem** entre columnes. Les columnes laterals mantenen el text centrat encara que no hi hagi una nota al marge dret.
+- **Més de 1100 px:** text centrat, fins a **740 px** d’amplada. El menú se centra horitzontalment en tot l’espai entre la vora esquerra de la pàgina i l’inici del text, incloent-hi el marge exterior. La graella ocupa tota l’amplada i separa explícitament les columnes amb **2 rem**; això no mou el cos ni les notes del marge dret. El menú conserva l’amplada anterior, fins a **218 px**, en comptes d’estirar-se per omplir tot l’espai.
 - **De 701 a 1100 px:** dues columnes, menú i text; les notes al marge passen sota el cos. S’aplica exactament la mateixa regla a tots els articles.
 - **Fins a 700 px:** lectura en una columna. El menú queda abans del text, sense posició fixa, i la seva llista també és d’una columna.
 - El menú d’ordinador és `sticky`, a **2 rem** de la part superior. La seva alçada màxima és `calc(100dvh - 4rem)`, amb desplaçament intern si cal, per poder accedir als últims enllaços en pantalles baixes. No s’han d’afegir ancestres amb `overflow` que impedeixin aquest comportament.

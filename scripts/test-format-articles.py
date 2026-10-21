@@ -98,6 +98,10 @@ css = (ROOT / "assets/styles.css").read_text(encoding="utf-8")
 assert "--article-copy-width: 740px;" in css
 assert "--article-column-gap: 2rem;" in css
 assert "grid-template-columns: minmax(0, 1fr) minmax(0, var(--article-copy-width)) minmax(0, 1fr);" in css
+assert "@media (min-width: 1101px)" in css
+assert "grid-template-columns: minmax(0, 1fr) var(--article-column-gap) minmax(0, var(--article-copy-width)) var(--article-column-gap) minmax(0, 1fr);" in css
+assert "grid-column: 1 / 3;" in css and "justify-self: center;" in css
+assert ".article-body { grid-column: 3; }" in css
 assert "@media (min-width: 701px) and (max-width: 1100px)" in css
 assert "max-height: calc(100dvh - 4rem);" in css and "overflow-y: auto;" in css
 # Shared primitives must not be overridden by article-specific parent classes.

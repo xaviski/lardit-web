@@ -639,6 +639,18 @@ button, input, textarea { font: inherit; }
 .form-submit:hover { border-color: var(--red); background: var(--red); }
 .contact-confirmation { min-height: 18rem; padding: 3rem 0 6rem; }
 .contact-confirmation .text-link { margin-top: 0; }
+@media (min-width: 1101px) {
+  /* Centre the menu in the whole space before the text, including the outer margin. */
+  .article-layout {
+    --article-side-max-width: calc((1240px - var(--article-copy-width) - 2 * var(--article-column-gap)) / 2);
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) var(--article-column-gap) minmax(0, var(--article-copy-width)) var(--article-column-gap) minmax(0, 1fr);
+    column-gap: 0;
+  }
+  .article-rail { grid-column: 1 / 3; width: min(var(--article-side-max-width), calc(100% - var(--article-column-gap) - 20px)); justify-self: center; }
+  .article-body { grid-column: 3; }
+  .margin-note { grid-column: 5; width: min(var(--article-side-max-width), calc(100% - 20px)); }
+}
 @media (min-width: 701px) and (max-width: 1100px) {
   .article-layout { grid-template-columns: minmax(9rem, 0.45fr) minmax(0, var(--article-copy-width)); }
   .margin-note { grid-column: 2; margin: 0; }
@@ -747,6 +759,6 @@ button, input, textarea { font: inherit; }
   body::before, .edition-bar, .nav-wrap, .zero-notice, .footer { display: none; }
   .shell { width: 100%; }
   .article-layout { display: block; }
-  .article-rail, .margin-note { position: static; max-height: none; overflow: visible; margin: 1rem 0; }
+  .article-rail, .margin-note { position: static; width: auto; max-height: none; overflow: visible; margin: 1rem 0; }
   .article-figure, .thought-experiment, .evidence-table tr { break-inside: avoid; }
 }
