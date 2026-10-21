@@ -22,5 +22,5 @@ jobs:
         run: |
           python3 scripts/test-format-articles.py
           python3 scripts/test-metadades-articles.py
-      - name: Comprova que el panorama econòmic es conserva
-        run: node --test scripts/economy/test.mjs
+      - name: Comprova el panorama econòmic i les opcions per compartir
+        run: node --test scripts/economy/test.mjs scripts/test-article-share.mjs

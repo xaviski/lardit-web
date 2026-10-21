@@ -8,7 +8,7 @@ La plantilla per començar un article és `templates/article.html.example`. És 
 
 ## Una sola font de format
 
-Tots els articles carreguen `/assets/styles.css?v=20261021-menu-centrat`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
+Tots els articles carreguen `/assets/styles.css?v=20261021-compartir` i `/assets/main.js?v=20261021-compartir`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
 
 Les classes particulars només han de resoldre necessitats del contingut, com una visualització o un component específic. No han de canviar l’amplada ni l’alineació del cos, la separació del menú, els títols generals o la mida del text de lectura. Si cal modificar el format, cal fer-ho en l’estil compartit i comprovar els tres articles publicats.
 
@@ -75,6 +75,16 @@ Cada secció principal, inclosa la conclusió, segueix aquest trio de germans co
 - Els requadres de síntesi i els exemples reutilitzen `key-points` i `thought-experiment`; no redefineixen el format de tot l’article.
 - Cal conservar els gràfics adaptats al mòbil quan una visualització ho necessiti, sense canviar l’amplada comuna del cos per encabir-los.
 
+## Opcions per compartir
+
+- Cada article publicat inclou un únic `nav.article-share`, germà de les seccions del cos, just després de la conclusió i abans de les fonts o la metodologia. Usa el bloc de `templates/article.html.example`, amb WhatsApp, X, Facebook i Correu, en aquest ordre, i els estils compartits.
+- Els enllaços són HTML estàtic i funcionen també sense JavaScript. Comparteixen la URL canònica de l’article, no l’adreça de previsualització ni l’ancoratge actual. WhatsApp, X i l’assumpte del correu inclouen el títol de l’`h1` seguit de ` — L’Ardit`.
+- A la plantilla, substitueix `{{TITOL_COMPARTIR_URLENCODED}}` pel títol amb la marca codificat per a URL, i `{{URL_CANONICA_URLENCODED}}` per la URL canònica codificada. Conserva els separadors HTML `&amp;`. El test de format comprova les destinacions, el títol, la URL i l’emplaçament en tots els articles publicats; també detecta camps sense substituir.
+- Els enllaços de xarxes obren una pestanya nova amb `target="_blank"`, `rel="noopener noreferrer"` i un avís per als lectors de pantalla. Correu és un enllaç `mailto:` i no envia cap missatge automàticament.
+- En ordinador, a més del bloc final, el JavaScript compartit crea quatre icones SVG petites al marge dret, sense text visible ni serveis externs incrustats. Reutilitza els enllaços del bloc final, conserva noms accessibles i una àrea clicable suficient. No copiïs manualment un segon joc d’URL ni afegeixis dependències socials.
+- Les icones laterals acompanyen la lectura amb `sticky`, sense moure el cos ni el menú esquerre. Les notes existents es conserven al marge dret. Fins a 1100 px s’oculta el complement lateral i es manté el bloc del final; a la impressió no es mostren controls socials.
+- Els esborranys existents han d’incorporar aquest bloc abans de publicar-se. Afegir opcions per compartir no elimina el `noindex` ni autoritza la publicació d’un esborrany.
+
 ## Esborranys i publicació
 
 Un esborrany hereta el mateix format. Pot afegir avisos i components editorials de `assets/drafts.css`, però aquests no han de canviar les dimensions de la capçalera, les columnes o el cos.
@@ -97,7 +107,7 @@ Des de l’arrel del repositori:
 python scripts/test-format-articles.py
 python scripts/test-metadades-articles.py
 python scripts/test-publicacio-creixement.py
-node --test scripts/economy/test.mjs
+node --test scripts/economy/test.mjs scripts/test-article-share.mjs
 ```
 
 També cal revisar visualment transport, universitats i creixement:
