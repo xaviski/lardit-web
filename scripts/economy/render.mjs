@@ -115,6 +115,15 @@ export function renderDashboard(snapshot) {
             </div>
             <p class="economy-checked">Dades comprovades el <time datetime="${snapshot.asOf}">${escapeHtml(periodLabel(snapshot.asOf))}</time>.</p>
             <p class="economy-caption">Cada indicador té el seu període. No són dades en temps real.</p>
+            <div class="economy-guide" aria-labelledby="economy-guide-heading">
+              <h3 id="economy-guide-heading">Guia ràpida dels indicadors</h3>
+              <dl class="economy-glossary">
+                <div><dt>Creixement del PIB</dt><dd>El producte interior brut és el valor dels béns i serveis finals produïts en un territori. Aquí en mostrem el creixement real, sense l’efecte dels preus: indica si l’activitat augmenta, però no si tothom hi guanya.</dd></div>
+                <div><dt>Inflació</dt><dd>És l’augment general dels preus de consum. Si els ingressos no pugen al mateix ritme, perdem poder de compra. Una inflació més baixa no vol dir necessàriament que els preus baixin.</dd></div>
+                <div><dt>Taxa d’atur</dt><dd>És el percentatge de la població activa —persones ocupades o aturades— que no té feina, en busca i està disponible per treballar. Ajuda a valorar les dificultats per trobar feina.</dd></div>
+                <div><dt>Tipus d’interès</dt><dd>És el preu de demanar diners prestats. Aquí mostrem tipus oficials dels bancs centrals, que influeixen en el cost dels préstecs i la remuneració de l’estalvi, però no són els de cada contracte.</dd></div>
+              </dl>
+            </div>
           </header>
           <div class="economy-content">
             ${panels}

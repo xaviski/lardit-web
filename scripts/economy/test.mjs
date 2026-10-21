@@ -177,6 +177,25 @@ test('Els setze gràfics generats i publicats tenen quatre dates vàlides a la p
   assert.equal(JSON.stringify(data), before, 'Les marques de l’eix no poden alterar les observacions.');
 });
 
+test('La guia dels quatre indicadors és única, queda a l’esquerra i es conserva en actualitzar les dades', async () => {
+  const published = await fs.readFile(path.join(root, 'index.html'), 'utf8');
+  const rendered = renderDashboard(snapshot);
+  assert.equal(published.slice(published.indexOf(START), published.indexOf(END) + END.length).replace(/\r\n/g, '\n'), rendered);
+  for (const html of [rendered, published]) {
+    assert.equal(count(html, /class="economy-guide"/g), 1);
+    const intro = html.match(/<header class="economy-intro">([\s\S]*?)<\/header>/);
+    assert.ok(intro, 'La guia ha de formar part de la columna introductòria.');
+    const glossary = intro[1].match(/<dl class="economy-glossary">([\s\S]*?)<\/dl>/);
+    assert.ok(glossary);
+    assert.equal(count(glossary[1], /<dt>/g), 4);
+    assert.equal(count(glossary[1], /<dd>/g), 4);
+    assert.deepEqual([...glossary[1].matchAll(/<dt>([^<]+)<\/dt>/g)].map(match => match[1]),
+      ['Creixement del PIB', 'Inflació', 'Taxa d’atur', 'Tipus d’interès']);
+    assert.ok(intro[1].indexOf('class="economy-tabs"') < intro[1].indexOf('class="economy-guide"'));
+    assert.doesNotMatch(glossary[1], /role="tab/);
+  }
+});
+
 for (const [indicator, periods, expected] of [
   ['inflation', ['2024-01', '2024-10'], ['2024-01', '2024-04', '2024-07', '2024-10']],
   ['gdp', ['2023-Q1', '2024-Q4'], ['2023-Q1', '2023-Q3', '2024-Q2', '2024-Q4']],

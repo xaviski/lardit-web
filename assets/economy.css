@@ -45,6 +45,12 @@
 .economy-tabs button[aria-selected="true"] { background: var(--saffron); color: var(--ink); border-color: var(--saffron); }
 .economy-band :focus-visible { outline-color: var(--saffron); box-shadow: none; outline-offset: 4px; }
 .economy-intro .economy-checked, .economy-intro .economy-caption { margin-top: 1rem; font: .8rem/1.55 var(--sans); }
+.economy-guide { margin-top: 2rem; }
+.economy-guide h3 { margin: 0 0 1rem; font: 700 .9rem/1.4 var(--sans); }
+.economy-glossary { margin: 0; }
+.economy-glossary > div { padding-block: 1rem; border-top: 1px solid rgba(251,248,241,.25); }
+.economy-glossary dt { color: var(--saffron); font: 700 .85rem/1.4 var(--sans); }
+.economy-glossary dd { margin: .4rem 0 0; color: rgba(251,248,241,.87); font: .83rem/1.6 var(--sans); }
 .economy-region-note { margin: 0 0 1.5rem; color: rgba(251,248,241,.82); font: .82rem/1.5 var(--sans); }
 .economy-panel[hidden] { display: none; }
 .economy-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2.2rem 2rem; }
@@ -79,16 +85,20 @@
   .economy-layout { grid-template-columns: minmax(0,1fr); }
   .economy-intro { max-width: 44rem; }
   .economy-intro h2 { font-size: clamp(2.5rem,6vw,4rem); }
+  .economy-glossary { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 1.5rem; }
 }
 @media (max-width: 560px) {
   .economy-layout { gap: 2.5rem; }
   .economy-metrics { grid-template-columns: minmax(0,1fr); gap: 2rem; }
   .economy-period { min-height: 0; }
+  .economy-glossary { grid-template-columns: minmax(0,1fr); }
 }
 @media print {
   .economy-band { color: var(--ink); background: white; }
   .economy-tabs { display: none; }
   .economy-band p, .economy-band h2, .economy-band h3, .economy-band a { color: var(--ink); }
+  .economy-glossary dt, .economy-glossary dd { color: var(--ink); }
+  .economy-glossary > div { border-color: var(--rule); break-inside: avoid; }
   .economy-chart text { fill: var(--ink); }
   .economy-chart-line { stroke: var(--ink); }
   .economy-metric { break-inside: avoid; }
