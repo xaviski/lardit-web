@@ -95,12 +95,12 @@ assert article.metas["twitter:card"] == "summary_large_image"
 assert article.metas["article:published_time"] == "2026-10-20"
 assert not re.search(r"Esborrany|esborrany|noindex|Pendent de redacció|Material per a la redacció|drafts\.css", sources[ARTICLE])
 assert sources[ARTICLE].count('<h2 id="conclusio">') == 1
-assert sources[ARTICLE].count('class="shell article-layout wealth-layout"') == 1
+assert sources[ARTICLE].count('class="shell article-layout"') == 1
 assert sources[ARTICLE].count('class="article-rail"') == 1
 toc = re.search(r'<aside class="article-rail">\s*(<nav class="article-toc"[\s\S]*?</nav>)\s*</aside>', sources[ARTICLE])
 assert toc and toc.group(1).count('<li>') == 9
-assert sources[ARTICLE].index(toc.group(0)) < sources[ARTICLE].index('<article class="article-body wealth-copy">')
-assert 'wealth-toc' not in sources[ARTICLE]
+assert sources[ARTICLE].index(toc.group(0)) < sources[ARTICLE].index('<article class="article-body">')
+assert not re.search(r'wealth-(?:toc|layout|copy|article)|creixement-benestar\.css', sources[ARTICLE])
 assert sources[ARTICLE].count('/assets/charts/creixement-benestar/') == 16
 graph = schemas[ARTICLE][0]["@graph"]
 article_schema = next(item for item in graph if item["@type"] == "Article")

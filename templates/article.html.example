@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITOL}} — L’Ardit</title>
+    <meta name="description" content="{{DESCRIPCIO_BREU}}">
+    <meta name="author" content="Xavi Palahí">
+    <meta name="theme-color" content="#132a38">
+    <!-- Mantén el noindex fins que l’autor n’aprovi expressament la publicació. -->
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <link rel="canonical" href="https://lardit.cat/articles/{{CATEGORIA_SLUG}}/{{ARTICLE_SLUG}}/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ca_ES">
+    <meta property="og:site_name" content="L’Ardit">
+    <meta property="og:title" content="{{TITOL}}">
+    <meta property="og:description" content="{{DESCRIPCIO_BREU}}">
+    <meta property="og:url" content="https://lardit.cat/articles/{{CATEGORIA_SLUG}}/{{ARTICLE_SLUG}}/">
+    <!-- Abans de publicar, afegeix la imatge social real, les metadades de
+         publicació i les dades estructurades Article/Breadcrumb que pertoquin.
+         No afegeixis dates o rutes d’imatge inventades a un article publicat. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css?v=20261021-format-articles">
+    <script src="/assets/main.js?v=20260930" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#article">Ves a l’article</a>
+    <header class="shell">
+      <div class="edition-bar">
+        <p>L’Ardit · <span data-current-date>{{DATA_EDICIO}}</span></p>
+        <p class="edition-note">Esborrany · No publicat</p>
+      </div>
+      <div class="masthead">
+        <a class="brand" href="/" aria-label="L’Ardit, portada">L<span class="brand-apostrophe">’</span>Ardit</a>
+        <p class="tagline">Economia per il·lustrar</p>
+      </div>
+    </header>
+    <div class="nav-wrap">
+      <div class="shell">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacio" data-menu-button>Seccions</button>
+        <nav class="site-nav" id="navegacio" aria-label="Navegació principal" data-site-nav>
+          <a href="/">Portada</a>
+          <a href="/articles/">Articles</a>
+          <a class="nav-contact" href="/contacte/">Contacte</a>
+          <a class="nav-manifest" href="/manifest/">Manifest</a>
+        </nav>
+      </div>
+    </div>
+
+    <main id="article">
+      <header class="shell article-header">
+        <p class="eyebrow"><a href="/articles/{{CATEGORIA_SLUG}}/">{{CATEGORIA}}</a> · {{TEMA}}</p>
+        <h1 class="article-title">{{TITOL}}</h1>
+        <p class="article-deck">{{ENTRADETA}}</p>
+        <!-- Completa la data real quan s’aprovi la publicació; després es conserva. -->
+        <p class="article-meta">
+          <span>Per Xavi Palahí</span>
+          <span><time datetime="{{DATA_PUBLICACIO_ISO}}">{{DATA_PUBLICACIO_TEXT}}</time></span>
+        </p>
+      </header>
+
+      <div class="shell article-layout">
+        <aside class="article-rail">
+          <nav class="article-toc" aria-label="Continguts de l’article">
+            <p class="register-label">En aquest article</p>
+            <ol>
+              <li><a href="#analisi">{{TITOL_SECCIO_ANALISI}}</a></li>
+              <li><a href="#conclusions">Què en podem concloure?</a></li>
+              <li><a href="#fonts">Fonts i bibliografia</a></li>
+            </ol>
+          </nav>
+        </aside>
+
+        <article class="article-body">
+          <p class="article-lead">{{PRIMER_PARAGRAF_INTRODUCTORI}}</p>
+          <p>{{RESTA_DE_LA_INTRODUCCIO}}</p>
+
+          <!-- Requadre de síntesi opcional: elimina’l si no aporta valor. -->
+          <aside class="key-points" aria-labelledby="idees-clau">
+            <h2 id="idees-clau">En tres idees</h2>
+            <ol>
+              <li>{{IDEA_1}}</li>
+              <li>{{IDEA_2}}</li>
+              <li>{{IDEA_3}}</li>
+            </ol>
+          </aside>
+
+          <!-- El meme va aquí, després de la introducció i del requadre.
+               Afegeix només una imatge real proporcionada per l’autor, amb:
+               <figure class="article-figure article-cover">
+                 <img src="RUTA_REAL" alt="DESCRIPCIO_DEL_MEME"
+                      width="AMPLADA_REAL" height="ALCADA_REAL"
+                      loading="lazy" decoding="async">
+                 <figcaption>Meme: Xavi Palahí.</figcaption>
+               </figure>
+               No descomentis aquest exemple sense substituir tots els camps. -->
+
+          <section aria-labelledby="analisi">
+            <h2 id="analisi">{{TITOL_SECCIO_ANALISI}}</h2>
+            <p>{{TEXT_DE_L_ANALISI}}</p>
+            <!-- Gràfics: figure.article-figure amb imatge/SVG accessible i
+                 figcaption per a la font i les limitacions immediates.
+                 Taules: evidence-table-wrap, evidence-table i table-source.
+                 Exemples: thought-experiment. No redefineixis la geometria. -->
+          </section>
+
+          <section aria-labelledby="conclusions">
+            <h2 id="conclusions">Què en podem concloure?</h2>
+            <p>{{CONCLUSIO}}</p>
+          </section>
+
+          <section class="references" aria-labelledby="fonts">
+            <h2 id="fonts">Fonts i bibliografia</h2>
+            <ol>
+              <li>{{REFERENCIA_REAL_USADA_AL_TEXT}}</li>
+            </ol>
+          </section>
+
+          <p class="article-backlinks">Torna a la categoria <a href="/articles/{{CATEGORIA_SLUG}}/">{{CATEGORIA}}</a>, consulta la <a href="/manifest/#metodologia">metodologia editorial</a> o visita la <a href="/">portada de <cite>L’Ardit</cite></a>.</p>
+        </article>
+        <!-- Opcional: una nota breu en aside.margin-note després del cos.
+             No eliminis la tercera columna del format compartit si no n’hi ha. -->
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-main">
+        <div><p class="footer-brand">L’Ardit</p><p class="footer-tagline">Economia per il·lustrar.</p></div>
+        <div><h2>Projecte</h2><ul><li><a href="/manifest/">Manifest</a></li><li><a href="/manifest/#metodologia">Metodologia</a></li><li><a href="/contacte/">Contacte</a></li></ul></div>
+        <div><h2>Continua</h2><ul><li><a href="/articles/">Totes les categories</a></li><li><a href="/articles/{{CATEGORIA_SLUG}}/">Més sobre {{CATEGORIA}}</a></li><li><a href="/">Torna a la portada</a></li></ul></div>
+      </div>
+      <div class="shell"><small>© {{ANY}} L’Ardit</small></div>
+    </footer>
+  </body>
+</html>

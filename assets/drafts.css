@@ -1,11 +1,3 @@
-.draft-header {
-  padding-bottom: 2rem;
-}
-
-.draft-header .article-title {
-  max-width: 20ch;
-}
-
 .draft-status {
   display: inline-flex;
   align-items: center;
@@ -44,15 +36,6 @@
 
 .draft-banner p {
   margin: 0;
-}
-
-.draft-body .article-lead::first-letter {
-  float: none;
-  margin: 0;
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
 }
 
 .draft-prompt,

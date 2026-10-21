@@ -13,6 +13,8 @@
   --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --page: min(1240px, calc(100% - 40px));
+  --article-copy-width: 740px;
+  --article-column-gap: 2rem;
 }
 
 * { box-sizing: border-box; }
@@ -383,21 +385,19 @@ button, input, textarea { font: inherit; }
 .footer small { display: block; padding: 1rem 0 1.5rem; border-top: 1px solid var(--ink); color: var(--muted); }
 .article-header { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; border-bottom: 1px solid var(--ink); }
 .article-header .article-title { max-width: 18ch; }
-.university-article .article-header { padding-bottom: 2rem; }
-.university-article .article-title { max-width: 20ch; }
 .article-deck { max-width: 48rem; margin: 1.5rem 0 0; font-size: clamp(1.2rem, 2.2vw, 1.6rem); line-height: 1.42; }
 .manifest-header .article-title { font-size: clamp(2.75rem, 5.6vw, 5rem); }
 .manifest-header .article-deck { max-width: 44rem; font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
 .manifest-salutation { font-size: 1.12em; }
 .article-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 740px) minmax(12rem, 1fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--article-copy-width)) minmax(0, 1fr);
+  gap: var(--article-column-gap);
   padding: 3.5rem 0 6rem;
 }
-.article-rail { grid-column: 1; align-self: start; position: sticky; top: 2rem; font-family: var(--sans); font-size: 0.78rem; }
+.article-rail { grid-column: 1; align-self: start; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem); overflow-y: auto; font-family: var(--sans); font-size: 0.78rem; }
 .article-rail p { margin: 0; }
-.article-body { grid-column: 2; font-size: 1.18rem; line-height: 1.68; }
+.article-body { grid-column: 2; min-width: 0; font-size: 1.18rem; line-height: 1.68; }
 .article-body p { margin: 0 0 1.35rem; }
 .article-lead::first-letter {
   float: left;
@@ -407,7 +407,6 @@ button, input, textarea { font: inherit; }
   font-weight: 700;
   line-height: 0.76;
 }
-.university-article .article-lead::first-letter { float: none; margin: 0; color: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; }
 .article-body h2 {
   margin: 2.7rem 0 0.9rem;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -424,6 +423,7 @@ button, input, textarea { font: inherit; }
 .article-toc li::before { content: "0" counter(toc); color: var(--red); font-family: var(--mono); }
 .article-toc a { text-decoration: none; line-height: 1.35; }
 .article-toc a:hover { text-decoration: underline; }
+.article-toc a:focus-visible { outline-color: var(--blue); outline-offset: -2px; }
 .margin-note {
   grid-column: 3;
   align-self: start;
@@ -464,12 +464,30 @@ button, input, textarea { font: inherit; }
 .method-note { margin: 2rem 0; border-block: 1px solid var(--rule); font-family: var(--sans); font-size: 0.94rem; }
 .method-note summary { min-height: 48px; padding: 0.75rem 0; color: var(--blue); font-weight: 750; cursor: pointer; }
 .method-note p { margin: 0 0 1rem; color: var(--muted); line-height: 1.55; }
+.method-note ul { padding-left: 1.3rem; color: var(--muted); line-height: 1.6; }
+.method-note li + li { margin-top: 0.8rem; }
 .article-figure { margin: 2.8rem 0 3rem; }
+.article-figure picture { display: block; }
 .article-figure picture, .article-figure img { width: 100%; }
 .article-figure img { height: auto; }
 .article-figure figcaption { margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); color: var(--muted); font-family: var(--sans); font-size: 0.82rem; line-height: 1.5; }
 .article-figure figcaption strong { color: var(--ink); }
 .article-figure.article-cover { width: min(100%, 28rem); margin: 2.4rem auto 3rem; }
+.article-body .concept-note { margin: 0 0 2rem; padding: 1.1rem 1.25rem; border-top: 4px solid var(--blue); background: var(--paper-deep); font-family: var(--sans); font-size: 0.96rem; line-height: 1.55; }
+.article-body .concept-note p { margin: 0; }
+.article-body .section-number { margin: 2.7rem 0 0.5rem; color: var(--red); font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.article-body .section-number + h2 { margin-top: 0; }
+.article-body .chart-subtitle { margin-bottom: 0.8rem; color: var(--muted); font-family: var(--sans); font-size: 0.94rem; }
+.article-body .data-access { margin: 1.2rem 0; font-family: var(--sans); font-size: 0.86rem; line-height: 1.5; }
+.article-body .data-access summary { min-height: 44px; padding: 0.65rem 0; color: var(--blue); cursor: pointer; font-weight: 700; }
+.article-body .data-access table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.article-body .data-access th, .article-body .data-access td { padding: 0.65rem 0.5rem; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.article-body .data-access caption { margin-bottom: 0.6rem; text-align: left; color: var(--muted); }
+.article-body .data-access .table-scroll { overflow-x: auto; }
+.article-body .data-access p { margin-top: 0.8rem; color: var(--muted); font-size: 0.83rem; }
+.article-body .source-links { margin-top: 2rem; font-family: var(--sans); font-size: 0.88rem; line-height: 1.5; }
+.article-body .source-links li + li { margin-top: 0.8rem; }
+.article-body a { overflow-wrap: anywhere; }
 .evidence-table-wrap { margin: 2rem 0 3rem; }
 .article-body .table-source { margin: 0.85rem 0 0; color: var(--muted); font-family: var(--sans); font-size: 0.82rem; line-height: 1.5; }
 .evidence-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.88rem; line-height: 1.48; }
@@ -622,8 +640,8 @@ button, input, textarea { font: inherit; }
 .contact-confirmation { min-height: 18rem; padding: 3rem 0 6rem; }
 .contact-confirmation .text-link { margin-top: 0; }
 @media (min-width: 701px) and (max-width: 1100px) {
-  .university-article .article-layout { grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 740px); }
-  .university-article .margin-note { grid-column: 2; margin: 0; }
+  .article-layout { grid-template-columns: minmax(9rem, 0.45fr) minmax(0, var(--article-copy-width)); }
+  .margin-note { grid-column: 2; margin: 0; }
 }
 @media (max-width: 900px) {
   .hero-copy { grid-column: 1 / span 7; }
@@ -633,10 +651,6 @@ button, input, textarea { font: inherit; }
   .context-band h2 { grid-column: 1 / span 5; }
   .context-copy { grid-column: 6 / -1; }
   .context-scale { grid-column: 6 / -1; }
-  .article-layout { grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 740px); }
-  .article-rail { grid-column: 1; }
-  .article-body { grid-column: 2; }
-  .margin-note { grid-column: 2; margin: 0; }
   .manifest-copy { grid-column: 2 / span 8; }
   .manifest-aside { grid-column: 10 / -1; }
   .contact-intro { grid-column: 1 / span 5; }
@@ -677,14 +691,17 @@ button, input, textarea { font: inherit; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-main > div:first-child { grid-column: 1 / -1; }
   .article-layout { display: block; }
-  .article-rail { position: static; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+  .article-rail { position: static; max-height: none; overflow: visible; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
   .article-body { font-size: 1.08rem; }
   .margin-note { margin-top: 2rem; }
   .evidence-grid { grid-template-columns: 1fr; }
-  .article-toc ol { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; }
+  .article-toc ol { display: block; }
   .article-toc li { grid-template-columns: 1.5rem 1fr; }
   .key-points, .thought-experiment { margin-inline: -0.25rem; padding-inline: 1.1rem; }
   .article-figure { margin-inline: -0.25rem; }
+  .article-body .concept-note { padding: 0.9rem; }
+  .article-body .data-access { font-size: 0.8rem; }
+  .article-body .data-access th, .article-body .data-access td { padding: 0.6rem 0.35rem; }
   .method-note summary { font-size: 0.94rem; }
   .evidence-table-wrap { margin-inline: -0.25rem; }
   .evidence-table caption { display: block; width: 100%; }
@@ -730,6 +747,6 @@ button, input, textarea { font: inherit; }
   body::before, .edition-bar, .nav-wrap, .zero-notice, .footer { display: none; }
   .shell { width: 100%; }
   .article-layout { display: block; }
-  .article-rail, .margin-note { position: static; margin: 1rem 0; }
+  .article-rail, .margin-note { position: static; max-height: none; overflow: visible; margin: 1rem 0; }
   .article-figure, .thought-experiment, .evidence-table tr { break-inside: avoid; }
 }

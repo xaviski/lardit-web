@@ -1,0 +1,26 @@
+name: Verifica el format dels articles
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obté el codi
+        uses: actions/checkout@v7.0.1
+      - name: Prepara Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Comprova el format comú i les metadades
+        run: |
+          python3 scripts/test-format-articles.py
+          python3 scripts/test-metadades-articles.py
+      - name: Comprova que el panorama econòmic es conserva
+        run: node --test scripts/economy/test.mjs
