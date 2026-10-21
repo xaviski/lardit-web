@@ -1,6 +1,7 @@
 # Articles de L’Ardit
 
 - El model visual canònic és `articles/habitatge/transport-public/index.html`.
+- Els encapçalaments de secció segueixen el model de `articles/economia/creixement-benestar-catalunya/index.html`: `p.section-number` amb número i etiqueta, `h2` i `p.chart-subtitle`. La numeració és consecutiva i coincideix amb el menú; els apèndixs de fonts duen etiqueta sense número i els requadres introductoris no es numeren.
 - Abans de crear o reformatejar articles, llegeix `docs/estil-articles.md`.
 - Parteix de `templates/article.html.example`; conserva `noindex,nofollow,noarchive` fins que l’usuari autoritzi publicar i indexar.
 - Tots els articles comparteixen les primitives `.article-*` d’`assets/styles.css`. No creïs graelles, amplades, capçaleres o tipografies particulars per article.

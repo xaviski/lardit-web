@@ -98,7 +98,9 @@
                No descomentis aquest exemple sense substituir tots els camps. -->
 
           <section aria-labelledby="analisi">
+            <p class="section-number">01 · {{ETIQUETA_SECCIO_ANALISI}}</p>
             <h2 id="analisi">{{TITOL_SECCIO_ANALISI}}</h2>
+            <p class="chart-subtitle">{{SUBTITOL_SECCIO_ANALISI}}</p>
             <p>{{TEXT_DE_L_ANALISI}}</p>
             <!-- Gràfics: figure.article-figure amb imatge/SVG accessible i
                  figcaption per a la font i les limitacions immediates.
@@ -107,12 +109,16 @@
           </section>
 
           <section aria-labelledby="conclusions">
+            <p class="section-number">02 · Conclusió</p>
             <h2 id="conclusions">Què en podem concloure?</h2>
+            <p class="chart-subtitle">{{SUBTITOL_CONCLUSIO}}</p>
             <p>{{CONCLUSIO}}</p>
           </section>
 
           <section class="references" aria-labelledby="fonts">
-            <h2 id="fonts">Fonts i bibliografia</h2>
+            <p class="section-number section-number--appendix">Fonts i bibliografia</p>
+            <h2 id="fonts">Referències i dades</h2>
+            <p class="chart-subtitle">{{DESCRIPCIO_DE_LES_FONTS}}</p>
             <ol>
               <li>{{REFERENCIA_REAL_USADA_AL_TEXT}}</li>
             </ol>

@@ -12,13 +12,18 @@ class Element:
     def __init__(self, tag, attrs, parent=None):
         self.tag, self.attrs, self.parent = tag, dict(attrs), parent
         self.children = []
+        self.text = ""
 
     def has(self, name):
         return name in self.attrs.get("class", "").split()
 
     def find(self, predicate):
-        return [child for child in self.children if predicate(child)] + [
-            found for child in self.children for found in child.find(predicate)]
+        matches = []
+        for child in self.children:
+            if predicate(child):
+                matches.append(child)
+            matches.extend(child.find(predicate))
+        return matches
 
 
 class Page(HTMLParser):
@@ -40,10 +45,52 @@ class Page(HTMLParser):
                 del self.stack[index:]
                 return
 
+    def handle_data(self, data):
+        self.stack[-1].text += data
+
 
 def one(nodes, message):
     assert len(nodes) == 1, message
     return nodes[0]
+
+
+def in_key_points(node):
+    while node.parent:
+        node = node.parent
+        if node.has("key-points"):
+            return True
+    return False
+
+
+def check_section_headings(body, name):
+    numbered = []
+    headings = body.find(lambda node: node.tag == "h2" and not in_key_points(node))
+    assert headings, name + ": falten les seccions"
+    for heading in headings:
+        siblings = heading.parent.children
+        index = siblings.index(heading)
+        assert 0 < index < len(siblings) - 1, name + ": encapçalament de secció incomplet"
+        label, subtitle = siblings[index - 1], siblings[index + 1]
+        assert label.tag == "p" and label.has("section-number"), name + ": falta l’etiqueta de secció"
+        assert subtitle.tag == "p" and subtitle.has("chart-subtitle"), name + ": falta el subtítol de secció"
+        assert label.text.strip() and subtitle.text.strip(), name + ": etiqueta o subtítol buit"
+        assert heading.attrs.get("id"), name + ": falta l’ancoratge de secció"
+        if label.has("section-number--appendix"):
+            assert not re.match(r"\d", label.text.strip()), name + ": l’apèndix no es numera"
+        else:
+            expected = f"{len(numbered) + 1:02d} · "
+            assert label.text.strip().startswith(expected), name + ": numeració de seccions no consecutiva"
+            assert label.text.strip()[len(expected):].strip(), name
+            numbered.append("#" + heading.attrs["id"])
+    return numbered
+
+
+mixed_sections = Page('''<article class="article-body">
+<p class="section-number">01 · Primer</p><h2 id="primer">Primer</h2><p class="chart-subtitle">Abast.</p>
+<section><p class="section-number">02 · Segon</p><h2 id="segon">Segon</h2><p class="chart-subtitle">Abast.</p></section>
+<p class="section-number">03 · Tercer</p><h2 id="tercer">Tercer</h2><p class="chart-subtitle">Abast.</p>
+</article>''').root.children[0]
+assert check_section_headings(mixed_sections, "ordre del document") == ["#primer", "#segon", "#tercer"]
 
 
 versions = set()
@@ -81,6 +128,10 @@ for path in sorted((ROOT / "articles").rglob("index.html")):
     for link in links:
         href = link.attrs.get("href", "")
         assert href.startswith("#") and href[1:] in ids, name + ": enllaç del menú invàlid: " + href
+    if not re.search(r'<meta name="robots" content="noindex', html):
+        numbered = check_section_headings(body, name)
+        toc_sections = [link.attrs["href"] for link in links if link.attrs["href"] in numbered]
+        assert toc_sections == numbered, name + ": la numeració i l’ordre del menú han de coincidir amb les seccions"
     for node in [header, layout, rail, body]:
         assert "style" not in node.attrs, name + ": no s’admeten ajustos estructurals en línia"
     assert not one(page.find(lambda node: node.tag == "body"), name).attrs.get("class"), name + ": no s’admet un tema particular per article"
@@ -115,6 +166,8 @@ assert not re.search(r"\.draft-header|\.article-(?:layout|rail|body|header|title
 template = (ROOT / "templates/article.html.example").read_text(encoding="utf-8")
 assert 'content="noindex,nofollow,noarchive"' in template
 assert next(iter(versions)) in template
+template_body = one(Page(template).root.find(lambda node: node.has("article-body")), "plantilla")
+assert check_section_headings(template_body, "plantilla") == ["#analisi", "#conclusions"]
 for snippet in ['class="shell article-header', 'class="shell article-layout"', '<aside class="article-rail">', 'class="article-toc"', '<article class="article-body', 'class="article-lead"']:
     assert snippet in template, "La plantilla no segueix el model: " + snippet
 assert (ROOT / "docs/estil-articles.md").exists()

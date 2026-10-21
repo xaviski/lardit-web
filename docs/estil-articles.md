@@ -2,6 +2,8 @@
 
 El model editorial i visual és l’article **«El transport públic també és política d’habitatge»**, a `articles/habitatge/transport-public/index.html`. Els articles publicats i els esborranys comparteixen la mateixa estructura i els mateixos estils de lectura.
 
+Per als encapçalaments de secció, el model és l’article **«Si Catalunya és una locomotora, per què els catalans no ho notem?»**: etiqueta numerada, títol i subtítol explicatiu, amb els components compartits descrits a continuació.
+
 La plantilla per començar un article és `templates/article.html.example`. És un fitxer de referència, no una pàgina publicada. Cal copiar-lo a `articles/<categoria>/<slug>/index.html`, substituir els camps `{{...}}` i conservar el `noindex` mentre sigui un esborrany.
 
 ## Una sola font de format
@@ -38,6 +40,24 @@ Les classes particulars només han de resoldre necessitats del contingut, com un
 - El menú és a `aside.article-rail`, abans del cos, amb una llista d’enllaços als identificadors reals de les seccions. Cada `id` ha de ser únic.
 - El primer paràgraf introductori usa `article-lead`, amb la caplletra del model. No s’ha de desactivar en un article particular.
 - Les seccions principals usen `h2`; els apartats interns, `h3`. La mida, els marges i la interlínia provenen de l’estil compartit.
+
+## Encapçalaments de secció
+
+Cada secció principal, inclosa la conclusió, segueix aquest trio de germans consecutius:
+
+```html
+<p class="section-number">01 · Etiqueta breu de la secció</p>
+<h2 id="identificador-estable">Títol de la secció</h2>
+<p class="chart-subtitle">Una frase breu que explica l’abast de la secció.</p>
+```
+
+- L’etiqueta usa la tipografia monoespaiada, el color vermell i les majúscules definides al CSS comú; el text s’escriu amb majúscules i minúscules normals.
+- Numera les seccions consecutivament amb dos dígits (`01`, `02`…) i el separador `·`. El menú inclou aquestes seccions en el mateix ordre.
+- Conserva els `id` i els enllaços existents quan només canvies el format.
+- El subtítol resumeix el tema. En una secció de dades pot indicar la mesura, el territori, el període i les unitats, però no ha d’inventar dades ni substituir les fonts del gràfic.
+- Bibliografia i metodologia fan servir el mateix trio, però l’etiqueta no es numera i porta `class="section-number section-number--appendix"`.
+- Els requadres introductoris `key-points`, els exemples i els subapartats `h3` no formen part d’aquesta numeració.
+- Els esborranys existents poden adoptar el patró en revisar-los; qualsevol article nou o que es publiqui ha de seguir-lo.
 
 ## Columnes i comportament responsive
 
