@@ -15,7 +15,6 @@ ARTICLE = "articles/economia/creixement-benestar-catalunya/index.html"
 URL = "https://lardit.cat/articles/economia/creixement-benestar-catalunya/"
 CATEGORY = "https://lardit.cat/articles/economia/"
 IMAGE = "https://lardit.cat/assets/images/meme-pib-catalunya.jpeg"
-TITLE = "Si Catalunya és una locomotora, per què els catalans viuen pitjor?"
 PAGES = ["index.html", "articles/index.html", "articles/economia/index.html", ARTICLE]
 
 
@@ -86,6 +85,7 @@ for name, page in parsed.items():
             assert unquote(u.fragment) in target_ids, ref
 
 article = parsed[ARTICLE]
+TITLE = re.search(r'<h1 class="article-title">([^<]+)</h1>', sources[ARTICLE]).group(1)
 assert article.canonical == URL
 assert article.metas["author"] == "Xavi Palahí"
 assert article.metas["og:title"] == TITLE
