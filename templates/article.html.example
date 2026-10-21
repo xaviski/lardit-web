@@ -16,8 +16,11 @@
     <meta property="og:title" content="{{TITOL}}">
     <meta property="og:description" content="{{DESCRIPCIO_BREU}}">
     <meta property="og:url" content="https://lardit.cat/articles/{{CATEGORIA_SLUG}}/{{ARTICLE_SLUG}}/">
-    <!-- Abans de publicar, afegeix la imatge social real, les metadades de
-         publicació i les dades estructurades Article/Breadcrumb que pertoquin.
+    <meta name="twitter:site" content="@Xavipalahi">
+    <meta name="twitter:creator" content="@Xavipalahi">
+    <!-- Abans de publicar, afegeix la imatge social real amb og:image/alt,
+         twitter:card=summary_large_image i twitter:title/description/image/alt,
+         les metadades de publicació i les dades estructurades Article/Breadcrumb.
          No afegeixis dates o rutes d’imatge inventades a un article publicat. -->
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
@@ -146,7 +149,7 @@
     <footer class="footer">
       <div class="shell footer-main">
         <div><p class="footer-brand">L’Ardit</p><p class="footer-tagline">Economia per il·lustrar.</p></div>
-        <div><h2>Projecte</h2><ul><li><a href="/manifest/">Manifest</a></li><li><a href="/manifest/#metodologia">Metodologia</a></li><li><a href="/contacte/">Contacte</a></li></ul></div>
+        <div><h2>Projecte</h2><ul><li><a href="/manifest/">Manifest</a></li><li><a href="/manifest/#metodologia">Metodologia</a></li><li><a href="/contacte/">Contacte</a></li><li><a href="https://x.com/Xavipalahi" target="_blank" rel="noopener noreferrer">Segueix-me a X</a></li></ul></div>
         <div><h2>Continua</h2><ul><li><a href="/articles/">Totes les categories</a></li><li><a href="/articles/{{CATEGORIA_SLUG}}/">Més sobre {{CATEGORIA}}</a></li><li><a href="/">Torna a la portada</a></li></ul></div>
       </div>
       <div class="shell"><small>© {{ANY}} L’Ardit</small></div>

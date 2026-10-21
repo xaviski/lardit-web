@@ -99,6 +99,8 @@ Els esborranys no apareixen a la portada, als llistats de categories ni al `site
 
 Abans d’una publicació autoritzada, cal revisar els camps provisionals, la data, les fonts, les imatges, la URL canònica, les metadades socials i les dades estructurades. Només llavors s’actualitzen els llistats, el sitemap i les directives d’indexació segons la petició de l’autor.
 
+Els articles publiquen `og:image` i `twitter:image` amb la imatge real, text alternatiu i targeta `summary_large_image`. Les pàgines generals usen el logotip de L’Ardit i targeta `summary`. El compte de difusió de l’autor és `https://x.com/Xavipalahi`, no un compte separat de la marca. Conserva la data original de publicació i actualitza només la de modificació quan pertoqui, de manera coherent amb el sitemap.
+
 ## Comprovacions abans de donar el canvi per acabat
 
 Des de l’arrel del repositori:
@@ -107,6 +109,7 @@ Des de l’arrel del repositori:
 python scripts/test-format-articles.py
 python scripts/test-metadades-articles.py
 python scripts/test-publicacio-creixement.py
+python scripts/test-site.py
 node --test scripts/economy/test.mjs scripts/test-article-share.mjs
 ```
 

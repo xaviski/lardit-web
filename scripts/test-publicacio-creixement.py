@@ -3,6 +3,7 @@
 Run from the repository root: python scripts/test-publicacio-creixement.py
 Uses only the Python standard library; no network requests.
 """
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
@@ -106,7 +107,9 @@ graph = schemas[ARTICLE][0]["@graph"]
 article_schema = next(item for item in graph if item["@type"] == "Article")
 assert article_schema["headline"] == TITLE
 assert article_schema["url"] == article_schema["mainEntityOfPage"] == URL
-assert article_schema["datePublished"] == article_schema["dateModified"] == "2026-10-20"
+assert article_schema["datePublished"] == "2026-10-20"
+assert article_schema["dateModified"] == article.metas["article:modified_time"]
+assert date.fromisoformat(article_schema["dateModified"]) >= date.fromisoformat(article_schema["datePublished"])
 assert article_schema["author"]["name"] == "Xavi Palahí"
 assert article_schema["isPartOf"]["url"] == CATEGORY
 home_items = schemas["index.html"][0]
@@ -124,7 +127,10 @@ assert len(locations) == len(set(locations)) == 10
 assert URL in locations and CATEGORY in locations
 for url in sitemap.findall("s:url", ns):
     if url.find("s:loc", ns).text in (URL, CATEGORY, "https://lardit.cat/", "https://lardit.cat/articles/"):
-        assert url.find("s:lastmod", ns).text == "2026-10-20"
+        lastmod = url.find("s:lastmod", ns).text
+        assert date.fromisoformat(lastmod) >= date(2026, 10, 20)
+        if url.find("s:loc", ns).text == URL:
+            assert lastmod == article_schema["dateModified"]
 # Discover draft paths rather than hard-coding their slugs.
 unlisted_count = 0
 for path in (ROOT / "articles").rglob("index.html"):
