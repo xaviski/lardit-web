@@ -23,5 +23,6 @@ jobs:
           python3 scripts/test-format-articles.py
           python3 scripts/test-metadades-articles.py
           python3 scripts/test-site.py
+          python3 scripts/test-oferta-demanda.py
       - name: Comprova el panorama econòmic i les opcions per compartir
         run: node --test scripts/economy/test.mjs scripts/test-article-share.mjs

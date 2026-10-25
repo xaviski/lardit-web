@@ -1,0 +1,159 @@
+{
+  "title": "Habitatges acabats a Espanya, 2000–2013",
+  "reviewed_on": "2026-10-24",
+  "geography": "Espanya",
+  "unit": "habitatges per any",
+  "definition": "Suma dels habitatges lliures acabats i les qualificacions definitives d’habitatge protegit. No és la sèrie alternativa de certificats finals d’obra ni l’estoc disponible per vendre o llogar.",
+  "sources": [
+    {
+      "id": "tcu",
+      "title": "Tribunal de Comptes, informe I1640, annex III, pàgina impresa 106",
+      "url": "https://tcu.es/export/sites/portal/repositorio2/INFORME/2025/I1640.pdf",
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "original_source": "MIVAU, Observatorio de Vivienda y Suelo, Boletín Especial Vivienda Social 2024"
+    },
+    {
+      "id": "mivau",
+      "title": "MIVAU, Observatorio de Vivienda y Suelo, Boletín anual 2024, taula 1.5, pàgina impresa 12",
+      "url": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/vivienda-agenda-urbana/Documents/2025/040725-ObservatoriodeviviendaysueloBoletnanual24.pdf",
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ]
+    }
+  ],
+  "annual": [
+    {
+      "year": 2000,
+      "dwellings": 415258,
+      "source_id": "tcu"
+    },
+    {
+      "year": 2001,
+      "dwellings": 505665,
+      "source_id": "tcu"
+    },
+    {
+      "year": 2002,
+      "dwellings": 518273,
+      "source_id": "tcu"
+    },
+    {
+      "year": 2003,
+      "dwellings": 503724,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2004,
+      "dwellings": 563923,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2005,
+      "dwellings": 591604,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2006,
+      "dwellings": 658510,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2007,
+      "dwellings": 647179,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2008,
+      "dwellings": 632218,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2009,
+      "dwellings": 424459,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2010,
+      "dwellings": 276883,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2011,
+      "dwellings": 179351,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2012,
+      "dwellings": 133415,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2013,
+      "dwellings": 60289,
+      "source_id": "mivau"
+    }
+  ],
+  "checks": {
+    "sum_2000_2007": 4404136,
+    "peak_year": 2006,
+    "peak_dwellings": 658510
+  },
+  "other_indicators": [
+    {
+      "indicator": "Variació del preu mitjà real de l’habitatge",
+      "period": "1997–2007",
+      "value_percent": 115,
+      "source": "Banco de España, Informe Anual 2010, requadre 5.1",
+      "url": "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/PublicacionesAnuales/InformesAnuales/10/Fich/cap5.pdf",
+      "note": "Variació real acumulada; no nominal, ni sèrie anual reconstruïda."
+    },
+    {
+      "indicator": "Deute de les llars / renda disponible",
+      "period": "2000–2007",
+      "initial_percent": 70,
+      "final_percent": 130,
+      "source": "FMI, Spain: Selected Issues, 2009, capítol I",
+      "url": "https://www.imf.org/-/media/websites/imf/imported-full-text-pdf/external/pubs/ft/scr/2009/_cr09129.pdf",
+      "note": "Valors aproximats. Deute de les llars, no només deute hipotecari."
+    }
+  ],
+  "illustrative_example": {
+    "observed_data": false,
+    "note": "Exemple pedagògic d’equilibri amb corbes lineals, no estimació d’Espanya. P és un índex de preu i Q una quantitat hipotètica.",
+    "demand_initial": "Qd = 200 - P",
+    "demand_expanded": "Qd = 280 - P",
+    "supply_initial": "Qs = P",
+    "supply_expanded": "Qs = P + 40",
+    "scenarios": [
+      {
+        "name": "Situació inicial",
+        "quantity": 100,
+        "price_index": 100
+      },
+      {
+        "name": "Més oferta, mateixa demanda",
+        "quantity": 120,
+        "price_index": 80
+      },
+      {
+        "name": "Més oferta i més demanda",
+        "quantity": 160,
+        "price_index": 120
+      }
+    ]
+  }
+}
