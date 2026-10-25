@@ -40,6 +40,10 @@ body = contract["one"](tree.find(lambda n: n.has("article-body")), "nou esborran
 for tbody in body.find(lambda n: n.tag == "tbody"):
     assert all(n.attrs.get("data-label") for n in tbody.find(lambda n: n.tag in {"th", "td"})), "Falten etiquetes de taula en mòbil"
 title = contract["text_content"](contract["one"](tree.find(lambda n: n.tag == "h1"), "titular")).strip()
+head_title = contract["text_content"](contract["one"](tree.find(lambda n: n.tag == "title"), "title")).strip()
+assert head_title == title + " — L’Ardit", "Títol del navegador diferent del titular"
+og_title = contract["one"](tree.find(lambda n: n.tag == "meta" and n.attrs.get("property") == "og:title"), "og:title")
+assert og_title.attrs["content"] == title, "Títol social diferent del titular"
 expected = ["#fragment", "#construccio", "#dues-corbes", "#demanda", "#rallo", "#conclusio"]
 assert contract["check_section_headings"](body, "nou esborrany") == expected
 toc = contract["one"](tree.find(lambda n: n.has("article-toc")), "menú")
