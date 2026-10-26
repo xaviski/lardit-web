@@ -52,7 +52,7 @@ head_title = contract["text_content"](contract["one"](tree.find(lambda n: n.tag 
 assert head_title == title + " — L’Ardit", "Títol del navegador diferent del titular"
 og_title = contract["one"](tree.find(lambda n: n.tag == "meta" and n.attrs.get("property") == "og:title"), "og:title")
 assert og_title.attrs["content"] == title, "Títol social diferent del titular"
-expected = ["#fragment", "#construccio", "#dues-corbes", "#demanda", "#rallo", "#conclusio"]
+expected = ["#construccio", "#dues-corbes", "#demanda", "#rallo", "#conclusio"]
 assert contract["check_section_headings"](body, "nou esborrany") == expected
 toc = contract["one"](tree.find(lambda n: n.has("article-toc")), "menú")
 assert [n.attrs["href"] for n in toc.find(lambda n: n.tag == "a")] == expected
