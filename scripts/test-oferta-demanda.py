@@ -10,7 +10,8 @@ route = "/articles/habitatge/oferta-demanda-bombolla-immobiliaria/"
 source = (ROOT / route.strip("/") / "index.html").read_text(encoding="utf-8")
 data = json.loads((ROOT / "assets/data/oferta-demanda/habitatges.json").read_text(encoding="utf-8"))
 annual = data["annual"]
-assert [r["year"] for r in annual] == list(range(2000, 2014))
+assert data["last_complete_year"] == data["checks"]["last_complete_year"] == 2025
+assert [r["year"] for r in annual] == list(range(2000, data["last_complete_year"] + 1))
 assert all(isinstance(r["dwellings"], int) and r["dwellings"] > 0 for r in annual)
 assert sum(r["dwellings"] for r in annual if r["year"] <= 2007) == data["checks"]["sum_2000_2007"] == 4404136
 peak = max(annual, key=lambda r: r["dwellings"])
@@ -18,7 +19,14 @@ assert (peak["year"], peak["dwellings"]) == (data["checks"]["peak_year"], data["
 for r in annual:
     pretty = f'{r["dwellings"]:,}'.replace(",", ".")
     assert f'<th scope="row" data-label="Any">{r["year"]}</th><td data-label="Habitatges">{pretty}</td>' in source
-    assert r["source_id"] == ("tcu" if r["year"] <= 2002 else "mivau")
+    assert r["source_id"] == ("tcu" if r["year"] <= 2002 else "mivau" if r["year"] <= 2021 else "bdsice")
+assert annual[-1]["dwellings"] == data["checks"]["last_dwellings"] == 93650
+assert annual[-1]["status"] == "provisional"
+assert data["partial_year"]["included_in_chart"] is False and data["partial_year"]["months_available"] < 12
+for record in data["monthly_validation"]["annual_observations"]:
+    assert len(record["months"]) == 12
+    assert sum(record["months"]) == next(r["dwellings"] for r in annual if r["year"] == record["year"])
+assert data["revisions"][-1]["current_free_dwellings"] + data["revisions"][-1]["current_protected_dwellings"] == annual[-1]["dwellings"]
 example = data["illustrative_example"]
 assert example["observed_data"] is False
 a, b, c = example["scenarios"]
@@ -63,7 +71,13 @@ for name, width, height in [("habitatges-acabats.svg", 760, 430), ("habitatges-a
     svg = ET.fromstring(svg_source)
     assert svg.attrib["width"] == str(width) and svg.attrib["height"] == str(height)
     assert svg.attrib["role"] == "img" and svg.attrib["aria-labelledby"] == "title desc"
-    bars = [n for n in svg if n.tag.endswith("rect") and n.attrib.get("fill") == "#1c6579"]
-    assert len(bars) == 14 and all(float(n.attrib["height"]) >= 0 for n in bars)
+    bars = [n for n in svg if n.tag.endswith("rect") and "data-year" in n.attrib]
+    assert len(bars) == len(annual) and all(float(n.attrib["height"]) >= 0 for n in bars)
+    assert [int(n.attrib["data-year"]) for n in bars] == [r["year"] for r in annual]
+    assert [int(n.attrib["data-value"]) for n in bars] == [r["dwellings"] for r in annual]
+    assert bars[-1].attrib["fill"] == "#ae372f" and "2025 (p): 93.650 habitatges" in svg_source
+    ns = {"s": "http://www.w3.org/2000/svg"}
+    axis = [n.text for n in svg.findall("s:text", ns) if n.text and re.fullmatch(r"20\d{2}", n.text)]
+    assert axis == ["2000", "2005", "2010", "2015", "2020", "2025"]
     assert all(f'{r["year"]}: {r["dwellings"]:,}'.replace(",", ".") in svg_source for r in annual)
 print("PASS: esborrany no indexat ni llistat; dades, exemple, gràfics, seccions, recursos i opcions de compartir coherents.")

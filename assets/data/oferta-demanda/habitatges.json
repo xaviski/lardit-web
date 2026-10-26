@@ -1,6 +1,6 @@
 {
-  "title": "Habitatges acabats a Espanya, 2000–2013",
-  "reviewed_on": "2026-10-24",
+  "title": "Habitatges acabats a Espanya, 2000–2025",
+  "reviewed_on": "2026-10-26",
   "geography": "Espanya",
   "unit": "habitatges per any",
   "definition": "Suma dels habitatges lliures acabats i les qualificacions definitives d’habitatge protegit. No és la sèrie alternativa de certificats finals d’obra ni l’estoc disponible per vendre o llogar.",
@@ -18,8 +18,8 @@
     },
     {
       "id": "mivau",
-      "title": "MIVAU, Observatorio de Vivienda y Suelo, Boletín anual 2024, taula 1.5, pàgina impresa 12",
-      "url": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/vivienda-agenda-urbana/Documents/2025/040725-ObservatoriodeviviendaysueloBoletnanual24.pdf",
+      "title": "MIVAU, Observatorio de Vivienda y Suelo, Boletín anual 2025, taula 1.5, pàgina 12",
+      "url": "https://publicaciones.transportes.gob.es/downloadcustom/sample/4130",
       "years": [
         2003,
         2004,
@@ -31,8 +31,45 @@
         2010,
         2011,
         2012,
-        2013
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
       ]
+    },
+    {
+      "id": "bdsice",
+      "title": "Ministeri d’Economia, BDSICE, sèrie 232030: Viviendas terminadas. Total (libres y protegidas)",
+      "url": "https://bdsice.mineco.gob.es/indeco/reports/verSerieGraf_limpio.aspx/?codigo=232030&frec=-1",
+      "original_source": "Ministeri de Vivienda y Agenda Urbana, estadística de vivienda libre y protegida",
+      "updated_on": "2026-10-08",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "method": "Suma dels dotze mesos de cada any. No s’anualitza el 2026, amb sis mesos disponibles."
+    },
+    {
+      "id": "crem",
+      "title": "CREM, Viviendas iniciadas y terminadas, 2025",
+      "url": "https://econet.carm.es/inicio/-/crem/sicrem/PU39/sec35.html",
+      "original_source": "Ministeri de Vivienda y Agenda Urbana",
+      "updated_on": "2026-10-08",
+      "purpose": "Contrast del total provisional 2025: 80.792 habitatges lliures i 12.858 protegits."
+    },
+    {
+      "id": "mivau_current_tables",
+      "title": "MIVAU, taules anuals 3.2 d’habitatge lliure i 1.6 d’habitatge protegit",
+      "free_dwellings_url": "https://apps.fomento.gob.es/BoletinOnline2/sedal/32201000.XLS",
+      "protected_dwellings_url": "https://apps.fomento.gob.es/BoletinOnline2/sedal/31306000.XLS",
+      "purpose": "Contrast directe dels totals del 2014–2025 amb les dues taules ministerials actuals. El 2025 suma 80.792 lliures més 12.858 qualificacions definitives protegides."
     }
   ],
   "annual": [
@@ -105,12 +142,77 @@
       "year": 2013,
       "dwellings": 60289,
       "source_id": "mivau"
+    },
+    {
+      "year": 2014,
+      "dwellings": 50428,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2015,
+      "dwellings": 49472,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2016,
+      "dwellings": 44630,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2017,
+      "dwellings": 54274,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2018,
+      "dwellings": 64044,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2019,
+      "dwellings": 78810,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2020,
+      "dwellings": 87504,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2021,
+      "dwellings": 94728,
+      "source_id": "mivau"
+    },
+    {
+      "year": 2022,
+      "dwellings": 89545,
+      "source_id": "bdsice"
+    },
+    {
+      "year": 2023,
+      "dwellings": 89320,
+      "source_id": "bdsice"
+    },
+    {
+      "year": 2024,
+      "dwellings": 100980,
+      "source_id": "bdsice"
+    },
+    {
+      "year": 2025,
+      "dwellings": 93650,
+      "source_id": "bdsice",
+      "status": "provisional"
     }
   ],
   "checks": {
     "sum_2000_2007": 4404136,
     "peak_year": 2006,
-    "peak_dwellings": 658510
+    "peak_dwellings": 658510,
+    "last_complete_year": 2025,
+    "last_dwellings": 93650,
+    "minimum_year": 2016,
+    "minimum_dwellings": 44630
   },
   "other_indicators": [
     {
@@ -155,5 +257,99 @@
         "price_index": 120
       }
     ]
-  }
+  },
+  "last_complete_year": 2025,
+  "monthly_validation": {
+    "source_id": "bdsice",
+    "month_order": "gener a desembre",
+    "updated_on": "2026-10-08",
+    "annual_observations": [
+      {
+        "year": 2022,
+        "months": [
+          6241,
+          6564,
+          8492,
+          7817,
+          7095,
+          7574,
+          8731,
+          5577,
+          7428,
+          8561,
+          7783,
+          7682
+        ]
+      },
+      {
+        "year": 2023,
+        "months": [
+          5371,
+          7145,
+          9792,
+          7284,
+          7480,
+          8165,
+          9085,
+          4814,
+          7228,
+          7476,
+          8517,
+          6963
+        ]
+      },
+      {
+        "year": 2024,
+        "months": [
+          5745,
+          7599,
+          9489,
+          6567,
+          8596,
+          8804,
+          9617,
+          5154,
+          8292,
+          10482,
+          11637,
+          8998
+        ]
+      },
+      {
+        "year": 2025,
+        "months": [
+          5883,
+          7583,
+          8158,
+          6859,
+          7613,
+          9452,
+          9548,
+          5280,
+          6380,
+          8189,
+          9925,
+          8780
+        ]
+      }
+    ]
+  },
+  "partial_year": {
+    "year": 2026,
+    "through": "2026-06",
+    "months_available": 6,
+    "included_in_chart": false,
+    "note": "Dades parcials; no comparables amb els totals anuals ni anualitzades."
+  },
+  "revisions": [
+    {
+      "year": 2025,
+      "earlier_source": "MIVAU, Boletín anual 2025, dades publicades fins al 6 de juny de 2026",
+      "earlier_dwellings": 91896,
+      "current_dwellings": 93650,
+      "current_free_dwellings": 80792,
+      "current_protected_dwellings": 12858,
+      "note": "La sèrie actualitzada el 8 d’octubre de 2026 i el quadre oficial CREM coincideixen en el nou total. Mateixa definició, amb dades revisades."
+    }
+  ]
 }
