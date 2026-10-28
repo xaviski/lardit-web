@@ -1,6 +1,11 @@
 name: Actualitza el panorama econòmic
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-economy.yml'
+      - 'scripts/economy/**'
   schedule:
     - cron: '23 3 * * *'
   workflow_dispatch:

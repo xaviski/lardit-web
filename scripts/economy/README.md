@@ -27,7 +27,9 @@ node --test scripts/economy/test.mjs
 git diff -- index.html assets/data/economy.json
 ```
 
-No calen claus de les API estadístiques. Les proves són locals i no consulten la xarxa. L’actualitzador obté i valida totes les sèries abans de substituir cap dada; si falla una font, conserva la còpia anterior i acaba amb codi 1. Prepara tots dos fitxers temporals i restaura el JSON si falla la substitució de l’HTML; una fallada de restauració s’indica explícitament.
+No calen claus de les API estadístiques. Les proves són locals i no consulten la xarxa. Cada consulta admet fins a quatre intents per errors de connexió, de lectura o HTTP transitoris (408, 429, 500, 502, 503 i 504), amb esperes de 2, 5 i 15 segons. Si la font envia `Retry-After`, s’amplia l’espera fins al temps indicat, amb un màxim d’un minut. Les respostes HTTP permanents, les fonts no autoritzades i els continguts buits o excessius no es reintenten; tampoc es relaxen les validacions estadístiques.
+
+L’actualitzador obté i valida totes les sèries abans de substituir cap dada; si una font continua fallant, conserva la còpia anterior i acaba amb codi 1. L’error identifica el servidor, la ruta, el nombre d’intents i la causa disponible. Prepara tots dos fitxers temporals i restaura el JSON si falla la substitució de l’HTML; una fallada de restauració s’indica explícitament.
 
 A `index.html` només es reemplaça el bloc entre `<!-- PANORAMA_ECONOMIC_START -->` i `<!-- PANORAMA_ECONOMIC_END -->`. Els marcadors han de ser únics i estar ordenats. Les edicions de l’autor fora del bloc es conserven exactament.
 
@@ -36,6 +38,8 @@ A `index.html` només es reemplaça el bloc entre `<!-- PANORAMA_ECONOMIC_START 
 ## GitHub Actions
 
 [`update-economy.yml`](../../.github/workflows/update-economy.yml), «Actualitza el panorama econòmic», s’executa diàriament a les 03:23 UTC sobre `main`. Consulta les fonts, executa les proves i, si hi ha canvis, desa només `index.html` i `assets/data/economy.json` amb un push normal. Si una consulta o prova falla, no publica cap canvi. Demana després la reconstrucció de GitHub Pages amb el `GITHUB_TOKEN` temporal; necessita permisos `contents: write` i `pages: write`.
+
+També s’executa quan es modifica el codi de `scripts/economy/` o el mateix workflow a `main`, per comprovar el procés complet després d’una correcció. Les edicions d’articles i els fitxers generats no activen aquest desencadenant.
 
 Per executar-lo manualment: **Actions → Actualitza el panorama econòmic → Run workflow**, branca `main`. L’opció `force_build` permet reconstruir Pages encara que les dades no canviïn.
 

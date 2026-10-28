@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { INDICATORS, REGIONS, periodEnd, sourceUrl, validateSnapshot } from './shared.mjs';
+import { INDICATORS, REGIONS, fetchText, periodEnd, sourceUrl, validateSnapshot } from './shared.mjs';
 import { START, END, escapeHtml, renderDashboard, replaceDashboard, timeAxisTicks } from './render.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
@@ -100,6 +100,148 @@ test('Només s’accepten fonts HTTPS oficials sense credencials a l’URL', () 
     assert.throws(() => validateSnapshot(data));
   }
 });
+
+const retrySource = 'https://servicios.ine.es/wstempus/js/ES/DATOS_SERIE/IPC294107?tip=AM&nult=60';
+
+function sourceResponse({ status = 200, body = 'official data', url = retrySource, headers = {} } = {}) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    url,
+    headers: new Headers(headers),
+    async text() {
+      if (body instanceof Error) throw body;
+      return body;
+    },
+  };
+}
+
+function fetchScenario(responses) {
+  const calls = [];
+  const delays = [];
+  return {
+    calls,
+    delays,
+    async fetchImpl(url, options) {
+      calls.push({ url, options });
+      assert.ok(calls.length <= responses.length, 'No s’han de fer més consultes de les previstes.');
+      const response = responses[calls.length - 1];
+      if (response instanceof Error) throw response;
+      return response;
+    },
+    async wait(milliseconds) { delays.push(milliseconds); },
+  };
+}
+
+test('Un HTTP 503 transitori es reintenta després de dos segons i conserva la font', async () => {
+  const scenario = fetchScenario([sourceResponse({ status: 503 }), sourceResponse()]);
+  assert.equal(await fetchText(retrySource, scenario), 'official data');
+  assert.equal(scenario.calls.length, 2);
+  assert.deepEqual(scenario.delays, [2000]);
+  assert.ok(scenario.calls.every(({ url }) => url === retrySource));
+});
+
+test('Una fallada transitòria de xarxa es reintenta sense cap consulta real', async () => {
+  const scenario = fetchScenario([
+    new TypeError('fetch failed', { cause: Object.assign(new Error('connection reset'), { code: 'ECONNRESET' }) }),
+    sourceResponse(),
+  ]);
+  assert.equal(await fetchText(retrySource, scenario), 'official data');
+  assert.equal(scenario.calls.length, 2);
+  assert.deepEqual(scenario.delays, [2000]);
+});
+
+test('Una fallada de lectura del cos es reintenta abans de donar la font per vàlida', async () => {
+  const scenario = fetchScenario([
+    sourceResponse({ body: new TypeError('terminated') }),
+    sourceResponse(),
+  ]);
+  assert.equal(await fetchText(retrySource, scenario), 'official data');
+  assert.equal(scenario.calls.length, 2);
+  assert.deepEqual(scenario.delays, [2000]);
+});
+
+test('Un HTTP 503 persistent s’atura després de quatre intents i espera 2, 5 i 15 segons', async () => {
+  const scenario = fetchScenario(Array.from({ length: 4 }, () => sourceResponse({ status: 503 })));
+  await assert.rejects(fetchText(retrySource, scenario), (error) => {
+    assert.match(error.message, /503/);
+    assert.match(error.message, /servicios\.ine\.es\/wstempus\/js\/ES\/DATOS_SERIE\/IPC294107/);
+    assert.match(error.message, /4/);
+    assert.doesNotMatch(error.message, /tip=AM|nult=60/);
+    return true;
+  });
+  assert.equal(scenario.calls.length, 4);
+  assert.deepEqual(scenario.delays, [2000, 5000, 15000]);
+});
+
+test('L’error final de xarxa conserva la causa, el codi i el nombre d’intents', async () => {
+  const failure = new TypeError('fetch failed', {
+    cause: Object.assign(new Error('connection reset'), { code: 'ECONNRESET' }),
+  });
+  const scenario = fetchScenario(Array(4).fill(failure));
+  await assert.rejects(fetchText(retrySource, scenario), (error) => {
+    assert.equal(error.cause, failure);
+    assert.match(error.message, /ECONNRESET/);
+    assert.match(error.message, /servicios\.ine\.es\/wstempus\/js\/ES\/DATOS_SERIE\/IPC294107/);
+    assert.match(error.message, /4/);
+    assert.doesNotMatch(error.message, /tip=AM|nult=60/);
+    return true;
+  });
+  assert.equal(scenario.calls.length, 4);
+  assert.deepEqual(scenario.delays, [2000, 5000, 15000]);
+});
+
+for (const [retryAfter, expected] of [['30', 30000], ['999999', 60000], ['1', 2000]]) {
+  test(`Retry-After=${retryAfter} respecta el mínim i el límit de l’espera`, async () => {
+    const scenario = fetchScenario([
+      sourceResponse({ status: 429, headers: { 'Retry-After': retryAfter } }),
+      sourceResponse(),
+    ]);
+    assert.equal(await fetchText(retrySource, scenario), 'official data');
+    assert.equal(scenario.calls.length, 2);
+    assert.deepEqual(scenario.delays, [expected]);
+  });
+}
+
+test('Un Retry-After amb data HTTP futura també queda limitat a un minut', async () => {
+  const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toUTCString();
+  const scenario = fetchScenario([
+    sourceResponse({ status: 503, headers: { 'Retry-After': tomorrow } }),
+    sourceResponse(),
+  ]);
+  assert.equal(await fetchText(retrySource, scenario), 'official data');
+  assert.deepEqual(scenario.delays, [60000]);
+});
+
+test('Un HTTP 404 falla amb una sola consulta i sense reintents', async () => {
+  const scenario = fetchScenario([sourceResponse({ status: 404 })]);
+  await assert.rejects(fetchText(retrySource, scenario), /404/);
+  assert.equal(scenario.calls.length, 1);
+  assert.deepEqual(scenario.delays, []);
+});
+
+test('Una font no autoritzada es rebutja abans de cap consulta', async () => {
+  const scenario = fetchScenario([]);
+  await assert.rejects(fetchText('https://example.com/data', scenario), /autoritzada/);
+  assert.equal(scenario.calls.length, 0);
+  assert.deepEqual(scenario.delays, []);
+});
+
+test('Una redirecció a un domini no autoritzat no es reintenta', async () => {
+  const scenario = fetchScenario([sourceResponse({ url: 'https://example.com/data' })]);
+  await assert.rejects(fetchText(retrySource, scenario), /autoritzada/);
+  assert.equal(scenario.calls.length, 1);
+  assert.deepEqual(scenario.delays, []);
+});
+
+for (const [description, body] of [['buida', ''], ['massa gran', 'x'.repeat(10_000_001)]]) {
+  test(`Una resposta ${description} falla sense reintents ni dades de substitució`, async () => {
+    const scenario = fetchScenario([sourceResponse({ body })]);
+    await assert.rejects(fetchText(retrySource, scenario), /buida|gran/);
+    assert.equal(scenario.calls.length, 1);
+    assert.deepEqual(scenario.delays, []);
+  });
+}
 
 test('La renderització és determinista, no modifica les dades i genera setze gràfics i quatre pestanyes', () => {
   const data = clone();
@@ -348,8 +490,8 @@ test('La substitució rebutja marcadors absents, repetits o desordenats', () => 
 });
 
 test('Una font fallida deixa intactes JSON i HTML sense accedir a la xarxa', async (context) => {
-  // Run the real updater in an isolated temporary checkout. Every fetch throws,
-  // so this test neither contacts an agency nor risks the published files.
+  // Run the real updater in an isolated temporary checkout. Every fetch returns
+  // a permanent HTTP failure, without contacting an agency or waiting to retry.
   const tempPrefix = path.join(os.tmpdir(), 'lardit-economy-test-');
   const temporary = await fs.mkdtemp(tempPrefix);
   assert.ok(path.resolve(temporary).startsWith(path.resolve(tempPrefix)));
@@ -373,11 +515,11 @@ test('Una font fallida deixa intactes JSON i HTML sense accedir a la xarxa', asy
   await fs.writeFile(dataFile, oldData);
   await fs.writeFile(htmlFile, oldHtml);
   const child = spawnSync(process.execPath, ['--input-type=module', '-e',
-    'globalThis.fetch = async () => { throw new Error("offline source failure"); }; await import("./scripts/economy/update.mjs");',
+    'globalThis.fetch = async (url) => ({ ok: false, status: 404, url: String(url), headers: new Headers() }); await import("./scripts/economy/update.mjs");',
   ], { cwd: temporary, encoding: 'utf8', timeout: 15000 });
   assert.ifError(child.error);
   assert.equal(child.status, 1);
-  assert.match(child.stderr, /offline source failure/);
+  assert.match(child.stderr, /404/);
   assert.equal(await fs.readFile(dataFile, 'utf8'), oldData);
   assert.equal(await fs.readFile(htmlFile, 'utf8'), oldHtml);
   assert.ok(!(await fs.readdir(dataDirectory)).some((name) => name.includes('.pending-')));

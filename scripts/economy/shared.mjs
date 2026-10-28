@@ -52,18 +52,44 @@ export function validateSnapshot(snapshot) {
   return snapshot;
 }
 
-export async function fetchText(url) {
+const RETRY_DELAYS = [2000, 5000, 15000];
+const RETRY_STATUSES = new Set([408, 429, 500, 502, 503, 504]);
+
+function retryDelay(response, minimum) {
+  const value = response?.headers?.get('retry-after');
+  if (!value) return minimum;
+  const requested = /^\d+$/.test(value.trim()) ? Number(value) * 1000 : Date.parse(value) - Date.now();
+  return Number.isFinite(requested) ? Math.min(60000, Math.max(minimum, requested)) : minimum;
+}
+
+export async function fetchText(url, {fetchImpl = fetch, wait = ms => new Promise(resolve => setTimeout(resolve, ms))} = {}) {
   sourceUrl(url);
-  for (let attempt = 0; attempt < 2; attempt++) {
+  const source = new URL(url);
+  for (let attempt = 0; attempt <= RETRY_DELAYS.length; attempt++) {
+    let retryable = false;
+    let response;
     try {
-      const response = await fetch(url, {headers:{'User-Agent':'LArdit-economic-indicators/1.0 (+https://lardit.cat/contacte/)', 'Accept':'application/json,text/csv,text/plain,*/*'}, signal:AbortSignal.timeout(20000)});
-      if (!response.ok) throw new Error(`HTTP ${response.status} a ${new URL(url).hostname}`);
+      // Only transport failures and temporary HTTP statuses justify another request.
+      retryable = true;
+      response = await fetchImpl(url, {headers:{'User-Agent':'LArdit-economic-indicators/1.0 (+https://lardit.cat/contacte/)', 'Accept':'application/json,text/csv,text/plain,*/*'}, signal:AbortSignal.timeout(20000)});
+      retryable = false;
       sourceUrl(response.url);
+      if (!response.ok) {
+        retryable = RETRY_STATUSES.has(response.status);
+        throw new Error(`HTTP ${response.status}`);
+      }
+      retryable = true;
       const text = await response.text();
+      retryable = false;
       if (!text.length || text.length > 10_000_000) throw new Error('Resposta buida o excessivament gran.');
       return text;
     } catch (error) {
-      if (attempt === 1) throw error;
+      if (!retryable || attempt === RETRY_DELAYS.length) {
+        const detail = error.cause?.code ? `${error.message} (${error.cause.code})` : error.message;
+        throw new Error(`No s’ha pogut consultar ${source.hostname}${source.pathname} després de ${attempt + 1} intent(s): ${detail}`, {cause: error});
+      }
+      // Retry-After may be seconds or an HTTP date; keep the wait within one minute.
+      await wait(retryDelay(response, RETRY_DELAYS[attempt]));
     }
   }
 }
