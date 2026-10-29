@@ -1,0 +1,796 @@
+{
+  "title": "Creixement anual del preu de l’habitatge a Espanya, 2000–2025",
+  "reviewed_on": "2026-10-29",
+  "retrieved_on": "2026-10-28",
+  "geography": "Espanya",
+  "coverage": "Habitatges nous i existents de tot el país.",
+  "unit": "variació de la mitjana anual (%)",
+  "index_base": "2010 = 100",
+  "first_year": 2000,
+  "last_year": 2025,
+  "method": {
+    "annual_aggregation": "Mitjana aritmètica dels quatre índexs trimestrals de cada any. Es conserva el 1999 per calcular la taxa del 2000.",
+    "annual_growth_formula": "100 * (mean_index_t / mean_index_t_minus_1 - 1)",
+    "nominal": "Índex de preus sense descomptar la inflació.",
+    "real": "Índex de preus deflactat amb l’IPC pel BIS; s’agrega aquest índex real trimestral abans de calcular la taxa anual.",
+    "seasonal_adjustment": "Sense ajust estacional.",
+    "historical_link": "Sèrie enllaçada pel BIS: preu per metre quadrat fins al 2006; índex de preus des del 2007, basat en Eurostat amb dades de l’INE. Els trams tenen metodologies diferents.",
+    "interpretation": "Taxa entre mitjanes anuals, no taxa del quart trimestre ni mitjana de les quatre taxes trimestrals. Dades revisables; no s’inclou cap observació del 2026."
+  },
+  "sources": [
+    {
+      "id": "bis",
+      "title": "Fonts nacionals, BIS Residential Property Price database",
+      "url": "https://data.bis.org/topics/RPP",
+      "documentation_url": "https://www.bis.org/statistics/pp_selected_documentation.pdf#page=5"
+    },
+    {
+      "id": "nominal",
+      "title": "BIS via FRED, Residential Property Prices for Spain",
+      "series_code": "Q.ES.N.628",
+      "fred_id": "QESN628BIS",
+      "url": "https://fred.stlouisfed.org/series/QESN628BIS"
+    },
+    {
+      "id": "real",
+      "title": "BIS via FRED, Real Residential Property Prices for Spain",
+      "series_code": "Q.ES.R.628",
+      "fred_id": "QESR628BIS",
+      "url": "https://fred.stlouisfed.org/series/QESR628BIS"
+    }
+  ],
+  "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QESN628BIS,QESR628BIS&cosd=1999-01-01&coed=2025-12-31",
+  "quarterly": [
+    {
+      "period": "1999-Q1",
+      "nominal_index": 40.3982,
+      "real_index": 55.6092
+    },
+    {
+      "period": "1999-Q2",
+      "nominal_index": 41.7472,
+      "real_index": 57.0727
+    },
+    {
+      "period": "1999-Q3",
+      "nominal_index": 42.8853,
+      "real_index": 58.1653
+    },
+    {
+      "period": "1999-Q4",
+      "nominal_index": 42.938,
+      "real_index": 57.9525
+    },
+    {
+      "period": "2000-Q1",
+      "nominal_index": 44.3362,
+      "real_index": 59.2987
+    },
+    {
+      "period": "2000-Q2",
+      "nominal_index": 45.5797,
+      "real_index": 60.3933
+    },
+    {
+      "period": "2000-Q3",
+      "nominal_index": 46.2015,
+      "real_index": 60.4701
+    },
+    {
+      "period": "2000-Q4",
+      "nominal_index": 46.2542,
+      "real_index": 60.028
+    },
+    {
+      "period": "2001-Q1",
+      "nominal_index": 48.1687,
+      "real_index": 62.0721
+    },
+    {
+      "period": "2001-Q2",
+      "nominal_index": 49.8268,
+      "real_index": 63.3977
+    },
+    {
+      "period": "2001-Q3",
+      "nominal_index": 50.9158,
+      "real_index": 64.2984
+    },
+    {
+      "period": "2001-Q4",
+      "nominal_index": 51.4322,
+      "real_index": 64.9253
+    },
+    {
+      "period": "2002-Q1",
+      "nominal_index": 54.4884,
+      "real_index": 68.4998
+    },
+    {
+      "period": "2002-Q2",
+      "nominal_index": 57.8537,
+      "real_index": 71.1717
+    },
+    {
+      "period": "2002-Q3",
+      "nominal_index": 59.2027,
+      "real_index": 73.0196
+    },
+    {
+      "period": "2002-Q4",
+      "nominal_index": 60.3409,
+      "real_index": 73.2835
+    },
+    {
+      "period": "2003-Q1",
+      "nominal_index": 63.7062,
+      "real_index": 77.191
+    },
+    {
+      "period": "2003-Q2",
+      "nominal_index": 67.8514,
+      "real_index": 81.1501
+    },
+    {
+      "period": "2003-Q3",
+      "nominal_index": 69.6641,
+      "real_index": 83.4938
+    },
+    {
+      "period": "2003-Q4",
+      "nominal_index": 71.4767,
+      "real_index": 84.5629
+    },
+    {
+      "period": "2004-Q1",
+      "nominal_index": 75.4147,
+      "real_index": 89.4165
+    },
+    {
+      "period": "2004-Q2",
+      "nominal_index": 79.7109,
+      "real_index": 92.3764
+    },
+    {
+      "period": "2004-Q3",
+      "nominal_index": 81.369,
+      "real_index": 94.3984
+    },
+    {
+      "period": "2004-Q4",
+      "nominal_index": 83.8035,
+      "real_index": 95.8504
+    },
+    {
+      "period": "2005-Q1",
+      "nominal_index": 87.2742,
+      "real_index": 100.2121
+    },
+    {
+      "period": "2005-Q2",
+      "nominal_index": 90.7976,
+      "real_index": 101.9419
+    },
+    {
+      "period": "2005-Q3",
+      "nominal_index": 92.2976,
+      "real_index": 103.5203
+    },
+    {
+      "period": "2005-Q4",
+      "nominal_index": 94.4721,
+      "real_index": 104.3448
+    },
+    {
+      "period": "2006-Q1",
+      "nominal_index": 95.3525,
+      "real_index": 105.2591
+    },
+    {
+      "period": "2006-Q2",
+      "nominal_index": 99.4329,
+      "real_index": 107.4001
+    },
+    {
+      "period": "2006-Q3",
+      "nominal_index": 102.6811,
+      "real_index": 111.2363
+    },
+    {
+      "period": "2006-Q4",
+      "nominal_index": 105.3387,
+      "real_index": 113.4054
+    },
+    {
+      "period": "2007-Q1",
+      "nominal_index": 107.8756,
+      "real_index": 116.2666
+    },
+    {
+      "period": "2007-Q2",
+      "nominal_index": 110.9493,
+      "real_index": 117.046
+    },
+    {
+      "period": "2007-Q3",
+      "nominal_index": 112.1439,
+      "real_index": 118.6799
+    },
+    {
+      "period": "2007-Q4",
+      "nominal_index": 111.352,
+      "real_index": 115.3141
+    },
+    {
+      "period": "2008-Q1",
+      "nominal_index": 110.9359,
+      "real_index": 114.5458
+    },
+    {
+      "period": "2008-Q2",
+      "nominal_index": 110.654,
+      "real_index": 111.5989
+    },
+    {
+      "period": "2008-Q3",
+      "nominal_index": 108.8823,
+      "real_index": 109.8405
+    },
+    {
+      "period": "2008-Q4",
+      "nominal_index": 105.5267,
+      "real_index": 106.6645
+    },
+    {
+      "period": "2009-Q1",
+      "nominal_index": 102.708,
+      "real_index": 105.5572
+    },
+    {
+      "period": "2009-Q2",
+      "nominal_index": 102.2516,
+      "real_index": 103.826
+    },
+    {
+      "period": "2009-Q3",
+      "nominal_index": 101.3255,
+      "real_index": 103.321
+    },
+    {
+      "period": "2009-Q4",
+      "nominal_index": 100.9094,
+      "real_index": 101.8515
+    },
+    {
+      "period": "2010-Q1",
+      "nominal_index": 99.6477,
+      "real_index": 101.3047
+    },
+    {
+      "period": "2010-Q2",
+      "nominal_index": 101.2718,
+      "real_index": 101.2222
+    },
+    {
+      "period": "2010-Q3",
+      "nominal_index": 99.594,
+      "real_index": 99.6098
+    },
+    {
+      "period": "2010-Q4",
+      "nominal_index": 99.4866,
+      "real_index": 97.9174
+    },
+    {
+      "period": "2011-Q1",
+      "nominal_index": 96.1042,
+      "real_index": 94.4118
+    },
+    {
+      "period": "2011-Q2",
+      "nominal_index": 94.9498,
+      "real_index": 91.7002
+    },
+    {
+      "period": "2011-Q3",
+      "nominal_index": 91.554,
+      "real_index": 88.8457
+    },
+    {
+      "period": "2011-Q4",
+      "nominal_index": 86.8025,
+      "real_index": 83.1443
+    },
+    {
+      "period": "2012-Q1",
+      "nominal_index": 82.4805,
+      "real_index": 79.4731
+    },
+    {
+      "period": "2012-Q2",
+      "nominal_index": 79.796,
+      "real_index": 75.5791
+    },
+    {
+      "period": "2012-Q3",
+      "nominal_index": 76.8162,
+      "real_index": 72.5425
+    },
+    {
+      "period": "2012-Q4",
+      "nominal_index": 75.7424,
+      "real_index": 70.3756
+    },
+    {
+      "period": "2013-Q1",
+      "nominal_index": 71.9036,
+      "real_index": 67.5127
+    },
+    {
+      "period": "2013-Q2",
+      "nominal_index": 71.3265,
+      "real_index": 66.4125
+    },
+    {
+      "period": "2013-Q3",
+      "nominal_index": 71.8902,
+      "real_index": 67.0802
+    },
+    {
+      "period": "2013-Q4",
+      "nominal_index": 70.9775,
+      "real_index": 65.8635
+    },
+    {
+      "period": "2014-Q1",
+      "nominal_index": 70.7493,
+      "real_index": 66.421
+    },
+    {
+      "period": "2014-Q2",
+      "nominal_index": 71.9305,
+      "real_index": 66.8282
+    },
+    {
+      "period": "2014-Q3",
+      "nominal_index": 72.0781,
+      "real_index": 67.478
+    },
+    {
+      "period": "2014-Q4",
+      "nominal_index": 72.2258,
+      "real_index": 67.3608
+    },
+    {
+      "period": "2015-Q1",
+      "nominal_index": 71.8499,
+      "real_index": 68.1482
+    },
+    {
+      "period": "2015-Q2",
+      "nominal_index": 74.8163,
+      "real_index": 69.6862
+    },
+    {
+      "period": "2015-Q3",
+      "nominal_index": 75.3129,
+      "real_index": 70.7975
+    },
+    {
+      "period": "2015-Q4",
+      "nominal_index": 75.2995,
+      "real_index": 70.4543
+    },
+    {
+      "period": "2016-Q1",
+      "nominal_index": 76.3599,
+      "real_index": 72.9057
+    },
+    {
+      "period": "2016-Q2",
+      "nominal_index": 77.7021,
+      "real_index": 73.0651
+    },
+    {
+      "period": "2016-Q3",
+      "nominal_index": 78.3464,
+      "real_index": 73.7846
+    },
+    {
+      "period": "2016-Q4",
+      "nominal_index": 78.6148,
+      "real_index": 72.8468
+    },
+    {
+      "period": "2017-Q1",
+      "nominal_index": 80.4134,
+      "real_index": 74.7259
+    },
+    {
+      "period": "2017-Q2",
+      "nominal_index": 82.0375,
+      "real_index": 75.6307
+    },
+    {
+      "period": "2017-Q3",
+      "nominal_index": 83.5542,
+      "real_index": 77.4099
+    },
+    {
+      "period": "2017-Q4",
+      "nominal_index": 84.2791,
+      "real_index": 76.9807
+    },
+    {
+      "period": "2018-Q1",
+      "nominal_index": 85.4334,
+      "real_index": 78.6409
+    },
+    {
+      "period": "2018-Q2",
+      "nominal_index": 87.6212,
+      "real_index": 79.3485
+    },
+    {
+      "period": "2018-Q3",
+      "nominal_index": 89.5406,
+      "real_index": 81.1445
+    },
+    {
+      "period": "2018-Q4",
+      "nominal_index": 89.903,
+      "real_index": 80.7369
+    },
+    {
+      "period": "2019-Q1",
+      "nominal_index": 91.3258,
+      "real_index": 83.1206
+    },
+    {
+      "period": "2019-Q2",
+      "nominal_index": 92.3593,
+      "real_index": 82.8792
+    },
+    {
+      "period": "2019-Q3",
+      "nominal_index": 93.8358,
+      "real_index": 84.7721
+    },
+    {
+      "period": "2019-Q4",
+      "nominal_index": 93.2183,
+      "real_index": 83.3471
+    },
+    {
+      "period": "2020-Q1",
+      "nominal_index": 94.3324,
+      "real_index": 85.3432
+    },
+    {
+      "period": "2020-Q2",
+      "nominal_index": 94.3727,
+      "real_index": 85.2467
+    },
+    {
+      "period": "2020-Q3",
+      "nominal_index": 95.5404,
+      "real_index": 86.7484
+    },
+    {
+      "period": "2020-Q4",
+      "nominal_index": 94.7888,
+      "real_index": 85.3643
+    },
+    {
+      "period": "2021-Q1",
+      "nominal_index": 95.2183,
+      "real_index": 85.6366
+    },
+    {
+      "period": "2021-Q2",
+      "nominal_index": 97.4732,
+      "real_index": 85.85
+    },
+    {
+      "period": "2021-Q3",
+      "nominal_index": 99.5269,
+      "real_index": 87.3992
+    },
+    {
+      "period": "2021-Q4",
+      "nominal_index": 100.7617,
+      "real_index": 85.7591
+    },
+    {
+      "period": "2022-Q1",
+      "nominal_index": 103.3388,
+      "real_index": 86.1668
+    },
+    {
+      "period": "2022-Q2",
+      "nominal_index": 105.3253,
+      "real_index": 85.0292
+    },
+    {
+      "period": "2022-Q3",
+      "nominal_index": 107.1373,
+      "real_index": 85.4832
+    },
+    {
+      "period": "2022-Q4",
+      "nominal_index": 106.2783,
+      "real_index": 84.8621
+    },
+    {
+      "period": "2023-Q1",
+      "nominal_index": 107.0031,
+      "real_index": 84.9299
+    },
+    {
+      "period": "2023-Q2",
+      "nominal_index": 109.2312,
+      "real_index": 85.5719
+    },
+    {
+      "period": "2023-Q3",
+      "nominal_index": 111.9828,
+      "real_index": 86.9005
+    },
+    {
+      "period": "2023-Q4",
+      "nominal_index": 110.8419,
+      "real_index": 85.706
+    },
+    {
+      "period": "2024-Q1",
+      "nominal_index": 113.8351,
+      "real_index": 87.6033
+    },
+    {
+      "period": "2024-Q2",
+      "nominal_index": 117.9021,
+      "real_index": 89.2773
+    },
+    {
+      "period": "2024-Q3",
+      "nominal_index": 121.2308,
+      "real_index": 92.085
+    },
+    {
+      "period": "2024-Q4",
+      "nominal_index": 123.4187,
+      "real_index": 93.2372
+    },
+    {
+      "period": "2025-Q1",
+      "nominal_index": 127.8346,
+      "real_index": 95.7719
+    },
+    {
+      "period": "2025-Q2",
+      "nominal_index": 132.9486,
+      "real_index": 98.5485
+    },
+    {
+      "period": "2025-Q3",
+      "nominal_index": 136.8008,
+      "real_index": 101.0782
+    },
+    {
+      "period": "2025-Q4",
+      "nominal_index": 139.3108,
+      "real_index": 102.1612
+    }
+  ],
+  "annual": [
+    {
+      "year": 2000,
+      "nominal_index": 45.5929,
+      "real_index": 60.047525,
+      "nominal_growth": 8.57475231992626,
+      "real_growth": 4.978328205849936
+    },
+    {
+      "year": 2001,
+      "nominal_index": 50.085874999999994,
+      "real_index": 63.67337499999999,
+      "nominal_growth": 9.854549721557504,
+      "real_growth": 6.038300496148663
+    },
+    {
+      "year": 2002,
+      "nominal_index": 57.971425,
+      "real_index": 71.49365,
+      "nominal_growth": 15.744059577675372,
+      "real_growth": 12.2818603537193
+    },
+    {
+      "year": 2003,
+      "nominal_index": 68.1746,
+      "real_index": 81.59944999999999,
+      "nominal_growth": 17.600352242505668,
+      "real_growth": 14.135241381577224
+    },
+    {
+      "year": 2004,
+      "nominal_index": 80.074525,
+      "real_index": 93.010425,
+      "nominal_growth": 17.455071243542307,
+      "real_growth": 13.984132245989422
+    },
+    {
+      "year": 2005,
+      "nominal_index": 91.210375,
+      "real_index": 102.50477500000001,
+      "nominal_growth": 13.906857393159688,
+      "real_growth": 10.207834229335067
+    },
+    {
+      "year": 2006,
+      "nominal_index": 100.7013,
+      "real_index": 109.32522499999999,
+      "nominal_growth": 10.405532265380991,
+      "real_growth": 6.653787591846316
+    },
+    {
+      "year": 2007,
+      "nominal_index": 110.58019999999999,
+      "real_index": 116.82665,
+      "nominal_growth": 9.810101756382483,
+      "real_growth": 6.86156831600393
+    },
+    {
+      "year": 2008,
+      "nominal_index": 108.999725,
+      "real_index": 110.66242500000001,
+      "nominal_growth": -1.4292567747209661,
+      "real_growth": -5.276385995832278
+    },
+    {
+      "year": 2009,
+      "nominal_index": 101.798625,
+      "real_index": 103.638925,
+      "nominal_growth": -6.60653042931989,
+      "real_growth": -6.346779405927538
+    },
+    {
+      "year": 2010,
+      "nominal_index": 100.00002500000001,
+      "real_index": 100.013525,
+      "nominal_growth": -1.7668215066755533,
+      "real_growth": -3.498106527060174
+    },
+    {
+      "year": 2011,
+      "nominal_index": 92.352625,
+      "real_index": 89.5255,
+      "nominal_growth": -7.6473980881504815,
+      "real_growth": -10.486606686445665
+    },
+    {
+      "year": 2012,
+      "nominal_index": 78.708775,
+      "real_index": 74.492575,
+      "nominal_growth": -14.77364611996681,
+      "real_growth": -16.791779995643697
+    },
+    {
+      "year": 2013,
+      "nominal_index": 71.52445,
+      "real_index": 66.717225,
+      "nominal_growth": -9.127730675518709,
+      "real_growth": -10.437751681962936
+    },
+    {
+      "year": 2014,
+      "nominal_index": 71.745925,
+      "real_index": 67.02199999999999,
+      "nominal_growth": 0.3096493576671966,
+      "real_growth": 0.45681606211886994
+    },
+    {
+      "year": 2015,
+      "nominal_index": 74.31965,
+      "real_index": 69.77155,
+      "nominal_growth": 3.587276908061332,
+      "real_growth": 4.102458894094507
+    },
+    {
+      "year": 2016,
+      "nominal_index": 77.75580000000001,
+      "real_index": 73.15055000000001,
+      "nominal_growth": 4.623474410872519,
+      "real_growth": 4.84294816440225
+    },
+    {
+      "year": 2017,
+      "nominal_index": 82.57104999999999,
+      "real_index": 76.1868,
+      "nominal_growth": 6.192785618564756,
+      "real_growth": 4.150686495180134
+    },
+    {
+      "year": 2018,
+      "nominal_index": 88.12455,
+      "real_index": 79.9677,
+      "nominal_growth": 6.725722877449192,
+      "real_growth": 4.962670698861205
+    },
+    {
+      "year": 2019,
+      "nominal_index": 92.6848,
+      "real_index": 83.52974999999999,
+      "nominal_growth": 5.174778197448937,
+      "real_growth": 4.454360948232838
+    },
+    {
+      "year": 2020,
+      "nominal_index": 94.758575,
+      "real_index": 85.67565,
+      "nominal_growth": 2.237448858928315,
+      "real_growth": 2.569024808526321
+    },
+    {
+      "year": 2021,
+      "nominal_index": 98.24502500000001,
+      "real_index": 86.161225,
+      "nominal_growth": 3.6792976255711096,
+      "real_growth": 0.5667596335714897
+    },
+    {
+      "year": 2022,
+      "nominal_index": 105.519925,
+      "real_index": 85.385325,
+      "nominal_growth": 7.4048533246339865,
+      "real_growth": -0.9005210870667302
+    },
+    {
+      "year": 2023,
+      "nominal_index": 109.76475,
+      "real_index": 85.777075,
+      "nominal_growth": 4.022771054850538,
+      "real_growth": 0.45880249328558165
+    },
+    {
+      "year": 2024,
+      "nominal_index": 119.096675,
+      "real_index": 90.5507,
+      "nominal_growth": 8.501750334237546,
+      "real_growth": 5.565152460607936
+    },
+    {
+      "year": 2025,
+      "nominal_index": 134.22369999999998,
+      "real_index": 99.38995,
+      "nominal_growth": 12.701467106449416,
+      "real_growth": 9.761658385854544
+    }
+  ],
+  "checks": {
+    "quarterly_observations": 108,
+    "annual_observations": 26,
+    "nominal_max": {
+      "year": 2003,
+      "value": 17.600352242505668
+    },
+    "nominal_min": {
+      "year": 2012,
+      "value": -14.77364611996681
+    },
+    "real_max": {
+      "year": 2003,
+      "value": 14.135241381577224
+    },
+    "real_min": {
+      "year": 2012,
+      "value": -16.791779995643697
+    },
+    "latest": {
+      "year": 2025,
+      "nominal_index": 134.22369999999998,
+      "real_index": 99.38995,
+      "nominal_growth": 12.701467106449416,
+      "real_growth": 9.761658385854544
+    }
+  }
+}

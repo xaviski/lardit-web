@@ -58,7 +58,7 @@
         <p class="article-meta"><span>Per Xavi Palahí</span><span>Esborrany · En preparació</span></p>
         <div class="draft-banner" role="note">
           <strong>Esborrany en línia. Indexació desactivada.</strong>
-          <p>Versió de treball del 26 d’octubre de 2026, disponible per enllaç directe des del 25 d’octubre. No figura a la portada, als llistats ni al sitemap.</p>
+          <p>Versió de treball del 29 d’octubre de 2026, disponible per enllaç directe des del 25 d’octubre. No figura a la portada, als llistats ni al sitemap.</p>
         </div>
       </header>
 
@@ -91,7 +91,7 @@
           <section aria-labelledby="construccio">
             <p class="section-number">01 · Les dades del boom</p>
             <h2 id="construccio">Sí: es construïa molt i els preus pujaven</h2>
-            <p class="chart-subtitle">Espanya · Habitatges acabats, 2000–2025 · Preus reals, 1997–2007.</p>
+            <p class="chart-subtitle">Espanya · Habitatges acabats i preus, 2000–2025 · Referència històrica de preus reals, 1997–2007.</p>
             <p>Sumant la sèrie ministerial, entre el 2000 i el 2007 s’acabaren <strong>4.404.136 habitatges</strong>. L’aproximació que ha fet áncehz als quatre milions i mig és, doncs, raonable si prenem aquests anys com a referència. El màxim anual de la sèrie se situa el 2006, amb 658.510. Si ho comparem amb els nivells posteriors a la crisi financera, és evident que Espanya va viure un boom immobiliari.</p>
             <figure class="article-figure">
               <picture>
@@ -139,6 +139,52 @@
               <p><a href="/assets/data/oferta-demanda/habitatges.json?v=20261026-serie2025" download>Descarrega les dades, les definicions i els càlculs (JSON)</a>. El 2025 és provisional i el seu total de 93.650 resulta de sumar 80.792 habitatges lliures i 12.858 protegits. La suma del 2000 al 2007 inclou els dos anys extrems.</p>
             </details>
             <p>Alhora, el <a href="https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/PublicacionesAnuales/InformesAnuales/10/Fich/cap5.pdf#page=16" target="_blank" rel="noopener noreferrer">Banc d’Espanya estima que el preu mitjà real de l’habitatge va augmentar un 115% entre el 1997 i el 2007</a>. És una variació descomptada la inflació, amb un període diferent del total de construcció anterior. El mateix informe descriu fortes pressions de demanda malgrat la resposta molt dinàmica de la producció d’habitatges.</p>
+            <figure class="article-figure" id="preus-habitatge">
+              <picture>
+                <source media="(max-width: 600px)" srcset="/assets/charts/oferta-demanda/preus-habitatge-mobile.svg?v=20261029" width="360" height="390">
+                <img src="/assets/charts/oferta-demanda/preus-habitatge.svg?v=20261029" width="760" height="430" loading="lazy" decoding="async" alt="Creixement anual del preu de l’habitatge a Espanya, nominal i real, del 2000 al 2025. Màxim el 2003 i caigudes entre el 2008 i el 2013. El 2025 augmenta un 12,7% nominal i un 9,8% real.">
+              </picture>
+              <figcaption><strong>Fonts:</strong> fonts nacionals i <a href="https://data.bis.org/topics/RPP" target="_blank" rel="noopener noreferrer">BIS Residential Property Price database</a>, via FRED: <a href="https://fred.stlouisfed.org/series/QESN628BIS" target="_blank" rel="noopener noreferrer">preus nominals</a> i <a href="https://fred.stlouisfed.org/series/QESR628BIS" target="_blank" rel="noopener noreferrer">reals</a>. Habitatge nou i usat de tot Espanya. Elaboració pròpia: variació entre les mitjanes dels quatre índexs trimestrals de cada any, no taxa del quart trimestre. Els preus reals descompten l’IPC. Sèrie històrica enllaçada pel BIS, amb canvis metodològics el 2007; dades revisables. El gràfic descriu l’evolució dels preus, sense identificar-ne per si sol les causes.</figcaption>
+            </figure>
+            <details class="data-access" id="dades-preus-habitatge">
+              <summary>Veure les dades del gràfic de preus</summary>
+              <div class="evidence-table-wrap">
+                <table class="evidence-table">
+                  <caption>Preu de l’habitatge a Espanya · Variació de la mitjana anual (%)</caption>
+                  <thead><tr><th scope="col">Any</th><th scope="col">Nominal</th><th scope="col">Real</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" data-label="Any">2000</th><td data-label="Nominal">+8,6%</td><td data-label="Real">+5,0%</td></tr>
+                    <tr><th scope="row" data-label="Any">2001</th><td data-label="Nominal">+9,9%</td><td data-label="Real">+6,0%</td></tr>
+                    <tr><th scope="row" data-label="Any">2002</th><td data-label="Nominal">+15,7%</td><td data-label="Real">+12,3%</td></tr>
+                    <tr><th scope="row" data-label="Any">2003</th><td data-label="Nominal">+17,6%</td><td data-label="Real">+14,1%</td></tr>
+                    <tr><th scope="row" data-label="Any">2004</th><td data-label="Nominal">+17,5%</td><td data-label="Real">+14,0%</td></tr>
+                    <tr><th scope="row" data-label="Any">2005</th><td data-label="Nominal">+13,9%</td><td data-label="Real">+10,2%</td></tr>
+                    <tr><th scope="row" data-label="Any">2006</th><td data-label="Nominal">+10,4%</td><td data-label="Real">+6,7%</td></tr>
+                    <tr><th scope="row" data-label="Any">2007</th><td data-label="Nominal">+9,8%</td><td data-label="Real">+6,9%</td></tr>
+                    <tr><th scope="row" data-label="Any">2008</th><td data-label="Nominal">−1,4%</td><td data-label="Real">−5,3%</td></tr>
+                    <tr><th scope="row" data-label="Any">2009</th><td data-label="Nominal">−6,6%</td><td data-label="Real">−6,3%</td></tr>
+                    <tr><th scope="row" data-label="Any">2010</th><td data-label="Nominal">−1,8%</td><td data-label="Real">−3,5%</td></tr>
+                    <tr><th scope="row" data-label="Any">2011</th><td data-label="Nominal">−7,6%</td><td data-label="Real">−10,5%</td></tr>
+                    <tr><th scope="row" data-label="Any">2012</th><td data-label="Nominal">−14,8%</td><td data-label="Real">−16,8%</td></tr>
+                    <tr><th scope="row" data-label="Any">2013</th><td data-label="Nominal">−9,1%</td><td data-label="Real">−10,4%</td></tr>
+                    <tr><th scope="row" data-label="Any">2014</th><td data-label="Nominal">+0,3%</td><td data-label="Real">+0,5%</td></tr>
+                    <tr><th scope="row" data-label="Any">2015</th><td data-label="Nominal">+3,6%</td><td data-label="Real">+4,1%</td></tr>
+                    <tr><th scope="row" data-label="Any">2016</th><td data-label="Nominal">+4,6%</td><td data-label="Real">+4,8%</td></tr>
+                    <tr><th scope="row" data-label="Any">2017</th><td data-label="Nominal">+6,2%</td><td data-label="Real">+4,2%</td></tr>
+                    <tr><th scope="row" data-label="Any">2018</th><td data-label="Nominal">+6,7%</td><td data-label="Real">+5,0%</td></tr>
+                    <tr><th scope="row" data-label="Any">2019</th><td data-label="Nominal">+5,2%</td><td data-label="Real">+4,5%</td></tr>
+                    <tr><th scope="row" data-label="Any">2020</th><td data-label="Nominal">+2,2%</td><td data-label="Real">+2,6%</td></tr>
+                    <tr><th scope="row" data-label="Any">2021</th><td data-label="Nominal">+3,7%</td><td data-label="Real">+0,6%</td></tr>
+                    <tr><th scope="row" data-label="Any">2022</th><td data-label="Nominal">+7,4%</td><td data-label="Real">−0,9%</td></tr>
+                    <tr><th scope="row" data-label="Any">2023</th><td data-label="Nominal">+4,0%</td><td data-label="Real">+0,5%</td></tr>
+                    <tr><th scope="row" data-label="Any">2024</th><td data-label="Nominal">+8,5%</td><td data-label="Real">+5,6%</td></tr>
+                    <tr><th scope="row" data-label="Any">2025</th><td data-label="Nominal">+12,7%</td><td data-label="Real">+9,8%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><a href="/assets/data/oferta-demanda/preus-habitatge.json?v=20261029" download>Descarrega els índexs trimestrals, les taxes anuals i la metodologia (JSON)</a>. Càlcul: 100 × (mitjana de l’índex de l’any / mitjana de l’any anterior − 1). El 1999 es conserva com a base del càlcul del 2000; el gràfic acaba el 2025. Cada mitjana real es calcula a partir dels quatre índexs ja deflactats pel BIS.</p>
+            </details>
+            <p class="chart-comment">El gràfic posa dates al relat. El 2003, l’encariment nominal mitjà va arribar al 17,6%; descomptant la inflació, l’augment va ser del 14,1%. Entre el 2008 i el 2013, en canvi, els preus mitjans van baixar cada any. La caiguda més intensa va ser la del 2012: un 14,8% nominal i un 16,8% real. El 2025 tornen a créixer amb força: un 12,7% nominal i un 9,8% descomptant la inflació. Per tant, convé distingir els anys del boom dels de la crisi: els preus no van pujar ininterrompudament mentre s’acabaven tots aquells habitatges. També cal llegir bé les taxes: una pujada més petita continua sent un encariment, i un any de creixement després d’una caiguda no implica haver recuperat el nivell anterior. La coincidència entre preus i construcció, per si sola, tampoc ens diu quant haurien pujat els preus si s’hagués construït menys.</p>
             <p>La construcció anual no és, a més, tota l’oferta del mercat: també es compren, venen i lloguen habitatges existents. I sumar pisos a tot Espanya no ens diu quants n’hi ha disponibles al lloc concret on algú necessita viure. Un habitatge en un municipi mal connectat no substitueix necessàriament un pis a prop de la feina. Ho explico amb més detall a l’article <a href="/articles/habitatge/transport-public/" target="_blank" rel="noopener noreferrer">El transport públic també és política d’habitatge</a>.</p>
           </section>
 
@@ -219,12 +265,13 @@
           <section class="references" aria-labelledby="fonts">
             <p class="section-number section-number--appendix">Fonts i metodologia</p>
             <h2 id="fonts">Què hem comprovat i què no?</h2>
-            <p class="chart-subtitle">Fonts consultades del 23 al 26 d’octubre de 2026 · Períodes i unitats diferents, indicats al text.</p>
+            <p class="chart-subtitle">Fonts consultades del 23 al 29 d’octubre de 2026 · Períodes i unitats diferents, indicats al text.</p>
             <ol>
               <li><strong>RTVE.</strong> <a href="https://www.rtve.es/play/videos/la-revuelta/programa-22-10-2026-pedro-sanchez/17279095/" target="_blank" rel="noopener noreferrer">La Revuelta, entrevista a Pedro Sánchez, 22/10/2026</a>. Localització del passatge segons els <a href="https://www.rtve.es/resources/vtt/8/5/1792705636658.vtt" target="_blank" rel="noopener noreferrer">subtítols oficials</a>; la cita breu no és una transcripció íntegra.</li>
               <li><strong>MIVAU.</strong> <a href="https://publicaciones.transportes.gob.es/downloadcustom/sample/4130#page=12" target="_blank" rel="noopener noreferrer">Observatorio de Vivienda y Suelo, Boletín anual 2025</a>, taula 1.5, pàgina 12. Dades del gràfic del 2003 al 2021. Les taules anuals actuals d’<a href="https://apps.fomento.gob.es/BoletinOnline2/sedal/32201000.XLS" target="_blank" rel="noopener noreferrer">habitatge lliure acabat (XLS)</a> i <a href="https://apps.fomento.gob.es/BoletinOnline2/sedal/31306000.XLS" target="_blank" rel="noopener noreferrer">qualificacions definitives de protegit (XLS)</a> confirmen els totals del 2014–2025 i substitueixen el valor del 2025 del butlletí per la revisió més recent.</li>
               <li><strong>Ministeri d’Economia, BDSICE.</strong> <a href="https://bdsice.mineco.gob.es/indeco/reports/verSerieGraf_limpio.aspx/?codigo=232030&amp;frec=-1" target="_blank" rel="noopener noreferrer">Sèrie 232030, habitatges acabats lliures i protegits</a>, amb font ministerial i actualització del 8/10/2026. Suma dels dotze mesos per al 2022–2025; no s’anualitza el 2026. El total i els components provisionals del 2025 s’han contrastat amb el <a href="https://econet.carm.es/inicio/-/crem/sicrem/PU39/sec35.html" target="_blank" rel="noopener noreferrer">quadre oficial del CREM</a>. El JSON conserva els mesos i la revisió.</li>
               <li><strong>Tribunal de Comptes.</strong> <a href="https://tcu.es/export/sites/portal/repositorio2/INFORME/2025/I1640.pdf#page=110" target="_blank" rel="noopener noreferrer">Informe I1640, annex III, pàgina impresa 106</a>. Reprodueix dades ministerials que completen el gràfic per als anys 2000–2002.</li>
+              <li><strong>BIS, amb fonts nacionals, via FRED.</strong> <a href="https://fred.stlouisfed.org/series/QESN628BIS" target="_blank" rel="noopener noreferrer">QESN628BIS, preus nominals</a>, i <a href="https://fred.stlouisfed.org/series/QESR628BIS" target="_blank" rel="noopener noreferrer">QESR628BIS, preus reals</a>. Taxes del 2000–2025 calculades a partir de les mitjanes dels quatre índexs trimestrals de cada any; índex real deflactat amb l’IPC. La <a href="https://www.bis.org/statistics/pp_selected_documentation.pdf#page=5" target="_blank" rel="noopener noreferrer">documentació del BIS</a> detalla l’enllaç: preu per metre quadrat fins al 2006 i índex de preus des del 2007, amb Eurostat a partir de dades de l’INE. El JSON conserva els índexs des del 1999 i els càlculs. Aquesta sèrie enllaçada i el seu període no reprodueixen directament el càlcul del +115% del paràgraf anterior.</li>
               <li><strong>Banco de España.</strong> <a href="https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/PublicacionesAnuales/InformesAnuales/10/Fich/cap5.pdf#page=16" target="_blank" rel="noopener noreferrer">Informe Anual 2010, requadre 5.1</a>. Preu mitjà real 1997–2007 i diagnòstic de demanda i construcció; no una descomposició causal de cada factor.</li>
               <li><strong>FMI (2009).</strong> <a href="https://www.imf.org/-/media/websites/imf/imported-full-text-pdf/external/pubs/ft/scr/2009/_cr09129.pdf" target="_blank" rel="noopener noreferrer">Spain: Selected Issues, Country Report 09/129</a>, capítol I. Finançament, endeutament, expectatives i retards de construcció. No es fan servir les seves projeccions com si fossin resultats observats.</li>
               <li><strong>González, L., i Ortega, F. (2013).</strong> <a href="https://onlinelibrary.wiley.com/doi/10.1111/jors.12010" target="_blank" rel="noopener noreferrer">Immigration and Housing Booms: Evidence from Spain</a>, <cite>Journal of Regional Science</cite>, 53(1), 37–59. S’utilitzen el període i els resultats de la versió publicada, no els del document de treball del 2009.</li>
