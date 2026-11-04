@@ -233,31 +233,6 @@
       "note": "Valors aproximats. Deute de les llars, no només deute hipotecari."
     }
   ],
-  "illustrative_example": {
-    "observed_data": false,
-    "note": "Exemple pedagògic d’equilibri amb corbes lineals, no estimació d’Espanya. P és un índex de preu i Q una quantitat hipotètica.",
-    "demand_initial": "Qd = 200 - P",
-    "demand_expanded": "Qd = 280 - P",
-    "supply_initial": "Qs = P",
-    "supply_expanded": "Qs = P + 40",
-    "scenarios": [
-      {
-        "name": "Situació inicial",
-        "quantity": 100,
-        "price_index": 100
-      },
-      {
-        "name": "Més oferta, mateixa demanda",
-        "quantity": 120,
-        "price_index": 80
-      },
-      {
-        "name": "Més oferta i més demanda",
-        "quantity": 160,
-        "price_index": 120
-      }
-    ]
-  },
   "last_complete_year": 2025,
   "monthly_validation": {
     "source_id": "bdsice",

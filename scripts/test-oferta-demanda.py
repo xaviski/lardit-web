@@ -91,15 +91,6 @@ assert all(math.isclose(latest_price[key], price_checks["latest"][key], rel_tol=
 assert round(latest_price["nominal_growth"], 6) == 12.701467
 assert round(latest_price["real_growth"], 6) == 9.761658
 
-example = data["illustrative_example"]
-assert example["observed_data"] is False
-a, b, c = example["scenarios"]
-assert (a["quantity"], a["price_index"]) == (100, 100)
-assert (b["quantity"], b["price_index"]) == (120, 80)
-assert (c["quantity"], c["price_index"]) == (160, 120)
-for row, demand_intercept, supply_intercept in [(a, 200, 0), (b, 200, 40), (c, 280, 40)]:
-    assert row["quantity"] == demand_intercept - row["price_index"]
-    assert row["quantity"] == row["price_index"] + supply_intercept
 assert '<meta name="robots" content="index,follow">' in source
 assert 'content="noindex' not in source.lower()
 assert f'<meta property="article:published_time" content="{publication_date}">' in source
