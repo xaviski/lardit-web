@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 route = "/articles/habitatge/oferta-demanda-bombolla-immobiliaria/"
 canonical_url = "https://lardit.cat" + route
 publication_date = "2026-11-04"
-social_image_path = "/assets/images/oferta-demanda-habitatge.png"
+social_image_path = "/assets/images/meme-ped-sang-habitatge.jpeg"
 social_image_url = "https://lardit.cat" + social_image_path
 source = (ROOT / route.strip("/") / "index.html").read_text(encoding="utf-8")
 data = json.loads((ROOT / "assets/data/oferta-demanda/habitatges.json").read_text(encoding="utf-8"))
@@ -219,15 +219,16 @@ assert page.value("article:published_time") == publication_date
 modified_date = page.value("article:modified_time")
 assert date.fromisoformat(modified_date) >= date.fromisoformat(publication_date)
 assert page.value("og:image") == page.value("twitter:image") == social_image_url
-assert page.value("og:image:type") == "image/png"
-assert (page.value("og:image:width"), page.value("og:image:height")) == ("1200", "679")
+assert page.value("og:image:type") == "image/jpeg"
+assert (page.value("og:image:width"), page.value("og:image:height")) == ("1541", "1020")
 assert page.value("og:image:alt") == page.value("twitter:image:alt")
 assert page.value("twitter:card") == "summary_large_image"
 assert page.value("twitter:site") == page.value("twitter:creator") == "@Xavipalahi"
 
-png = (ROOT / social_image_path.lstrip("/")).read_bytes()
-assert png[:8] == b"\x89PNG\r\n\x1a\n" and png[12:16] == b"IHDR"
-assert (int.from_bytes(png[16:20], "big"), int.from_bytes(png[20:24], "big")) == (1200, 679)
+jpeg = (ROOT / social_image_path.lstrip("/")).read_bytes()
+assert jpeg[:2] == b"\xff\xd8" and jpeg[-2:] == b"\xff\xd9"
+sof = re.search(rb"\xff[\xc0-\xc3\xc5-\xc7\xc9-\xcb\xcd-\xcf]..(.)(..)(..)", jpeg, re.S)
+assert sof and (int.from_bytes(sof.group(3), "big"), int.from_bytes(sof.group(2), "big")) == (1541, 1020)
 
 schema_nodes = []
 for raw_schema in page.jsonld:
@@ -266,7 +267,7 @@ assert route in [n.attrs.get("href") for n in home_card.find(lambda n: n.tag == 
 assert contract["text_content"](contract["one"](home_card.find(lambda n: n.tag == "h2"), "titular de portada")).strip() == title
 home_image = contract["one"](home_card.find(lambda n: n.tag == "img"), "imatge de portada")
 assert home_image.attrs.get("src", "").split("?", 1)[0] == social_image_path
-assert (home_image.attrs.get("width"), home_image.attrs.get("height")) == ("1200", "679")
+assert (home_image.attrs.get("width"), home_image.attrs.get("height")) == ("1541", "1020")
 home_time = contract["one"](home_card.find(lambda n: n.tag == "time"), "data de la targeta de portada")
 assert home_time.attrs.get("datetime") == publication_date
 
@@ -288,7 +289,7 @@ assert route in [n.attrs.get("href") for n in housing_card.find(lambda n: n.tag 
 assert contract["text_content"](contract["one"](housing_card.find(lambda n: n.tag == "h2"), "titular de categoria")).strip() == title
 housing_card_image = contract["one"](housing_card.find(lambda n: n.tag == "img"), "imatge de la targeta de categoria")
 assert housing_card_image.attrs.get("src", "").split("?", 1)[0] == social_image_path
-assert (housing_card_image.attrs.get("width"), housing_card_image.attrs.get("height")) == ("1200", "679")
+assert (housing_card_image.attrs.get("width"), housing_card_image.attrs.get("height")) == ("1541", "1020")
 housing_time = contract["one"](housing_card.find(lambda n: n.tag == "time"), "data de la targeta de categoria")
 assert housing_time.attrs.get("datetime") == publication_date
 
