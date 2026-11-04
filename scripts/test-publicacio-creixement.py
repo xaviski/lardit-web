@@ -16,6 +16,7 @@ ARTICLE = "articles/economia/creixement-benestar-catalunya/index.html"
 URL = "https://lardit.cat/articles/economia/creixement-benestar-catalunya/"
 CATEGORY = "https://lardit.cat/articles/economia/"
 IMAGE = "https://lardit.cat/assets/images/meme-pib-catalunya.jpeg"
+OFFER_URL = "https://lardit.cat/articles/habitatge/oferta-demanda-bombolla-immobiliaria/"
 PAGES = ["index.html", "articles/index.html", "articles/economia/index.html", ARTICLE]
 
 
@@ -113,9 +114,10 @@ assert date.fromisoformat(article_schema["dateModified"]) >= date.fromisoformat(
 assert article_schema["author"]["name"] == "Xavi Palahí"
 assert article_schema["isPartOf"]["url"] == CATEGORY
 home_items = schemas["index.html"][0]
-assert home_items["numberOfItems"] == len(home_items["itemListElement"]) == 3
-assert home_items["itemListElement"][0]["url"] == URL
-assert sources["index.html"].count('class="home-story"') == 3
+assert home_items["numberOfItems"] == len(home_items["itemListElement"]) == 4
+assert home_items["itemListElement"][0]["url"] == OFFER_URL
+assert URL in {item["url"] for item in home_items["itemListElement"]}
+assert sources["index.html"].count('class="home-story"') == 4
 categories = schemas["articles/index.html"][0]["mainEntity"]
 assert categories["numberOfItems"] == len(categories["itemListElement"]) == 3
 assert CATEGORY in {x["item"]["url"] for x in categories["itemListElement"]}
@@ -123,8 +125,8 @@ assert CATEGORY in {x["item"]["url"] for x in categories["itemListElement"]}
 ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
 locations = [x.text for x in sitemap.findall("s:url/s:loc", ns)]
-assert len(locations) == len(set(locations)) == 10
-assert URL in locations and CATEGORY in locations
+assert len(locations) == len(set(locations)) == 11
+assert URL in locations and OFFER_URL in locations and CATEGORY in locations
 for url in sitemap.findall("s:url", ns):
     if url.find("s:loc", ns).text in (URL, CATEGORY, "https://lardit.cat/", "https://lardit.cat/articles/"):
         lastmod = url.find("s:lastmod", ns).text
@@ -140,9 +142,9 @@ for path in (ROOT / "articles").rglob("index.html"):
         assert "https://lardit.cat" + relative not in locations
         assert relative not in sources["index.html"] and relative not in sources["articles/index.html"]
         unlisted_count += 1
-assert unlisted_count >= 5
+assert unlisted_count == 5
 assert "Allow: /" in (ROOT / "robots.txt").read_text(encoding="utf-8")
 for path in (ROOT / "assets/data/creixement-benestar").glob("*.json"):
     json.loads(path.read_text(encoding="utf-8"))
 
-print(f"PASS: publication metadata, JSON-LD, local assets/anchors, 8 charts, 3 latest stories, 3 categories, sitemap and {unlisted_count} protected drafts.")
+print(f"PASS: publication metadata, JSON-LD, local assets/anchors, 8 charts, 4 latest stories, 3 categories, sitemap and {unlisted_count} protected drafts.")

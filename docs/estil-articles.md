@@ -10,7 +10,7 @@ La plantilla per començar un article és `templates/article.html.example`. És 
 
 Tots els articles carreguen `/assets/styles.css?v=20261021-compartir` i `/assets/main.js?v=20261021-compartir`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
 
-Les classes particulars només han de resoldre necessitats del contingut, com una visualització o un component específic. No han de canviar l’amplada ni l’alineació del cos, la separació del menú, els títols generals o la mida del text de lectura. Si cal modificar el format, cal fer-ho en l’estil compartit i comprovar els tres articles publicats.
+Les classes particulars només han de resoldre necessitats del contingut, com una visualització o un component específic. No han de canviar l’amplada ni l’alineació del cos, la separació del menú, els títols generals o la mida del text de lectura. Si cal modificar el format, cal fer-ho en l’estil compartit i comprovar tots els articles publicats.
 
 ## Estructura obligatòria
 
@@ -109,11 +109,12 @@ Des de l’arrel del repositori:
 python scripts/test-format-articles.py
 python scripts/test-metadades-articles.py
 python scripts/test-publicacio-creixement.py
+python scripts/test-oferta-demanda.py
 python scripts/test-site.py
 node --test scripts/economy/test.mjs scripts/test-article-share.mjs
 ```
 
-També cal revisar visualment transport, universitats i creixement:
+També cal revisar visualment els articles publicats de transport, universitats, creixement i oferta i demanda:
 
 1. En ordinador, comprovar la mateixa posició i amplada del cos, la separació del menú i els títols.
 2. En una pantalla intermèdia, comprovar les dues columnes i l’absència de desbordament horitzontal.

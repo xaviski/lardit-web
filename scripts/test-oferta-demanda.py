@@ -1,4 +1,5 @@
-"""Guardes de dades, format i noindex de l’esborrany d’oferta i demanda."""
+"""Guardes de publicació, dades i format de l’article d’oferta i demanda."""
+from datetime import date
 from pathlib import Path
 import json
 import math
@@ -8,6 +9,10 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 route = "/articles/habitatge/oferta-demanda-bombolla-immobiliaria/"
+canonical_url = "https://lardit.cat" + route
+publication_date = "2026-11-04"
+social_image_path = "/assets/images/oferta-demanda-habitatge.png"
+social_image_url = "https://lardit.cat" + social_image_path
 source = (ROOT / route.strip("/") / "index.html").read_text(encoding="utf-8")
 data = json.loads((ROOT / "assets/data/oferta-demanda/habitatges.json").read_text(encoding="utf-8"))
 price_data = json.loads((ROOT / "assets/data/oferta-demanda/preus-habitatge.json").read_text(encoding="utf-8"))
@@ -95,15 +100,17 @@ assert (c["quantity"], c["price_index"]) == (160, 120)
 for row, demand_intercept, supply_intercept in [(a, 200, 0), (b, 200, 40), (c, 280, 40)]:
     assert row["quantity"] == demand_intercept - row["price_index"]
     assert row["quantity"] == row["price_index"] + supply_intercept
-assert 'content="noindex,nofollow,noarchive"' in source
-assert "article:published_time" not in source and "datePublished" not in source
+assert '<meta name="robots" content="index,follow">' in source
+assert 'content="noindex' not in source.lower()
+assert f'<meta property="article:published_time" content="{publication_date}">' in source
+assert f'<time datetime="{publication_date}">4 de novembre de 2026</time>' in source
+assert not re.search(r"Esborrany|Pendent de redacció|Material per a la redacció|drafts\.css|draft-(?:banner|body|factcheck)", source, re.I)
 assert "{{" not in source and "<style" not in source
-for published in ["index.html", "articles/index.html", "articles/habitatge/index.html", "sitemap.xml"]:
-    assert route not in (ROOT / published).read_text(encoding="utf-8"), published
-# Reuse shared parsers to apply the published section/sharing contract to this new draft too.
+# Reuse shared parsers to apply the common published-article contract too.
 contract = runpy.run_path(str(ROOT / "scripts/test-format-articles.py"))
 tree = contract["Page"](source).root
-body = contract["one"](tree.find(lambda n: n.has("article-body")), "nou esborrany")
+body = contract["one"](tree.find(lambda n: n.has("article-body")), "article d’oferta i demanda")
+assert set(body.attrs.get("class", "").split()) == {"article-body"}
 construction = contract["one"](
     body.find(lambda n: n.tag == "section" and n.attrs.get("aria-labelledby") == "construccio"),
     "secció de construcció",
@@ -122,15 +129,28 @@ bank_paragraph = contract["one"](
 )
 construction_paragraph = contract["one"](
     construction.find(lambda n: n.tag == "p" and contract["text_content"](n).strip().startswith("La construcció anual no és")),
-    "paràgraf posterior al gràfic de preus",
+    "paràgraf anterior al gràfic d’habitatges",
 )
+housing_image = contract["one"](
+    construction.find(
+        lambda n: n.tag == "img"
+        and n.attrs.get("src", "").split("?", 1)[0] == "/assets/charts/oferta-demanda/habitatges-acabats.svg"
+    ),
+    "gràfic d’habitatges acabats",
+)
+housing_figure = housing_image.parent.parent
+assert housing_figure.tag == "figure" and housing_figure.parent is construction
 chart_comment = contract["one"](
     construction.find(lambda n: n.tag == "p" and n.has("chart-comment")),
     "comentari del gràfic de preus",
 )
-assert all(node.parent is construction for node in (bank_paragraph, price_figure, price_details, chart_comment, construction_paragraph))
-indices = [construction.children.index(node) for node in (bank_paragraph, price_figure, price_details, chart_comment, construction_paragraph)]
-assert indices == list(range(indices[0], indices[0] + 5)), "Ordre incorrecte del nou gràfic de preus"
+assert construction_paragraph.parent is construction
+assert construction.children.index(construction_paragraph) + 1 == construction.children.index(housing_figure), \
+    "El paràgraf sobre l’oferta ha d’anar immediatament abans del gràfic d’habitatges"
+assert all(node.parent is construction for node in (bank_paragraph, price_figure, price_details, chart_comment))
+price_indices = [construction.children.index(node) for node in (bank_paragraph, price_figure, price_details, chart_comment)]
+assert price_indices == list(range(price_indices[0], price_indices[0] + 4)), \
+    "El gràfic de preus, les dades i el comentari han de seguir immediatament el paràgraf del Banc d’Espanya"
 
 picture = contract["one"](price_figure.find(lambda n: n.tag == "picture"), "picture del gràfic de preus")
 mobile_source = contract["one"](picture.find(lambda n: n.tag == "source"), "font mòbil del gràfic de preus")
@@ -178,11 +198,11 @@ head_title = contract["text_content"](contract["one"](tree.find(lambda n: n.tag 
 assert head_title == title + " — L’Ardit", "Títol del navegador diferent del titular"
 og_title = contract["one"](tree.find(lambda n: n.tag == "meta" and n.attrs.get("property") == "og:title"), "og:title")
 assert og_title.attrs["content"] == title, "Títol social diferent del titular"
-expected = ["#construccio", "#dues-corbes", "#demanda", "#rallo", "#conclusio"]
-assert contract["check_section_headings"](body, "nou esborrany") == expected
+expected = ["#construccio", "#dues-corbes", "#demanda", "#conclusio"]
+assert contract["check_section_headings"](body, "article d’oferta i demanda") == expected
 toc = contract["one"](tree.find(lambda n: n.has("article-toc")), "menú")
 assert [n.attrs["href"] for n in toc.find(lambda n: n.tag == "a")] == expected
-contract["check_article_sharing"](body, title, "https://lardit.cat" + route, "nou esborrany")
+contract["check_article_sharing"](body, title, canonical_url, "article d’oferta i demanda")
 site = runpy.run_path(str(ROOT / "scripts/test-site.py"))
 page_path = ROOT / route.strip("/") / "index.html"
 page = site["Page"](source, route)
@@ -190,8 +210,118 @@ pages = {}
 for p in ROOT.rglob("*.html"):
     if ".git" not in p.parts:
         pages[p] = site["Page"](p.read_text(encoding="utf-8"), str(p))
-site["canonical"](page, "https://lardit.cat" + route)
-site["check_links"](page, "https://lardit.cat" + route, pages)
+site["check_jsonld"](page)
+site["check_metadata"](page, canonical_url)
+site["check_links"](page, canonical_url, pages)
+assert page.value("robots") == "index,follow"
+assert page.value("article:section") == "Habitatge"
+assert page.value("article:published_time") == publication_date
+modified_date = page.value("article:modified_time")
+assert date.fromisoformat(modified_date) >= date.fromisoformat(publication_date)
+assert page.value("og:image") == page.value("twitter:image") == social_image_url
+assert page.value("og:image:type") == "image/png"
+assert (page.value("og:image:width"), page.value("og:image:height")) == ("1200", "679")
+assert page.value("og:image:alt") == page.value("twitter:image:alt")
+assert page.value("twitter:card") == "summary_large_image"
+assert page.value("twitter:site") == page.value("twitter:creator") == "@Xavipalahi"
+
+png = (ROOT / social_image_path.lstrip("/")).read_bytes()
+assert png[:8] == b"\x89PNG\r\n\x1a\n" and png[12:16] == b"IHDR"
+assert (int.from_bytes(png[16:20], "big"), int.from_bytes(png[20:24], "big")) == (1200, 679)
+
+schema_nodes = []
+for raw_schema in page.jsonld:
+    document = json.loads(raw_schema)
+    if isinstance(document, list):
+        schema_nodes.extend(document)
+    elif "@graph" in document:
+        schema_nodes.extend(document["@graph"])
+    else:
+        schema_nodes.append(document)
+article_schemas = [node for node in schema_nodes if node.get("@type") == "Article"]
+assert len(article_schemas) == 1
+article_schema = article_schemas[0]
+assert article_schema["headline"] == title
+assert article_schema["mainEntityOfPage"] == canonical_url
+assert article_schema.get("url", canonical_url) == canonical_url
+assert article_schema["datePublished"] == publication_date
+assert article_schema["dateModified"] == modified_date
+assert article_schema["image"] == social_image_url
+assert article_schema["articleSection"] == "Habitatge"
+assert article_schema["author"]["name"] == "Xavi Palahí"
+
+byline = contract["one"](tree.find(lambda n: n.has("article-meta")), "metadades visibles de l’article")
+byline_spans = byline.find(lambda n: n.tag == "span")
+assert len(byline_spans) == 2
+assert [contract["text_content"](node).strip() for node in byline_spans] == ["Per Xavi Palahí", "4 de novembre de 2026"]
+byline_time = contract["one"](byline.find(lambda n: n.tag == "time"), "data visible de publicació")
+assert byline_time.attrs.get("datetime") == publication_date
+
+home_source = (ROOT / "index.html").read_text(encoding="utf-8")
+home_tree = contract["Page"](home_source).root
+home_cards = home_tree.find(lambda n: n.tag == "article" and n.has("home-story"))
+assert len(home_cards) == 4
+home_card = home_cards[0]
+assert route in [n.attrs.get("href") for n in home_card.find(lambda n: n.tag == "a")]
+assert contract["text_content"](contract["one"](home_card.find(lambda n: n.tag == "h2"), "titular de portada")).strip() == title
+home_image = contract["one"](home_card.find(lambda n: n.tag == "img"), "imatge de portada")
+assert home_image.attrs.get("src", "").split("?", 1)[0] == social_image_path
+assert (home_image.attrs.get("width"), home_image.attrs.get("height")) == ("1200", "679")
+home_time = contract["one"](home_card.find(lambda n: n.tag == "time"), "data de la targeta de portada")
+assert home_time.attrs.get("datetime") == publication_date
+
+home_documents = [json.loads(raw) for raw in re.findall(r'<script type="application/ld\+json">([\s\S]*?)</script>', home_source)]
+home_lists = [document for document in home_documents if document.get("@type") == "ItemList"]
+assert len(home_lists) == 1
+home_list = home_lists[0]
+assert home_list["numberOfItems"] == len(home_list["itemListElement"]) == 4
+assert home_list["itemListElement"][0]["position"] == 1
+assert home_list["itemListElement"][0]["name"] == title
+assert home_list["itemListElement"][0]["url"] == canonical_url
+
+housing_source = (ROOT / "articles/habitatge/index.html").read_text(encoding="utf-8")
+housing_tree = contract["Page"](housing_source).root
+housing_cards = housing_tree.find(lambda n: n.tag == "article" and n.has("story-card"))
+assert len(housing_cards) == 2
+housing_card = housing_cards[0]
+assert route in [n.attrs.get("href") for n in housing_card.find(lambda n: n.tag == "a")]
+assert contract["text_content"](contract["one"](housing_card.find(lambda n: n.tag == "h2"), "titular de categoria")).strip() == title
+housing_card_image = contract["one"](housing_card.find(lambda n: n.tag == "img"), "imatge de la targeta de categoria")
+assert housing_card_image.attrs.get("src", "").split("?", 1)[0] == social_image_path
+assert (housing_card_image.attrs.get("width"), housing_card_image.attrs.get("height")) == ("1200", "679")
+housing_time = contract["one"](housing_card.find(lambda n: n.tag == "time"), "data de la targeta de categoria")
+assert housing_time.attrs.get("datetime") == publication_date
+
+housing_documents = [json.loads(raw) for raw in re.findall(r'<script type="application/ld\+json">([\s\S]*?)</script>', housing_source)]
+housing_collections = [document for document in housing_documents if document.get("@type") == "CollectionPage"]
+assert len(housing_collections) == 1
+housing_parts = housing_collections[0]["hasPart"]
+if isinstance(housing_parts, dict):
+    housing_parts = [housing_parts]
+assert len(housing_parts) == 2
+assert housing_parts[0]["headline"] == title and housing_parts[0]["url"] == canonical_url
+
+articles_source = (ROOT / "articles/index.html").read_text(encoding="utf-8")
+articles_tree = contract["Page"](articles_source).root
+category_cards = articles_tree.find(lambda n: n.tag == "article" and n.has("story-card"))
+assert len(category_cards) == 3
+housing_category = contract["one"](
+    [card for card in category_cards if "/articles/habitatge/" in [n.attrs.get("href") for n in card.find(lambda n: n.tag == "a")]],
+    "targeta de la categoria Habitatge",
+)
+assert "Categoria · 2 articles" in contract["text_content"](housing_category)
+
+ns_sitemap = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
+sitemap_rows = sitemap.findall("s:url", ns_sitemap)
+assert len(sitemap_rows) == 11
+sitemap_dates = {
+    row.find("s:loc", ns_sitemap).text: row.find("s:lastmod", ns_sitemap).text
+    for row in sitemap_rows
+}
+assert sitemap_dates[canonical_url] == modified_date
+for discovery_url in ("https://lardit.cat/", "https://lardit.cat/articles/", "https://lardit.cat/articles/habitatge/"):
+    assert date.fromisoformat(sitemap_dates[discovery_url]) >= date.fromisoformat(publication_date)
 for name, width, height in [("habitatges-acabats.svg", 760, 430), ("habitatges-acabats-mobile.svg", 360, 390)]:
     svg_source = (ROOT / "assets/charts/oferta-demanda" / name).read_text(encoding="utf-8")
     svg = ET.fromstring(svg_source)
@@ -248,4 +378,4 @@ for name, width, height in [("preus-habitatge.svg", 760, 430), ("preus-habitatge
     assert {"−20%", "0%", "+20%"} <= labels
     assert "2025 (p)" not in svg_source and "(p):" not in svg_source
 
-print("PASS: esborrany no indexat ni llistat; dades, exemple, quatre gràfics, seccions, recursos i opcions de compartir coherents.")
+print("PASS: article publicat i llistat; data original, imatge, metadades, dades, quatre gràfics, seccions i opcions de compartir coherents.")
