@@ -13,6 +13,7 @@ class Element {
   get textContent() { return this.text + this.children.map((child) => child.textContent).join(""); }
   setAttribute(name, value) { this.attributes[name] = String(value); }
   getAttribute(name) { return this.attributes[name] ?? null; }
+  hasAttribute(name) { return Object.hasOwn(this.attributes, name); }
   append(child) {
     if (child.parent) child.parent.children.splice(child.parent.children.indexOf(child), 1);
     child.parent = this;
@@ -28,7 +29,7 @@ class Element {
 }
 
 const source = readFileSync(new URL("../assets/main.js", import.meta.url), "utf8");
-function fixture({ article = true, channels = ["WhatsApp", "X", "Facebook", "Correu"] } = {}) {
+function fixture({ article = true, channels = ["WhatsApp", "X", "Facebook", "Instagram", "Correu"] } = {}) {
   const document = new Element("document");
   document.createElement = (tag) => new Element(tag);
   document.createElementNS = (_, tag) => new Element(tag);
@@ -39,8 +40,15 @@ function fixture({ article = true, channels = ["WhatsApp", "X", "Facebook", "Cor
   const links = new Element("div"); links.className = "article-share__links";
   channels.forEach((channel, index) => {
     const link = new Element("a"); link.textContent = channel;
-    link.setAttribute("href", index === 3 ? "mailto:?subject=Prova&body=https%3A%2F%2Flardit.cat%2Fprova%2F" : `https://example.test/${index}?article=prova`);
-    if (index !== 3) {
+    if (channel === "Correu") {
+      link.setAttribute("href", "mailto:?subject=Prova&body=https%3A%2F%2Flardit.cat%2Fprova%2F");
+    } else if (channel === "Instagram") {
+      link.setAttribute("href", "https://www.instagram.com/");
+      link.setAttribute("data-share-instagram", "");
+    } else {
+      link.setAttribute("href", `https://example.test/${index}?article=prova`);
+    }
+    if (channel !== "Correu") {
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener noreferrer");
       const hint = new Element("span"); hint.className = "visually-hidden";
@@ -59,28 +67,32 @@ function enhance(fixture) {
   return context;
 }
 
-test("rail copies all four destinations, adds accessible icons and preserves the original block", () => {
+test("rail copies all five destinations and Instagram activation, adds accessible icons and preserves the original block", () => {
   const page = fixture(); enhance(page);
   const rail = page.layout.querySelector(".article-share-icons");
   assert.ok(rail);
   assert.equal(rail.getAttribute("aria-label"), "Comparteix aquest article: opcions laterals");
   const links = rail.querySelectorAll("a");
-  assert.equal(links.length, 4);
+  assert.equal(links.length, 5);
   links.forEach((link, index) => {
-    assert.equal(link.getAttribute("href"), page.links.children[index].getAttribute("href"));
+    const source = page.links.children[index];
+    assert.equal(link.getAttribute("href"), source.getAttribute("href"));
+    assert.equal(link.getAttribute("data-share-instagram"), source.getAttribute("data-share-instagram"));
     assert.ok(link.getAttribute("aria-label")); assert.ok(link.getAttribute("title"));
     assert.equal(link.textContent, "");
     const icon = link.querySelector("svg");
     assert.equal(icon.getAttribute("aria-hidden"), "true");
     assert.equal(icon.getAttribute("focusable"), "false");
-    if (index < 3) {
+    if (index < 4) {
       assert.equal(link.getAttribute("target"), "_blank");
       assert.equal(link.getAttribute("rel"), "noopener noreferrer");
       assert.match(link.getAttribute("aria-label"), /pestanya nova/);
     } else assert.equal(link.getAttribute("target"), null);
   });
+  assert.equal(links[3].getAttribute("href"), "https://www.instagram.com/");
+  assert.equal(links[3].getAttribute("data-share-instagram"), "");
   assert.equal(page.body.querySelector(".article-share"), page.share);
-  assert.equal(page.share.querySelectorAll("a").length, 4);
+  assert.equal(page.share.querySelectorAll("a").length, 5);
   assert.equal(page.note.textContent, "La nota original es conserva.");
   const side = page.layout.querySelector(".article-side");
   assert.deepEqual(side.children, [rail, page.note]);
@@ -100,7 +112,7 @@ test("pages without an article remain unchanged", () => {
 });
 
 test("incomplete or unknown channels do not produce an invalid rail", () => {
-  for (const channels of [["WhatsApp", "X"], ["WhatsApp", "X", "Facebook", "Desconegut"]]) {
+  for (const channels of [["WhatsApp", "X"], ["WhatsApp", "X", "Facebook", "Instagram", "Desconegut"]]) {
     const page = fixture({ channels }); enhance(page);
     assert.equal(page.layout.querySelectorAll(".article-share-icons").length, 0);
     assert.equal(page.note.parent, page.layout);

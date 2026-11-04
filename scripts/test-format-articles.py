@@ -93,8 +93,9 @@ def check_article_sharing(body, title, canonical, name, template=False):
     assert label.tag == "p" and text_content(label).strip() == "Comparteix l’article", name
     group = one(share.find(lambda node: node.has("article-share__links")), name + ": falta el grup d’enllaços per compartir")
     links = group.find(lambda node: node.tag == "a")
-    assert len(links) == 4 and len(share.find(lambda node: node.tag == "a")) == 4, name + ": calen les quatre opcions per compartir"
-    assert [text_content(link, visible_only=True).strip() for link in links] == ["WhatsApp", "X", "Facebook", "Correu"], name + ": opcions per compartir incompletes o desordenades"
+    assert len(links) == 5 and len(share.find(lambda node: node.tag == "a")) == 5, name + ": calen les cinc opcions per compartir"
+    labels = [text_content(link, visible_only=True).strip() for link in links]
+    assert labels == ["WhatsApp", "X", "Facebook", "Instagram", "Correu"], name + ": opcions per compartir incompletes o desordenades"
 
     share_index = body.children.index(share)
     headings = body.find(lambda node: node.tag == "h2" and not in_key_points(node))
@@ -117,19 +118,34 @@ def check_article_sharing(body, title, canonical, name, template=False):
         ("https", "wa.me", "/", {"text": [share_title + " " + share_url]}),
         ("https", "twitter.com", "/intent/tweet", {"text": [share_title], "url": [share_url]}),
         ("https", "www.facebook.com", "/sharer/sharer.php", {"u": [share_url]}),
+        ("https", "www.instagram.com", "/", {}),
         ("mailto", "", "", {"subject": [share_title], "body": ["Et recomano aquest article:\n\n" + share_url]}),
     ]
-    for link, (scheme, host, path, query) in zip(links, expected):
+    for link, label, (scheme, host, path, query) in zip(links, labels, expected):
         destination = urlsplit(link.attrs.get("href", ""))
         assert (destination.scheme, destination.netloc, destination.path) == (scheme, host, path), name + ": destinació per compartir incorrecta"
         assert not destination.fragment and parse_qs(destination.query, keep_blank_values=True) == query, name + ": compartir ha d’usar el títol i la URL canònica de l’article"
         accessible_name = link.attrs.get("aria-label", text_content(link)).strip()
         assert accessible_name.startswith(text_content(link, visible_only=True).strip()), name + ": nom accessible incorrecte"
+        if label == "Instagram":
+            assert "data-share-instagram" in link.attrs, name + ": falta l’activador de compartir a Instagram"
+        else:
+            assert "data-share-instagram" not in link.attrs, name + ": l’activador d’Instagram només correspon al seu enllaç"
         if scheme == "https":
             assert link.attrs.get("target") == "_blank", name + ": les xarxes s’obren en una pestanya nova"
             assert {"noopener", "noreferrer"} <= set(link.attrs.get("rel", "").split()), name + ": falta la protecció dels enllaços externs"
             hints = link.find(lambda node: node.has("visually-hidden"))
             assert any("pestanya nova" in text_content(hint) for hint in hints), name + ": falta l’avís accessible de pestanya nova"
+
+
+def check_instagram_script(page, name):
+    scripts = page.find(lambda node: node.tag == "script")
+    main = [node for node in scripts if urlsplit(node.attrs.get("src", "")).path == "/assets/main.js"]
+    instagram = [node for node in scripts if urlsplit(node.attrs.get("src", "")).path == "/assets/instagram-share.js"]
+    assert len(main) == 1, name + ": cal carregar main.js exactament una vegada"
+    assert len(instagram) == 1, name + ": cal carregar instagram-share.js exactament una vegada"
+    assert "defer" in instagram[0].attrs, name + ": instagram-share.js ha de carregar-se amb defer"
+    assert scripts.index(main[0]) < scripts.index(instagram[0]), name + ": instagram-share.js ha d’anar després de main.js"
 
 
 def check_section_headings(body, name):
@@ -170,13 +186,15 @@ def check_sharing_regressions():
         "https://wa.me/?text=" + encoded_title + "%20" + encoded_url,
         "https://twitter.com/intent/tweet?text=" + encoded_title + "&url=" + encoded_url,
         "https://www.facebook.com/sharer/sharer.php?u=" + encoded_url,
+        "https://www.instagram.com/",
         "mailto:?subject=" + encoded_title + "&body=" + quote("Et recomano aquest article:\n\n" + canonical, safe=""),
     ]
     anchors = []
-    for index, (label, href) in enumerate(zip(["WhatsApp", "X", "Facebook", "Correu"], urls)):
-        external = ' target="_blank" rel="noopener noreferrer"' if index < 3 else ""
-        hint = '<span class="visually-hidden"> (s’obre en una pestanya nova)</span>' if index < 3 else ""
-        anchors.append(f'<a href="{escape(href, quote=True)}"{external}>{label}{hint}</a>')
+    for index, (label, href) in enumerate(zip(["WhatsApp", "X", "Facebook", "Instagram", "Correu"], urls)):
+        external = ' target="_blank" rel="noopener noreferrer"' if index < 4 else ""
+        instagram = " data-share-instagram" if label == "Instagram" else ""
+        hint = '<span class="visually-hidden"> (s’obre en una pestanya nova)</span>' if index < 4 else ""
+        anchors.append(f'<a href="{escape(href, quote=True)}"{external}{instagram}>{label}{hint}</a>')
     share = '<nav class="article-share" aria-label="Comparteix aquest article"><p class="article-share__label">Comparteix l’article</p><div class="article-share__links">' + "".join(anchors) + '</div></nav>'
     conclusion = '<section><p class="section-number">01 · Conclusió</p><h2 id="conclusio">Conclusió</h2><p class="chart-subtitle">Abast.</p><p>Final.</p></section>'
     appendix = '<section><p class="section-number section-number--appendix">Fonts</p><h2 id="fonts">Fonts</h2><p class="chart-subtitle">Procedència.</p></section>'
@@ -195,6 +213,13 @@ def check_sharing_regressions():
         fixture.replace(conclusion + share, share + conclusion),
         fixture.replace(share + appendix, share + '<p>La conclusió continua.</p>' + appendix),
         fixture.replace(anchors[2], ""),
+        fixture.replace(anchors[3], ""),
+        fixture.replace(" data-share-instagram", ""),
+        fixture.replace("https://www.instagram.com/", "https://www.instagram.com/lardit/"),
+        fixture.replace(anchors[3], anchors[3].replace(' target="_blank"', "")),
+        fixture.replace(anchors[3], anchors[3].replace(' rel="noopener noreferrer"', ' rel="noreferrer"')),
+        fixture.replace(anchors[3], anchors[3].replace('<span class="visually-hidden"> (s’obre en una pestanya nova)</span>', "")),
+        fixture.replace(anchors[2], anchors[2].replace(">Facebook", " data-share-instagram>Facebook")),
     ]
     for index, html in enumerate(invalid):
         try:
@@ -232,6 +257,8 @@ for path in sorted((ROOT / "articles").rglob("index.html")):
     assert body.tag == "article" and body.parent is layout, name
     assert layout.children.index(rail) < layout.children.index(body), name
     assert set(body.attrs.get("class", "").split()) <= {"article-body", "draft-body"}, name
+    if body.find(lambda node: node.has("article-share")):
+        check_instagram_script(page, name)
     lead = next((node for node in body.children if node.tag == "p"), None)
     assert lead and lead.has("article-lead"), name + ": la introducció ha de seguir el model compartit"
     toc = one(rail.find(lambda node: node.tag == "nav" and node.has("article-toc")), name + ": falta el TOC")
@@ -285,9 +312,11 @@ assert not re.search(r"\.draft-header|\.article-(?:layout|rail|body|header|title
 template = (ROOT / "templates/article.html.example").read_text(encoding="utf-8")
 assert 'content="noindex,nofollow,noarchive"' in template
 assert next(iter(versions)) in template
-template_body = one(Page(template).root.find(lambda node: node.has("article-body")), "plantilla")
+template_page = Page(template).root
+template_body = one(template_page.find(lambda node: node.has("article-body")), "plantilla")
 assert check_section_headings(template_body, "plantilla") == ["#analisi", "#conclusions"]
 check_article_sharing(template_body, "", "", "plantilla", template=True)
+check_instagram_script(template_page, "plantilla")
 for snippet in ['class="shell article-header', 'class="shell article-layout"', '<aside class="article-rail">', 'class="article-toc"', '<article class="article-body', 'class="article-lead"']:
     assert snippet in template, "La plantilla no segueix el model: " + snippet
 assert (ROOT / "docs/estil-articles.md").exists()

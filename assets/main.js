@@ -46,6 +46,11 @@ function addArticleShareIcons(documentRoot) {
     Facebook: [
       { d: "M14 21v-8h3l.5-4H14V7.5c0-1.2.4-1.5 1.5-1.5H18V2h-3.5C11 2 9 4 9 7.5V9H6v4h3v8Z", fill: "currentColor", stroke: "none" }
     ],
+    Instagram: [
+      { d: "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" },
+      { d: "M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" },
+      { d: "M17.5 6.5h.01", "stroke-width": "2.5" }
+    ],
     Correu: [
       { d: "M3 5h18v14H3Z" },
       { d: "m3 6 9 7 9-7" }
@@ -53,7 +58,7 @@ function addArticleShareIcons(documentRoot) {
   };
   const sources = Array.from(share.querySelectorAll(".article-share__links a"));
   const channels = sources.map((source) => source.textContent.split("(")[0].trim());
-  if (sources.length !== 4 || channels.some((channel) => !icons[channel])) return;
+  if (sources.length !== 5 || channels.some((channel) => !icons[channel])) return;
 
   const side = documentRoot.createElement("div");
   side.className = "article-side";
@@ -64,6 +69,7 @@ function addArticleShareIcons(documentRoot) {
     const channel = channels[index];
     const link = documentRoot.createElement("a");
     link.setAttribute("href", source.getAttribute("href"));
+    if (source.getAttribute("data-share-instagram") !== null) link.setAttribute("data-share-instagram", "");
     const label = channel === "Correu" ? "Comparteix per correu" : `Comparteix a ${channel}`;
     const opensNewTab = source.getAttribute("target") === "_blank";
     link.setAttribute("aria-label", label + (opensNewTab ? " (s’obre en una pestanya nova)" : ""));

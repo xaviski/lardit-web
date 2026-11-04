@@ -8,7 +8,7 @@ La plantilla per començar un article és `templates/article.html.example`. És 
 
 ## Una sola font de format
 
-Tots els articles carreguen `/assets/styles.css?v=20261021-compartir` i `/assets/main.js?v=20261021-compartir`. La geometria, la tipografia i el comportament responsive es defineixen en aquest full compartit; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
+Tots els articles carreguen `/assets/styles.css?v=20261104-instagram`, `/assets/main.js?v=20261104-instagram` i `/assets/instagram-share.js?v=20261104-instagram`. La geometria, la tipografia i el comportament responsive es defineixen en els recursos compartits; no s’han de tornar a definir en un CSS particular, un bloc `<style>` o un atribut `style` de l’article.
 
 Les classes particulars només han de resoldre necessitats del contingut, com una visualització o un component específic. No han de canviar l’amplada ni l’alineació del cos, la separació del menú, els títols generals o la mida del text de lectura. Si cal modificar el format, cal fer-ho en l’estil compartit i comprovar tots els articles publicats.
 
@@ -77,11 +77,12 @@ Cada secció principal, inclosa la conclusió, segueix aquest trio de germans co
 
 ## Opcions per compartir
 
-- Cada article publicat inclou un únic `nav.article-share`, germà de les seccions del cos, just després de la conclusió i abans de les fonts o la metodologia. Usa el bloc de `templates/article.html.example`, amb WhatsApp, X, Facebook i Correu, en aquest ordre, i els estils compartits.
-- Els enllaços són HTML estàtic i funcionen també sense JavaScript. Comparteixen la URL canònica de l’article, no l’adreça de previsualització ni l’ancoratge actual. WhatsApp, X i l’assumpte del correu inclouen el títol de l’`h1` seguit de ` — L’Ardit`.
+- Cada article publicat inclou un únic `nav.article-share`, germà de les seccions del cos, just després de la conclusió i abans de les fonts o la metodologia. Usa el bloc de `templates/article.html.example`, amb WhatsApp, X, Facebook, Instagram i Correu, en aquest ordre, i els estils compartits.
+- Els enllaços són HTML estàtic i ofereixen una destinació de reserva també sense JavaScript. Comparteixen la URL canònica de l’article, no l’adreça de previsualització ni l’ancoratge actual. WhatsApp, X i l’assumpte del correu inclouen el títol de l’`h1` seguit de ` — L’Ardit`; Instagram obté la URL canònica des del modal compartit.
 - A la plantilla, substitueix `{{TITOL_COMPARTIR_URLENCODED}}` pel títol amb la marca codificat per a URL, i `{{URL_CANONICA_URLENCODED}}` per la URL canònica codificada. Conserva els separadors HTML `&amp;`. El test de format comprova les destinacions, el títol, la URL i l’emplaçament en tots els articles publicats; també detecta camps sense substituir.
 - Els enllaços de xarxes obren una pestanya nova amb `target="_blank"`, `rel="noopener noreferrer"` i un avís per als lectors de pantalla. Correu és un enllaç `mailto:` i no envia cap missatge automàticament.
-- En ordinador, a més del bloc final, el JavaScript compartit crea quatre icones SVG petites al marge dret, sense text visible ni serveis externs incrustats. Reutilitza els enllaços del bloc final, conserva noms accessibles i una àrea clicable suficient. No copiïs manualment un segon joc d’URL ni afegeixis dependències socials.
+- Instagram obre el modal compartit, que ofereix «Copia l’enllaç» amb la URL canònica i «Obre els missatges». També genera una Story PNG de **1080 × 1920 px**: només ofereix compartir el fitxer amb el menú natiu quan `navigator.canShare({ files })` ho admet, i manté «Descarrega la imatge» com a alternativa. L’usuari ha de completar el missatge o la Story dins d’Instagram i afegir-hi manualment l’adhesiu «Enllaç»; el web no publica automàticament.
+- En ordinador, a més del bloc final, `main.js` crea cinc icones SVG petites al marge dret i reutilitza els enllaços del bloc final; després, `instagram-share.js` vincula el modal als disparadors d’Instagram. Els articles i `templates/article.html.example` han de carregar els dos scripts, en aquest ordre i amb `defer`. Les icones no mostren text visible ni incrusten serveis externs, conserven noms accessibles i una àrea clicable suficient. No copiïs manualment un segon joc d’URL ni afegeixis dependències socials.
 - Les icones laterals acompanyen la lectura amb `sticky`, sense moure el cos ni el menú esquerre. Les notes existents es conserven al marge dret. Fins a 1100 px s’oculta el complement lateral i es manté el bloc del final; a la impressió no es mostren controls socials.
 - Els esborranys existents han d’incorporar aquest bloc abans de publicar-se. Afegir opcions per compartir no elimina el `noindex` ni autoritza la publicació d’un esborrany.
 
@@ -111,7 +112,7 @@ python scripts/test-metadades-articles.py
 python scripts/test-publicacio-creixement.py
 python scripts/test-oferta-demanda.py
 python scripts/test-site.py
-node --test scripts/economy/test.mjs scripts/test-article-share.mjs
+node --test scripts/economy/test.mjs scripts/test-article-share.mjs scripts/test-instagram-share.mjs
 ```
 
 També cal revisar visualment els articles publicats de transport, universitats, creixement i oferta i demanda:

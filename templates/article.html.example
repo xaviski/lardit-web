@@ -25,8 +25,9 @@
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/assets/styles.css?v=20261021-compartir">
-    <script src="/assets/main.js?v=20261021-compartir" defer></script>
+    <link rel="stylesheet" href="/assets/styles.css?v=20261104-instagram">
+    <script src="/assets/main.js?v=20261104-instagram" defer></script>
+    <script src="/assets/instagram-share.js?v=20261104-instagram" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#article">Ves a l’article</a>
@@ -126,6 +127,7 @@
               <a href="https://wa.me/?text={{TITOL_COMPARTIR_URLENCODED}}%20{{URL_CANONICA_URLENCODED}}" target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (s’obre en una pestanya nova)</span></a>
               <a href="https://twitter.com/intent/tweet?text={{TITOL_COMPARTIR_URLENCODED}}&amp;url={{URL_CANONICA_URLENCODED}}" target="_blank" rel="noopener noreferrer">X<span class="visually-hidden"> (s’obre en una pestanya nova)</span></a>
               <a href="https://www.facebook.com/sharer/sharer.php?u={{URL_CANONICA_URLENCODED}}" target="_blank" rel="noopener noreferrer">Facebook<span class="visually-hidden"> (s’obre en una pestanya nova)</span></a>
+              <a href="https://www.instagram.com/" data-share-instagram target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (s’obre en una pestanya nova)</span></a>
               <a href="mailto:?subject={{TITOL_COMPARTIR_URLENCODED}}&amp;body=Et%20recomano%20aquest%20article%3A%0A%0A{{URL_CANONICA_URLENCODED}}">Correu</a>
             </div>
           </nav>
