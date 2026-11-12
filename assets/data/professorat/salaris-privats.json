@@ -1,0 +1,682 @@
+{
+  "schema_version": 1,
+  "title": "Sous base de conveni del professorat de primària de l'ensenyament privat a Catalunya",
+  "researched": "2026-11-12",
+  "currency": "EUR",
+  "scope": {
+    "jurisdiction": "Catalunya",
+    "staff": "professor o professora titular de primària, jornada completa",
+    "measure": "mínim brut mensual de conveni",
+    "included": "salari base de la categoria",
+    "excluded": "antiguitat, plus de transport, complement d'analogia, complement específic, càrrecs, complements voluntaris i altres conceptes",
+    "payments_per_year": 14
+  },
+  "series_definition": {
+    "headline_field": "ordinary_monthly_base_eur",
+    "rule": "Import de la darrera taula aplicable dins de l'any. Els canvis intranuals es conserven a periods.",
+    "floor_not_observed_salary": "Són mínims normatius de conveni, no salaris efectivament observats ni mitjanes de nòmina.",
+    "separation_rule": "La base, el trienni i els complements es mantenen en camps separats; no es publica cap suma com a sou total.",
+    "rounding": "Imports oficials; no s'interpolen quanties ni anys."
+  },
+  "limitations": [
+    "La sèrie no concertada és la dels centres d'ensenyament reglat sense cap nivell concertat; no representa tota l'escola privada.",
+    "La sèrie concertada és independent perquè el conveni i l'estructura retributiva són diferents i inclouen conceptes d'analogia i específics.",
+    "No s'ha de comparar la base privada amb una retribució pública total ni interpretar la diferència com un efecte causal del poder de mercat.",
+    "Els triennis i complements només es transcriuen com a referència separada quan la taula oficial consultada els identifica inequívocament.",
+    "El 2026 de concertada és una taula publicada el 3.8.2026, no una nòmina completa amb tots els complements de millora posteriors. Els anys 2010–2025 de concertada no s’han transcrit; la llacuna no vol dir que no hi hagi fonts disponibles."
+  ],
+  "series": {
+    "non_concerted_regulated": {
+      "label": "Ensenyament privat reglat no concertat",
+      "convention_codes": [
+        "7900575",
+        "79000225011994",
+        "79000222",
+        "79002915012012"
+      ],
+      "rows": [
+        {
+          "year": 2005,
+          "ordinary_monthly_base_eur": 1400.25,
+          "periods": [
+            {
+              "from": "2005-01-01",
+              "to": "2005-12-31",
+              "ordinary_monthly_base_eur": 1400.25
+            }
+          ],
+          "triennium_monthly_eur": 27.97,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dibaaps.diba.cat/vnis/temp/CIDO_dogc_2005_01_20050105_DOGC_20050105_008_021.pdf",
+            "locator": "Resolució TRI/3610/2004, DOGC 4295, 5.1.2005, annex de taules, p. 205",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2006,
+          "ordinary_monthly_base_eur": 1464.52,
+          "periods": [
+            {
+              "from": "2006-01-01",
+              "to": "2006-08-31",
+              "ordinary_monthly_base_eur": 1460.03
+            },
+            {
+              "from": "2006-09-01",
+              "to": "2006-12-31",
+              "ordinary_monthly_base_eur": 1464.52
+            }
+          ],
+          "triennium_monthly_eur": 28.53,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11
+          },
+          "status": "final_with_intra_year_revision",
+          "source": {
+            "url": "https://dibaaps.diba.cat/vnis/temp/CIDO_dogc_2006_09_20060919_DOGC_20060919_160_176.pdf",
+            "locator": "Resolució TRI/2951/2006, DOGC 4721, 19.9.2006, pp. 38998-38999",
+            "table": "Ensenyaments reglats sense cap nivell concertat o subvencionat — Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2007,
+          "ordinary_monthly_base_eur": 1507.98,
+          "periods": [
+            {
+              "from": "2007-01-01",
+              "to": "2007-12-31",
+              "ordinary_monthly_base_eur": 1507.98
+            }
+          ],
+          "triennium_monthly_eur": 29.1,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1055248",
+            "locator": "Resolució TRE/1531/2008, DOGC 5139, 27.5.2008, annex de taules 2007",
+            "table": "Ensenyaments reglats sense cap nivell concertat — Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2008,
+          "ordinary_monthly_base_eur": 1550.25,
+          "periods": [
+            {
+              "from": "2008-01-01",
+              "to": "2008-12-31",
+              "ordinary_monthly_base_eur": 1550.25
+            }
+          ],
+          "triennium_monthly_eur": 29.1,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1202445",
+            "locator": "Resolució TRE/1795/2009, DOGC 5411, 1.7.2009, annex de taules 2008",
+            "table": "Ensenyaments reglats sense cap nivell concertat — Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2009,
+          "ordinary_monthly_base_eur": 1578.6,
+          "periods": [
+            {
+              "from": "2009-01-01",
+              "to": "2009-12-31",
+              "ordinary_monthly_base_eur": 1578.6
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1202445",
+            "locator": "Resolució TRE/1795/2009, DOGC 5411, 1.7.2009, annex de taules 2009",
+            "table": "Ensenyaments reglats sense cap nivell concertat — Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2010,
+          "ordinary_monthly_base_eur": 1596.0,
+          "periods": [
+            {
+              "from": "2010-01-01",
+              "to": "2010-12-31",
+              "ordinary_monthly_base_eur": 1596.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=602159",
+            "locator": "Resolució EMO/428/2012, DOGC 6087, 14.3.2012, annex de taules 2010",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2011,
+          "ordinary_monthly_base_eur": 1630.0,
+          "periods": [
+            {
+              "from": "2011-01-01",
+              "to": "2011-12-31",
+              "ordinary_monthly_base_eur": 1630.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=602159",
+            "locator": "Resolució EMO/428/2012, DOGC 6087, 14.3.2012, annex de taules 2011",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2012,
+          "ordinary_monthly_base_eur": 1665.0,
+          "periods": [
+            {
+              "from": "2012-01-01",
+              "to": "2012-12-31",
+              "ordinary_monthly_base_eur": 1665.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=602159",
+            "locator": "Resolució EMO/428/2012, DOGC 6087, 14.3.2012, annex de taules 2012",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2013,
+          "ordinary_monthly_base_eur": 1665.0,
+          "periods": [
+            {
+              "from": "2013-01-01",
+              "to": "2013-12-31",
+              "ordinary_monthly_base_eur": 1665.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=627190&language=ca_ES&type=01",
+            "locator": "Resolució EMO/121/2013, DOGC 6307, 4.2.2013, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2014,
+          "ordinary_monthly_base_eur": 1665.0,
+          "periods": [
+            {
+              "from": "2014-01-01",
+              "to": "2014-12-31",
+              "ordinary_monthly_base_eur": 1665.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=679962&type=01&language=ca_ES",
+            "locator": "Resolució EMO/2882/2014, DOGC 6779, 30.12.2014, annex de taules 2014",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2015,
+          "ordinary_monthly_base_eur": 1687.0,
+          "periods": [
+            {
+              "from": "2015-01-01",
+              "to": "2015-12-31",
+              "ordinary_monthly_base_eur": 1687.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=679962&type=01&language=ca_ES",
+            "locator": "Resolució EMO/2882/2014, DOGC 6779, 30.12.2014, annex de taules 2015",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2016,
+          "ordinary_monthly_base_eur": 1704.0,
+          "periods": [
+            {
+              "from": "2016-01-01",
+              "to": "2016-12-31",
+              "ordinary_monthly_base_eur": 1704.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=713254&type=01&language=ca_ES",
+            "locator": "Resolució EMO/3064/2015, DOGC 7033, 8.1.2016, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2017,
+          "ordinary_monthly_base_eur": 1722.0,
+          "periods": [
+            {
+              "from": "2017-01-01",
+              "to": "2017-12-31",
+              "ordinary_monthly_base_eur": 1722.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=780903&type=01&language=ca_ES",
+            "locator": "Resolució TSF/495/2017, DOGC 7332, 20.3.2017, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2018,
+          "ordinary_monthly_base_eur": 1747.0,
+          "periods": [
+            {
+              "from": "2018-01-01",
+              "to": "2018-12-31",
+              "ordinary_monthly_base_eur": 1747.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 150.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=820413&type=01&language=ca_ES",
+            "locator": "Resolució TSF/1260/2018, DOGC 7646, 20.6.2018, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2019,
+          "ordinary_monthly_base_eur": 1801.0,
+          "periods": [
+            {
+              "from": "2019-01-01",
+              "to": "2019-12-31",
+              "ordinary_monthly_base_eur": 1801.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=850583&type=01&language=ca_ES",
+            "locator": "Resolució TSF/1401/2019, DOGC 7886, 30.5.2019, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2020,
+          "ordinary_monthly_base_eur": 1801.0,
+          "periods": [
+            {
+              "from": "2020-01-01",
+              "to": "2020-12-31",
+              "ordinary_monthly_base_eur": 1801.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cnc.extranet.gencat.cat/treball_cnc/fitxers/upload/catala/79000222/20220125_ensenyament%20privat%20no%20concertat%20de%20Catalunya_cat.pdf",
+            "locator": "Resolució EMT/3933/2021, DOGC 8591, 25.1.2022, annex de taules 2020",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2021,
+          "ordinary_monthly_base_eur": 1823.0,
+          "periods": [
+            {
+              "from": "2021-01-01",
+              "to": "2021-08-31",
+              "ordinary_monthly_base_eur": 1818.0
+            },
+            {
+              "from": "2021-09-01",
+              "to": "2021-12-31",
+              "ordinary_monthly_base_eur": 1823.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11
+          },
+          "status": "final_with_intra_year_revision",
+          "source": {
+            "url": "https://cnc.extranet.gencat.cat/treball_cnc/fitxers/upload/catala/79000222/20220125_ensenyament%20privat%20no%20concertat%20de%20Catalunya_cat.pdf",
+            "locator": "Resolució EMT/3933/2021, DOGC 8591, 25.1.2022, annex de taules 2021",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2022,
+          "ordinary_monthly_base_eur": 1860.0,
+          "periods": [
+            {
+              "from": "2022-01-01",
+              "to": "2022-12-31",
+              "ordinary_monthly_base_eur": 1860.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "annual_eur": 1320.0,
+            "payments_per_year": 11,
+            "monthly_equivalent_eur": 120.0
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cnc.extranet.gencat.cat/treball_cnc/fitxers/upload/catala/79000222/20220426%20-%20Ensenyament%20privat%20no%20reglat%20CAT.pdf",
+            "locator": "Resolució EMT/1076/2022, DOGC 8654, 26.4.2022, annex",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2023,
+          "ordinary_monthly_base_eur": 1916.0,
+          "periods": [
+            {
+              "from": "2023-01-01",
+              "to": "2023-12-31",
+              "ordinary_monthly_base_eur": 1916.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "status": "not_transcribed"
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=962625",
+            "locator": "Resolució EMT/1972/2023, DOGC 8934, 12.6.2023, annex de taules 2023",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2024,
+          "ordinary_monthly_base_eur": 1974.0,
+          "periods": [
+            {
+              "from": "2024-01-01",
+              "to": "2024-12-31",
+              "ordinary_monthly_base_eur": 1974.0
+            }
+          ],
+          "triennium_monthly_eur": 30.0,
+          "transport_allowance": {
+            "status": "not_transcribed"
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=962625",
+            "locator": "Resolució EMT/1972/2023, DOGC 8934, 12.6.2023, annex de taules 2024",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2025,
+          "ordinary_monthly_base_eur": 2034.0,
+          "periods": [
+            {
+              "from": "2025-01-01",
+              "to": "2025-12-31",
+              "ordinary_monthly_base_eur": 2034.0
+            }
+          ],
+          "triennium_monthly_eur": 31.0,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11,
+            "annual_eur": 1320.0,
+            "source": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1027859&language=ca_ES&type=01",
+            "locator": "Annex VI, p.53/54"
+          },
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1027859",
+            "pdf_url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1027859&type=01&language=ca_ES",
+            "locator": "Resolució EMT/3846/2025, DOGC 9529, 28.10.2025, annex de taules 2025",
+            "table": "Primària — Professor titular"
+          }
+        },
+        {
+          "year": 2026,
+          "ordinary_monthly_base_eur": 2089.0,
+          "periods": [
+            {
+              "from": "2026-01-01",
+              "to": "2026-12-31",
+              "ordinary_monthly_base_eur": 2089.0
+            }
+          ],
+          "triennium_monthly_eur": 33.0,
+          "transport_allowance": {
+            "monthly_eur": 120.0,
+            "payments_per_year": 11,
+            "annual_eur": 1320.0,
+            "source": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1027859&language=ca_ES&type=01",
+            "locator": "Annex VI, p.53/54"
+          },
+          "status": "published_and_applicable_as_of_2026-11-12",
+          "source": {
+            "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1027859",
+            "pdf_url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1027859&type=01&language=ca_ES",
+            "locator": "Resolució EMT/3846/2025, DOGC 9529, 28.10.2025, annex de taules 2026",
+            "table": "Primària — Professor titular"
+          },
+          "note": "La correcció publicada el 12.2.2026 afegeix una categoria al complement funcional; no modifica la base del professor titular."
+        }
+      ]
+    },
+    "publicly_funded_concerted": {
+      "label": "Ensenyament privat sostingut totalment o parcialment amb fons públics",
+      "convention_code": "79000575011994",
+      "coverage_note": "Sèrie parcial: només s'hi inclouen els ancoratges verificats directament en taules oficials. No s'interpolen els anys pendents.",
+      "rows": [
+        {
+          "year": 2005,
+          "ordinary_monthly_base_eur": 1322.36,
+          "periods": [
+            {
+              "from": "2005-01-01",
+              "to": "2005-12-31",
+              "ordinary_monthly_base_eur": 1322.36
+            }
+          ],
+          "triennium_monthly_eur": 32.89,
+          "mandatory_components": {
+            "analogy_monthly_eur": 422.82,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://dibaaps.diba.cat/vnis/temp/CIDO_dogc_2005_05_20050504_DOGC_20050504_015_018.pdf",
+            "locator": "Resolució TRI/1344/2005, DOGC 4377, 4.5.2005, pp. 12167-12168",
+            "table": "Primària i educació infantil 2n cicle integrat (concertada) — Professor titular"
+          }
+        },
+        {
+          "year": 2006,
+          "ordinary_monthly_base_eur": 1383.18,
+          "periods": [
+            {
+              "from": "2006-01-01",
+              "to": "2006-12-31",
+              "ordinary_monthly_base_eur": 1383.18
+            }
+          ],
+          "triennium_monthly_eur": 33.55,
+          "mandatory_components": {
+            "analogy_monthly_eur": 440.87,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "final",
+          "source": {
+            "url": "https://dibaaps.diba.cat/vnis/temp/CIDO_dogc_2006_09_20060919_DOGC_20060919_160_176.pdf",
+            "locator": "Resolució TRI/2951/2006, DOGC 4721, 19.9.2006, p. 38997",
+            "table": "Primària i educació infantil 2n cicle integrat (concertada) — Professor titular"
+          }
+        },
+        {
+          "year": 2007,
+          "ordinary_monthly_base_eur": 1439.47,
+          "periods": [
+            {
+              "from": "2007-01-01",
+              "to": "2007-12-31",
+              "ordinary_monthly_base_eur": 1439.47
+            }
+          ],
+          "triennium_monthly_eur": 34.22,
+          "mandatory_components": {
+            "analogy_monthly_eur": 449.69,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1055248",
+            "locator": "Resolució TRE/1531/2008, DOGC 5139, 27.5.2008, annex de taules 2007",
+            "table": "Primària i educació infantil 2n cicle integrat (concertada) — Professor titular"
+          }
+        },
+        {
+          "year": 2008,
+          "ordinary_monthly_base_eur": 1497.05,
+          "periods": [
+            {
+              "from": "2008-01-01",
+              "to": "2008-12-31",
+              "ordinary_monthly_base_eur": 1497.05
+            }
+          ],
+          "triennium_monthly_eur": 34.92,
+          "mandatory_components": {
+            "analogy_monthly_eur": 465.07,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1202445",
+            "locator": "Resolució TRE/1795/2009, DOGC 5411, 1.7.2009, annex de taules 2008",
+            "table": "Primària i educació infantil 2n cicle integrat (concertada) — Professor titular"
+          }
+        },
+        {
+          "year": 2009,
+          "ordinary_monthly_base_eur": 1541.96,
+          "periods": [
+            {
+              "from": "2009-01-01",
+              "to": "2009-12-31",
+              "ordinary_monthly_base_eur": 1541.96
+            }
+          ],
+          "triennium_monthly_eur": 35.62,
+          "mandatory_components": {
+            "analogy_monthly_eur": 481.15,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "final_retroactive_from_january_1",
+          "source": {
+            "url": "https://cido.diba.cat/legislacio/1202445",
+            "locator": "Resolució TRE/1795/2009, DOGC 5411, 1.7.2009, annex de taules 2009",
+            "table": "Primària i educació infantil 2n cicle integrat (concertada) — Professor titular"
+          }
+        },
+        {
+          "year": 2026,
+          "ordinary_monthly_base_eur": 1928.68,
+          "triennium_monthly_eur": 41.85,
+          "mandatory_components": {
+            "analogy_monthly_eur": 545.5,
+            "specific_monthly_eur": 35.95
+          },
+          "payments_per_year": 14,
+          "status": "published_table_2026_not_complete_payroll",
+          "source": {
+            "url": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1051707&language=es_ES&type=01",
+            "locator": "Resolucio EMT/2678/2026, DOGC9721, 3.8.2026, p.4/9",
+            "table": "Primaria y Educacion Infantil 2 ciclo integrado concertada - Profesor titular"
+          },
+          "note": "Taula que actualitza analogia amb efectes de gener de 2026. No es presenta la suma com a salari total actual: altres acords de millora i conceptes personals poden afegir-se."
+        }
+      ]
+    }
+  }
+}

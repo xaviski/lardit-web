@@ -1,0 +1,31 @@
+{
+  "checked": "2026-11-12",
+  "school_year": "2024/2025",
+  "measure": "Professorat declarat pels centres segons titularitat; no és el flux de noves contractacions ni llocs equivalents a jornada completa.",
+  "rows": [
+    {"stage": "Infantil i primària", "public": 45647, "private": 19828, "total": 65475, "source": "https://www.idescat.cat/indicadors/?id=aec&n=15713"},
+    {"stage": "Secundària (ESO, batxillerat i FP)", "public": 42101, "private": 15656, "total": 57757, "source": "https://www.idescat.cat/indicadors/?id=aec&n=15720"}
+  ],
+  "notes": [
+    "Públic inclou el Departament i altres administracions. Privat inclou concertat i no concertat.",
+    "La primera taula no aïlla la primària: inclou infantil i els centres privats que també imparteixen el primer cicle (0–2 anys).",
+    "No sumem les dues etapes com si fossin una plantilla de persones úniques.",
+    "Darrera actualització de les dues taules: 16 de setembre de 2026."
+  ],
+  "variation_2026_reference": {
+    "source": "https://web.gencat.cat/content/dam/webgencat/documents/la-generalitat/govern-obert/publicitat-activa/servidors-p%C3%BAblics/retribucions-2026/retribucions-personal-docent-no-universitari.pdf",
+    "basis": "Imports mensuals ordinaris de la taula general 2026 amb increment estatal de l’1,5%. No són una nòmina completa actualitzada amb tots els acords autonòmics posteriors.",
+    "primary_base": 1199.52,
+    "primary_destination": 592.11,
+    "primary_specific_general": 704.95,
+    "primary_triennium": 43.54,
+    "stages_incremental": [128.88, 135.54, 153.66, 166.39, 145.65],
+    "primary_director_by_centre": [305.60, 422.61, 605.43, 717.29, 833.46, 882.32],
+    "primary_tutor": 66.56,
+    "primary_coordinator": 93.60,
+    "secondary_base": 1387.24,
+    "secondary_destination": 729.14,
+    "secondary_specific_general": 720.83,
+    "secondary_triennium": 53.39
+  }
+}

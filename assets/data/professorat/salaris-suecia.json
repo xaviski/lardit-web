@@ -1,0 +1,209 @@
+{
+  "retrieved": "2026-11-12",
+  "measure": "Average gross monthly salary, full-time equivalent, current SEK",
+  "occupation": "2341 Primary school teachers (SSYK 2012); Sweden compulsory school, broader than Catalan primary",
+  "coverage": "Sweden, all sectors, both sexes; observed workforce, not a statutory base-pay scale or fixed cohort",
+  "notes": [
+    "SSYK classification changed in 2014: do not splice pre-2014 occupation series.",
+    "AID classification updates in 2018; SCB advises caution for year comparisons.",
+    "SCB publishes 2014-2022 and 2023-2025 in separate tables; private-sector sampling and changes in workforce composition affect year comparisons.",
+    "No 2026 annual observation available at retrieval. Nominal amounts; not adjusted for inflation."
+  ],
+  "rows": [
+    {
+      "year": 2014,
+      "monthly_sek": 29200,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2015,
+      "monthly_sek": 30100,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2016,
+      "monthly_sek": 31700,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2017,
+      "monthly_sek": 32900,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2018,
+      "monthly_sek": 33900,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2019,
+      "monthly_sek": 35300,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2020,
+      "monthly_sek": 36200,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2021,
+      "monthly_sek": 36600,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2022,
+      "monthly_sek": 37700,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4A"
+    },
+    {
+      "year": 2023,
+      "monthly_sek": 39000,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4AN"
+    },
+    {
+      "year": 2024,
+      "monthly_sek": 40200,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4AN"
+    },
+    {
+      "year": 2025,
+      "monthly_sek": 41600,
+      "source": "https://api.scb.se/OV0104/v1/doris/en/ssd/START/AM/AM0110/AM0110A/LonYrkeRegion4AN"
+    }
+  ],
+  "queries": {
+    "LonYrkeRegion4A": {
+      "query": [
+        {
+          "code": "Region",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "SE"
+            ]
+          }
+        },
+        {
+          "code": "Sektor",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "0"
+            ]
+          }
+        },
+        {
+          "code": "Yrke2012",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "2341"
+            ]
+          }
+        },
+        {
+          "code": "Kon",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "1+2"
+            ]
+          }
+        },
+        {
+          "code": "ContentsCode",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "000000BW"
+            ]
+          }
+        },
+        {
+          "code": "Tid",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "2014",
+              "2015",
+              "2016",
+              "2017",
+              "2018",
+              "2019",
+              "2020",
+              "2021",
+              "2022"
+            ]
+          }
+        }
+      ],
+      "response": {
+        "format": "json"
+      }
+    },
+    "LonYrkeRegion4AN": {
+      "query": [
+        {
+          "code": "Region",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "SE"
+            ]
+          }
+        },
+        {
+          "code": "Sektor",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "0"
+            ]
+          }
+        },
+        {
+          "code": "Yrke2012",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "2341"
+            ]
+          }
+        },
+        {
+          "code": "Kon",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "1+2"
+            ]
+          }
+        },
+        {
+          "code": "ContentsCode",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "000007AS"
+            ]
+          }
+        },
+        {
+          "code": "Tid",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "2023",
+              "2024",
+              "2025"
+            ]
+          }
+        }
+      ],
+      "response": {
+        "format": "json"
+      }
+    }
+  },
+  "source_comments": []
+}

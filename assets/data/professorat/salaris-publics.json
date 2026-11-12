@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "title": "Sou base mensual ordinari del cos de mestres públics a Catalunya",
+  "researched": "2026-11-12",
+  "currency": "EUR",
+  "scope": {
+    "jurisdiction": "Catalunya",
+    "staff": "personal funcionari del cos de mestres (0597), subgrup A2; antic grup B",
+    "workload": "jornada completa",
+    "seniority": "sense antiguitat",
+    "included": "sou base estatal del subgrup A2",
+    "excluded": "triennis, complement de destinació, complement específic, complements docents o autonòmics, estadis, càrrecs i qualsevol altre complement",
+    "ordinary_payments_per_year": 12,
+    "usual_extra_payments_per_year": 2
+  },
+  "series_definition": {
+    "headline_field": "ordinary_monthly_base_eur",
+    "rule": "Import brut mensual de la mensualitat ordinària vigent al final de l'any, incorporant els increments aprovats posteriorment quan la norma els fa retroactius a aquell exercici.",
+    "year_end_history_field": "ordinary_monthly_known_at_year_end_eur",
+    "year_end_history_note": "Conserva l'import que ja estava aprovat a 31 de desembre. Pot diferir del dret legal final si un increment es va aprovar més tard amb efectes retroactius.",
+    "extra_pay_note": "Els camps june i december només recullen el component legal de sou base de cada paga extraordinària, no la paga extraordinària completa ni una mensualitat ordinària. Quan una paga es va suprimir, el camp extra_salary_component_paid_eur separa la quantia legal de l'abonament efectiu.",
+    "rounding": "Imports oficials en euros amb dos decimals; no s'interpolen anys ni quanties."
+  },
+  "classification_sources": [
+    {
+      "label": "L'antic grup B queda integrat en el subgrup A2",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719&p=20240112&tn=0"
+    },
+    {
+      "label": "El cos de mestres 0597 figura en el subgrup A2",
+      "url": "https://www.boe.es/boe/dias/2024/07/03/pdfs/BOE-A-2024-13572.pdf"
+    }
+  ],
+  "limitations": [
+    "No és el sou brut mensual total d'un mestre. El total és superior perquè inclou complements estatals i de la Generalitat i, si escau, antiguitat, estadis o càrrecs.",
+    "El sou base A2 és estatal: la sèrie s'aplica als mestres públics de Catalunya per la seva classificació funcionarial, no perquè l'import el fixi una taula salarial catalana.",
+    "No s'ha de comparar aquest sou base públic amb una retribució privada total; cal comparar base amb base o paquets obligatoris complets amb paquets obligatoris complets.",
+    "Les variacions mostren decisions pressupostàries i retributives legals. Per si soles no identifiquen monopsoni ni permeten estimar quin seria el salari competitiu.",
+    "La jornada parcial es retribueix proporcionalment."
+  ],
+  "rows": [
+    {
+      "year": 2005,
+      "legal_group": "B (Llei 30/1984; equivalent posterior a A2)",
+      "ordinary_monthly_base_eur": 907.80,
+      "ordinary_monthly_known_at_year_end_eur": 907.80,
+      "extra_salary_component_eur": {"june": 907.80, "december": 907.80},
+      "periods": [
+        {"from": "2005-01-01", "to": "2005-12-31", "ordinary_monthly_base_eur": 907.80}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2004/12/28/pdfs/A41879-42020.pdf",
+        "locator": "Ley 2/2004, art. 25.Uno.A-B, BOE p. 41895",
+        "table": "Sou anual del grup B referit expressament a dotze mensualitats"
+      },
+      "note": "La llei fixa 10.893,60 euros en dotze mensualitats: 10.893,60 / 12 = 907,80. Cada extra incorpora una mensualitat de sou."
+    },
+    {
+      "year": 2006,
+      "legal_group": "B (Llei 30/1984; equivalent posterior a A2)",
+      "ordinary_monthly_base_eur": 925.96,
+      "ordinary_monthly_known_at_year_end_eur": 925.96,
+      "extra_salary_component_eur": {"june": 925.96, "december": 925.96},
+      "periods": [
+        {"from": "2006-01-01", "to": "2006-12-31", "ordinary_monthly_base_eur": 925.96}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2006/01/03/pdfs/A00299-00348.pdf",
+        "locator": "Resolución de 2 de enero de 2006, annex IV.a, BOE p. 308",
+        "table": "Quantia mensual del grup B i pagues extraordinàries"
+      }
+    },
+    {
+      "year": 2007,
+      "legal_group": "B (Llei 30/1984; equivalència A2 de l'EBEP)",
+      "ordinary_monthly_base_eur": 944.48,
+      "ordinary_monthly_known_at_year_end_eur": 944.48,
+      "extra_salary_component_eur": {"june": 944.48, "december": 944.48},
+      "periods": [
+        {"from": "2007-01-01", "to": "2007-12-31", "ordinary_monthly_base_eur": 944.48}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2007/01/03/pdfs/A00135-00181.pdf",
+        "locator": "Resolución de 2 de enero de 2007, annex IV, BOE p. 143",
+        "table": "Quantia mensual del grup B i pagues extraordinàries"
+      }
+    },
+    {
+      "year": 2008,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 963.37,
+      "ordinary_monthly_known_at_year_end_eur": 963.37,
+      "extra_salary_component_eur": {"june": 963.37, "december": 963.37},
+      "periods": [
+        {"from": "2008-01-01", "to": "2008-12-31", "ordinary_monthly_base_eur": 963.37}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2008/01/03/pdfs/A00146-00182.pdf",
+        "locator": "Resolución de 2 de enero de 2008, annex IV, BOE p. 154",
+        "table": "Quantia mensual del subgrup A2 i pagues extraordinàries"
+      },
+      "note": "La fila correcta és A2; el nou grup B de l'EBEP és una categoria diferent."
+    },
+    {
+      "year": 2009,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 982.64,
+      "ordinary_monthly_known_at_year_end_eur": 982.64,
+      "extra_salary_component_eur": {"june": 982.64, "december": 982.64},
+      "periods": [
+        {"from": "2009-01-01", "to": "2009-12-31", "ordinary_monthly_base_eur": 982.64}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2009/01/03/pdfs/BOE-A-2009-71.pdf",
+        "locator": "Resolución de 2 de enero de 2009, annex IV, BOE p. 241",
+        "table": "Quantia mensual del subgrup A2 i pagues extraordinàries"
+      }
+    },
+    {
+      "year": 2010,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 985.59, "december": 662.32},
+      "periods": [
+        {"from": "2010-01-01", "to": "2010-05-31", "ordinary_monthly_base_eur": 985.59},
+        {"from": "2010-06-01", "to": "2010-12-31", "ordinary_monthly_base_eur": 958.98}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2010/05/24/pdfs/BOE-A-2010-8228.pdf",
+        "locator": "Real Decreto-ley 8/2010, art. 1.Dos i 1.Tres, BOE pp. 45077-45079",
+        "table": "Quanties del subgrup A2 abans i després de la reducció"
+      },
+      "note": "Retallada amb efectes des de l'1 de juny. Abans: 11.827,08 / 12 = 985,59 euros; després: 11.507,76 / 12 = 958,98 euros. L'extra de juny conserva 985,59 euros i la de desembre fixa específicament 662,32 euros. El 5 % anunciat era una reducció agregada de retribucions, no un 5 % uniforme del sou base A2."
+    },
+    {
+      "year": 2011,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 699.38, "december": 699.38},
+      "periods": [
+        {"from": "2011-01-01", "to": "2011-12-31", "ordinary_monthly_base_eur": 958.98}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2010/12/23/pdfs/BOE-A-2010-19703.pdf",
+        "locator": "Ley 39/2010, art. 22.Seis.1-2, BOE pp. 105767-105768",
+        "table": "Sou ordinari del subgrup A2 i component de sou de les pagues extraordinàries"
+      }
+    },
+    {
+      "year": 2012,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 699.38, "december": 699.38},
+      "extra_salary_component_paid_eur": {"june": 699.38, "december": 0.00},
+      "december_extra_suppressed": true,
+      "periods": [
+        {"from": "2012-01-01", "to": "2012-12-31", "ordinary_monthly_base_eur": 958.98}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2012/06/30/pdfs/BOE-A-2012-8745.pdf",
+        "locator": "Ley 2/2012, art. 22.Cinco.1-2, BOE p. 46455",
+        "table": "Sou ordinari del subgrup A2 i component legal de sou de les pagues extraordinàries",
+        "supplementary_urls": [
+          "https://www.boe.es/boe/dias/2011/12/31/pdfs/BOE-A-2011-20638.pdf",
+          "https://www.boe.es/boe/dias/2012/07/14/pdfs/BOE-A-2012-9364.pdf"
+        ]
+      },
+      "note": "La base legal de l'extra continuava sent 699,38 euros, però el RDL 20/2012 va suprimir l'abonament ordinari de desembre. Les devolucions posteriors de parts meritades no canvien la taula base de 2012."
+    },
+    {
+      "year": 2013,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 699.38, "december": 699.38},
+      "periods": [
+        {"from": "2013-01-01", "to": "2013-12-31", "ordinary_monthly_base_eur": 958.98}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2012/12/28/pdfs/BOE-A-2012-15651.pdf",
+        "locator": "Ley 17/2012, art. 22.Cinco.1-2, BOE pp. 88181-88182",
+        "table": "Sou ordinari del subgrup A2 i component de sou de les pagues extraordinàries"
+      },
+      "note": "La llei explicita que la referència a 31 de desembre de 2012 es fa sense computar la supressió excepcional de l'extra de 2012."
+    },
+    {
+      "year": 2014,
+      "legal_group": "A2",
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 699.38, "december": 699.38},
+      "periods": [
+        {"from": "2014-01-01", "to": "2014-12-31", "ordinary_monthly_base_eur": 958.98}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.boe.es/boe/dias/2013/12/26/pdfs/BOE-A-2013-13616.pdf",
+        "locator": "Ley 22/2013, art. 20.Cinco.1-2",
+        "table": "Sou ordinari del subgrup A2 i component de sou de les pagues extraordinàries"
+      }
+    },
+    {
+      "year": 2015,
+      "ordinary_monthly_base_eur": 958.98,
+      "ordinary_monthly_known_at_year_end_eur": 958.98,
+      "extra_salary_component_eur": {"june": 699.38, "december": 699.38},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/Retribuciones%20del%20personal%20Funcionario%202015.pdf",
+        "table": "Retribuciones básicas: sueldo mensual y sueldo en pagas extraordinarias, subgrupo A2"
+      },
+      "legal_basis": ["Ley 36/2014, de Presupuestos Generales del Estado para 2015"]
+    },
+    {
+      "year": 2016,
+      "ordinary_monthly_base_eur": 968.57,
+      "ordinary_monthly_known_at_year_end_eur": 968.57,
+      "extra_salary_component_eur": {"june": 706.38, "december": 706.38},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/Retribuciones%20del%20personal%20Funcionario%202016.pdf",
+        "table": "Retribuciones básicas: sueldo mensual y sueldo en pagas extraordinarias, subgrupo A2"
+      },
+      "legal_basis": ["Ley 48/2015, de Presupuestos Generales del Estado para 2016"]
+    },
+    {
+      "year": 2017,
+      "ordinary_monthly_base_eur": 978.26,
+      "ordinary_monthly_known_at_year_end_eur": 978.26,
+      "extra_salary_component_eur": {"june": 713.45, "december": 713.45},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/Retribuciones%20personal%20funcionario%202017.pdf",
+        "table": "Retribuciones básicas: sueldo mensual y sueldo en pagas extraordinarias, subgrupo A2"
+      },
+      "legal_basis": ["Ley 3/2017, de Presupuestos Generales del Estado para 2017"]
+    },
+    {
+      "year": 2018,
+      "ordinary_monthly_base_eur": 995.39,
+      "ordinary_monthly_known_at_year_end_eur": 995.39,
+      "extra_salary_component_eur": {"june": 724.16, "december": 725.95},
+      "periods": [
+        {"from": "2018-01-01", "to": "2018-06-30", "ordinary_monthly_base_eur": 992.94},
+        {"from": "2018-07-01", "to": "2018-12-31", "ordinary_monthly_base_eur": 995.39}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202018/CuantiasIncrementos2018.pdf",
+        "table": "Cuantías de las retribuciones básicas tras el incremento adicional de 0,25 %, subgrupo A2"
+      },
+      "legal_basis": ["Ley 6/2018, de Presupuestos Generales del Estado para 2018"],
+      "note": "L'increment addicional del 0,25 % va tenir efectes des de l'1 de juliol; per això juny i desembre tenen components d'extra diferents."
+    },
+    {
+      "year": 2019,
+      "ordinary_monthly_base_eur": 1020.28,
+      "ordinary_monthly_known_at_year_end_eur": 1020.28,
+      "extra_salary_component_eur": {"june": 742.29, "december": 744.11},
+      "periods": [
+        {"from": "2019-01-01", "to": "2019-06-30", "ordinary_monthly_base_eur": 1017.79},
+        {"from": "2019-07-01", "to": "2019-12-31", "ordinary_monthly_base_eur": 1020.28}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202019/01%20Retribuciones%20personal%20funcionario.%20A%C3%B1o%202019.pdf",
+        "table": "Retribuciones básicas antes y después del incremento adicional de 0,25 %, subgrupo A2"
+      },
+      "legal_basis": ["Real Decreto-ley 24/2018, de medidas urgentes en materia de retribuciones en el ámbito del sector público"],
+      "note": "L'increment addicional del 0,25 % va tenir efectes des de l'1 de juliol; per això juny i desembre tenen components d'extra diferents."
+    },
+    {
+      "year": 2020,
+      "ordinary_monthly_base_eur": 1040.69,
+      "ordinary_monthly_known_at_year_end_eur": 1040.69,
+      "extra_salary_component_eur": {"june": 759.00, "december": 759.00},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202020/Retribuciones%20del%20personal%20funcionario%202020.pdf",
+        "table": "Retribuciones básicas: sueldo mensual y sueldo en pagas extraordinarias, subgrupo A2"
+      },
+      "legal_basis": ["Real Decreto-ley 2/2020, de medidas urgentes en materia de retribuciones en el ámbito del sector público"]
+    },
+    {
+      "year": 2021,
+      "ordinary_monthly_base_eur": 1050.06,
+      "ordinary_monthly_known_at_year_end_eur": 1050.06,
+      "extra_salary_component_eur": {"june": 765.83, "december": 765.83},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202021/Retribuciones%20personal%20funcionario%202021.pdf",
+        "table": "Retribuciones básicas: sueldo mensual y sueldo en pagas extraordinarias, subgrupo A2"
+      },
+      "legal_basis": ["Ley 11/2020, de Presupuestos Generales del Estado para 2021"]
+    },
+    {
+      "year": 2022,
+      "ordinary_monthly_base_eur": 1086.81,
+      "ordinary_monthly_known_at_year_end_eur": 1086.81,
+      "extra_salary_component_eur": {"june": 792.63, "december": 792.63},
+      "publication_history": [
+        {"stage": "initial", "ordinary_monthly_base_eur": 1071.06, "extra_salary_component_eur": 781.15},
+        {"stage": "additional_1.5_percent_retroactive", "ordinary_monthly_base_eur": 1086.81, "extra_salary_component_eur": 792.63}
+      ],
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202022/personal%20funcionario%202022%20con%20incremento%201%2C5%25.pdf",
+        "table": "Retribuciones básicas amb l'increment addicional de l'1,5 %, subgrup A2",
+        "initial_table_url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202022/personal%20funcionario%202022.pdf"
+      },
+      "legal_basis": ["Ley 22/2021, de Presupuestos Generales del Estado para 2022", "Real Decreto-ley 18/2022"],
+      "note": "L'increment addicional de l'1,5 % es va aplicar amb efectes retroactius des de l'1 de gener de 2022."
+    },
+    {
+      "year": 2023,
+      "ordinary_monthly_base_eur": 1124.85,
+      "ordinary_monthly_known_at_year_end_eur": 1119.41,
+      "extra_salary_component_eur": {"june": 820.37, "december": 820.37},
+      "publication_history": [
+        {"stage": "initial", "ordinary_monthly_base_eur": 1113.98, "extra_salary_component_eur": 812.45},
+        {"stage": "additional_0.5_percent_ipca", "ordinary_monthly_base_eur": 1119.41, "extra_salary_component_eur": 816.41},
+        {"stage": "additional_0.5_percent_gdp_retroactive", "ordinary_monthly_base_eur": 1124.85, "extra_salary_component_eur": 820.37}
+      ],
+      "status": "final_retroactive",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202024/Retribuciones%20personal%20funcionario%20LPGE%202023%20(con%20incremento%200,5%25%20PIB).pdf",
+        "table": "Retribuciones básicas de 2023 després de l'increment addicional vinculat al PIB, subgrup A2",
+        "initial_table_url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202023/01%20Retribuciones%20personal%20funcionario%202023.pdf",
+        "ipca_table_url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202023/Retribuciones%20del%20personal%20funcionario%20a%C3%B1o%202023%20(con%20incremento%20del%200,5%20IPCA).pdf"
+      },
+      "legal_basis_urls": [
+        "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-20679&lang=es",
+        "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-2324"
+      ],
+      "note": "A 31 de desembre només constava l'import amb l'increment IPCA. L'increment addicional del 0,5 % vinculat al PIB es va aprovar el 2024 però té efectes econòmics des de l'1 de gener de 2023."
+    },
+    {
+      "year": 2024,
+      "ordinary_monthly_base_eur": 1152.97,
+      "ordinary_monthly_known_at_year_end_eur": 1147.35,
+      "extra_salary_component_eur": {"june": 840.88, "december": 840.88},
+      "publication_history": [
+        {"stage": "initial_2_percent", "ordinary_monthly_base_eur": 1147.35, "extra_salary_component_eur": 836.78},
+        {"stage": "additional_0.5_percent_ipca_retroactive", "ordinary_monthly_base_eur": 1152.97, "extra_salary_component_eur": 840.88}
+      ],
+      "status": "final_retroactive",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/PublishingImages/Paginas/RetribucionesPersonalFuncionario/Retribuciones%20del%20personal%20funcionario.%20Real%20Decreto-ley%204%202024%20%202%25%20%2B0.5%25%20IPCA.pdf",
+        "table": "Retribuciones básicas de 2024 després de l'increment addicional IPCA, subgrup A2",
+        "initial_table_url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/PublishingImages/Paginas/RetribucionesPersonalFuncionario/Retribuciones%20del%20personal%20funcionario%202024%20RD-L%2042024%20incr%202%25.pdf"
+      },
+      "legal_basis_urls": [
+        "https://www.boe.es/eli/es/rdl/2024/06/26/4/con/20240627",
+        "https://www.boe.es/eli/es/o/2025/07/01/pjc681",
+        "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13617"
+      ],
+      "note": "A 31 de desembre només constava l'increment fix del 2 %. L'increment addicional del 0,5 % vinculat a l'IPCA es va aprovar el 2025 però té efectes econòmics des de l'1 de gener de 2024."
+    },
+    {
+      "year": 2025,
+      "ordinary_monthly_base_eur": 1181.79,
+      "ordinary_monthly_known_at_year_end_eur": 1181.79,
+      "extra_salary_component_eur": {"june": 861.90, "december": 861.90},
+      "status": "final",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202025/Retribuciones%20del%20personal%20funcionario.%20Real%20Decreto-ley%2014%202025,%20de%202%20de%20diciembre.pdf",
+        "table": "Retribuciones básicas amb l'increment del 2,5 %, subgrup A2"
+      },
+      "legal_basis_urls": ["https://www.boe.es/buscar/doc.php?id=BOE-A-2025-24445&lang=es"],
+      "note": "L'increment del 2,5 % es va aprovar el desembre de 2025 amb efectes des de l'1 de gener."
+    },
+    {
+      "year": 2026,
+      "ordinary_monthly_base_eur": 1199.52,
+      "ordinary_monthly_known_at_year_end_eur": null,
+      "extra_salary_component_eur": {"june": 874.83, "december": 874.83},
+      "status": "latest_published_as_of_2026-11-12",
+      "source": {
+        "url": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Documents/A%C3%91O%202026/Retribuciones%20del%20personal%20funcionario%202026.%20Real%20Decreto-ley%2014%202025,%20de%202%20de%20diciembre..pdf",
+        "table": "Retribuciones básicas de 2026 amb l'increment fix de l'1,5 %, subgrup A2"
+      },
+      "legal_basis_urls": ["https://www.boe.es/buscar/doc.php?id=BOE-A-2025-24445&lang=es"],
+      "note": "Import publicat i vigent a 12 de novembre de 2026. No inclou l'increment addicional condicionat del 0,5 %: només s'ha de pagar el primer trimestre de 2027, amb efectes retroactius des de l'1 de gener de 2026, si l'IPC anual de 2026 és igual o superior a l'1,5 %."
+    }
+  ]
+}
