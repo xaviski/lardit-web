@@ -52,8 +52,9 @@ for (const row of composition.components) {
 function compositionChart(mobile) {
   const width = mobile ? 360 : 760, height = mobile ? 710 : 620;
   const colours = {state:'#1c6579',generalitat:'#ae372f'};
+  const componentColours = {base:colours.state,destination:'#7b253a',specific_general:'#ba4b35',service_improvement:'#b17b16',specific_single_payment:'#be6c7d'};
   const total = composition.annual_total_eur;
-  const desc = composition.components.map(row => `${row.label}: ${fmt(row.annual_eur,2)} euros anuals. ${row.authority_label}. ${row.calculation_label}.`).join(' ') + ` Total: ${fmt(total,2)} euros bruts anuals; mes ordinari: ${fmt(composition.ordinary_monthly_total_eur,2)} euros. Sense antiguitat ni complements singulars. Els colors indiquen qui fixa els imports, no qui els paga.`;
+  const desc = composition.components.map(row => `${row.label}: ${fmt(row.annual_eur,2)} euros anuals. ${row.authority_label}. ${row.calculation_label}.`).join(' ') + ` Total: ${fmt(total,2)} euros bruts anuals; mes ordinari: ${fmt(composition.ordinary_monthly_total_eur,2)} euros. Sense antiguitat ni complements singulars. Blau: Estat; quatre tons càlids: Generalitat. Cada tram té el mateix color que la fila del seu component, en el mateix ordre. Els colors indiquen qui fixa els imports, no qui els paga.`;
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc"><title id="title">Components del sou brut d’un mestre públic a Catalunya · 2026</title><desc id="desc">${esc(desc)}</desc><rect width="${width}" height="${height}" fill="#f4efe5"/>`;
   svg += text(12,26,'Qui fixa cada part del sou?',mobile ? 19 : 24,'start','#132a38',700);
   svg += text(12,50,'Mestre públic · Catalunya · Jornada completa · 2026',mobile ? 12 : 15,'start','#52636d');
@@ -61,20 +62,23 @@ function compositionChart(mobile) {
   svg += text(12,115,`Mes ordinari: ${fmt(composition.ordinary_monthly_total_eur,2)} €`,mobile ? 14 : 16,'start','#52636d');
   const legend = [[12,148,'state','Estat'],[150,148,'generalitat','Generalitat']];
   for (const [x,y,key,label] of legend) {
-    svg += `<rect x="${x}" y="${y-10}" width="12" height="12" fill="${colours[key]}"/>`;
-    svg += text(x+20,y,label,mobile ? 13 : 14);
+    const swatches = composition.components.filter(row => row.authority===key);
+    swatches.forEach((row,index) => {
+      svg += `<rect x="${x+index*11}" y="${y-10}" width="10" height="12" fill="${componentColours[row.id]}"/>`;
+    });
+    svg += text(x+swatches.length*11+8,y,label,mobile ? 13 : 14);
   }
   const barY = mobile ? 198 : 178, barWidth = width-24;
   let running = 0;
   for (const row of composition.components) {
     const w = row.annual_eur/total*barWidth;
-    svg += `<rect data-component="${row.id}" data-annual="${row.annual_eur}" data-authority="${row.authority}" x="${(12+running).toFixed(3)}" y="${barY}" width="${w.toFixed(3)}" height="30" fill="${colours[row.authority]}" stroke="#f4efe5" stroke-width="1"><title>${esc(row.label)}: ${fmt(row.annual_eur,2)} € · ${esc(row.authority_label)}</title></rect>`;
+    svg += `<rect data-component="${row.id}" data-annual="${row.annual_eur}" data-authority="${row.authority}" x="${(12+running).toFixed(3)}" y="${barY}" width="${w.toFixed(3)}" height="30" fill="${componentColours[row.id]}" stroke="#f4efe5" stroke-width="1.5"><title>${esc(row.label)}: ${fmt(row.annual_eur,2)} € · ${esc(row.authority_label)}</title></rect>`;
     running += w;
   }
   const startY = mobile ? 269 : 247, step = mobile ? 73 : 59;
   composition.components.forEach((row,index) => {
     const y=startY+index*step;
-    svg += `<rect x="12" y="${y-10}" width="10" height="10" fill="${colours[row.authority]}"/>`;
+    svg += `<rect x="12" y="${y-10}" width="10" height="10" fill="${componentColours[row.id]}"/>`;
     svg += text(32,y,row.label,mobile ? 13 : 16,'start','#132a38',700);
     svg += text(width-12,y,`${fmt(row.annual_eur,2)} €`,mobile ? 14 : 16,'end','#132a38',700);
     if (row.id==='destination') {
