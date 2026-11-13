@@ -1,0 +1,93 @@
+{
+  "checked": "2026-11-13",
+  "currency": "EUR",
+  "year": 2026,
+  "measure": "Brut anual de referència segons les quanties aprovades a la data de consulta, no despesa executada ni salari net",
+  "profile": "Cos de mestres A2 del Departament d’Educació, jornada completa durant tot l’any, sense antiguitat, estadis ni complements singulars de funció o lloc",
+  "ordinary_monthly_total_eur": 2546.58,
+  "annual_total_eur": 35841.76,
+  "sources": {
+    "teacher_table": "https://web.gencat.cat/content/dam/webgencat/documents/la-generalitat/govern-obert/publicitat-activa/servidors-p%C3%BAblics/retribucions-2026/retribucions-personal-docent-no-universitari.pdf",
+    "state_table": "https://www.sepg.pap.hacienda.gob.es/sitios/sepg/es-ES/CostesPersonal/EstadisticasInformes/Paginas/RetribucionesPersonalFuncionario.aspx?id=2",
+    "gov88": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1042598&language=ca_ES&type=01",
+    "gov205": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1051435&language=ca_ES&type=01",
+    "basic_pay_authority": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719#a23",
+    "destination_level_authority": "https://www.boe.es/buscar/act.php?id=DOGC-f-1997-90001#a31",
+    "complementary_pay_authority": "https://www.boe.es/buscar/act.php?id=BOE-A-2009-13038#a136"
+  },
+  "components": [
+    {
+      "id": "base",
+      "label": "Sou base",
+      "authority": "state",
+      "authority_label": "Estat",
+      "calculation_label": "12 ordinàries + 2 components de sou extra",
+      "ordinary_monthly_eur": 1199.52,
+      "ordinary_payments": 12,
+      "extra_component_eur": 874.83,
+      "extra_payments": 2,
+      "annual_eur": 16143.90,
+      "source_keys": ["teacher_table", "state_table", "basic_pay_authority"],
+      "source_locator": "Taula docent, p. 1; taula estatal A2 i article 23 EBEP"
+    },
+    {
+      "id": "destination",
+      "label": "Destinació · nivell 21",
+      "authority": "shared",
+      "authority_label": "Taula estatal; nivell aplicat per la Generalitat",
+      "calculation_label": "14 pagues",
+      "ordinary_monthly_eur": 592.11,
+      "payments": 14,
+      "annual_eur": 8289.54,
+      "source_keys": ["teacher_table", "state_table", "destination_level_authority"],
+      "source_locator": "Taula docent p. 1; taula estatal nivell 21; article 31 DL 1/1997",
+      "note": "L’import aplicat coincideix amb el de la taula estatal del nivell 21. La Generalitat assigna els nivells dels llocs. No s’atribueix tota la competència a una única administració."
+    },
+    {
+      "id": "specific_general",
+      "label": "Específic general",
+      "authority": "generalitat",
+      "authority_label": "Generalitat",
+      "calculation_label": "14 pagues",
+      "ordinary_monthly_eur": 704.95,
+      "payments": 14,
+      "annual_eur": 9869.30,
+      "source_keys": ["teacher_table", "complementary_pay_authority"],
+      "source_locator": "Taula docent p. 1; article 136.2 Llei 12/2009"
+    },
+    {
+      "id": "service_improvement",
+      "label": "Millora del servei",
+      "authority": "generalitat",
+      "authority_label": "Generalitat",
+      "calculation_label": "50 € × 14 pagues",
+      "ordinary_monthly_eur": 50.00,
+      "payments": 14,
+      "annual_eur": 700.00,
+      "source_keys": ["gov205"],
+      "source_locator": "GOV/205/2026 p. 2, punts 3–7",
+      "note": "Component diferenciat de l’específic, compatible amb la resta. Efectes 1/1/2026."
+    },
+    {
+      "id": "specific_single_payment",
+      "label": "Increment específic 2026",
+      "authority": "generalitat",
+      "authority_label": "Generalitat",
+      "calculation_label": "Pagament únic al maig",
+      "ordinary_monthly_eur": 0,
+      "single_payment_eur": 839.02,
+      "annual_eur": 839.02,
+      "source_keys": ["gov88"],
+      "source_locator": "GOV/88/2026 pp. 1–2, punt 1",
+      "note": "L’acord fixa 839,02 €/any per a mestres i disposa un abonament únic al maig. No es divideix entre 14 per afegir-lo a la mensualitat ordinària."
+    }
+  ],
+  "notes": [
+    "Els colors indiquen el marc de fixació de la quantia, no l’administració que finança cada euro. La nòmina d’aquest personal l’abona la Generalitat.",
+    "Els complements autonòmics estan sotmesos al marc bàsic estatal i als límits globals de massa salarial; no es presenten com a decisions sense restriccions.",
+    "Els triennis, si n’hi ha, tenen quantia estatal. Els estadis i els complements singulars de càrrec o funció depenen de la regulació autonòmica i de les condicions del lloc; aquest perfil els exclou.",
+    "No inclou indemnitzacions per pernoctació ni cotitzacions a càrrec de l’ocupador. És brut, abans d’IRPF i cotitzacions del treballador.",
+    "No inclou l’increment estatal addicional del 0,5% condicionat a l’IPC del conjunt del 2026, encara pendent a la data de consulta.",
+    "El total anual no és la mensualitat ordinària multiplicada per 14: els components base de les extres són diferents i hi ha un pagament únic."
+  ]
+}
