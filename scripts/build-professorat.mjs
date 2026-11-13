@@ -51,39 +51,45 @@ for (const row of composition.components) {
 }
 function compositionChart(mobile) {
   const width = mobile ? 360 : 760, height = mobile ? 710 : 620;
-  const colours = {state:'#1c6579',generalitat:'#ae372f',shared:'#795b21'};
+  const colours = {state:'#1c6579',generalitat:'#ae372f'};
   const total = composition.annual_total_eur;
   const desc = composition.components.map(row => `${row.label}: ${fmt(row.annual_eur,2)} euros anuals. ${row.authority_label}. ${row.calculation_label}.`).join(' ') + ` Total: ${fmt(total,2)} euros bruts anuals; mes ordinari: ${fmt(composition.ordinary_monthly_total_eur,2)} euros. Sense antiguitat ni complements singulars. Els colors indiquen qui fixa els imports, no qui els paga.`;
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc"><title id="title">Components del sou brut d’un mestre públic a Catalunya · 2026</title><desc id="desc">${esc(desc)}</desc><defs><pattern id="shared-pay" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#e5d9bd"/><path d="M-2 2 L2 -2 M0 8 L8 0 M6 10 L10 6" stroke="#9c7627" stroke-width="1.5"/></pattern></defs><rect width="${width}" height="${height}" fill="#f4efe5"/>`;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc"><title id="title">Components del sou brut d’un mestre públic a Catalunya · 2026</title><desc id="desc">${esc(desc)}</desc><rect width="${width}" height="${height}" fill="#f4efe5"/>`;
   svg += text(12,26,'Qui fixa cada part del sou?',mobile ? 19 : 24,'start','#132a38',700);
   svg += text(12,50,'Mestre públic · Catalunya · Jornada completa · 2026',mobile ? 12 : 15,'start','#52636d');
   svg += text(12,89,`${fmt(total,2)} € bruts/any`,mobile ? 26 : 30,'start','#132a38',700);
   svg += text(12,115,`Mes ordinari: ${fmt(composition.ordinary_monthly_total_eur,2)} €`,mobile ? 14 : 16,'start','#52636d');
-  const legend = mobile ? [[12,147,'state','Estat'],[134,147,'generalitat','Generalitat'],[12,171,'shared','Destinació: marc compartit']] : [[12,148,'state','Estat'],[150,148,'generalitat','Generalitat'],[333,148,'shared','Destinació: marc compartit']];
+  const legend = [[12,148,'state','Estat'],[150,148,'generalitat','Generalitat']];
   for (const [x,y,key,label] of legend) {
-    svg += `<rect x="${x}" y="${y-10}" width="12" height="12" fill="${key==='shared'?'url(#shared-pay)':colours[key]}"/>`;
+    svg += `<rect x="${x}" y="${y-10}" width="12" height="12" fill="${colours[key]}"/>`;
     svg += text(x+20,y,label,mobile ? 13 : 14);
   }
   const barY = mobile ? 198 : 178, barWidth = width-24;
   let running = 0;
   for (const row of composition.components) {
     const w = row.annual_eur/total*barWidth;
-    svg += `<rect data-component="${row.id}" data-annual="${row.annual_eur}" data-authority="${row.authority}" x="${(12+running).toFixed(3)}" y="${barY}" width="${w.toFixed(3)}" height="30" fill="${row.authority==='shared'?'url(#shared-pay)':colours[row.authority]}" stroke="#f4efe5" stroke-width="1"><title>${esc(row.label)}: ${fmt(row.annual_eur,2)} € · ${esc(row.authority_label)}</title></rect>`;
+    svg += `<rect data-component="${row.id}" data-annual="${row.annual_eur}" data-authority="${row.authority}" x="${(12+running).toFixed(3)}" y="${barY}" width="${w.toFixed(3)}" height="30" fill="${colours[row.authority]}" stroke="#f4efe5" stroke-width="1"><title>${esc(row.label)}: ${fmt(row.annual_eur,2)} € · ${esc(row.authority_label)}</title></rect>`;
     running += w;
   }
   const startY = mobile ? 269 : 247, step = mobile ? 73 : 59;
   composition.components.forEach((row,index) => {
     const y=startY+index*step;
-    svg += `<rect x="12" y="${y-10}" width="10" height="10" fill="${row.authority==='shared'?'url(#shared-pay)':colours[row.authority]}"/>`;
+    svg += `<rect x="12" y="${y-10}" width="10" height="10" fill="${colours[row.authority]}"/>`;
     svg += text(32,y,row.label,mobile ? 13 : 16,'start','#132a38',700);
     svg += text(width-12,y,`${fmt(row.annual_eur,2)} €`,mobile ? 14 : 16,'end','#132a38',700);
-    let detail = row.id==='base'?'Estat · 12 ordinàries + 2 extres':row.id==='destination'?'Taula estatal; nivell Generalitat · 14 pagues':`Generalitat · ${row.calculation_label}`;
-    svg += text(32,y+23,detail,mobile ? 11.5 : 13,'start',colours[row.authority]);
-    svg += `<line x1="12" y1="${y+39}" x2="${width-12}" y2="${y+39}" stroke="#d4cfc5"/>`;
+    if (row.id==='destination') {
+      svg += text(32,y+(mobile ? 23 : 18),'Generalitat · Nivell retributiu del lloc',mobile ? 11.5 : 13,'start',colours.generalitat);
+      svg += text(32,y+(mobile ? 40 : 34),`${fmt(row.ordinary_monthly_eur,2)} € per paga · ${row.payments} pagues`,mobile ? 11.5 : 13,'start',colours.generalitat);
+    } else {
+      const detail = row.id==='base'?'Estat · 12 ordinàries + 2 extres':`Generalitat · ${row.calculation_label}`;
+      svg += text(32,y+23,detail,mobile ? 11.5 : 13,'start',colours[row.authority]);
+    }
+    const lineY = y+(row.id==='destination' ? (mobile ? 55 : 43) : 39);
+    svg += `<line x1="12" y1="${lineY}" x2="${width-12}" y2="${lineY}" stroke="#d4cfc5"/>`;
   });
   const footY = mobile ? 645 : 569;
   svg += text(12,footY,'Sense antiguitat, estadis ni complements singulars.',mobile ? 11.5 : 13,'start','#52636d');
-  svg += text(12,footY+20,'Triennis: Estat · Estadis i càrrecs: Generalitat.',mobile ? 11.5 : 13,'start','#52636d');
+  svg += text(12,footY+20,'Complements autonòmics dins del marc estatal.',mobile ? 11.5 : 13,'start','#52636d');
   svg += text(12,footY+40,'Els colors no indiquen l’origen del finançament.',mobile ? 11.5 : 13,'start','#52636d');
   return svg+'</svg>\n';
 }

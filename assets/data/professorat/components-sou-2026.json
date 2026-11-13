@@ -13,6 +13,7 @@
     "gov205": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=1051435&language=ca_ES&type=01",
     "basic_pay_authority": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11719#a23",
     "destination_level_authority": "https://www.boe.es/buscar/act.php?id=DOGC-f-1997-90001#a31",
+    "destination_pay_authority": "https://formaciooberta.eapc.gencat.cat/contingutsdelscursos/grh/050_retributiu/inici.html",
     "complementary_pay_authority": "https://www.boe.es/buscar/act.php?id=BOE-A-2009-13038#a136"
   },
   "components": [
@@ -33,15 +34,15 @@
     {
       "id": "destination",
       "label": "Destinació · nivell 21",
-      "authority": "shared",
-      "authority_label": "Taula estatal; nivell aplicat per la Generalitat",
+      "authority": "generalitat",
+      "authority_label": "Generalitat, dins del marc bàsic estatal i dels límits globals d’increment retributiu",
       "calculation_label": "14 pagues",
       "ordinary_monthly_eur": 592.11,
       "payments": 14,
       "annual_eur": 8289.54,
-      "source_keys": ["teacher_table", "state_table", "destination_level_authority"],
-      "source_locator": "Taula docent p. 1; taula estatal nivell 21; article 31 DL 1/1997",
-      "note": "L’import aplicat coincideix amb el de la taula estatal del nivell 21. La Generalitat assigna els nivells dels llocs. No s’atribueix tota la competència a una única administració."
+      "source_keys": ["teacher_table", "state_table", "destination_level_authority", "destination_pay_authority", "complementary_pay_authority"],
+      "source_locator": "Taula docent p. 1; taula estatal nivell 21 com a contrast numèric; article 31 DL 1/1997; EAPC apartat 5.2.2, Complement de destinació; article 136.2 LEC",
+      "note": "El nivell és una classificació retributiva del lloc, no el municipi on es treballa. Per al perfil del gràfic s’aplica el nivell 21: 592,11 euros per paga, en 14 pagues. L’EAPC explica que la quantia del complement es fixa als pressupostos de la Generalitat i que els imports no són normativa bàsica estatal. El fet que l’import català coincideixi amb la taula estatal no implica que l’Estat en tingui la competència exclusiva."
     },
     {
       "id": "specific_general",
